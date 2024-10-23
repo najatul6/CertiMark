@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import PropTypes from "prop-types";
@@ -21,6 +22,12 @@ const Context = ({ children }) => {
   const createUser=(email,password)=>{
     setLoading(true);
     return createUserWithEmailAndPassword(auth,email,password);
+  }
+
+  // Sign Out
+  const logOut=()=>{
+    setLoading(true);
+    return signOut(auth);
   }
 
   // Sign In with Google
@@ -43,6 +50,7 @@ const Context = ({ children }) => {
     loading,
     signInWithGoogle,
     createUser,
+    logOut,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
