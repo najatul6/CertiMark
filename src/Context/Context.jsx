@@ -7,6 +7,7 @@ import {
   sendPasswordResetEmail,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import PropTypes from "prop-types";
@@ -27,8 +28,17 @@ const Context = ({ children }) => {
 
   //   Reset Password
   const resetPassword = (email) => {
+    setLoading(true);
     return sendPasswordResetEmail(auth, email);
   };
+
+//   Update User Profile 
+const updateUserProfile = (name,photoURL)=>{
+    setLoading(true);
+  return  updateProfile(auth.currentUser, {
+        displayName: name, photoURL: photoURL
+      })
+}
 
   // Sign Out
   const logOut = () => {
