@@ -8,6 +8,7 @@ import EVerification from "../pages/EVerification/EVerification";
 import ContactUs from "../pages/ContactUs/ContactUs";
 import LogIn from "../pages/LogIn/LogIn";
 import Register from "../pages/Register/Register";
+import ForgetPassword from "../pages/ForgetPassword/ForgetPassword";
 
 const Routes = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const Routes = createBrowserRouter([
   {
     path:"/register",
     element:<Register/>,
+  },
+  {
+    path:"/forgetPassword",
+    element:<ForgetPassword/>
   }
 ]);
 

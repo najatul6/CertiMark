@@ -105,11 +105,11 @@ const LogIn = () => {
             </button>
           </div>
         </form>
-        <div className="space-y-1 flex justify-end py-2">
+        <Link to="/forgetPassword" className="space-y-1 flex justify-end py-2">
           <button className="text-sm hover:font-bold hover:underline hover:text-teal text-gray-400">
             Forgot password?
           </button>
-        </div>
+        </Link>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
           <p className="px-3 text-sm dark:text-gray-400">
