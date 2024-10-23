@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   sendPasswordResetEmail,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -21,7 +22,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  //   Sign In with Email & Password
+  //   Sign Up with Email & Password
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -48,6 +49,12 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return deleteUser(auth.currentUser);
   };
+
+  // Sign In with Email & Password
+  const userLogIn=(email, password) =>{
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  }
 
   // Sign Out
   const logOut = () => {
@@ -76,6 +83,7 @@ const AuthProvider = ({ children }) => {
     loading,
     signInWithGoogle,
     createUser,
+    userLogIn,
     logOut,
     resetPassword,
     updateUserProfile,

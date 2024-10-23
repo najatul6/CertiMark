@@ -5,7 +5,7 @@ import { TbFidgetSpinner } from 'react-icons/tb';
 import useAuth from '../../hooks/useAuth';
 
 const LogIn = () => {
-  const { createUser, signInWithGoogle, loading } = useAuth();
+  const { userLogIn, signInWithGoogle, loading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation()
   const from = location?.state?.from?.pathname || '/'
@@ -18,7 +18,7 @@ const LogIn = () => {
     const password = form.password.value;
     try {
       // User LogIn
-      await createUser(email, password);
+      await userLogIn(email, password);
       navigate(from,{replace:true});
       toast.success("Log In Successful");
     } catch (err) {
@@ -89,7 +89,7 @@ const LogIn = () => {
         <div>
           <button
             type='submit'
-            className='bg-deep-orange w-full rounded-md py-3 text-white'
+            className='bg-darkGreen hover:text-lightTeal w-full rounded-md py-3 text-white'
           >
             {loading ? (
                 <TbFidgetSpinner className="animate-spin m-auto" />

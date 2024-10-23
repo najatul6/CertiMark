@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        teal: '#2B7A78 ',
+        darkGreen: '#17252A ',
+        white: '#FEFFFF',
+        lightTeal:"#3AAFA9"
+      },
       fontFamily: {
         roboto:  ["'Roboto', sans-serif" ],
         montserrat:['"Montserrat", sans-serif']
