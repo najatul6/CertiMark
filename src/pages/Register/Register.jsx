@@ -1,13 +1,18 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
-import { imageUpload } from "../../Utils/ImageUpload";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { TbFidgetSpinner } from "react-icons/tb";
+import { imageUpload } from "../../utils/imageUpload";
 
 const Register = () => {
-  const { createUser, signInWithGoogle, updateUserProfile, loading,setLoading } =
-    useAuth();
+  const {
+    createUser,
+    signInWithGoogle,
+    updateUserProfile,
+    loading,
+    setLoading,
+  } = useAuth();
   const navigate = useNavigate();
 
   // Form Submit Handle sign up
@@ -23,7 +28,7 @@ const Register = () => {
       const imageData = await imageUpload(image);
 
       // Create User
-     await createUser(email, password);
+      await createUser(email, password);
 
       // Update User Profile
       await updateUserProfile(name, imageData?.data.display_url);
@@ -32,7 +37,7 @@ const Register = () => {
       toast.success("SignUp Successful");
     } catch (err) {
       toast.error(err?.message);
-    }finally {
+    } finally {
       setLoading(false);
     }
   };
@@ -42,7 +47,6 @@ const Register = () => {
     try {
       // User Registration using google
       await signInWithGoogle();
-
 
       navigate("/");
       toast.success("SignUp Successful");
@@ -55,7 +59,7 @@ const Register = () => {
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
-          <p className="text-sm text-gray-400">Welcome to Hotel.NiN</p>
+          <p className="text-sm text-gray-400">Welcome to CertiMark</p>
         </div>
         <form
           onSubmit={handleSubmit}
@@ -64,6 +68,18 @@ const Register = () => {
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
+            <div>
+              <label htmlFor="image" className="block mb-2 text-sm">
+                Select Image:
+              </label>
+              <input
+                required
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+              />
+            </div>
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
                 Name
@@ -75,18 +91,6 @@ const Register = () => {
                 placeholder="Enter Your Name Here"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-deep-orange bg-gray-200 text-gray-900"
                 data-temp-mail-org="0"
-              />
-            </div>
-            <div>
-              <label htmlFor="image" className="block mb-2 text-sm">
-                Select Image:
-              </label>
-              <input
-                required
-                type="file"
-                id="image"
-                name="image"
-                accept="image/*"
               />
             </div>
             <div>
@@ -124,7 +128,7 @@ const Register = () => {
           <div>
             <button
               type="submit"
-              className="bg-deep-orange w-full rounded-md py-3 text-white"
+              className="bg-darkGreen hover:bg-lightTeal hover:text-white w-full rounded-md py-3 text-lightTeal"
             >
               {loading ? (
                 <TbFidgetSpinner className="animate-spin m-auto" />
