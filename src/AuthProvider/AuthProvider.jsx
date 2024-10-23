@@ -15,11 +15,11 @@ import PropTypes from "prop-types";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
-const Context = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const googleProvider = new GoogleAuthProvider();
 
   //   Sign In with Email & Password
   const createUser = (email, password) => {
@@ -46,7 +46,7 @@ const Context = ({ children }) => {
   // Delete User
   const userDelete = () => {
     setLoading(true);
-    return deleteUser(auth.currentUser)
+    return deleteUser(auth.currentUser);
   };
 
   // Sign Out
@@ -67,8 +67,9 @@ const Context = ({ children }) => {
       setLoading(false);
     });
     return () => {
-      return unsubscribe();
-    };
+      return unsubscribe()
+    }
+    
   }, []);
   const authInfo = {
     user,
@@ -78,15 +79,15 @@ const Context = ({ children }) => {
     logOut,
     resetPassword,
     updateUserProfile,
-    userDelete
+    userDelete,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 
-Context.propTypes = {
+AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Context;
+export default AuthProvider;
