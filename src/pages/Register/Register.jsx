@@ -47,11 +47,12 @@ const Register = () => {
     try {
       // User Registration using google
       await signInWithGoogle();
-
       navigate("/");
       toast.success("SignUp Successful");
     } catch (err) {
-      toast.error(err?.message);
+      toast.error(err?.code);
+    }finally{
+      setLoading(false);
     }
   };
   return (
@@ -89,7 +90,7 @@ const Register = () => {
                 name="name"
                 id="name"
                 placeholder="Enter Your Name Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-deep-orange bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2  rounded-md  focus:outline-none bg-gray-200 text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
@@ -103,7 +104,7 @@ const Register = () => {
                 id="email"
                 required
                 placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-deep-orange bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2  rounded-md  focus:outline-none bg-gray-200 text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
@@ -120,7 +121,7 @@ const Register = () => {
                 id="password"
                 required
                 placeholder="*******"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-deep-orange bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2  rounded-md  focus:outline-none bg-gray-200 text-gray-900"
               />
             </div>
           </div>
@@ -157,7 +158,7 @@ const Register = () => {
           Already have an account?{" "}
           <Link
             to="/login"
-            className="hover:underline hover:text-deep-orange text-gray-600"
+            className="hover:underline hover:text-teal hover:font-bold text-gray-600"
           >
             Login
           </Link>
