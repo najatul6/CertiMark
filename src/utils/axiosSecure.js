@@ -1,5 +1,5 @@
 import axios from "axios";
-import { clearCookie } from "./auth";
+import toast from "react-hot-toast";
 
 const axiosSecure = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -14,7 +14,7 @@ axiosSecure.interceptors.response.use(
       error.response &&
       (error.response.status === 401 || error.response.status === 403)
     ) {
-        await clearCookie()
+        toast.error('Session expired, please log in again');
         window.location.replace('/login')
     }
     return Promise.reject(error)
