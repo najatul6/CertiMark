@@ -36,10 +36,11 @@ const Context = ({ children }) => {
   //   Update User Profile
   const updateUserProfile = (name, photoURL) => {
     setLoading(true);
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photoURL,
-    });
+    const updateData = { displayName: name };
+    if (photoURL) {
+      updateData.photoURL = photoURL;
+    }
+    return updateProfile(auth.currentUser, updateData);
   };
 
   // Delete User
