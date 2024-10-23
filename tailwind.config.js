@@ -11,7 +11,10 @@ export default {
       },
     },
     colors: {
-      primary:"#007BFF"
+      primaryColor:"#2B7A78",
+      secondaryColor:"#3AAFA9",
+      alertColor:"#E76F51",
+      globalColor:"#FEFFFF"
     },
     screens:{
       lg:{min:"925px"},
