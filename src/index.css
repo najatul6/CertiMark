@@ -6,6 +6,6 @@
 
 /* BODY STYLE  */
 body {
-  @apply bg-[#111] text-[#D1D5DB] font-inter;
+  font-family: "Inter", sans-serif;
 }
 
