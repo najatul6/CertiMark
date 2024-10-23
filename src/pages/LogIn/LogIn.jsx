@@ -70,7 +70,7 @@ const LogIn = () => {
                 id="email"
                 required
                 placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-deep-orange bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2 rounded-md  focus:outline-none bg-gray-200 text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
@@ -87,7 +87,7 @@ const LogIn = () => {
                 id="password"
                 required
                 placeholder="*******"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-deep-orange bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md  focus:outline-none bg-gray-200 text-gray-900"
               />
             </div>
           </div>
@@ -105,8 +105,8 @@ const LogIn = () => {
             </button>
           </div>
         </form>
-        <div className="space-y-1">
-          <button className="text-xs hover:underline hover:text-deep-orange text-gray-400">
+        <div className="space-y-1 flex justify-end py-2">
+          <button className="text-sm hover:font-bold hover:underline hover:text-teal text-gray-400">
             Forgot password?
           </button>
         </div>
