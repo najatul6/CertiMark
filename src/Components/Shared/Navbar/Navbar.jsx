@@ -1,10 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { useEffect, useState } from "react";
+import useAuth from "../../../hooks/useAuth";
+import ProfileDropDown from "./ProfileDropDown";
 const Navbar = () => {
+  const {user}=useAuth()
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
   const [prevPosition, setPrevPosition] = useState(0);
+  console.log(user);
   const onScroll = () => {
     const currentPosition = window.scrollY;
     setIsScroll(currentPosition > 80);
@@ -97,9 +101,10 @@ const Navbar = () => {
             {navLinks}
           </div>
           <div className="max-w-full">
-            <Link to="/logIn" className="rounded-xl bg-lightTeal border-none font-semibold text-white hover:text-black px-6 py-4 flex text-center items-center justify-center">
+            {user?<ProfileDropDown user={user}/>:<Link to="/logIn" className="rounded-xl bg-lightTeal border-none font-semibold text-white hover:text-black px-6 py-4 flex text-center items-center justify-center">
               Log In
-            </Link>
+            </Link>}
+            
           </div>
         </div>
       </nav>
