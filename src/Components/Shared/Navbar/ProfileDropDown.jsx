@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import "./Dropdown.css"; // Create a CSS file for transitions
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const ProfileDropDown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,5 +99,9 @@ const ProfileDropDown = ({ user }) => {
     </div>
   );
 };
+
+ProfileDropDown.propTypes={
+    user: PropTypes.object.isRequired, 
+}
 
 export default ProfileDropDown;
