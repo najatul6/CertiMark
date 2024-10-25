@@ -35,6 +35,10 @@ const Routes = createBrowserRouter([
       {
         path:"contactUs",
         element:<ContactUs/>,
+      },
+      {
+        path:"*",
+        element:<ErrorPage/>,
       }
 
     ],
