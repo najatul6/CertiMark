@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const EVerification = () => {
-  const [verificationCode, setVerificationCode] = useState("");
   const [verificationResult, setVerificationResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleVerification = (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleVerification = (data) => {
+    const { verificationCode } = data;
 
     // Simulate verification logic
     // Replace this with actual verification logic/API call
@@ -16,7 +22,11 @@ const EVerification = () => {
         course: "Computer Science",
         date: "2023-06-15",
       },
-      67890: { name: "Jane Smith", course: "Data Science", date: "2023-07-20" },
+      67890: {
+        name: "Jane Smith",
+        course: "Data Science",
+        date: "2023-07-20",
+      },
     };
 
     if (validCodes[verificationCode]) {
@@ -38,26 +48,35 @@ const EVerification = () => {
           Verify Certificate
         </h2>
 
-        <form onSubmit={handleVerification} className="space-y-4">
+        <form onSubmit={handleSubmit(handleVerification)} className="space-y-4">
           <div>
             <label
               htmlFor="verificationCode"
               className="block text-sm font-medium text-gray-700"
-              style={{ fontFamily: "Roboto", fontSize: "16px" }}
             >
               Enter Verification Code
             </label>
             <input
               type="text"
               id="verificationCode"
-              value={verificationCode}
-              onChange={(e) => setVerificationCode(e.target.value)}
+              {...register("verificationCode", {
+                required: "Verification code is required",
+                minLength: {
+                  value: 5,
+                  message: "Verification code must be at least 5 characters",
+                },
+              })}
               className={`mt-1 block w-full border ${
-                errorMessage ? "border-[#E76F51]" : "border-[#2B7A78]"
+                errors.verificationCode
+                  ? "border-[#E76F51]"
+                  : "border-[#2B7A78]"
               } rounded-md p-2`}
-              style={{ fontFamily: "Roboto", fontSize: "16px" }}
-              required
             />
+            {errors.verificationCode && (
+              <p className="text-[#E76F51] text-sm mt-1">
+                {errors.verificationCode.message}
+              </p>
+            )}
           </div>
 
           <button
@@ -80,22 +99,13 @@ const EVerification = () => {
             <h3 className="font-semibold text-[#28A745]">
               Verification Successful!
             </h3>
-            <p
-              className="text-[#28A745]"
-              style={{ fontFamily: "Roboto", fontSize: "16px" }}
-            >
+            <p className="text-[#28A745]">
               Student Name: {verificationResult.name}
             </p>
-            <p
-              className="text-[#28A745]"
-              style={{ fontFamily: "Roboto", fontSize: "16px" }}
-            >
+            <p className="text-[#28A745]">
               Course: {verificationResult.course}
             </p>
-            <p
-              className="text-[#28A745]"
-              style={{ fontFamily: "Roboto", fontSize: "16px" }}
-            >
+            <p className="text-[#28A745]">
               Completion Date: {verificationResult.date}
             </p>
           </div>

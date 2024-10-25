@@ -38,7 +38,7 @@ const Navbar = () => {
             : "relative border-b-2 border-transparent inline-block text-white hover:text-white group font-semibold pt-2 pl-1 pr-2"
         }
       >
-       ApplyForCertificate
+       Apply For Certificate
         <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-lightTeal transition-transform origin-left transform scale-x-0 group-hover:scale-x-100 duration-200 w-full"></span>
       </NavLink>
       
@@ -50,7 +50,7 @@ const Navbar = () => {
             : "relative border-b-2 border-transparent inline-block text-white hover:text-white group font-semibold pt-2 pl-1 pr-2"
         }
       >
-       EVerification
+       E-Verification
         <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-lightTeal transition-transform origin-left transform scale-x-0 group-hover:scale-x-100 duration-200 w-full"></span>
       </NavLink>
       <NavLink
