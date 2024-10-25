@@ -60,14 +60,14 @@ const Footer = () => {
           {/* Contact Information */}
           <div className="text-center lg:text-right">
             <p className="text-sm">Contact Us:</p>
-            <p className="text-sm mt-1">Email: support@certimark.com</p>
-            <p className="text-sm">Phone: +123 456 7890</p>
+            <p className="text-sm mt-1">Email: najatulislam11@gmail.com</p>
+            <p className="text-sm">Phone: +880 1773 827 414</p>
           </div>
         </div>
 
         {/* Bottom Text */}
         <div className="text-center mt-8 text-sm">
-          <p>© {new Date().getFullYear()} CertiMark. All rights reserved.</p>
+          <p>&copy;2024 <Link target="_blank" className="text-lightTeal hover:underline" to={"https://najatul-islam.vercel.app/"}>Najatul Islam</Link>. All rights reserved.</p>
         </div>
       </div>
     </footer>
