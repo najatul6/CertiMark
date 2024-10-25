@@ -77,7 +77,7 @@ const ProfileDropDown = ({ user }) => {
                 href="#"
                 className="block px-6 py-3 leading-tight hover:bg-gray-200"
               >
-                Analytics
+                 Application status
               </a>
             </div>
             <form
