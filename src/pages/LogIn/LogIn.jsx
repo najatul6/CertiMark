@@ -70,7 +70,7 @@ const LogIn = () => {
                 id="email"
                 required
                 placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 rounded-md  focus:outline-none bg-transparent border border-lightTeal text-gray-900"
+                className="w-full px-3 py-2 rounded-md  focus:outline-none bg-transparent border border-lightTeal text-white"
                 data-temp-mail-org="0"
               />
             </div>
