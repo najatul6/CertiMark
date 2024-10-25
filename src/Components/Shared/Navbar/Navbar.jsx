@@ -87,7 +87,7 @@ const Navbar = () => {
           {/* navlinks for small device */}
           <div
             className={`lg:hidden flex z-50 flex-col gap-4 absolute ${
-              isScroll ?  "top-24" : "top-24"
+              isScroll ?  "top-[80px] shadow-inner" : "top-[80px] shadow-inner"
             } w-full  py-3 px-3 bg-darkGreen ${
               isMobileMenuOpen
                 ? "translate-x-0 opacity-100"
