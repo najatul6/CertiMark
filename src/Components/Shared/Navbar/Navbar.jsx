@@ -41,17 +41,7 @@ const Navbar = () => {
        ApplyForCertificate
         <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-lightTeal transition-transform origin-left transform scale-x-0 group-hover:scale-x-100 duration-200 w-full"></span>
       </NavLink>
-      <NavLink
-        to={"/recommendationLetter"}
-        className={({ isActive }) =>
-          isActive
-            ? "relative border-b-2 border-lightTeal inline-block text-lightTeal hover:text-white group font-semibold pt-2 pl-1 pr-2"
-            : "relative border-b-2 border-transparent inline-block text-white hover:text-white group font-semibold pt-2 pl-1 pr-2"
-        }
-      >
-       LetterOfRecommendation
-        <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-lightTeal transition-transform origin-left transform scale-x-0 group-hover:scale-x-100 duration-200 w-full"></span>
-      </NavLink>
+      
       <NavLink
         to={"/eVerification"}
         className={({ isActive }) =>
@@ -79,8 +69,8 @@ const Navbar = () => {
   return (
       <nav
         className={`transition-transform duration-300 ${
-          isScroll ? "fixed top-0 shadow-xl w-full" : ""
-        } w-full z-50 bg-white/10`}
+          isScroll ? "sticky top-0 shadow-xl w-full" : ""
+        } w-full z-50 bg-darkGreen`}
       >
         <div className="py-4 max-w-[1440px] w-full mx-auto flex gap-6 items-center justify-between">
           {/* menu dropdown */}
@@ -91,7 +81,7 @@ const Navbar = () => {
               <h2 className="text-white text-2xl lg:text-4xl font-bold">Certi<span className="text-lightTeal">Mark</span>.</h2>
           </Link>
           {/* navlinks for larger device */}
-          <div className="hidden lg:flex flex-col  lg:flex-row items-center gap-10">
+          <div className="hidden lg:flex flex-col lg:flex-row items-center gap-10">
             {navLinks}
           </div>
           {/* navlinks for small device */}
