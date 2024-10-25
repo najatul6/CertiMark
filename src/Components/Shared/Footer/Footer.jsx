@@ -67,7 +67,7 @@ const Footer = () => {
 
         {/* Bottom Text */}
         <div className="text-center mt-8 text-sm">
-          <p>&copy; 2024 <Link className="hover:underline text-lightTeal" target="_blank" to="https://najatul-islam.vercel.app/">Najatul islam</Link>. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CertiMark. All rights reserved.</p>
         </div>
       </div>
     </footer>
