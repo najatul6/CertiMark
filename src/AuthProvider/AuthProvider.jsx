@@ -13,6 +13,7 @@ import {
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import PropTypes from "prop-types";
+import Loading from "../Components/Shared/Loading/Loading";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -90,6 +91,9 @@ const AuthProvider = ({ children }) => {
     userDelete,
     setLoading
   };
+  if(loading) {
+    return <Loading/>
+  }
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

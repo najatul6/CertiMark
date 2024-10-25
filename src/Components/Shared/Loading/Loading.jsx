@@ -1,10 +1,14 @@
-import loading from "../../../assets/loading/Loading.gif"
-const Loading = () => {
-  return (
-    <div className="w-full min-h-screen overflow-hidden">
-      <img src={loading} alt="loading" className="w-full h-screen"/>
-    </div>
-  )
-}
+import loadingAnimation from '../../../assets/loading/loadingAnimation.json';
+import Lottie from "lottie-react";
 
-export default Loading
+const Loading = () => {
+    return (
+        <div className='min-h-screen flex items-center justify-center'>
+            <div className='w-96'>
+                <Lottie animationData={loadingAnimation} loop={true}></Lottie>
+            </div>
+        </div>
+    );
+};
+
+export default Loading;
