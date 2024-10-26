@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { FaHome, FaUser, FaCertificate, FaFileAlt, FaSignOutAlt } from 'react-icons/fa';
 
 const DashBoardLayout = () => {
@@ -13,28 +14,60 @@ const DashBoardLayout = () => {
         } md:relative md:translate-x-0 transition duration-200 ease-in-out`}
       >
         <h1 className="text-2xl font-bold text-center">Admin Panel</h1>
-        <nav className="mt-10">
-          <a href="#" className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md">
+        <nav className="mt-10 space-y-2">
+          <NavLink
+            to="/overview"
+            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
+            activeClassName="bg-gray-700"
+          >
             <FaHome />
             <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Overview</span>
-          </a>
-          <a href="#" className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md">
+          </NavLink>
+          <NavLink
+            to="/certificates"
+            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
+            activeClassName="bg-gray-700"
+          >
             <FaCertificate />
             <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Certificates</span>
-          </a>
-          <a href="#" className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md">
+          </NavLink>
+          <NavLink
+            to="/marksheet"
+            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
+            activeClassName="bg-gray-700"
+          >
             <FaFileAlt />
             <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Marksheet</span>
-          </a>
-          <a href="#" className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md">
+          </NavLink>
+          <NavLink
+            to="/user-management"
+            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
+            activeClassName="bg-gray-700"
+          >
             <FaUser />
             <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>User Management</span>
-          </a>
-          <a href="#" className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md">
+          </NavLink>
+        </nav>
+
+        {/* Profile and Logout at the bottom */}
+        <div className="absolute bottom-0 w-full px-2 space-y-2">
+          <NavLink
+            to="/profile"
+            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
+            activeClassName="bg-gray-700"
+          >
+            <FaUser />
+            <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Profile</span>
+          </NavLink>
+          <NavLink
+            to="/logout"
+            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
+            activeClassName="bg-gray-700"
+          >
             <FaSignOutAlt />
             <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Logout</span>
-          </a>
-        </nav>
+          </NavLink>
+        </div>
       </aside>
 
       {/* Main Content */}
