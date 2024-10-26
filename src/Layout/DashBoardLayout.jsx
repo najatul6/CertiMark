@@ -81,7 +81,7 @@ const DashBoardLayout = () => {
 
         {/* Main content */}
         <main className="flex-1 p-6">
-          <h2 className="font-bold" style={{ fontFamily: 'Montserrat', fontSize: '20px' }}>
+          <h2 className="font-bold" >
             Dashboard Overview
           </h2>
 
@@ -102,7 +102,7 @@ const DashBoardLayout = () => {
           </section>
 
           <section className="mt-6">
-            <h3 className="font-semibold mb-4" style={{ fontFamily: 'Montserrat', fontSize: '20px' }}>
+            <h3 className="font-semibold mb-4" >
               Recent Activity
             </h3>
             <div className="overflow-x-auto">
