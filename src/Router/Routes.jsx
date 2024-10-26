@@ -9,6 +9,7 @@ import ContactUs from "../pages/ContactUs/ContactUs";
 import LogIn from "../pages/LogIn/LogIn";
 import Register from "../pages/Register/Register";
 import ForgetPassword from "../pages/ForgetPassword/ForgetPassword";
+import DashBoardLayout from "../Layout/DashBoardLayout";
 
 const Routes = createBrowserRouter([
   {

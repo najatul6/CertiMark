@@ -16,6 +16,9 @@ export default {
         roboto:  ["'Roboto', sans-serif" ],
         montserrat:['"Montserrat", sans-serif']
       },
+      transition: {
+        transition: ["transform 0.2s ease-in-out"]
+      },
     },
   },
   plugins: [],
