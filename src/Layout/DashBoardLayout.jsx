@@ -9,7 +9,7 @@ const DashBoardLayout = () => {
     <div className="min-h-screen bg-[#FEFFFF] flex">
       {/* Sidebar */}
       <aside
-        className={`bg-[#17252A] text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform ${
+        className={`bg-[#17252A] hidden text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } md:relative md:translate-x-0 transition duration-200 ease-in-out`}
       >
