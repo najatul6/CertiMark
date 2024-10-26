@@ -109,9 +109,9 @@ const DashBoardLayout = () => {
               <table className="min-w-full bg-white">
                 <thead>
                   <tr>
-                    <th className="text-left p-4" style={{ fontFamily: 'Roboto', fontSize: '14px' }}>Name</th>
-                    <th className="text-left p-4" style={{ fontFamily: 'Roboto', fontSize: '14px' }}>Action</th>
-                    <th className="text-left p-4" style={{ fontFamily: 'Roboto', fontSize: '14px' }}>Date</th>
+                    <th className="text-left p-4">Name</th>
+                    <th className="text-left p-4">Action</th>
+                    <th className="text-left p-4">Date</th>
                   </tr>
                 </thead>
                 <tbody>
