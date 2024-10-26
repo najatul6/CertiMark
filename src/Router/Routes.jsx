@@ -37,15 +37,11 @@ const Routes = createBrowserRouter([
         path:"contactUs",
         element:<ContactUs/>,
       }
-
     ],
   },
   {
     path:"/dashboard",
     element:<DashBoardLayout/>,
-    children:{
-
-    }
   },
   {
     path:"/logIn",

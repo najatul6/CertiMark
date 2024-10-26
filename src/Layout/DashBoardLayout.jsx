@@ -1,8 +1,105 @@
+import { useState } from 'react';
+import { FaHome, FaUser, FaCertificate, FaFileAlt, FaSignOutAlt } from 'react-icons/fa';
 
 const DashBoardLayout = () => {
-  return (
-    <div>DashBoardLayout</div>
-  )
-}
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-export default DashBoardLayout
+  return (
+    <div className="min-h-screen bg-[#FEFFFF] flex">
+      {/* Sidebar */}
+      <aside
+        className={`bg-[#17252A] text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform ${
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        } md:relative md:translate-x-0 transition duration-200 ease-in-out`}
+      >
+        <h1 className="text-2xl font-bold text-center">Admin Panel</h1>
+        <nav className="mt-10">
+          <a href="#" className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md">
+            <FaHome />
+            <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Overview</span>
+          </a>
+          <a href="#" className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md">
+            <FaCertificate />
+            <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Certificates</span>
+          </a>
+          <a href="#" className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md">
+            <FaFileAlt />
+            <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Marksheet</span>
+          </a>
+          <a href="#" className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md">
+            <FaUser />
+            <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>User Management</span>
+          </a>
+          <a href="#" className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md">
+            <FaSignOutAlt />
+            <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Logout</span>
+          </a>
+        </nav>
+      </aside>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col">
+        {/* Mobile Menu Button */}
+        <div className="bg-[#3AAFA9] text-white p-4 md:hidden">
+          <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="focus:outline-none">
+            {isSidebarOpen ? 'Close Menu' : 'Open Menu'}
+          </button>
+        </div>
+
+        {/* Main content */}
+        <main className="flex-1 p-6">
+          <h2 className="font-bold" style={{ fontFamily: 'Montserrat', fontSize: '20px' }}>
+            Dashboard Overview
+          </h2>
+
+          <section className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Cards for overview section */}
+            <div className="bg-white shadow rounded-lg p-4">
+              <h3 className="font-semibold" style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Pending Applications</h3>
+              <p className="text-gray-600">24</p>
+            </div>
+            <div className="bg-white shadow rounded-lg p-4">
+              <h3 className="font-semibold" style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Verified Certificates</h3>
+              <p className="text-gray-600">120</p>
+            </div>
+            <div className="bg-white shadow rounded-lg p-4">
+              <h3 className="font-semibold" style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Total Users</h3>
+              <p className="text-gray-600">342</p>
+            </div>
+          </section>
+
+          <section className="mt-6">
+            <h3 className="font-semibold mb-4" style={{ fontFamily: 'Montserrat', fontSize: '20px' }}>
+              Recent Activity
+            </h3>
+            <div className="overflow-x-auto">
+              <table className="min-w-full bg-white">
+                <thead>
+                  <tr>
+                    <th className="text-left p-4" style={{ fontFamily: 'Roboto', fontSize: '14px' }}>Name</th>
+                    <th className="text-left p-4" style={{ fontFamily: 'Roboto', fontSize: '14px' }}>Action</th>
+                    <th className="text-left p-4" style={{ fontFamily: 'Roboto', fontSize: '14px' }}>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="p-4">John Doe</td>
+                    <td className="p-4">Approved a certificate</td>
+                    <td className="p-4">2024-10-25</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4">Jane Smith</td>
+                    <td className="p-4">Requested a marksheet</td>
+                    <td className="p-4">2024-10-24</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default DashBoardLayout;

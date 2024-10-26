@@ -68,12 +68,12 @@ const ProfileDropDown = ({ user }) => {
             </div>
             
             <div className="border-t-2 border-gray-200 py-1">
-              <a
-                href="#"
+              <Link
+                to="/dashboard"
                 className="block px-6 py-3 leading-tight hover:bg-gray-200"
               >
                 Dashboard
-              </a>
+              </Link>
               <a
                 href="#"
                 className="block px-6 py-3 leading-tight hover:bg-gray-200"
