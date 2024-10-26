@@ -11,13 +11,13 @@ const ProfileDropDown = ({ user }) => {
     <div className="relative inline-block">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center pl-6 pr-2 py-2 font-semibold text-white bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:shadow-outline active:bg-gray-900"
+        className="inline-flex items-center rounded-full font-semibold text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline active:bg-gray-900"
       >
         <img
           className="h-10 w-10 rounded-full flex-no-shrink"
           src={
             user?.photoURL
-              ? user.photoURL
+              ? `${user?.photoURL}`
               : "https://images.unsplash.com/photo-1541271696563-3be2f555fc4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=1.75&w=200&h=200&q=80"
           }
           alt=""
