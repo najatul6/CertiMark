@@ -40,6 +40,13 @@ const Routes = createBrowserRouter([
     ],
   },
   {
+    path:"/dashboard",
+    element:<DashBoardLayout/>,
+    children:{
+
+    }
+  },
+  {
     path:"/logIn",
     element:<LogIn/>,
   },
