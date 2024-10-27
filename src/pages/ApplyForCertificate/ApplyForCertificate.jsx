@@ -85,10 +85,7 @@ const ApplyForCertificate = () => {
               id="registrationNo"
               {...register("registrationNo", {
                 required: "registration Number is required",
-                pattern: {
-                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: "Invalid registration Number",
-                },
+                
               })}
               className={`mt-1 block w-full border ${
                 errors.registrationNo ? "border-[#E76F51]" : "border-gray-300"
