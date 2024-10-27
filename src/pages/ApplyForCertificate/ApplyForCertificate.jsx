@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
+import { TbFidgetSpinner } from "react-icons/tb";
+import useAuth from "../../hooks/useAuth";
 
 const ApplyForCertificate = () => {
+  const {loading}=useAuth()
   const {
     register,
     handleSubmit,
@@ -175,7 +178,12 @@ const ApplyForCertificate = () => {
             className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold"
             style={{ fontFamily: "Montserrat", fontSize: "18px" }}
           >
-            Apply Now
+            {loading ? (
+                <TbFidgetSpinner className="animate-spin m-auto" />
+              ) : (
+                "Apply Now"
+              )}
+            
           </button>
         </form>
       </div>
