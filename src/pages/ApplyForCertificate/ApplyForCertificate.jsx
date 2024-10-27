@@ -4,7 +4,7 @@ const ApplyForCertificate = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitted },
+    formState: { errors },
     reset,
   } = useForm();
 
@@ -21,175 +21,163 @@ const ApplyForCertificate = () => {
           Certificate Application
         </h2>
 
-        {isSubmitted ? (
-          <p className="text-center text-[#3AAFA9] font-semibold">
-            Your application has been submitted!
-          </p>
-        ) : (
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div>
-              <label
-                htmlFor="certificateType"
-                className="block text-sm font-medium text-gray-700"
-                style={{ fontFamily: "Roboto", fontSize: "14px" }}
-              >
-                Certificate Type
-              </label>
-              <select
-                id="certificateType"
-                {...register("certificateType", {
-                  required: "Certificate type is required",
-                })}
-                className={`mt-1 block w-full border ${
-                  errors.certificateType
-                    ? "border-[#E76F51]"
-                    : "border-gray-300"
-                } rounded-md p-2`}
-              >
-                <option value="">Select Certificate Type</option>
-                <option value="completion">Completion Certificate</option>
-                <option value="transcript">Transcript</option>
-                <option value="diploma">Diploma</option>
-              </select>
-              {errors.certificateType && (
-                <p className="text-[#E76F51] text-sm">
-                  {errors.certificateType.message}
-                </p>
-              )}
-            </div>
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                {...register("name", { required: "Name is required" })}
-                className={`mt-1 block w-full border ${
-                  errors.name ? "border-[#E76F51]" : "border-gray-300"
-                } rounded-md p-2`}
-              />
-              {errors.name && (
-                <p className="text-[#E76F51] text-sm">{errors.name.message}</p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-                style={{ fontFamily: "Roboto", fontSize: "14px" }}
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    message: "Invalid email address",
-                  },
-                })}
-                className={`mt-1 block w-full border ${
-                  errors.email ? "border-[#E76F51]" : "border-gray-300"
-                } rounded-md p-2`}
-              />
-              {errors.email && (
-                <p className="text-[#E76F51] text-sm">{errors.email.message}</p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="studentId"
-                className="block text-sm font-medium text-gray-700"
-                style={{ fontFamily: "Roboto", fontSize: "14px" }}
-              >
-                Student ID
-              </label>
-              <input
-                type="text"
-                id="studentId"
-                {...register("studentId", {
-                  required: "Student ID is required",
-                })}
-                className={`mt-1 block w-full border ${
-                  errors.studentId ? "border-[#E76F51]" : "border-gray-300"
-                } rounded-md p-2`}
-              />
-              {errors.studentId && (
-                <p className="text-[#E76F51] text-sm">
-                  {errors.studentId.message}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="Technology"
-                className="block text-sm font-medium text-gray-700"
-                style={{ fontFamily: "Roboto", fontSize: "14px" }}
-              >
-                Technology
-              </label>
-              <input
-                type="text"
-                id="technology"
-                {...register("technology", {
-                  required: "technology is required",
-                })}
-                className={`mt-1 block w-full border ${
-                  errors.technology ? "border-[#E76F51]" : "border-gray-300"
-                } rounded-md p-2`}
-              />
-              {errors.technology && (
-                <p className="text-[#E76F51] text-sm">
-                  {errors.technology.message}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="yearOfCompletion"
-                className="block text-sm font-medium text-gray-700"
-                style={{ fontFamily: "Roboto", fontSize: "14px" }}
-              >
-                Year of Completion
-              </label>
-              <input
-                type="text"
-                id="yearOfCompletion"
-                {...register("yearOfCompletion", {
-                  required: "Year of Completion is required",
-                })}
-                className={`mt-1 block w-full border ${
-                  errors.yearOfCompletion
-                    ? "border-[#E76F51]"
-                    : "border-gray-300"
-                } rounded-md p-2`}
-              />
-              {errors.yearOfCompletion && (
-                <p className="text-[#E76F51] text-sm">
-                  {errors.yearOfCompletion.message}
-                </p>
-              )}
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold"
-              style={{ fontFamily: "Montserrat", fontSize: "18px" }}
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <div>
+            <label
+              htmlFor="certificateType"
+              className="block text-sm font-medium text-gray-700"
             >
-              Apply Now
-            </button>
-          </form>
-        )}
+              Certificate Type
+            </label>
+            <select
+              id="certificateType"
+              {...register("certificateType", {
+                required: "Certificate type is required",
+              })}
+              className={`mt-1 block w-full border ${
+                errors.certificateType ? "border-[#E76F51]" : "border-gray-300"
+              } rounded-md p-2`}
+            >
+              <option value="">Select Certificate Type</option>
+              <option value="completion">Completion Certificate</option>
+              <option value="transcript">Transcript</option>
+              <option value="diploma">Diploma</option>
+            </select>
+            {errors.certificateType && (
+              <p className="text-[#E76F51] text-sm">
+                {errors.certificateType.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              {...register("name", { required: "Name is required" })}
+              className={`mt-1 block w-full border ${
+                errors.name ? "border-[#E76F51]" : "border-gray-300"
+              } rounded-md p-2`}
+            />
+            {errors.name && (
+              <p className="text-[#E76F51] text-sm">{errors.name.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: "Invalid email address",
+                },
+              })}
+              className={`mt-1 block w-full border ${
+                errors.email ? "border-[#E76F51]" : "border-gray-300"
+              } rounded-md p-2`}
+            />
+            {errors.email && (
+              <p className="text-[#E76F51] text-sm">{errors.email.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="studentId"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Student ID
+            </label>
+            <input
+              type="text"
+              id="studentId"
+              {...register("studentId", {
+                required: "Student ID is required",
+              })}
+              className={`mt-1 block w-full border ${
+                errors.studentId ? "border-[#E76F51]" : "border-gray-300"
+              } rounded-md p-2`}
+            />
+            {errors.studentId && (
+              <p className="text-[#E76F51] text-sm">
+                {errors.studentId.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="technology"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Technology
+            </label>
+            <input
+              type="text"
+              id="technology"
+              {...register("technology", {
+                required: "Technology is required",
+              })}
+              className={`mt-1 block w-full border ${
+                errors.technology ? "border-[#E76F51]" : "border-gray-300"
+              } rounded-md p-2`}
+            />
+            {errors.technology && (
+              <p className="text-[#E76F51] text-sm">
+                {errors.technology.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="yearOfCompletion"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Year of Completion
+            </label>
+            <input
+              type="text"
+              id="yearOfCompletion"
+              {...register("yearOfCompletion", {
+                required: "Year of Completion is required",
+              })}
+              className={`mt-1 block w-full border ${
+                errors.yearOfCompletion
+                  ? "border-[#E76F51]"
+                  : "border-gray-300"
+              } rounded-md p-2`}
+            />
+            {errors.yearOfCompletion && (
+              <p className="text-[#E76F51] text-sm">
+                {errors.yearOfCompletion.message}
+              </p>
+            )}
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold"
+            style={{ fontFamily: "Montserrat", fontSize: "18px" }}
+          >
+            Apply Now
+          </button>
+        </form>
       </div>
     </div>
   );
