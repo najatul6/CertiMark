@@ -8,7 +8,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
   const [prevPosition, setPrevPosition] = useState(0);
-  console.log(user);
   const onScroll = () => {
     const currentPosition = window.scrollY;
     setIsScroll(currentPosition > 80);

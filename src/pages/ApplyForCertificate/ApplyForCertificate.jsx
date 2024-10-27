@@ -3,7 +3,7 @@ import { TbFidgetSpinner } from "react-icons/tb";
 import useAuth from "../../hooks/useAuth";
 
 const ApplyForCertificate = () => {
-  const {loading}=useAuth()
+  const {loading,user}=useAuth()
   const {
     register,
     handleSubmit,
@@ -12,7 +12,7 @@ const ApplyForCertificate = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data,user.email);
     reset();
     alert("Your application has been submitted!");
   };
@@ -58,7 +58,7 @@ const ApplyForCertificate = () => {
               htmlFor="name"
               className="block text-sm font-medium text-gray-700"
             >
-              Name
+              Full Name
             </label>
             <input
               type="text"
@@ -75,27 +75,27 @@ const ApplyForCertificate = () => {
 
           <div>
             <label
-              htmlFor="email"
+              htmlFor="registrationNo"
               className="block text-sm font-medium text-gray-700"
             >
-              Email
+              Registration Number
             </label>
             <input
-              type="email"
-              id="email"
-              {...register("email", {
-                required: "Email is required",
+              type="text"
+              id="registrationNo"
+              {...register("registrationNo", {
+                required: "registration Number is required",
                 pattern: {
                   value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: "Invalid email address",
+                  message: "Invalid registration Number",
                 },
               })}
               className={`mt-1 block w-full border ${
-                errors.email ? "border-[#E76F51]" : "border-gray-300"
+                errors.registrationNo ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
-            {errors.email && (
-              <p className="text-[#E76F51] text-sm">{errors.email.message}</p>
+            {errors.registrationNo && (
+              <p className="text-[#E76F51] text-sm">{errors.registrationNo.message}</p>
             )}
           </div>
 
