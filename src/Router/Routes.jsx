@@ -10,6 +10,10 @@ import LogIn from "../pages/LogIn/LogIn";
 import Register from "../pages/Register/Register";
 import ForgetPassword from "../pages/ForgetPassword/ForgetPassword";
 import DashBoardLayout from "../Layout/DashBoardLayout";
+import PrivateRoute from "./PrivateRoute";
+import Profile from "../pages/Dashboard/Profile/Profile";
+import OverView from "../pages/Dashboard/OverView/OverView";
+import UserManagement from "../pages/Dashboard/UserManagement/UserManagement";
 
 const Routes = createBrowserRouter([
   {
@@ -23,38 +27,56 @@ const Routes = createBrowserRouter([
       },
       {
         path: "applyCertificate",
-        element: <ApplyForCertificate />,
+        element: (
+          <PrivateRoute>
+            <ApplyForCertificate />
+          </PrivateRoute>
+        ),
       },
       {
         path: "recommendationLetter",
         element: <LetterOfRecommendation />,
       },
       {
-        path:"eVerification",
-        element:<EVerification/>,
+        path: "eVerification",
+        element: <EVerification />,
       },
       {
-        path:"contactUs",
-        element:<ContactUs/>,
-      }
+        path: "contactUs",
+        element: <ContactUs />,
+      },
     ],
   },
   {
-    path:"/dashboard",
-    element:<DashBoardLayout/>,
+    path: "dashboard",
+    element: <DashBoardLayout />,
+    children: [
+      {
+        path: "dashboard/overview",
+        element: <OverView />,
+      },
+      {
+        path: "dashboard/userManagement",
+        element: <UserManagement />,
+      },
+      {
+        path: "dashboard/profile",
+        element: <Profile />,
+      },
+    ],
   },
   {
-    path:"/logIn",
-    element:<LogIn/>,
+    path: "/logIn",
+    element: <LogIn />,
   },
   {
-    path:"/register",
-    element:<Register/>,
+    path: "/register",
+    element: <Register />,
   },
   {
-    path:"/forgetPassword",
-    element:<ForgetPassword/>
-  }
+    path: "/forgetPassword",
+    element: <ForgetPassword />,
+  },
 ]);
 
 export default Routes;
