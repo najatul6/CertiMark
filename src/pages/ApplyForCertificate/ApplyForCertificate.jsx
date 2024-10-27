@@ -12,6 +12,12 @@ const ApplyForCertificate = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    const applicantData={
+      data,
+      userEmail:user.email,
+      ApplyDate: new Date().toISOString(),
+    }
+    
     console.log(data,user.email);
     reset();
     alert("Your application has been submitted!");
