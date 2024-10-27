@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { FaHome, FaUser, FaCertificate, FaFileAlt, FaSignOutAlt } from 'react-icons/fa';
 
 const DashBoardLayout = () => {
@@ -16,7 +16,7 @@ const DashBoardLayout = () => {
         <h1 className="text-2xl font-bold text-center">Admin Panel</h1>
         <nav className="mt-10 space-y-2">
           <NavLink
-            to="/overview"
+            to="dashboard/overview"
             className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
             activeClassName="bg-gray-700"
           >
@@ -24,7 +24,7 @@ const DashBoardLayout = () => {
             <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Overview</span>
           </NavLink>
           <NavLink
-            to="/certificates"
+            to="dashboard/certificates"
             className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
             activeClassName="bg-gray-700"
           >
@@ -32,7 +32,7 @@ const DashBoardLayout = () => {
             <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Certificates</span>
           </NavLink>
           <NavLink
-            to="/marksheet"
+            to="dashboard/marksheet"
             className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
             activeClassName="bg-gray-700"
           >
@@ -40,7 +40,7 @@ const DashBoardLayout = () => {
             <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Marksheet</span>
           </NavLink>
           <NavLink
-            to="/user-management"
+            to="dashboard/user-management"
             className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
             activeClassName="bg-gray-700"
           >
@@ -52,7 +52,7 @@ const DashBoardLayout = () => {
         {/* Profile and Logout at the bottom */}
         <div className="absolute bottom-0 w-full px-2 space-y-2">
           <NavLink
-            to="/profile"
+            to="dashboard/profile"
             className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
             activeClassName="bg-gray-700"
           >
@@ -83,34 +83,7 @@ const DashBoardLayout = () => {
         <main className="flex-1 p-6">
          
 
-          <section className="mt-6">
-            <h3 className="font-semibold mb-4" >
-              Recent Activity
-            </h3>
-            <div className="overflow-x-auto">
-              <table className="min-w-full bg-white">
-                <thead>
-                  <tr>
-                    <th className="text-left p-4">Name</th>
-                    <th className="text-left p-4">Action</th>
-                    <th className="text-left p-4">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="p-4">John Doe</td>
-                    <td className="p-4">Approved a certificate</td>
-                    <td className="p-4">2024-10-25</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4">Jane Smith</td>
-                    <td className="p-4">Requested a marksheet</td>
-                    <td className="p-4">2024-10-24</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+         <Outlet/>
         </main>
       </div>
     </div>

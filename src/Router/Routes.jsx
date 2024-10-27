@@ -56,7 +56,7 @@ const Routes = createBrowserRouter([
         element: <OverView />,
       },
       {
-        path: "dashboard/userManagement",
+        path: "dashboard/user-management",
         element: <UserManagement />,
       },
       {
