@@ -18,7 +18,7 @@ const DashBoardLayout = () => {
         } md:relative md:translate-x-0 transition duration-200 ease-in-out`}
       >
         <div className="px-2 space-y-2">
-          <Link><h2 className="text-white text-2xl lg:text-4xl font-bold text-center">
+          <Link to={"/"}><h2 className="text-white text-2xl lg:text-4xl font-bold text-center">
             Certi<span className="text-lightTeal">Mark</span>.
           </h2></Link>
           <hr />
