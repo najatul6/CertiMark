@@ -26,7 +26,7 @@ const AdminSidebar = () => {
             Certificates
           </span>
         </NavLink>
-        {/* <NavLink
+        <NavLink
           to="/dashboard/markSheet"
           className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
           activeClassName="bg-gray-700"
@@ -35,7 +35,7 @@ const AdminSidebar = () => {
           <span style={{ fontFamily: "Roboto", fontSize: "16px" }}>
             Marksheet
           </span>
-        </NavLink> */}
+        </NavLink>
         <NavLink
           to="/dashboard/user-management"
           className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"

@@ -11,9 +11,9 @@ import Register from "../pages/Register/Register";
 import ForgetPassword from "../pages/ForgetPassword/ForgetPassword";
 import DashBoardLayout from "../Layout/DashBoardLayout";
 import PrivateRoute from "./PrivateRoute";
-import Profile from "../pages/Dashboard/Profile/Profile";
-import OverView from "../pages/Dashboard/OverView/OverView";
-import UserManagement from "../pages/Dashboard/UserManagement/UserManagement";
+import Profile from "../Components/Shared/Profile/Profile";
+import OverView from "../pages/Dashboard/AdminDashboard/OverView/OverView";
+import UserManagement from "../pages/Dashboard/AdminDashboard/UserManagement/UserManagement";
 
 const Routes = createBrowserRouter([
   {
