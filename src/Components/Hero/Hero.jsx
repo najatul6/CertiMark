@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-
 const Hero = () => {
   return (
-    <div className="bg-no-repeat w-full h-screen bg-cover" style={{background:'url("../../assets/Screenshot 2024-10-15 204703.png")'}}>
+    <div className="bg-no-repeat w-full h-screen bg-cover" >
       <section className=" h-screen flex items-center justify-center">
         <div className="text-center max-w-3xl px-4">
           <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
