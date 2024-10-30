@@ -28,9 +28,7 @@ const Routes = createBrowserRouter([
       {
         path: "applyCertificate",
         element: (
-          <PrivateRoute>
             <ApplyForCertificate />
-          </PrivateRoute>
         ),
       },
       {
