@@ -59,10 +59,10 @@ const DashBoardLayout = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Mobile Menu Button */}
-        <div className="bg-[#3AAFA9] flex justify-end  p-4 md:hidden">
+        <div className="bg-[#3AAFA9] flex justify-end border border-red-600 p-4 md:hidden">
           <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="focus:outline-none text-red-600"
+            className="focus:outline-none text-red-600 text-xl font-bold"
           >
             {isSidebarOpen ? <CgClose/> : <BiMenu/>}
           </button>
