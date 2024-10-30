@@ -8,10 +8,10 @@ const DashBoardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
-    <div className="min-h-screen bg-[#FEFFFF] flex">
+    <div className="min-h-screen bg-[#FEFFFF] flex relative">
       {/* Sidebar */}
       <aside
-        className={`bg-[#17252A] text-white w-64 space-y-6 py-7 absolute inset-y-0 left-0 transform ${
+        className={`bg-[#17252A] border border-red-600 h-screen text-white w-64 space-y-6 py-7 absolute inset-y-0 left-0 transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 transition duration-200 ease-in-out`}
       >
@@ -67,7 +67,7 @@ const DashBoardLayout = () => {
         </div>
 
         {/* Main content */}
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-2">
           <Outlet />
         </main>
       </div>
