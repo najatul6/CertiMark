@@ -1,7 +1,9 @@
 
 const LetterOfRecommendation = () => {
   return (
-    <div>LetterOfRecommendation</div>
+    <div>
+      LetterOfRecommendation
+    </div>
   )
 }
 

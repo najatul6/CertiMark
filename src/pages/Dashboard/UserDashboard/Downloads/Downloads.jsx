@@ -1,7 +1,10 @@
 
 const Downloads = () => {
   return (
-    <div>Downloads</div>
+    <div>
+      Downloads
+
+    </div>
   )
 }
 
