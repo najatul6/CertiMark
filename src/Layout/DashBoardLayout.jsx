@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaUser, FaSignOutAlt } from "react-icons/fa";
-import AdminSidebar from "../pages/Dashboard/Sidebars/AdminSidebar";
-// import UserSidebar from "../pages/Dashboard/Sidebars/UserSidebar";
+// import AdminSidebar from "../pages/Dashboard/Sidebars/AdminSidebar";
+import UserSidebar from "../pages/Dashboard/Sidebars/UserSidebar";
 
 const DashBoardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -22,8 +22,8 @@ const DashBoardLayout = () => {
           <hr />
         </div>
         <div className="pl-2">
-          <AdminSidebar />
-          {/* <UserSidebar /> */}
+          {/* <AdminSidebar /> */}
+          <UserSidebar />
         </div>
 
         {/* Profile and Logout at the bottom */}

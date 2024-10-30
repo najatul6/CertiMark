@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaFileAlt, FaDownload } from "react-icons/fa";
+import { FaFileAlt, FaDownload, FaHome } from "react-icons/fa";
 
 const UserSidebar = () => {
   return (
@@ -7,6 +7,17 @@ const UserSidebar = () => {
       
 
       <nav className="flex-grow space-y-4">
+        <NavLink
+          to="/dashboard/userOverview"
+          className={({ isActive }) =>
+            `flex items-center p-3  rounded-s-xl text-lg ${
+              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+            }`
+          }
+        >
+          <FaHome className="mr-3" />
+         Overview
+        </NavLink>
         <NavLink
           to="/dashboard/applications"
           className={({ isActive }) =>
