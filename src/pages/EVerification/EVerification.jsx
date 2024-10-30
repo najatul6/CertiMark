@@ -67,7 +67,7 @@ const EVerification = () => {
                 },
               })}
               className={`mt-1 block w-full border ${
-                errors.verificationCode
+                errors?.verificationCode
                   ? "border-[#E76F51]"
                   : "border-[#2B7A78]"
               } rounded-md p-2`}
