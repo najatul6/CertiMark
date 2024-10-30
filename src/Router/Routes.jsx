@@ -84,6 +84,10 @@ const Routes = createBrowserRouter([
 
       // User Dashboard 
       {
+        path: "userOverview",
+        element: <UserOverview />,
+      },
+      {
         path: "applications",
         element: <ApplicationStatus />,
       },
