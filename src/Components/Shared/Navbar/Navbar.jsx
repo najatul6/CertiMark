@@ -24,6 +24,9 @@ const Navbar = () => {
     <>
       <NavLink
         to={"/"}
+        onClick={() => {
+          if (window.innerWidth < 1024) setMobileMenuOpen(false); // Only close on small screens
+        }}
         className={({ isActive }) =>
           isActive
             ? "relative border-b-2 border-lightTeal inline-block text-lightTeal hover:text-white group font-semibold pt-2 pl-1 pr-2"
@@ -35,6 +38,9 @@ const Navbar = () => {
       </NavLink>
       <NavLink
         to={"/applyCertificate"}
+        onClick={() => {
+          if (window.innerWidth < 1024) setMobileMenuOpen(false); // Only close on small screens
+        }}
         className={({ isActive }) =>
           isActive
             ? "relative border-b-2 border-lightTeal inline-block text-lightTeal hover:text-white group font-semibold pt-2 pl-1 pr-2"
@@ -47,6 +53,9 @@ const Navbar = () => {
       
       <NavLink
         to={"/eVerification"}
+        onClick={() => {
+          if (window.innerWidth < 1024) setMobileMenuOpen(false); // Only close on small screens
+        }}
         className={({ isActive }) =>
           isActive
             ? "relative border-b-2 border-lightTeal inline-block text-lightTeal hover:text-white group font-semibold pt-2 pl-1 pr-2"
@@ -58,6 +67,9 @@ const Navbar = () => {
       </NavLink>
       <NavLink
         to={"/contactUs"}
+        onClick={() => {
+          if (window.innerWidth < 1024) setMobileMenuOpen(false); // Only close on small screens
+        }}
         className={({ isActive }) =>
           isActive
             ? "relative border-b-2 border-lightTeal inline-block text-lightTeal hover:text-white group font-semibold pt-2 pl-1 pr-2"
