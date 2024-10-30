@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const Hero = () => {
   return (
-    <div className="bg-no-repeat w-full h-screen bg-cover" >
+    <div className="" >
       <section className=" h-screen flex items-center justify-center">
         <div className="text-center max-w-3xl px-4">
           <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
