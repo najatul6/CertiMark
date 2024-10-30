@@ -7,7 +7,7 @@ import { CgClose } from "react-icons/cg";
 import { BiMenu } from "react-icons/bi";
 
 const DashBoardLayout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#FEFFFF] flex relative">
