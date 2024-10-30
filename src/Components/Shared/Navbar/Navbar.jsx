@@ -25,7 +25,7 @@ const Navbar = () => {
       <NavLink
         to={"/"}
         onClick={() => {
-          if (window.innerWidth < 1024) setMobileMenuOpen(false); // Only close on small screens
+          if (window.innerWidth < 1024) setMobileMenuOpen(false); 
         }}
         className={({ isActive }) =>
           isActive
@@ -39,7 +39,7 @@ const Navbar = () => {
       <NavLink
         to={"/applyCertificate"}
         onClick={() => {
-          if (window.innerWidth < 1024) setMobileMenuOpen(false); // Only close on small screens
+          if (window.innerWidth < 1024) setMobileMenuOpen(false); 
         }}
         className={({ isActive }) =>
           isActive
@@ -54,7 +54,7 @@ const Navbar = () => {
       <NavLink
         to={"/eVerification"}
         onClick={() => {
-          if (window.innerWidth < 1024) setMobileMenuOpen(false); // Only close on small screens
+          if (window.innerWidth < 1024) setMobileMenuOpen(false); 
         }}
         className={({ isActive }) =>
           isActive
@@ -68,7 +68,7 @@ const Navbar = () => {
       <NavLink
         to={"/contactUs"}
         onClick={() => {
-          if (window.innerWidth < 1024) setMobileMenuOpen(false); // Only close on small screens
+          if (window.innerWidth < 1024) setMobileMenuOpen(false); 
         }}
         className={({ isActive }) =>
           isActive
