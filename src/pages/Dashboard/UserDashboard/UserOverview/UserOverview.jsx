@@ -36,7 +36,7 @@ const UserOverview = () => {
 
       <section className="mt-8">
         <h3 className="font-semibold mb-4 text-lg">Recent Activity</h3>
-        <div className="overflow-x-auto bg-white shadow rounded-lg">
+        <div className="overflow-x-auto bg-white  shadow rounded-lg">
           <table className="min-w-full">
             <thead>
               <tr>
