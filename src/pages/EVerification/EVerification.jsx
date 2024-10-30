@@ -100,13 +100,13 @@ const EVerification = () => {
               Verification Successful!
             </h3>
             <p className="text-[#28A745]">
-              Student Name: {verificationResult.name}
+              Student Name: {verificationResult?.name}
             </p>
             <p className="text-[#28A745]">
               Course: {verificationResult.course}
             </p>
             <p className="text-[#28A745]">
-              Completion Date: {verificationResult.date}
+              Completion Date: {verificationResult?.date}
             </p>
           </div>
         )}
