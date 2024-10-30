@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaHome, FaUser, FaCertificate, FaFileAlt, FaSignOutAlt } from 'react-icons/fa';
+import {  FaUser,   FaSignOutAlt } from 'react-icons/fa';
+import AdminSidebar from '../pages/Dashboard/Sidebars/AdminSidebar';
 
 const DashBoardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -13,46 +14,12 @@ const DashBoardLayout = () => {
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } md:relative md:translate-x-0 transition duration-200 ease-in-out`}
       >
-        <h1 className="text-2xl font-bold text-center">Admin Panel</h1>
-        <nav className="mt-10 space-y-2">
-          <NavLink
-            to="dashboard/overview"
-            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
-            activeClassName="bg-gray-700"
-          >
-            <FaHome />
-            <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Overview</span>
-          </NavLink>
-          <NavLink
-            to="dashboard/certificates"
-            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
-            activeClassName="bg-gray-700"
-          >
-            <FaCertificate />
-            <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Certificates</span>
-          </NavLink>
-          <NavLink
-            to="dashboard/marksheet"
-            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
-            activeClassName="bg-gray-700"
-          >
-            <FaFileAlt />
-            <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>Marksheet</span>
-          </NavLink>
-          <NavLink
-            to="dashboard/user-management"
-            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
-            activeClassName="bg-gray-700"
-          >
-            <FaUser />
-            <span style={{ fontFamily: 'Roboto', fontSize: '16px' }}>User Management</span>
-          </NavLink>
-        </nav>
+        <AdminSidebar/>
 
         {/* Profile and Logout at the bottom */}
         <div className="absolute bottom-0 w-full px-2 space-y-2">
           <NavLink
-            to="dashboard/profile"
+            to="/dashboard/profile"
             className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
             activeClassName="bg-gray-700"
           >
@@ -81,8 +48,6 @@ const DashBoardLayout = () => {
 
         {/* Main content */}
         <main className="flex-1 p-6">
-         
-
          <Outlet/>
         </main>
       </div>

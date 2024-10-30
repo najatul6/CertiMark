@@ -52,15 +52,19 @@ const Routes = createBrowserRouter([
     element: <DashBoardLayout />,
     children: [
       {
-        path: "dashboard/overview",
+        path: "overview",
         element: <OverView />,
       },
       {
-        path: "dashboard/user-management",
+        path: "user-management",
         element: <UserManagement />,
       },
       {
-        path: "dashboard/profile",
+        path: "markSheet",
+        element: <UserManagement />,
+      },
+      {
+        path: "profile",
         element: <Profile />,
       },
     ],

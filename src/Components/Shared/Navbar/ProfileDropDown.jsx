@@ -69,7 +69,7 @@ const ProfileDropDown = ({ user }) => {
             
             <div className="border-t-2 border-gray-200 py-1">
               <Link
-                to="/dashboard"
+                to="/dashboard/overview"
                 className="block px-6 py-3 leading-tight hover:bg-gray-200"
               >
                 Dashboard
