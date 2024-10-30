@@ -18,6 +18,7 @@ import OverView from "../pages/Dashboard/AdminDashboard/OverView/OverView";
 import UserManagement from "../pages/Dashboard/AdminDashboard/UserManagement/UserManagement";
 import VerifiedCertificates from "../pages/Dashboard/AdminDashboard/VerifiedCertificates/VerifiedCertificates";
 import PendingApplications from "../pages/Dashboard/AdminDashboard/PendingApplications/PendingApplications";
+import UserOverview from "../pages/Dashboard/UserDashboard/UserOverview/UserOverview";
 
 const Routes = createBrowserRouter([
   {
