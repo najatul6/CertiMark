@@ -11,9 +11,13 @@ import Register from "../pages/Register/Register";
 import ForgetPassword from "../pages/ForgetPassword/ForgetPassword";
 import DashBoardLayout from "../Layout/DashBoardLayout";
 import PrivateRoute from "./PrivateRoute";
+import Downloads from "../pages/Dashboard/UserDashboard/Downloads/Downloads";
 import Profile from "../Components/Shared/Profile/Profile";
+import ApplicationStatus from "../pages/Dashboard/UserDashboard/ApplicationStatus/ApplicationStatus";
 import OverView from "../pages/Dashboard/AdminDashboard/OverView/OverView";
 import UserManagement from "../pages/Dashboard/AdminDashboard/UserManagement/UserManagement";
+import VerifiedCertificates from "../pages/Dashboard/AdminDashboard/VerifiedCertificates/VerifiedCertificates";
+import PendingApplications from "../pages/Dashboard/AdminDashboard/PendingApplications/PendingApplications";
 
 const Routes = createBrowserRouter([
   {
@@ -52,8 +56,22 @@ const Routes = createBrowserRouter([
     element: <DashBoardLayout />,
     children: [
       {
+        path: "profile",
+        element: <Profile />,
+      },
+
+      // Admin Dashboard 
+      {
         path: "overview",
         element: <OverView />,
+      },
+      {
+        path:"pendingApplications",
+        element:<PendingApplications />
+      },
+      {
+        path:"verifiedCertificates",
+        element:<VerifiedCertificates />
       },
       {
         path: "user-management",
@@ -63,10 +81,17 @@ const Routes = createBrowserRouter([
         path: "markSheet",
         element: <UserManagement />,
       },
+
+      // User Dashboard 
       {
-        path: "profile",
-        element: <Profile />,
+        path: "applications",
+        element: <ApplicationStatus />,
       },
+      {
+        path:"downloads",
+        element:<Downloads />,
+      }
+      
     ],
   },
   {

@@ -83,7 +83,7 @@ const Navbar = () => {
           <Link to={"/"} className="w-[120px]">
               <h2 className="text-white text-2xl lg:text-4xl font-bold">Certi<span className="text-lightTeal">Mark</span>.</h2>
           </Link>
-          {/* navlinks for larger device */}
+          {/* Navlinks for larger device */}
           <div className="hidden lg:flex flex-col lg:flex-row items-center gap-10">
             {navLinks}
           </div>

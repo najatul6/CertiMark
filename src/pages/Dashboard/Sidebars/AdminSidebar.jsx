@@ -4,45 +4,56 @@ import { NavLink } from "react-router-dom";
 const AdminSidebar = () => {
   return (
     <>
-      <h1 className="text-2xl font-bold text-center">Admin Panel</h1>
       <nav className="mt-10 space-y-2">
         <NavLink
           to="/dashboard/overview"
-          className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
-          activeClassName="bg-gray-700"
+          className={({ isActive }) =>
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+            }`
+          }
         >
           <FaHome />
-          <span style={{ fontFamily: "Roboto", fontSize: "16px" }}>
+          <span >
             Overview
           </span>
         </NavLink>
         <NavLink
-          to="/dashboard/certificates"
-          className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
-          activeClassName="bg-gray-700"
+          to="/dashboard/verifiedCertificates"
+          className={({ isActive }) =>
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+            }`
+          }
         >
           <FaCertificate />
-          <span style={{ fontFamily: "Roboto", fontSize: "16px" }}>
-            Certificates
+          <span >
+          Verified Certificates
           </span>
         </NavLink>
         <NavLink
-          to="/dashboard/markSheet"
-          className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
-          activeClassName="bg-gray-700"
+          to="/dashboard/pendingApplications"
+          className={({ isActive }) =>
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+            }`
+          }
         >
           <FaFileAlt />
-          <span style={{ fontFamily: "Roboto", fontSize: "16px" }}>
-            Marksheet
+          <span >
+            Pending Applications
           </span>
         </NavLink>
         <NavLink
           to="/dashboard/user-management"
-          className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
-          activeClassName="bg-gray-700"
+          className={({ isActive }) =>
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+            }`
+          }
         >
           <FaUser />
-          <span style={{ fontFamily: "Roboto", fontSize: "16px" }}>
+          <span >
             User Management
           </span>
         </NavLink>
