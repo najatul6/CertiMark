@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import {  FaUser,   FaSignOutAlt } from 'react-icons/fa';
 import AdminSidebar from '../pages/Dashboard/Sidebars/AdminSidebar';
+import UserSidebar from '../pages/Dashboard/Sidebars/UserSidebar';
 
 const DashBoardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -14,10 +15,11 @@ const DashBoardLayout = () => {
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } md:relative md:translate-x-0 transition duration-200 ease-in-out`}
       >
-        <AdminSidebar/>
+        {/* <AdminSidebar/> */}
+        <UserSidebar/>
 
         {/* Profile and Logout at the bottom */}
-        <div className="absolute bottom-0 w-full px-2 space-y-2">
+        <div className="absolute bottom-0 w-full px-2 space-y-2 pb-5">
           <NavLink
             to="/dashboard/profile"
             className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
@@ -28,7 +30,7 @@ const DashBoardLayout = () => {
           </NavLink>
           <NavLink
             to="/logout"
-            className="flex items-center p-2 space-x-3 hover:bg-gray-700 rounded-md"
+            className="flex items-center p-2 space-x-3  rounded-md hover:bg-red-600"
             activeClassName="bg-gray-700"
           >
             <FaSignOutAlt />
