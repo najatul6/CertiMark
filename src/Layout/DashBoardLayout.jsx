@@ -3,6 +3,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import { FaUser, FaSignOutAlt } from "react-icons/fa";
 // import AdminSidebar from "../pages/Dashboard/Sidebars/AdminSidebar";
 import UserSidebar from "../pages/Dashboard/Sidebars/UserSidebar";
+import { CgClose } from "react-icons/cg";
+import { BiMenu } from "react-icons/bi";
 
 const DashBoardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -62,7 +64,7 @@ const DashBoardLayout = () => {
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             className="focus:outline-none text-red-600"
           >
-            {isSidebarOpen ? "Close Menu" : "Open Menu"}
+            {isSidebarOpen ? <CgClose/> : <BiMenu/>}
           </button>
         </div>
 
