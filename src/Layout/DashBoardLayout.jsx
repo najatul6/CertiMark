@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaUser, FaSignOutAlt } from "react-icons/fa";
 // import AdminSidebar from "../pages/Dashboard/Sidebars/AdminSidebar";
 import UserSidebar from "../pages/Dashboard/Sidebars/UserSidebar";
@@ -17,10 +17,10 @@ const DashBoardLayout = () => {
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 transition duration-200 ease-in-out`}
       >
-        <div className="px-2">
-          <h2 className="text-white text-2xl lg:text-4xl font-bold text-center">
+        <div className="px-2 space-y-2">
+          <Link><h2 className="text-white text-2xl lg:text-4xl font-bold text-center">
             Certi<span className="text-lightTeal">Mark</span>.
-          </h2>
+          </h2></Link>
           <hr />
         </div>
         <div className="pl-2">
