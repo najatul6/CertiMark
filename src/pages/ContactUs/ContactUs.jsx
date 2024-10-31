@@ -8,7 +8,7 @@ const ContactUs = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // Implement form submission logic here (e.g., API call)
+    // TODO: Implement form submission logic here (e.g., API call)
     console.log("Contact form submitted:", data);
     alert("Your message has been sent!");
   };
