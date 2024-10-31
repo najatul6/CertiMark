@@ -68,8 +68,7 @@ const ContactUs = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold"
-            style={{ fontFamily: "Montserrat", fontSize: "18px" }}
+            className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg  font-semibold"
           >
             Send Message
           </button>
