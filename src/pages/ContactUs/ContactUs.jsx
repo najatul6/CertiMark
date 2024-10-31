@@ -54,7 +54,7 @@ const ContactUs = () => {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700" style={{ fontFamily: "Roboto", fontSize: "14px" }}>
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700 text-[14px]" >
               Message
             </label>
             <textarea
@@ -68,7 +68,7 @@ const ContactUs = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-montserrat text font-semibold"
+            className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-montserrat text-lg font-semibold"
           >
             Send Message
           </button>
