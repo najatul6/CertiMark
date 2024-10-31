@@ -22,7 +22,7 @@ const ContactUs = () => {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700" style={{ fontFamily: "Roboto", fontSize: "14px" }}>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 text-[14px]" >
               Name
             </label>
             <input
