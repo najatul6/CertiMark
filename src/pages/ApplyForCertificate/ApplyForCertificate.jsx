@@ -18,7 +18,7 @@ const ApplyForCertificate = () => {
       ApplyDate: new Date().toISOString(),
     }
     
-    console.log(data,user.email);
+    console.log(applicantData,user.email);
     reset();
     alert("Your application has been submitted!");
   };
