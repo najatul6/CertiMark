@@ -35,7 +35,7 @@ const ContactUs = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700" style={{ fontFamily: "Roboto", fontSize: "14px" }}>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 text-[14px]">
               Email
             </label>
             <input
