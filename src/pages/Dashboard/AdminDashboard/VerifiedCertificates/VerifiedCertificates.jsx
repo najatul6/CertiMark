@@ -12,6 +12,15 @@ const VerifiedCertificates = () => {
           <th>Apply date</th>
           <th>Approved date</th>
         </thead>
+        <tbody>
+          <td>Najatul islam</td>
+          <td>490862</td>
+          <td>Clarification</td>
+          <td>2024-10-20</td>
+          <td>2024-10-25</td>
+
+
+        </tbody>
       </table>
     </div>
   )
