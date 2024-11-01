@@ -7,6 +7,10 @@ const VerifiedCertificates = () => {
       <table>
         <thead>
           <th>Name</th>
+          <th>Roll</th>
+          <th>Reason</th>
+          <th>Apply date</th>
+          <th>Approved date</th>
         </thead>
       </table>
     </div>
