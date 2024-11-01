@@ -1,7 +1,15 @@
 
 const VerifiedCertificates = () => {
   return (
-    <div>VerifiedCertificates</div>
+    <div>
+      
+      <h1>Verified Certificates</h1>
+      <table>
+        <thead>
+          <th>Name</th>
+        </thead>
+      </table>
+    </div>
   )
 }
 
