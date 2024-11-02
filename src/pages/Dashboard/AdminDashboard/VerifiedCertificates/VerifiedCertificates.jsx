@@ -13,7 +13,7 @@ const VerifiedCertificates = () => {
           <th>Approved date</th>
         </thead>
         <tbody>
-          <td>Najatul islam</td>
+          <td>Md. Najatul islam</td>
           <td>490862</td>
           <td>Clarification</td>
           <td>2024-10-20</td>
