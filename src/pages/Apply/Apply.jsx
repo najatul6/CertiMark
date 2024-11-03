@@ -127,6 +127,7 @@ const Apply = () => {
               </p>
             )}
           </div>
+
           {/* Registration Number Input Section */}
           <div>
             <label
@@ -200,12 +201,13 @@ const Apply = () => {
             )}
           </div>
 
+          {/* Year of Completion Input Section  */}
           <div>
             <label
               htmlFor="yearOfCompletion"
               className="block text-sm font-medium text-gray-700"
             >
-              Year of Completion
+             Session
             </label>
             <input
               type="text"
