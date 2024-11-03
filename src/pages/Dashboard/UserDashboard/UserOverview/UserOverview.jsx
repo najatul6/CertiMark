@@ -2,6 +2,9 @@ import useApplication from "../../../../hooks/useApplication";
 
 const UserOverview = () => {
  const [application]=useApplication()
+//  const [paidApplication,setpaidApplication] = useState()
+ const paidApplication=application?.filter(data=>data.fee==="paid")
+ console.log(paidApplication);
   return (
     <div className="">
       <h2 className="text-2xl font-bold mb-6">My Dashboard Overview</h2>
@@ -38,7 +41,7 @@ const UserOverview = () => {
           >
             Total Paid
           </h3>
-          <p className="text-gray-600">8</p>
+          <p className="text-gray-600">{paidApplication.length}</p>
         </div>
         
         {/* Total Due */}
