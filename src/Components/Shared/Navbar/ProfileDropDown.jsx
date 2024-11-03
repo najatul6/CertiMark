@@ -3,9 +3,24 @@ import { CSSTransition } from "react-transition-group";
 import "./Dropdown.css"; // Create a CSS file for transitions
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import useAuth from "../../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const ProfileDropDown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { logOut } = useAuth();
+  const handleLogOut = async () => {
+    try {
+      // User Registration using google
+      await logOut();
+
+      toast.success("Logged out successfully!");
+    } catch (err) {
+      toast.error(err?.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="relative inline-block">
@@ -54,10 +69,10 @@ const ProfileDropDown = ({ user }) => {
             <div className="flex items-center px-6 py-4">
               <div className="ml-4">
                 <p className="font-semibold text-gray-900 leading-none">
-                  {user?.displayName || "Author" }
+                  {user?.displayName || "Author"}
                 </p>
                 <p>
-                  <Link 
+                  <Link
                     to={""}
                     className="text-sm text-gray-600 leading-none hover:underline"
                   >
@@ -66,7 +81,7 @@ const ProfileDropDown = ({ user }) => {
                 </p>
               </div>
             </div>
-            
+
             <div className="border-t-2 border-gray-200 py-1">
               <Link
                 to="/dashboard/overview"
@@ -78,21 +93,16 @@ const ProfileDropDown = ({ user }) => {
                 href="#"
                 className="block px-6 py-3 leading-tight hover:bg-gray-200"
               >
-                 Application status
+                Application status
               </a>
             </div>
-            <form
-              className="border-t-2 border-gray-200 py-1"
-              action="#"
-              method="POST"
+            <button
+              onClick={handleLogOut}
+              type="button"
+              className="block w-full px-6 py-3 text-left leading-tight hover:bg-gray-200 border-t-2 border-gray-200 rounded-b-xl"
             >
-              <button
-                type="button"
-                className="block w-full px-6 py-3 text-left leading-tight hover:bg-gray-200"
-              >
-                Sign out
-              </button>
-            </form>
+              Sign out
+            </button>
           </div>
         </div>
       </CSSTransition>
@@ -100,8 +110,8 @@ const ProfileDropDown = ({ user }) => {
   );
 };
 
-ProfileDropDown.propTypes={
-    user: PropTypes.object.isRequired, 
-}
+ProfileDropDown.propTypes = {
+  user: PropTypes.object.isRequired,
+};
 
 export default ProfileDropDown;
