@@ -23,7 +23,7 @@ const Apply = () => {
     };
     try{
       setLoading(true);
-      await axiosSecure.post('/applicant', applicantData);
+      await axiosSecure.post('/applicants', applicantData);
       toast.success("Application submitted successfully");
       setLoading(false);
       reset();
@@ -32,6 +32,7 @@ const Apply = () => {
       toast.error(err?.message);
       setLoading(false);
     }
+    console.log(applicantData);
   };
 
   return (
