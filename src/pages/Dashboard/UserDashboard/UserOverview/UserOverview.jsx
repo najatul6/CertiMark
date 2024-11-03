@@ -1,4 +1,21 @@
+import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+
 const UserOverview = () => {
+  const { pendingApplication, setPendingApplication } = useState([]);
+  const axiosSecure = useAxiosSecure();
+  useEffect(() => {
+    axiosSecure
+      .get("/applicants")
+      .then((response) => {
+        setPendingApplication(response.data);
+      })
+      .catch((error) => {
+        toast.error("Failed to fetch pending applications.");
+        console.error(error);
+      });
+  }, [axiosSecure, setPendingApplication]);
   return (
     <div className="">
       <h2 className="text-2xl font-bold mb-6">My Dashboard Overview</h2>
@@ -21,7 +38,7 @@ const UserOverview = () => {
           >
             Verified Certificates
           </h3>
-          <p className="text-gray-600">5</p>
+          <p className="text-gray-600">{pendingApplication?.length}</p>
         </div>
         <div className="bg-white shadow rounded-lg p-4">
           <h3
