@@ -46,7 +46,7 @@ const DashBoardLayout = () => {
           <NavLink
             to="/logout"
             className="flex items-center p-3 space-x-3  rounded-s-xl hover:bg-red-600"
-            activeClassName="bg-gray-700"
+           
           >
             <FaSignOutAlt />
             <span style={{ fontFamily: "Roboto", fontSize: "16px" }}>

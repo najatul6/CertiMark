@@ -3,7 +3,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 
 const UserOverview = () => {
-  const { pendingApplication, setPendingApplication } = useState([]);
+  const [pendingApplication, setPendingApplication] = useState([]);
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
     axiosSecure
@@ -15,7 +15,7 @@ const UserOverview = () => {
         toast.error("Failed to fetch pending applications.");
         console.error(error);
       });
-  }, [axiosSecure, setPendingApplication]);
+  }, [axiosSecure]);
   return (
     <div className="">
       <h2 className="text-2xl font-bold mb-6">My Dashboard Overview</h2>
