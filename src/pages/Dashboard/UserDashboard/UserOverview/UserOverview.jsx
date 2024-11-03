@@ -6,8 +6,9 @@ const UserOverview = () => {
     <div className="">
       <h2 className="text-2xl font-bold mb-6">My Dashboard Overview</h2>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* User-specific overview cards */}
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Pending Applications */}
         <div className="bg-white shadow rounded-lg p-4">
           <h3
             className="font-semibold"
@@ -17,6 +18,8 @@ const UserOverview = () => {
           </h3>
           <p className="text-gray-600">{application?.length}</p>
         </div>
+
+        {/* Verified Certificates */}
         <div className="bg-white shadow rounded-lg p-4">
           <h3
             className="font-semibold"
@@ -26,12 +29,25 @@ const UserOverview = () => {
           </h3>
           <p className="text-gray-600">10</p>
         </div>
+
+        {/* Total Paid */}
         <div className="bg-white shadow rounded-lg p-4">
           <h3
             className="font-semibold"
             style={{ fontFamily: "Roboto", fontSize: "16px" }}
           >
-            Application History
+            Total Paid
+          </h3>
+          <p className="text-gray-600">8</p>
+        </div>
+        
+        {/* Total Due */}
+        <div className="bg-white shadow rounded-lg p-4">
+          <h3
+            className="font-semibold"
+            style={{ fontFamily: "Roboto", fontSize: "16px" }}
+          >
+            Total Due
           </h3>
           <p className="text-gray-600">8</p>
         </div>

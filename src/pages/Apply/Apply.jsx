@@ -25,7 +25,9 @@ const Apply = () => {
       ...data, 
       userEmail: user?.email,
       ApplyDate: new Date().toISOString(),
-      Status:"Pending"
+      Status:"Pending",
+      fee:"Unpaid",
+      feeAmount:"300"
     };
     try{
       setIsLoading(true);
