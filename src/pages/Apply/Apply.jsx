@@ -3,7 +3,7 @@ import { TbFidgetSpinner } from "react-icons/tb";
 import useAuth from "../../hooks/useAuth";
 
 const Apply = () => {
-  const {loading,user}=useAuth()
+  const { loading, user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -12,13 +12,13 @@ const Apply = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const applicantData={
+    const applicantData = {
       data,
-      userEmail:user.email,
+      userEmail: user.email,
       ApplyDate: new Date().toISOString(),
-    }
-    
-    console.log(applicantData,user.email);
+    };
+
+    console.log(applicantData, user.email);
     reset();
     alert("Your application has been submitted!");
   };
@@ -58,7 +58,7 @@ const Apply = () => {
               </p>
             )}
           </div>
-
+          {/* Full Name Input Section */}
           <div>
             <label
               htmlFor="name"
@@ -78,6 +78,7 @@ const Apply = () => {
               <p className="text-[#E76F51] text-sm">{errors.name.message}</p>
             )}
           </div>
+          {/* Father Name Input Section */}
           <div>
             <label
               htmlFor="fatherName"
@@ -88,16 +89,45 @@ const Apply = () => {
             <input
               type="text"
               id="name"
-              {...register("fatherName", { required: "Father Name is required" })}
+              {...register("fatherName", {
+                required: "Father Name is required",
+              })}
               className={`mt-1 block w-full border ${
                 errors.fatherName ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
             {errors.fatherName && (
-              <p className="text-[#E76F51] text-sm">{errors.fatherName.message}</p>
+              <p className="text-[#E76F51] text-sm">
+                {errors.fatherName.message}
+              </p>
             )}
           </div>
 
+          {/* Mother Name Input Section */}
+          <div>
+            <label
+              htmlFor="motherName"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Father Name
+            </label>
+            <input
+              type="text"
+              id="motherName"
+              {...register("motherName", {
+                required: "Mother Name is required",
+              })}
+              className={`mt-1 block w-full border ${
+                errors.motherName ? "border-[#E76F51]" : "border-gray-300"
+              } rounded-md p-2`}
+            />
+            {errors.motherName && (
+              <p className="text-[#E76F51] text-sm">
+                {errors.motherName.message}
+              </p>
+            )}
+          </div>
+          {/* Registration Number Input Section */}
           <div>
             <label
               htmlFor="registrationNo"
@@ -110,14 +140,15 @@ const Apply = () => {
               id="registrationNo"
               {...register("registrationNo", {
                 required: "registration Number is required",
-                
               })}
               className={`mt-1 block w-full border ${
                 errors.registrationNo ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
             {errors.registrationNo && (
-              <p className="text-[#E76F51] text-sm">{errors.registrationNo.message}</p>
+              <p className="text-[#E76F51] text-sm">
+                {errors.registrationNo.message}
+              </p>
             )}
           </div>
 
@@ -183,9 +214,7 @@ const Apply = () => {
                 required: "Year of Completion is required",
               })}
               className={`mt-1 block w-full border ${
-                errors.yearOfCompletion
-                  ? "border-[#E76F51]"
-                  : "border-gray-300"
+                errors.yearOfCompletion ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
             {errors.yearOfCompletion && (
@@ -201,11 +230,10 @@ const Apply = () => {
             style={{ fontFamily: "Montserrat", fontSize: "18px" }}
           >
             {loading ? (
-                <TbFidgetSpinner className="animate-spin m-auto" />
-              ) : (
-                "Apply Now"
-              )}
-            
+              <TbFidgetSpinner className="animate-spin m-auto" />
+            ) : (
+              "Apply Now"
+            )}
           </button>
         </form>
       </div>
