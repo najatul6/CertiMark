@@ -29,7 +29,7 @@ const UserOverview = () => {
           >
             My Pending Applications
           </h3>
-          <p className="text-gray-600">3</p>
+          <p className="text-gray-600">{pendingApplication?.length}</p>
         </div>
         <div className="bg-white shadow rounded-lg p-4">
           <h3
@@ -38,7 +38,7 @@ const UserOverview = () => {
           >
             Verified Certificates
           </h3>
-          <p className="text-gray-600">{pendingApplication?.length}</p>
+          <p className="text-gray-600">10</p>
         </div>
         <div className="bg-white shadow rounded-lg p-4">
           <h3
