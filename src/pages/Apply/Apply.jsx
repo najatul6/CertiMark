@@ -11,7 +11,7 @@ const Apply = () => {
   const { user } = useAuth();
   const [isLoading,setIsLoading]=useState()
   const axiosSecure=useAxiosSecure()
-  const navigate=useNavigate()
+  // const navigate=useNavigate()
   const [,refetch]=useApplication()
   const {
     register,
@@ -33,7 +33,7 @@ const Apply = () => {
       reset();
       toast.success("Application submitted successfully");
       refetch()
-      navigate("/dashboard/applications")
+      // navigate("/dashboard/applications")
     }
     catch(err){
       toast.error(err?.message);
