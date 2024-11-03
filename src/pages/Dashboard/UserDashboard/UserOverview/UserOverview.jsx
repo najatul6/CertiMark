@@ -5,9 +5,9 @@ const UserOverview = () => {
 //  const [paidApplication,setpaidApplication] = useState()
  const paidApplication=application?.filter(data=>data.fee==="paid")
  const unPaidApplication=application?.filter(data=>data.fee==="unPaid")
- const totalPaid=paidApplication
- const totalUnPaid=
- console.log(paidApplication);
+ const totalPaid=paidApplication.reduce((total,item)=>total+item.feeAmount,0)
+ const totalUnPaid=unPaidApplication.reduce((total,item)=>total+item.feeAmount,0)
+ console.log(totalPaid,totalUnPaid);
   return (
     <div className="">
       <h2 className="text-2xl font-bold mb-6">My Dashboard Overview</h2>
@@ -44,7 +44,7 @@ const UserOverview = () => {
           >
             Total Paid
           </h3>
-          <p className="text-gray-600">{paidApplication.length}</p>
+          <p className="text-gray-600">{totalPaid}</p>
         </div>
         
         {/* Total Due */}
@@ -55,7 +55,7 @@ const UserOverview = () => {
           >
             Total Due
           </h3>
-          <p className="text-gray-600">8</p>
+          <p className="text-gray-600">{totalUnPaid}</p>
         </div>
       </section>
 
