@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import ErrorPage from "../Components/Shared/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
-import ApplyForCertificate from "../pages/ApplyForCertificate/ApplyForCertificate";
 import LetterOfRecommendation from "../pages/LetterOfRecommendation/LetterOfRecommendation";
 import EVerification from "../pages/EVerification/EVerification";
 import ContactUs from "../pages/ContactUs/ContactUs";
@@ -19,6 +18,7 @@ import VerifiedCertificates from "../pages/Dashboard/AdminDashboard/VerifiedCert
 import PendingApplications from "../pages/Dashboard/AdminDashboard/PendingApplications/PendingApplications";
 import UserOverview from "../pages/Dashboard/UserDashboard/UserOverview/UserOverview";
 import OverView from "../pages/Dashboard/OverView/OverView";
+import Apply from "../pages/ApplyForCertificate/ApplyForCertificate";
 
 const Routes = createBrowserRouter([
   {
@@ -31,10 +31,10 @@ const Routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "applyCertificate",
+        path: "apply",
         element: (
           <PrivateRoute>
-            <ApplyForCertificate />
+            <Apply />
           </PrivateRoute>
         ),
       },

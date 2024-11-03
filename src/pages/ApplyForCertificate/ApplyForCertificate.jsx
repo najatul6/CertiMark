@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { TbFidgetSpinner } from "react-icons/tb";
 import useAuth from "../../hooks/useAuth";
 
-const ApplyForCertificate = () => {
+const Apply = () => {
   const {loading,user}=useAuth()
   const {
     register,
@@ -194,4 +194,4 @@ const ApplyForCertificate = () => {
   );
 };
 
-export default ApplyForCertificate;
+export default Apply;
