@@ -3,10 +3,14 @@ import { TbFidgetSpinner } from "react-icons/tb";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const Apply = () => {
-  const { loading,setLoading, user } = useAuth();
+  const { user } = useAuth();
+  const [isLoading,setIsLoading]=useState()
   const axiosSecure=useAxiosSecure()
+  const navigate=useNavigate()
   const {
     register,
     handleSubmit,
@@ -17,22 +21,23 @@ const Apply = () => {
   const onSubmit = async(data) => {
     const applicantData = {
       ...data, 
-      userEmail: user.email,
+      userEmail: user?.email,
       ApplyDate: new Date().toISOString(),
       Status:"Pending"
     };
     try{
-      setLoading(true);
+      setIsLoading(true);
       await axiosSecure.post('/applicants', applicantData);
       toast.success("Application submitted successfully");
-      setLoading(false);
       reset();
+      navigate("/dashboard/applications")
     }
     catch(err){
       toast.error(err?.message);
-      setLoading(false);
+      
+    }finally {
+      setIsLoading(false);
     }
-    console.log(applicantData);
   };
 
   return (
@@ -243,7 +248,7 @@ const Apply = () => {
             className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold"
             style={{ fontFamily: "Montserrat", fontSize: "18px" }}
           >
-            {loading ? (
+            {isLoading ? (
               <TbFidgetSpinner className="animate-spin m-auto" />
             ) : (
               "Apply Now"
