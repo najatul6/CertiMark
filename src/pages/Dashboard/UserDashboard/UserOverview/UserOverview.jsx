@@ -4,6 +4,9 @@ const UserOverview = () => {
  const [application]=useApplication()
 //  const [paidApplication,setpaidApplication] = useState()
  const paidApplication=application?.filter(data=>data.fee==="paid")
+ const unPaidApplication=application?.filter(data=>data.fee==="unPaid")
+ const totalPaid=paidApplication
+ const totalUnPaid=
  console.log(paidApplication);
   return (
     <div className="">
