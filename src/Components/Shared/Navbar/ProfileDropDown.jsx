@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import "./Dropdown.css"; // Create a CSS file for transitions
 import { Link } from "react-router-dom";
@@ -9,10 +9,11 @@ import Loading from "../Loading/Loading";
 
 const ProfileDropDown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { logOut,loading,setLoading } = useAuth();
+  const { logOut, loading, setLoading } = useAuth();
+  const dropdownRef = useRef(null); // Create a ref for the dropdown
+
   const handleLogOut = async () => {
     try {
-      // User Registration using google
       await logOut();
       toast.success("Logged out successfully!");
     } catch (err) {
@@ -21,8 +22,9 @@ const ProfileDropDown = ({ user }) => {
       setLoading(false);
     }
   };
-  if(loading ){
-    return <Loading/>
+
+  if (loading) {
+    return <Loading />;
   }
 
   return (
@@ -66,8 +68,9 @@ const ProfileDropDown = ({ user }) => {
         timeout={150}
         classNames="dropdown"
         unmountOnExit
+        nodeRef={dropdownRef} // Use nodeRef to avoid findDOMNode
       >
-        <div className="mt-2 absolute right-0 origin-top-right text-left">
+        <div ref={dropdownRef} className="mt-2 absolute right-0 origin-top-right text-left">
           <div className="w-64 bg-white rounded-lg shadow-lg">
             <div className="flex items-center px-6 py-4">
               <div className="ml-4">
