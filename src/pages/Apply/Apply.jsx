@@ -109,7 +109,7 @@ const Apply = () => {
               htmlFor="motherName"
               className="block text-sm font-medium text-gray-700"
             >
-              Father Name
+              Mother Name
             </label>
             <input
               type="text"
