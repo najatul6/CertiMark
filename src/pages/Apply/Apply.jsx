@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import { TbFidgetSpinner } from "react-icons/tb";
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const Apply = () => {
-  const { loading, user } = useAuth();
+  const { loading,setLoading, user } = useAuth();
+  const axiosSecure=useAxiosSecure()
   const {
     register,
     handleSubmit,
@@ -11,16 +14,24 @@ const Apply = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async(data) => {
+
     const applicantData = {
       data,
       userEmail: user.email,
       ApplyDate: new Date().toISOString(),
     };
-
-    console.log(applicantData, user.email);
-    reset();
-    alert("Your application has been submitted!");
+    try{
+      setLoading(true);
+      await axiosSecure.post('/applicant', applicantData);
+      toast.success("Application submitted successfully");
+      reset();
+      setLoading(false);
+    }
+    catch(err){
+      toast.error(err?.message);
+      setLoading(false);
+    }
   };
 
   return (
