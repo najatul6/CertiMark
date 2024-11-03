@@ -12,7 +12,7 @@ const Hero = () => {
             platform.
           </p>
           <div className="flex flex-col lg:flex-row gap-4 justify-center">
-            <Link to="/applyCertificate">
+            <Link to="/apply">
               <button className="bg-lightTeal hover:bg-white text-white hover:text-lightTeal transition duration-300 px-6 py-3 rounded-lg text-lg font-semibold">
                 Apply Now
               </button>

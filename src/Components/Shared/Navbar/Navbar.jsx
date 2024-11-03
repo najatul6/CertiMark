@@ -3,13 +3,11 @@ import Hamburger from "hamburger-react";
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import ProfileDropDown from "./ProfileDropDown";
-import useApplication from "../../../hooks/useApplication";
 const Navbar = () => {
   const {user}=useAuth()
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
   const [prevPosition, setPrevPosition] = useState(0);
-  const [application]=useApplication()
   const onScroll = () => {
     const currentPosition = window.scrollY;
     setIsScroll(currentPosition > 80);
@@ -78,7 +76,7 @@ const Navbar = () => {
             : "relative border-b-2 border-transparent inline-block text-white hover:text-white group font-semibold pt-2 pl-1 pr-2"
         }
       >
-       Contact Us - {application.length}
+       Contact Us
         <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-lightTeal transition-transform origin-left transform scale-x-0 group-hover:scale-x-100 duration-200 w-full"></span>
       </NavLink>
     </>
