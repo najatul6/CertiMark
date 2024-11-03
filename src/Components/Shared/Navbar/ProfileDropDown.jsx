@@ -8,12 +8,11 @@ import toast from "react-hot-toast";
 
 const ProfileDropDown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { logOut } = useAuth();
+  const { logOut,loading,setLoading } = useAuth();
   const handleLogOut = async () => {
     try {
       // User Registration using google
       await logOut();
-
       toast.success("Logged out successfully!");
     } catch (err) {
       toast.error(err?.message);
