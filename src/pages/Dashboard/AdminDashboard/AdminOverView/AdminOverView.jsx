@@ -1,21 +1,7 @@
-import { useEffect, useState } from "react";
-import useAxiosSecure from "../../../../hooks/useAxiosSecure";
-import toast from "react-hot-toast";
+import useApplication from "../../../../hooks/useApplication";
 
 const AdminOverView = () => {
-  const [pendingApplication, setPendingApplication] = useState([]);
-  const axiosSecure = useAxiosSecure();
-  useEffect(() => {
-    axiosSecure
-      .get("/applicants")
-      .then((response) => {
-        setPendingApplication(response.data);
-      })
-      .catch((error) => {
-        toast.error("Failed to fetch pending applications.");
-        console.error(error);
-      });
-  }, [axiosSecure]);
+  const [application]=useApplication()
   return (
     <div>
       <h2 className="font-bold">Dashboard Overview</h2>
@@ -29,7 +15,7 @@ const AdminOverView = () => {
           >
             Pending Applications
           </h3>
-          <p className="text-gray-600">{pendingApplication?.length}</p>
+          <p className="text-gray-600">{application?.length}</p>
         </div>
         <div className="bg-white shadow rounded-lg p-4">
           <h3
