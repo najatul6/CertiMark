@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import useAuth from "../../../hooks/useAuth";
 import toast from "react-hot-toast";
+import Loading from "../Loading/Loading";
 
 const ProfileDropDown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,9 @@ const ProfileDropDown = ({ user }) => {
       setLoading(false);
     }
   };
+  if(loading ){
+    return <Loading/>
+  }
 
   return (
     <div className="relative inline-block">
