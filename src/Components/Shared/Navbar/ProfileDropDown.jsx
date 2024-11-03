@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import "./Dropdown.css"; // Create a CSS file for transitions
+import "./Dropdown.css"; 
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import useAuth from "../../../hooks/useAuth";
@@ -10,7 +10,7 @@ import Loading from "../Loading/Loading";
 const ProfileDropDown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { logOut, loading, setLoading } = useAuth();
-  const dropdownRef = useRef(null); // Create a ref for the dropdown
+  const dropdownRef = useRef(null); 
 
   const handleLogOut = async () => {
     try {
@@ -68,7 +68,7 @@ const ProfileDropDown = ({ user }) => {
         timeout={150}
         classNames="dropdown"
         unmountOnExit
-        nodeRef={dropdownRef} // Use nodeRef to avoid findDOMNode
+        nodeRef={dropdownRef} 
       >
         <div ref={dropdownRef} className="mt-2 absolute right-0 origin-top-right text-left">
           <div className="w-64 bg-white rounded-lg shadow-lg">
@@ -79,7 +79,7 @@ const ProfileDropDown = ({ user }) => {
                 </p>
                 <p>
                   <Link
-                    to={""}
+                    to={"/dashboard/profile"}
                     className="text-sm text-gray-600 leading-none hover:underline"
                   >
                     View Profile
@@ -95,12 +95,12 @@ const ProfileDropDown = ({ user }) => {
               >
                 Dashboard
               </Link>
-              <a
-                href="#"
+              <Link
+                to="/dashboard/applications"
                 className="block px-6 py-3 leading-tight hover:bg-gray-200"
               >
                 Application status
-              </a>
+              </Link>
             </div>
             <button
               onClick={handleLogOut}
