@@ -5,12 +5,14 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import useApplication from "../../hooks/useApplication";
 
 const Apply = () => {
   const { user } = useAuth();
   const [isLoading,setIsLoading]=useState()
   const axiosSecure=useAxiosSecure()
   const navigate=useNavigate()
+  const [,refetch]=useApplication()
   const {
     register,
     handleSubmit,
@@ -30,6 +32,7 @@ const Apply = () => {
       await axiosSecure.post('/applicants', applicantData);
       reset();
       toast.success("Application submitted successfully");
+      refetch()
       navigate("/dashboard/applications")
     }
     catch(err){
