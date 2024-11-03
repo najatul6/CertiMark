@@ -28,8 +28,8 @@ const Apply = () => {
     try{
       setIsLoading(true);
       await axiosSecure.post('/applicants', applicantData);
-      toast.success("Application submitted successfully");
       reset();
+      toast.success("Application submitted successfully");
       navigate("/dashboard/applications")
     }
     catch(err){
