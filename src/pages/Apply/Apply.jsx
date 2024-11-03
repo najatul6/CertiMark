@@ -25,8 +25,8 @@ const Apply = () => {
       setLoading(true);
       await axiosSecure.post('/applicant', applicantData);
       toast.success("Application submitted successfully");
-      reset();
       setLoading(false);
+      reset();
     }
     catch(err){
       toast.error(err?.message);
