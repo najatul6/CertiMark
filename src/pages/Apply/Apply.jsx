@@ -78,6 +78,25 @@ const Apply = () => {
               <p className="text-[#E76F51] text-sm">{errors.name.message}</p>
             )}
           </div>
+          <div>
+            <label
+              htmlFor="fatherName"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Father Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              {...register("fatherName", { required: "Father Name is required" })}
+              className={`mt-1 block w-full border ${
+                errors.fatherName ? "border-[#E76F51]" : "border-gray-300"
+              } rounded-md p-2`}
+            />
+            {errors.fatherName && (
+              <p className="text-[#E76F51] text-sm">{errors.fatherName.message}</p>
+            )}
+          </div>
 
           <div>
             <label
