@@ -15,9 +15,8 @@ const Apply = () => {
   } = useForm();
 
   const onSubmit = async(data) => {
-
     const applicantData = {
-      data,
+      ...data.data, 
       userEmail: user.email,
       ApplyDate: new Date().toISOString(),
     };
