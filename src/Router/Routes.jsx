@@ -14,11 +14,11 @@ import PrivateRoute from "./PrivateRoute";
 import Downloads from "../pages/Dashboard/UserDashboard/Downloads/Downloads";
 import Profile from "../Components/Shared/Profile/Profile";
 import ApplicationStatus from "../pages/Dashboard/UserDashboard/ApplicationStatus/ApplicationStatus";
-import OverView from "../pages/Dashboard/AdminDashboard/OverView/OverView";
 import UserManagement from "../pages/Dashboard/AdminDashboard/UserManagement/UserManagement";
 import VerifiedCertificates from "../pages/Dashboard/AdminDashboard/VerifiedCertificates/VerifiedCertificates";
 import PendingApplications from "../pages/Dashboard/AdminDashboard/PendingApplications/PendingApplications";
 import UserOverview from "../pages/Dashboard/UserDashboard/UserOverview/UserOverview";
+import OverView from "../pages/Dashboard/OverView/OverView";
 
 const Routes = createBrowserRouter([
   {
@@ -60,12 +60,13 @@ const Routes = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
-
-      // Admin Dashboard 
       {
         path: "overview",
         element: <OverView />,
       },
+
+      // Admin Dashboard 
+      
       {
         path:"pendingApplications",
         element:<PendingApplications />

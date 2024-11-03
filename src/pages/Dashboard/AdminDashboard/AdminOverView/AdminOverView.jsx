@@ -1,4 +1,4 @@
-const OverView = () => {
+const AdminOverView = () => {
   return (
     <div>
       <h2 className="font-bold">Dashboard Overview</h2>
@@ -63,4 +63,4 @@ const OverView = () => {
   );
 };
 
-export default OverView;
+export default AdminOverView;
