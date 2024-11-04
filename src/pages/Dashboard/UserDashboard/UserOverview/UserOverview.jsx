@@ -5,9 +5,17 @@ const UserOverview = () => {
 //  const [paidApplication,setpaidApplication] = useState()
  const paidApplication=application?.filter(data=>data.fee==="paid")
  const unPaidApplication=application?.filter(data=>data.fee==="unPaid")
- const totalPaid=paidApplication.reduce((total,item)=>total+item.feeAmount,0)
- const totalUnPaid=unPaidApplication.reduce((total,item)=>total+item.feeAmount,0)
- console.log(totalPaid,totalUnPaid);
+ const verifiedApplication=application?.filter(data=>data.Status==="approved")
+ const totalPaid=paidApplication.reduce((total,item)=>total+parseFloat(item.feeAmount),0)
+ const totalUnPaid=unPaidApplication.reduce((total,item)=>total+parseFloat(item.feeAmount),0)
+ 
+  // Function to format date to AM/PM
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
+    const date = new Date(dateString);
+    return date.toLocaleString('en-US', options);
+  };
+
   return (
     <div className="">
       <h2 className="text-2xl font-bold mb-6">My Dashboard Overview</h2>
@@ -33,7 +41,7 @@ const UserOverview = () => {
           >
             Verified Certificates
           </h3>
-          <p className="text-gray-600">10</p>
+          <p className="text-gray-600">{verifiedApplication?.length}</p>
         </div>
 
         {/* Total Paid */}
@@ -44,7 +52,7 @@ const UserOverview = () => {
           >
             Total Paid
           </h3>
-          <p className="text-gray-600">{totalPaid}</p>
+          <p className="text-gray-600">&#x9F3; {totalPaid}</p>
         </div>
         
         {/* Total Due */}
@@ -55,7 +63,7 @@ const UserOverview = () => {
           >
             Total Due
           </h3>
-          <p className="text-gray-600">{totalUnPaid}</p>
+          <p className="text-gray-600">&#x9F3; {totalUnPaid}</p>
         </div>
       </section>
 
@@ -66,27 +74,35 @@ const UserOverview = () => {
             <thead>
               <tr>
                 <th className="text-left p-4 bg-lightTeal text-white font-semibold">
+                Certificate Type
+                </th>
+                <th className="text-left p-4 bg-lightTeal text-white font-semibold">
                   Application
                 </th>
                 <th className="text-left p-4 bg-lightTeal text-white font-semibold">
                   Status
                 </th>
                 <th className="text-left p-4 bg-lightTeal text-white font-semibold">
-                  Date
+                 Application Date
+                </th>
+                <th className="text-left p-4 bg-lightTeal text-white font-semibold">
+                 Publish Date
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="p-4">Completion Certificate</td>
-                <td className="p-4">Approved</td>
-                <td className="p-4">2024-10-20</td>
-              </tr>
-              <tr>
-                <td className="p-4">Transcript Request</td>
-                <td className="p-4">Pending</td>
-                <td className="p-4">2024-10-18</td>
-              </tr>
+              {
+                application?.map((app) => (
+                  <tr key={app?._id}>
+                    <td className="p-4">{app?.certificateType}</td>
+                    <td className="p-4">{app?.name}</td>
+                    <td className="p-4">{app?.Status}</td>
+                    <td className="p-4">{formatDate(app?.ApplyDate)}</td>
+                    <td className="p-4">{formatDate(app?.publishDate)}</td>
+                  </tr>
+                ))
+              }
+              
             </tbody>
           </table>
         </div>
