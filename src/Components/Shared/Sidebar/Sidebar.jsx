@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import UserSidebar from "../../../pages/Dashboard/Sidebars/UserSidebar";
 import { useRef } from "react";
+import PropTypes from "prop-types";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const sidebar = useRef(null);
@@ -47,6 +48,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       <UserSidebar />
     </div>
   );
+};
+
+Sidebar.propTypes = {
+  sidebarOpen: PropTypes.bool.isRequired,
+  setSidebarOpen: PropTypes.func.isRequired,
 };
 
 export default Sidebar;
