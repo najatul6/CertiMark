@@ -95,7 +95,7 @@ const Register = () => {
           <div className="space-y-4">
             <div>
               <label htmlFor="image" className="block mb-2 text-sm">
-                Profile Picture:
+                Profile Picture
               </label>
               <input
                 type="file"
