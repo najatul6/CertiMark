@@ -5,7 +5,7 @@ import { CiCircleRemove } from "react-icons/ci";
 import Loading from "../../../../Components/Shared/Loading/Loading";
 
 const ApplicationStatus = () => {
-  const [application, ,isLoading] = useApplication();
+  const [application, , isLoading] = useApplication();
   console.log(application);
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
@@ -20,8 +20,8 @@ const ApplicationStatus = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
-  if(isLoading){
-    return <Loading />
+  if (isLoading) {
+    return <Loading />;
   }
   return (
     <div className=" bg-[#FEFFFF] md:p-6 flex flex-col items-center">
@@ -39,24 +39,47 @@ const ApplicationStatus = () => {
                 <th className="border-b py-2 px-2 text-sm  text-center md:text-left md:text-lg whitespace-nowrap text-wrap">
                   Submission Date
                 </th>
-                <th className="border-b py-2 px-2 text-sm  text-center md:text-left md:text-lg whitespace-nowrap text-wrap">Status</th>
+                <th className="border-b py-2 px-2 text-sm  text-center md:text-left md:text-lg whitespace-nowrap text-wrap">
+                  Status
+                </th>
               </tr>
             </thead>
             <tbody>
               {application.map((app, index) => (
-                  <tr key={index} className="hover:bg-gray-100 text-xs md:text-base">
-                    <td className="border-b py-2 capitalize">{app?.certificateType}</td>
-                    <td className="border-b py-2 capitalize">{formatDate(app?.ApplyDate)}</td>
-                    <td className="border-b py-2 capitalize text-center md:text-left ">
-                      <span
-                        className={`px-2 py-1 rounded-full text-sm`}
-                      >
-
-                        {app.Status==='Pending'? <MdOutlinePendingActions className="text-yellow-600"/> : app.Status==="Approved"?<FcApproval className="bg-green-700"/>:<CiCircleRemove className="text-red-600"/>}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
+                <tr
+                  key={index}
+                  className="hover:bg-gray-100 text-xs md:text-base"
+                >
+                  <td className="border-b py-2 capitalize">
+                    {app?.certificateType}
+                  </td>
+                  <td className="border-b py-2 capitalize">
+                    {formatDate(app?.ApplyDate)}
+                  </td>
+                  <td className="border-b py-2 capitalize text-center md:text-left ">
+                    <span
+                      className={`px-2 py-1 rounded-full text-sm flex items-center`}
+                    >
+                      {app.Status === "Pending" ? (
+                        <>
+                          <MdOutlinePendingActions className="text-yellow-600 text-2xl mr-1" />
+                          <span className="text-yellow-600">Pending</span>
+                        </>
+                      ) : app.Status === "Approved" ? (
+                        <>
+                          <FcApproval className="bg-green-700 text-2xl mr-1" />
+                          <span className="text-green-700">Approved</span>
+                        </>
+                      ) : (
+                        <>
+                          <CiCircleRemove className="text-red-600 text-2xl mr-1" />
+                          <span className="text-red-600">Rejected</span>
+                        </>
+                      )}
+                    </span>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
