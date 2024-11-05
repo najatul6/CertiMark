@@ -7,7 +7,7 @@ const DropdownNotification = () => {
 
   return (
     <div className="relative">
-      <button onClick={() => setDropdownOpen(!dropdownOpen)}>
+      <button onClick={() => setDropdownOpen(!dropdownOpen)} >
         {dropdownOpen ? <IoIosNotificationsOff /> : <IoIosNotifications />}
       </button>
       {dropdownOpen && (
