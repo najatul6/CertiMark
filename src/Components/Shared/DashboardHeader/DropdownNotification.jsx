@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const DropdownNotification = () => {
@@ -7,7 +8,7 @@ const DropdownNotification = () => {
   return (
     <div className="relative">
       <button onClick={() => setDropdownOpen(!dropdownOpen)}>
-        {dropdownOpen ? "close" : "open"}
+        {dropdownOpen ? <IoIosNotificationsOff /> : <IoIosNotifications />}
       </button>
       {dropdownOpen && (
         <div className="absolute right-0 mt-2.5 w-80 flex flex-col  rounded-xl border-stroke bg-darkGreen shadow-default border">
