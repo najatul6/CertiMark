@@ -66,7 +66,7 @@ const EVerification = () => {
                   message: "Verification code must be at least 5 characters",
                 },
               })}
-              className={`mt-1 block w-full border ${
+              className={`mt-1 block w-full border bg-transparent focus:outline-none ${
                 errors?.verificationCode
                   ? "border-[#E76F51]"
                   : "border-[#2B7A78]"
