@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import UserSidebar from "../../../pages/Dashboard/Sidebars/UserSidebar";
 import { useRef } from "react";
 import PropTypes from "prop-types";
@@ -9,12 +9,14 @@ import toast from "react-hot-toast";
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const sidebar = useRef(null);
   const { logOut } = useAuth();
+  const navigate = useNavigate();
   const handleLogOut = async () => {
     // Show processing toast
     const loadingToast = toast.loading("Processing...");
 
     try {
       await logOut();
+      navigate("/")
       // Update toast to success message
       toast.success("You have successfully logged out.", {
         id: loadingToast,
