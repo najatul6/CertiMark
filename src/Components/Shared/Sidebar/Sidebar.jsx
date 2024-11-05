@@ -10,13 +10,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const sidebar = useRef(null);
   const { logOut } = useAuth();
   const navigate = useNavigate();
+  const isAdmin = true;
   const handleLogOut = async () => {
     // Show processing toast
     const loadingToast = toast.loading("Processing...");
 
     try {
       await logOut();
-      navigate("/")
+      navigate("/");
       // Update toast to success message
       toast.success("You have successfully logged out.", {
         id: loadingToast,
@@ -79,9 +80,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           }
         >
           <FaUser />
-          <span style={{ fontFamily: "Roboto", fontSize: "16px" }}>
-            Profile
-          </span>
+          <span>Profile</span>
         </NavLink>
         <NavLink
           onClick={handleLogOut}
