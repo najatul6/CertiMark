@@ -65,11 +65,11 @@ const Apply = () => {
               {...register("certificateType", {
                 required: "Certificate type is required",
               })}
-              className={`mt-1 block w-full border ${
+              className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen ${
                 errors.certificateType ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             >
-              <option value="">Select Certificate Type</option>
+              <option selected disabled>Select Certificate Type</option>
               <option value="completion">Completion Certificate</option>
               <option value="transcript">Transcript</option>
               <option value="diploma">Diploma</option>
@@ -92,7 +92,7 @@ const Apply = () => {
               type="text"
               id="name"
               {...register("name", { required: "Name is required" })}
-              className={`mt-1 block w-full border ${
+              className={`mt-1 block w-full border bg-transparent text-darkGreen ${
                 errors.name ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
@@ -114,7 +114,7 @@ const Apply = () => {
               {...register("fatherName", {
                 required: "Father Name is required",
               })}
-              className={`mt-1 block w-full border ${
+              className={`mt-1 block w-full border bg-transparent text-darkGreen ${
                 errors.fatherName ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
@@ -139,7 +139,7 @@ const Apply = () => {
               {...register("motherName", {
                 required: "Mother Name is required",
               })}
-              className={`mt-1 block w-full border ${
+              className={`mt-1 block w-full border bg-transparent text-darkGreen ${
                 errors.motherName ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
@@ -164,7 +164,7 @@ const Apply = () => {
               {...register("registrationNo", {
                 required: "registration Number is required",
               })}
-              className={`mt-1 block w-full border ${
+              className={`mt-1 block w-full border bg-transparent text-darkGreen ${
                 errors.registrationNo ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
@@ -188,7 +188,7 @@ const Apply = () => {
               {...register("studentId", {
                 required: "Student ID is required",
               })}
-              className={`mt-1 block w-full border ${
+              className={`mt-1 block w-full border bg-transparent text-darkGreen ${
                 errors.studentId ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
@@ -212,7 +212,7 @@ const Apply = () => {
               {...register("technology", {
                 required: "Technology is required",
               })}
-              className={`mt-1 block w-full border ${
+              className={`mt-1 block w-full border bg-transparent text-darkGreen ${
                 errors.technology ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
@@ -237,7 +237,7 @@ const Apply = () => {
               {...register("yearOfCompletion", {
                 required: "Year of Completion is required",
               })}
-              className={`mt-1 block w-full border ${
+              className={`mt-1 block w-full border bg-transparent text-darkGreen ${
                 errors.yearOfCompletion ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             />
