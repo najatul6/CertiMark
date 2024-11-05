@@ -1,3 +1,4 @@
+import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import useApplication from "../../../../hooks/useApplication";
 
 const UserOverview = () => {
@@ -23,7 +24,7 @@ const UserOverview = () => {
 
   return (
     <div className="">
-      <h2 className="text-2xl font-bold mb-6 text-center py-5 text-darkGreen">My Dashboard Overview</h2>
+      <DashboardTitle title={"My Dashboard Overview"}/>
 
       {/* User-specific overview cards */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6">

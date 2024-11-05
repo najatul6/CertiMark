@@ -1,9 +1,9 @@
+import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle"
 
 const VerifiedCertificates = () => {
   return (
     <div>
-      
-      <h1>Verified Certificates</h1>
+      <DashboardTitle title={"Verified Certificates"}/>
       <table>
         <thead>
           <th>Name</th>

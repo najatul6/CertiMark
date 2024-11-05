@@ -1,8 +1,11 @@
+import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 
 const UserManagement = () => {
   return (
-    <div>UserManagement</div>
-  )
-}
+    <div>
+      <DashboardTitle title={"User Management"}/>
+    </div>
+  );
+};
 
-export default UserManagement
+export default UserManagement;

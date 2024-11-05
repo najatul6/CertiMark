@@ -3,6 +3,7 @@ import useApplication from "../../../../hooks/useApplication";
 import { FcApproval } from "react-icons/fc";
 import { CiCircleRemove } from "react-icons/ci";
 import Loading from "../../../../Components/Shared/Loading/Loading";
+import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 
 const ApplicationStatus = () => {
   const [application, , isLoading] = useApplication();
@@ -25,9 +26,7 @@ const ApplicationStatus = () => {
   }
   return (
     <div className=" bg-[#FEFFFF] md:p-6 flex flex-col items-center">
-      <h2 className="text-2xl font-semibold text-darkGreen mb-4 text-center md:text-left">
-        Application Status
-      </h2>
+      <DashboardTitle title={"Application Status"}/>
       <div className="md:p-6 shadow-lg rounded-lg w-full">
         <div className="">
           <table className="w-full text-left border-collapse capitalize text-darkGreen">

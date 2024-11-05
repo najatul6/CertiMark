@@ -1,10 +1,11 @@
+import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import useApplication from "../../../../hooks/useApplication";
 
 const AdminOverView = () => {
   const [application]=useApplication()
   return (
     <div>
-      <h2 className="font-bold">Dashboard Overview</h2>
+      <DashboardTitle title={"Dashboard Overview"}/>
 
       <section className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Cards for overview section */}

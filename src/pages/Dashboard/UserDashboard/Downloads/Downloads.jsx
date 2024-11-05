@@ -1,8 +1,10 @@
-
+import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle"
+import imgae from '../../../../assets/Certificate-of-Diploma-in-Engineering-1-2048.webp'
 const Downloads = () => {
   return (
     <div>
-      <img src="../../../../assets/Screenshot 2024-10-15 204703.png" alt="Transcript Certificate" />
+      <DashboardTitle title={"Downloads"}/>
+      <img src={imgae} alt="Transcript Certificate" className="w-full h-auto" />
     </div>
   )
 }

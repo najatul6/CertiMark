@@ -1,8 +1,12 @@
+import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 
 const PendingApplications = () => {
   return (
-    <div>PendingApplications</div>
-  )
-}
+    <div>
+      <DashboardTitle title={"Pending Applications"} />
+      PendingApplications
+    </div>
+  );
+};
 
-export default PendingApplications
+export default PendingApplications;
