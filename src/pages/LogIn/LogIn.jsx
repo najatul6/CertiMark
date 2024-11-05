@@ -41,47 +41,43 @@ const LogIn = () => {
     }
   };
 
-  // Handle Google
+// Handle Google Login
+const handleGoogle = () => {
+  // Display a processing toast for login
+  const loadingToastId = toast.loading("Logging In with Google...");
 
-  const handleGoogle = async () => {
-    setLoading(true);
-    const loadingToastId = toast.loading("Signing In with Google...");
-    try {
-      // User Registration using Google
-      const result = await signInWithGoogle();
-      const loggedUser = result.user;
+  signInWithGoogle()
+    .then(result => {
+      const userInfo = {
+        name: result?.user?.displayName,
+        email: result?.user?.email,
+        image: result?.user?.photoURL,
+      };
 
-      // Check if user exists in the database
-      const res = await axiosPublic.get(`/users/${loggedUser.email}`);
-
-      if (res.data.exists) {
-        // User exists in the database, navigate to home page
-        toast.success("Welcome back!");
-        navigate(from, { replace: true });
-      } else {
-        // User does not exist in the database, create new user
-        const userData = {
-          name: loggedUser.displayName,
-          email: loggedUser.email,
-          image: loggedUser.photoURL, // or provide a default image if none
-        };
-
-        const createRes = await axiosPublic.post("/users", userData);
-
-        if (createRes.data && createRes.data.acknowledged) {
-          toast.success("Account created successfully!");
-          navigate("/"); // or redirect to another page
-        } else {
-          toast.error("Failed to create account. Please try again.");
-        }
-      }
-    } catch (err) {
-      toast.error(err?.message || "Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
+      axiosPublic.post('/users', userInfo)  
+        .then(res => {
+          console.log(res.data);
+          // Dismiss the loading toast and show success message
+          toast.dismiss(loadingToastId);
+          toast.success("Login Successful");
+          navigate(from, { replace: true });
+        })
+        .catch(error => {
+          // Dismiss the loading toast and show error message if login verification fails
+          toast.dismiss(loadingToastId);
+          toast.error("Failed to log in. Please try again.");
+          console.error(error);
+        });
+    })
+    .catch(error => {
+      // Dismiss the loading toast and show error message if Google sign-in fails
       toast.dismiss(loadingToastId);
-    }
-  };
+      toast.error(error.message || "Failed to log in with Google.");
+      console.error(error);
+    });
+};
+
+
 
   return (
     <div className="flex justify-center items-center min-h-screen">

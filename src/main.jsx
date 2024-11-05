@@ -6,8 +6,11 @@ import AuthProvider from "./AuthProvider/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-// Create a client
+
+// Create a client for React Query
 const queryClient = new QueryClient();
+
+// Render the application
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>

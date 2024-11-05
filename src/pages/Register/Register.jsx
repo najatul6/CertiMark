@@ -46,7 +46,7 @@ const Register = () => {
         } else {
           throw new Error("Image upload failed. Please try again.");
         }
-  
+
         // Update User Profile
         await updateUserProfile(data.name, imageUrl);
       }
@@ -80,45 +80,42 @@ const Register = () => {
   };
 
   // Handle Google
-  const handleGoogle = async () => {
-    setLoading(true);
+  const handleGoogle = () => {
+    // Display a processing toast
     const loadingToastId = toast.loading("Signing In with Google...");
-    try {
-      // User Registration using Google
-      const result = await signInWithGoogle();
-      const loggedUser = result.user;
-  
-      // Check if user exists in the database
-      const res = await axiosPublic.get(`/users/${loggedUser.email}`);
-  
-      if (res.data.exists) {
-        // User exists in the database, navigate to home page
-        toast.success("Welcome back!");
-        navigate("/"); // or to a different page
-      } else {
-        // User does not exist in the database, create new user
-        const userData = {
-          name: loggedUser.displayName,
-          email: loggedUser.email,
-          image: loggedUser.photoURL, // or provide a default image if none
+
+    signInWithGoogle()
+      .then((result) => {
+        const userInfo = {
+          name: result?.user?.displayName,
+          email: result?.user?.email,
+          image: result?.user?.photoURL,
         };
-  
-        const createRes = await axiosPublic.post("/users", userData);
-        
-        if (createRes.data && createRes.data.acknowledged) {
-          toast.success("Account created successfully!");
-          navigate("/"); // or redirect to another page
-        } else {
-          toast.error("Failed to create account. Please try again.");
-        }
-      }
-    } catch (err) {
-      toast.error(err?.message || "Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-      toast.dismiss(loadingToastId);
-    }
+
+        axiosPublic
+          .post("/users", userInfo)
+          .then((res) => {
+            console.log(res.data);
+            // Dismiss the loading toast and show success message
+            toast.dismiss(loadingToastId);
+            toast.success("Sign Up Successful");
+            navigate("/");
+          })
+          .catch((error) => {
+            // Dismiss the loading toast and show error message if the request fails
+            toast.dismiss(loadingToastId);
+            toast.error("Failed to sign up. Please try again.");
+            console.error(error);
+          });
+      })
+      .catch((error) => {
+        // Dismiss the loading toast and show error message if Google sign-in fails
+        toast.dismiss(loadingToastId);
+        toast.error(error.message || "Failed to sign in with Google.");
+        console.error(error);
+      });
   };
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-white/5 text-white">
