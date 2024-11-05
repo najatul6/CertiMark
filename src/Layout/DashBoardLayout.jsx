@@ -10,7 +10,7 @@ const DashBoardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FEFFFF] flex relative">
+    <div className="min-h-screen bg-[#FEFFFF] flex relative overflow-hidden">
       {/* Sidebar */}
       <aside
         className={`bg-[#17252A] border border-red-600 h-screen text-white w-64 space-y-6 py-7 absolute inset-y-0 left-0 transform ${

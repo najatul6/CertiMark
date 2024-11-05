@@ -34,7 +34,7 @@ const UserOverview = () => {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="">
       <h2 className="text-2xl font-bold mb-6">My Dashboard Overview</h2>
 
       {/* User-specific overview cards */}
@@ -88,11 +88,9 @@ const UserOverview = () => {
       <section className="mt-8">
         <h3 className="font-semibold mb-4 text-lg">Recent Activity</h3>
 
-        <div className="bg-white shadow rounded-lg border border-red-600">
+        {/* <div className="bg-white shadow rounded-lg border border-red-600">
           <div className="overflow-x-auto">
             <table className="min-w-full table-auto">
-              {" "}
-              Use min-w-full to allow scrolling
               <thead className="bg-lightTeal text-white uppercase">
                 <tr>
                   <th className="text-left p-2 md:p-4 font-semibold text-xs md:text-sm lg:text-base w-1/4">
@@ -135,7 +133,7 @@ const UserOverview = () => {
               </tbody>
             </table>
           </div>
-        </div>
+        </div> */}
       </section>
     </div>
   );
