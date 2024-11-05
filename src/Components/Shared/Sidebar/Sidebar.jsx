@@ -10,6 +10,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const sidebar = useRef(null);
   const { logOut } = useAuth();
   const navigate = useNavigate();
+  // TODO: Get Admin value from Data base 
   const isAdmin = true;
   const handleLogOut = async () => {
     // Show processing toast
