@@ -47,7 +47,7 @@ const ApplicationStatus = () => {
                         className={`px-2 py-1 rounded-full text-sm`}
                       >
 
-                        {app.Status==='Pending'? <MdOutlinePendingActions/> : app.Status==="Approved"?<FcApproval/>:<CiCircleRemove/>}
+                        {app.Status==='Pending'? <MdOutlinePendingActions className="text-yellow-600"/> : app.Status==="Approved"?<FcApproval className="bg-green-700"/>:<CiCircleRemove className="text-red-600"/>}
                       </span>
                     </td>
                   </tr>
