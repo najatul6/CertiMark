@@ -6,24 +6,26 @@ import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const LogIn = () => {
   const {
     register,
-    handleSubmit, reset,
+    handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const { userLogIn, signInWithGoogle, loading, setLoading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-
+  const axiosPublic = useAxiosPublic();
   const [showPassword, setShowPassword] = useState(false);
 
   // Form Submit Handle sign up
   const onSubmit = async (data) => {
-    setLoading(true); 
-    
+    setLoading(true);
+
     const loadingToastId = toast.loading("Signing In...");
     try {
       // User LogIn
@@ -34,28 +36,53 @@ const LogIn = () => {
     } catch (err) {
       toast.error(err?.message);
     } finally {
-      setLoading(false); 
-      toast.dismiss(loadingToastId); 
+      setLoading(false);
+      toast.dismiss(loadingToastId);
     }
   };
 
   // Handle Google
+
   const handleGoogle = async () => {
     setLoading(true);
     const loadingToastId = toast.loading("Signing In with Google...");
     try {
-      // User Registration using google
-      await signInWithGoogle();
+      // User Registration using Google
+      const result = await signInWithGoogle();
+      const loggedUser = result.user;
 
-      navigate(from, { replace: true });
-      toast.success("Log In Successful");
+      // Check if user exists in the database
+      const res = await axiosPublic.get(`/users/${loggedUser.email}`);
+
+      if (res.data.exists) {
+        // User exists in the database, navigate to home page
+        toast.success("Welcome back!");
+        navigate(from, { replace: true });
+      } else {
+        // User does not exist in the database, create new user
+        const userData = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+          image: loggedUser.photoURL, // or provide a default image if none
+        };
+
+        const createRes = await axiosPublic.post("/users", userData);
+
+        if (createRes.data && createRes.data.acknowledged) {
+          toast.success("Account created successfully!");
+          navigate("/"); // or redirect to another page
+        } else {
+          toast.error("Failed to create account. Please try again.");
+        }
+      }
     } catch (err) {
-      toast.error(err?.message);
+      toast.error(err?.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
       toast.dismiss(loadingToastId);
     }
   };
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-white/10  text-white">
@@ -104,7 +131,6 @@ const LogIn = () => {
                   id="password"
                   {...register("password", {
                     required: "Password is required",
-                    
                   })}
                   className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 ${
                     errors.email ? "border-[#E76F51]" : "border-[#2B7A78]"

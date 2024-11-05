@@ -84,12 +84,36 @@ const Register = () => {
     setLoading(true);
     const loadingToastId = toast.loading("Signing In with Google...");
     try {
-      // User Registration using google
-      await signInWithGoogle();
-      navigate("/");
-      toast.success("SignUp Successful");
+      // User Registration using Google
+      const result = await signInWithGoogle();
+      const loggedUser = result.user;
+  
+      // Check if user exists in the database
+      const res = await axiosPublic.get(`/users/${loggedUser.email}`);
+  
+      if (res.data.exists) {
+        // User exists in the database, navigate to home page
+        toast.success("Welcome back!");
+        navigate("/"); // or to a different page
+      } else {
+        // User does not exist in the database, create new user
+        const userData = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+          image: loggedUser.photoURL, // or provide a default image if none
+        };
+  
+        const createRes = await axiosPublic.post("/users", userData);
+        
+        if (createRes.data && createRes.data.acknowledged) {
+          toast.success("Account created successfully!");
+          navigate("/"); // or redirect to another page
+        } else {
+          toast.error("Failed to create account. Please try again.");
+        }
+      }
     } catch (err) {
-      toast.error(err?.code);
+      toast.error(err?.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
       toast.dismiss(loadingToastId);
