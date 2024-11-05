@@ -48,15 +48,16 @@ const Register = () => {
       }
 
       // Send Data to Database
-      await axiosPublic.post("/users", {
+      const res = await axiosPublic.post("/users", {
         name: data.name,
         email: data.email,
-        image: imageUrl, // Use the uploaded image URL if it exists
+        image: imageUrl,
       });
-
-      // Reset form and navigate
-      toast.success("SignUp Successful");
-      navigate("/");
+      if (res.acknowledged === true) {
+        // Reset form and navigate
+        toast.success("SignUp Successful");
+        navigate("/");
+      }
     } catch (err) {
       toast.error(err?.message || "An error occurred during sign up.", {
         id: loadingToastId,
