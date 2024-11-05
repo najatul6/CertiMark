@@ -1,4 +1,4 @@
-import { FaCertificate, FaFileAlt, FaHome, FaUser } from "react-icons/fa";
+import { FaCertificate, FaFileAlt, FaHome,  FaUsersCog } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const AdminSidebar = () => {
@@ -46,7 +46,7 @@ const AdminSidebar = () => {
             }`
           }
         >
-          <FaUser />
+          <FaUsersCog />
           <span>User Management</span>
         </NavLink>
       </nav>
