@@ -5,8 +5,14 @@ import toast from "react-hot-toast";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { imageUpload } from "../../utils/imageUpload";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const {
     createUser,
     signInWithGoogle,
@@ -18,37 +24,44 @@ const Register = () => {
   const axiosPublic = useAxiosPublic();
 
   // Form Submit Handle sign up
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    const image = form.image.files[0];
-    try {
-      // Upload Image
-      const imageData = await imageUpload(image);
-
-      // Create User
-      await createUser(email, password).then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-        // Update User Profile
-        updateUserProfile(name, imageData?.data.display_url).then(() => {
-          // send Data to Database
-          axiosPublic.post('/users',)
-          // Reset form
-          form.reset();
-          navigate("/");
-          toast.success("SignUp Successful");
-        });
-      });
-    } catch (err) {
-      toast.error(err?.message);
-    } finally {
-      setLoading(false);
-    }
+  const onSubmit = (data) => {
+    // const imageData =  imageUpload(image);
+    console.log(data);
   };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   const form = event.target;
+  //   const name = form.name.value;
+  //   const email = form.email.value;
+  //   const password = form.password.value;
+  //   const image = form.image.files[0];
+  //   try {
+  //     // Upload Image
+  //     const imageData = await imageUpload(image);
+
+  //     // Create User
+  //     await createUser(email, password).then((result) => {
+  //       const loggedUser = result.user;
+  //       console.log(loggedUser);
+  //       // Update User Profile
+  //       updateUserProfile(name, imageData?.data.display_url).then(() => {
+  //         // const userData={
+  //         //   name:
+  //         // }
+  //         // send Data to Database
+  //         axiosPublic.post('/users',)
+  //         // Reset form
+  //         form.reset();
+  //         navigate("/");
+  //         toast.success("SignUp Successful");
+  //       });
+  //     });
+  //   } catch (err) {
+  //     toast.error(err?.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   // Handle Google
   const handleGoogle = async () => {
@@ -71,7 +84,7 @@ const Register = () => {
           <p className="text-sm text-gray-400">Welcome to CertiMark</p>
         </div>
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           noValidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -95,12 +108,23 @@ const Register = () => {
               </label>
               <input
                 type="text"
+                id="name"
+                {...register("name", { required: "Name is required" })}
+                className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 ${
+                  errors.name ? "border-[#E76F51]" : "border-[#2B7A78]"
+                }`}
+              />
+              {errors.name && (
+                <p className="text-[#E76F51] text-sm">{errors.name.message}</p>
+              )}
+              {/* <input
+                type="text"
                 name="name"
                 id="name"
                 placeholder="Enter Your Name Here"
                 className="w-full px-3 py-2  rounded-md  focus:outline-none bg-transparent border border-lightTeal text-white"
                 data-temp-mail-org="0"
-              />
+              /> */}
             </div>
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
@@ -108,13 +132,15 @@ const Register = () => {
               </label>
               <input
                 type="email"
-                name="email"
                 id="email"
-                required
-                placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2  rounded-md  focus:outline-none bg-transparent border border-lightTeal text-white"
-                data-temp-mail-org="0"
+                {...register("email", { required: "Name is required" })}
+                className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 ${
+                  errors.email ? "border-[#E76F51]" : "border-[#2B7A78]"
+                }`}
               />
+              {errors.email && (
+                <p className="text-[#E76F51] text-sm">{errors.email.message}</p>
+              )}
             </div>
             <div>
               <div className="flex justify-between">
@@ -124,13 +150,15 @@ const Register = () => {
               </div>
               <input
                 type="password"
-                name="password"
-                autoComplete="new-password"
-                id="password"
-                required
-                placeholder="*******"
-                className="w-full px-3 py-2  rounded-md  focus:outline-none bg-transparent border border-lightTeal text-white"
+                id="name"
+                {...register("name", { required: "Name is required" })}
+                className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 ${
+                  errors.name ? "border-[#E76F51]" : "border-[#2B7A78]"
+                }`}
               />
+              {errors.name && (
+                <p className="text-[#E76F51] text-sm">{errors.name.message}</p>
+              )}
             </div>
           </div>
 
