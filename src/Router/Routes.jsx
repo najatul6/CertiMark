@@ -56,7 +56,6 @@ const Routes = createBrowserRouter([
     path: "dashboard",
     element: (
       <PrivateRoute>
-        {" "}
         <DashBoardLayout />
       </PrivateRoute>
     ),

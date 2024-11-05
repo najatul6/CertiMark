@@ -1,10 +1,9 @@
+import AdminOverView from "../AdminDashboard/AdminOverView/AdminOverView";
+import UserOverview from "../UserDashboard/UserOverview/UserOverview";
 
 const OverView = () => {
-  return (
-    <>
-        
-    </>
-  )
-}
+  const isAdmin = true;
+  return <>{isAdmin ? <AdminOverView /> : <UserOverview />}</>;
+};
 
-export default OverView
+export default OverView;

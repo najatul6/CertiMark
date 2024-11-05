@@ -5,12 +5,13 @@ import PropTypes from "prop-types";
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
 import useAuth from "../../../hooks/useAuth";
 import toast from "react-hot-toast";
+import AdminSidebar from "../../../pages/Dashboard/Sidebars/AdminSidebar";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const sidebar = useRef(null);
   const { logOut } = useAuth();
   const navigate = useNavigate();
-  // TODO: Get Admin value from Data base 
+  // TODO: Get Admin value from Data base
   const isAdmin = true;
   const handleLogOut = async () => {
     // Show processing toast
@@ -69,7 +70,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         </button>
       </div>
       <hr className="mb-5" />
-      <UserSidebar />
+      {isAdmin ? <AdminSidebar /> : <UserSidebar />}
       {/* Profile and Logout at the bottom */}
       <div className="absolute bottom-0 w-full px-2 space-y-2 pb-5">
         <NavLink
