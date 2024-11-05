@@ -11,7 +11,10 @@ const DropdownNotification = () => {
         {dropdownOpen ? <IoIosNotificationsOff size={30}/> : <IoIosNotifications size={30}/>}
       </button>
       {dropdownOpen && (
-        <div className="absolute right-0 mt-2.5 w-80 flex flex-col  rounded-xl border-stroke bg-darkGreen shadow-default border">
+        <div 
+        className="absolute right-0 mt-4 duration-300 w-80 flex flex-col  rounded-xl border-stroke bg-darkGreen shadow-default border"
+       
+        >
           <div className="px-4 py-2">
             <h5 className="text-sm font-medium text-white text-center">Notification</h5>
           </div>
