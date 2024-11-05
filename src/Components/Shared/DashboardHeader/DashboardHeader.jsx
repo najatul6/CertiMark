@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import DropdownNotification from "./DropdownNotification";
+// import DropdownNotification from "./DropdownNotification";
 import PropTypes from "prop-types";
 
 const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
   return (
-    <header className="sticky top-0 z-999 flex w-full bg-darkGreen  drop-shadow-2xl">
+    <header className="sticky top-0 z-999 flex w-full bg-darkGreen  drop-shadow-2xl lg:hidden">
       <div className="flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
         
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
@@ -26,11 +26,11 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
           </Link>
         </div>
         
-        <div className="flex items-center gap-3 w-full">
+        {/* <div className="flex items-center gap-3 w-full">
           <ul className="flex items-center justify-end w-full gap-2 2xsm:gap-4">
             <DropdownNotification />
           </ul>
-        </div>
+        </div> */}
       </div>
     </header>
   );
