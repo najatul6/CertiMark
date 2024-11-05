@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { imageUpload } from "../../utils/imageUpload";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
   const {
@@ -14,6 +15,7 @@ const Register = () => {
     setLoading,
   } = useAuth();
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
 
   // Form Submit Handle sign up
   const handleSubmit = async (event) => {
@@ -34,6 +36,7 @@ const Register = () => {
         // Update User Profile
         updateUserProfile(name, imageData?.data.display_url).then(() => {
           // send Data to Database
+          axiosPublic.post('/users',)
           // Reset form
           form.reset();
           navigate("/");
