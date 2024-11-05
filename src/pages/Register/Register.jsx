@@ -28,38 +28,41 @@ const Register = () => {
 
    // Form Submit Handle sign up
    const onSubmit = async (data) => {
-    // Log image file details
-    console.log("Selected Image:", data.image[0]);
-
+    setLoading(true);
+    const loadingToastId = toast.loading("Signing Up...");
     try {
-      // Upload Image
-      const imageData = await imageUpload(data?.image[0]);
-      console.log("Uploaded Image Data:", imageData);
-
       // Create User
       const result = await createUser(data.email, data.password);
       const loggedUser = result.user;
       console.log("Logged User:", loggedUser);
-
-      // Update User Profile
-      await updateUserProfile(data.name, imageData?.data.display_url);
-
+  
+      // If user creation is successful and an image is provided
+      let imageUrl = "";
+      if (data.image && data.image.length > 0) {
+        // Upload Image
+        const imageData = await imageUpload(data.image[0]);
+        imageUrl = imageData?.data.display_url;
+  
+        // Update User Profile
+        await updateUserProfile(data.name, imageUrl);
+      }
+  
       // Send Data to Database
       await axiosPublic.post("/users", {
         name: data.name,
         email: data.email,
-        image: imageData?.data.display_url,
+        image: imageUrl, // Use the uploaded image URL if it exists
       });
-
-      // Reset form
+  
+      // Reset form and navigate
+      toast.success("SignUp Successful", { id: loadingToastId });
       navigate("/");
-      toast.success("SignUp Successful");
     } catch (err) {
-      toast.error(err?.message);
+      toast.error(err?.message || "An error occurred during sign up.", { id: loadingToastId });
     } finally {
       setLoading(false);
     }
-  };
+  }
 
   // Handle Google
   const handleGoogle = async () => {
