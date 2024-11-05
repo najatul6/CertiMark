@@ -61,73 +61,41 @@ const Routes = createBrowserRouter([
     children: [
       {
         path: "profile",
-        element: (
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        ),
+        element: <Profile />,
       },
       {
         path: "overview",
-        element: (
-          <PrivateRoute>
-            <OverView />
-          </PrivateRoute>
-        ),
+        element: <OverView />,
       },
 
       // Admin Dashboard
 
       {
         path: "pendingApplications",
-        element: (
-          <PrivateRoute>
-            <PendingApplications />
-          </PrivateRoute>
-        ),
+        element: <PendingApplications />,
       },
       {
         path: "verifiedCertificates",
-        element: (
-          <PrivateRoute>
-            <VerifiedCertificates />
-          </PrivateRoute>
-        ),
+        element: <VerifiedCertificates />,
       },
       {
         path: "user-management",
-        element: (
-          <PrivateRoute>
-            <UserManagement />
-          </PrivateRoute>
-        ),
+        element: <UserManagement />,
       },
       {
         path: "markSheet",
-        element: (
-          <PrivateRoute>
-            <UserManagement />
-          </PrivateRoute>
-        ),
+        element: <UserManagement />,
       },
 
       // User Dashboard
-     
+
       {
         path: "applications",
-        element: (
-          <PrivateRoute>
-            <ApplicationStatus />
-          </PrivateRoute>
-        ),
+        element: <ApplicationStatus />,
       },
       {
         path: "downloads",
-        element: (
-          <PrivateRoute>
-            <Downloads />
-          </PrivateRoute>
-        ),
+        element: <Downloads />,
       },
     ],
   },
