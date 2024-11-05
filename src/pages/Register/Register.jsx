@@ -151,13 +151,23 @@ const Register = () => {
               <input
                 type="password"
                 id="password"
-                {...register("password", { required: "password is required" })}
+                {...register("password", {
+                  required: "Password is required",
+                  pattern: {
+                    value:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                    message:
+                      "Password must be at least 8 characters, include an uppercase letter, a lowercase letter, a number, and a special character.",
+                  },
+                })}
                 className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 ${
                   errors.password ? "border-[#E76F51]" : "border-[#2B7A78]"
                 }`}
               />
               {errors.password && (
-                <p className="text-[#E76F51] text-sm">{errors.password.message}</p>
+                <p className="text-[#E76F51] text-sm">
+                  {errors.password.message}
+                </p>
               )}
             </div>
           </div>
