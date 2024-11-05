@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { TbFidgetSpinner } from "react-icons/tb";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const LogIn = () => {
   const {
@@ -15,26 +16,21 @@ const LogIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-  
+
   const [showPassword, setShowPassword] = useState(false);
 
   // Form Submit Handle sign up
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
+  const onSubmit = async (data) => {
+    setLoading(true); // Start loading state
     try {
       // User LogIn
-      await userLogIn(email, password);
+      await userLogIn(data.email, data.password);
       navigate(from, { replace: true });
       toast.success("Log In Successful");
-      // Reset form
-      form.reset();
     } catch (err) {
       toast.error(err?.message);
     } finally {
-      setLoading(false);
+      setLoading(false); // End loading state
     }
   };
 
@@ -62,7 +58,7 @@ const LogIn = () => {
           </p>
         </div>
         <form
-           onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit)}
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
@@ -100,16 +96,7 @@ const LogIn = () => {
                   id="password"
                   {...register("password", {
                     required: "Password is required",
-                    pattern: {
-                      value:
-                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                      message:
-                        "Password must be at least 8 characters, include an uppercase letter, a lowercase letter, a number, and a special character.",
-                    },
                   })}
-                  className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 pr-10 ${
-                    errors.password ? "border-[#E76F51]" : "border-[#2B7A78]"
-                  }`}
                 />
                 <button
                   type="button"
