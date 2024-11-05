@@ -26,45 +26,40 @@ const Register = () => {
   const axiosPublic = useAxiosPublic();
   const [showPassword, setShowPassword] = useState(false);
 
-  // Form Submit Handle sign up
-  const onSubmit = (data) => {
-    // const imageData =  imageUpload(image);
-    console.log(data);
-  };
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   const form = event.target;
-  //   const name = form.name.value;
-  //   const email = form.email.value;
-  //   const password = form.password.value;
-  //   const image = form.image.files[0];
-  //   try {
-  //     // Upload Image
-  //     const imageData = await imageUpload(image);
+   // Form Submit Handle sign up
+   const onSubmit = async (data) => {
+    // Log image file details
+    console.log("Selected Image:", data.image[0]);
 
-  //     // Create User
-  //     await createUser(email, password).then((result) => {
-  //       const loggedUser = result.user;
-  //       console.log(loggedUser);
-  //       // Update User Profile
-  //       updateUserProfile(name, imageData?.data.display_url).then(() => {
-  //         // const userData={
-  //         //   name:
-  //         // }
-  //         // send Data to Database
-  //         axiosPublic.post('/users',)
-  //         // Reset form
-  //         form.reset();
-  //         navigate("/");
-  //         toast.success("SignUp Successful");
-  //       });
-  //     });
-  //   } catch (err) {
-  //     toast.error(err?.message);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
+    try {
+      // Upload Image
+      const imageData = await imageUpload(data?.image[0]);
+      console.log("Uploaded Image Data:", imageData);
+
+      // Create User
+      const result = await createUser(data.email, data.password);
+      const loggedUser = result.user;
+      console.log("Logged User:", loggedUser);
+
+      // Update User Profile
+      await updateUserProfile(data.name, imageData?.data.display_url);
+
+      // Send Data to Database
+      await axiosPublic.post("/users", {
+        name: data.name,
+        email: data.email,
+        image: imageData?.data.display_url,
+      });
+
+      // Reset form
+      navigate("/");
+      toast.success("SignUp Successful");
+    } catch (err) {
+      toast.error(err?.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Handle Google
   const handleGoogle = async () => {
