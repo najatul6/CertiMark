@@ -53,15 +53,22 @@ const Register = () => {
         email: data.email,
         image: imageUrl,
       });
-      if (res.acknowledged === true) {
-        // Reset form and navigate
+      // Check response from the server
+      if (res.data && res.data.acknowledged === true) {
         toast.success("SignUp Successful");
         navigate("/");
+      } else {
+        toast.error("Failed to register user. Please try again.");
       }
     } catch (err) {
-      toast.error(err?.message || "An error occurred during sign up.", {
-        id: loadingToastId,
-      });
+      toast.error(
+        err?.response?.data?.message ||
+          err.message ||
+          "An error occurred during sign up.",
+        {
+          id: loadingToastId,
+        }
+      );
     } finally {
       setLoading(false);
       toast.dismiss(loadingToastId);
