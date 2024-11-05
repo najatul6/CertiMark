@@ -3,18 +3,39 @@ import UserSidebar from "../../../pages/Dashboard/Sidebars/UserSidebar";
 import { useRef } from "react";
 import PropTypes from "prop-types";
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
+import useAuth from "../../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const sidebar = useRef(null);
+  const { logOut } = useAuth();
+  const handleLogOut = async () => {
+    // Show processing toast
+    const loadingToast = toast.loading("Processing...");
+
+    try {
+      await logOut();
+      // Update toast to success message
+      toast.success("You have successfully logged out.", {
+        id: loadingToast,
+      });
+    } catch (err) {
+      console.log(err);
+      // Handle error and show error message
+      toast.error("Logout failed. Please try again.", {
+        id: loadingToast,
+      });
+    }
+  };
 
   return (
     <div
       ref={sidebar}
       className={`absolute left-0 top-0 z-[9999] flex h-screen w-72 flex-col overflow-y-hidden bg-darkGreen duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        sidebarOpen ? "translate-x-0" : "-translate-x-full"
       }`}
       style={{
-        boxShadow: '5px 0 15px rgba(0, 0, 0, 0.3)', // Custom right shadow
+        boxShadow: "5px 0 15px rgba(0, 0, 0, 0.3)", // Custom right shadow
       }}
     >
       <div className="flex items-center justify-between gap-2 px-6 py-5 lg:py-6">
@@ -39,39 +60,35 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M19 8.175H2.98748L9.36248 1.6875C9.69998 1.35 9.69998 0.825 9.36248 0.4875C9.02498 0.15 8.49998 0.15 8.16248 0.4875L0.399976 8.3625C0.0624756 8.7 0.0624756 9.225 0.399976 9.5625L8.16248 17.4375C8.31248 17.5875 8.53748 17.7 8.76248 17.7C8.98748 17.7 9.17498 17.625 9.36248 17.475C9.69998 17.1375 9.69998 16.6125 9.36248 16.275L3.02498 9.8625H19C19.45 9.8625 19.825 9.4875 19.825 9.0375C19.825 8.55 19.45 8.175 19 8.175Z"
-            />
+            <path d="M19 8.175H2.98748L9.36248 1.6875C9.69998 1.35 9.69998 0.825 9.36248 0.4875C9.02498 0.15 8.49998 0.15 8.16248 0.4875L0.399976 8.3625C0.0624756 8.7 0.0624756 9.225 0.399976 9.5625L8.16248 17.4375C8.31248 17.5875 8.53748 17.7 8.76248 17.7C8.98748 17.7 9.17498 17.625 9.36248 17.475C9.69998 17.1375 9.69998 16.6125 9.36248 16.275L3.02498 9.8625H19C19.45 9.8625 19.825 9.4875 19.825 9.0375C19.825 8.55 19.45 8.175 19 8.175Z" />
           </svg>
         </button>
       </div>
-      <hr  className="mb-5"/>
+      <hr className="mb-5" />
       <UserSidebar />
-       {/* Profile and Logout at the bottom */}
-         <div className="absolute bottom-0 w-full px-2 space-y-2 pb-5">
-           <NavLink
-             to="/dashboard/profile"
-             className={({ isActive }) =>
-               `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
-                 isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
-               }`
-             }
-           >
-             <FaUser />
-             <span style={{ fontFamily: "Roboto", fontSize: "16px" }}>
-               Profile
-             </span>
-           </NavLink>
-           <NavLink
-             to="/logout"
-             className="flex items-center p-3 space-x-3  rounded-s-xl hover:bg-red-600"
-           >
-             <FaSignOutAlt />
-             <span>
-               Logout
-             </span>
-           </NavLink>
-         </div>
+      {/* Profile and Logout at the bottom */}
+      <div className="absolute bottom-0 w-full px-2 space-y-2 pb-5">
+        <NavLink
+          to="/dashboard/profile"
+          className={({ isActive }) =>
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+            }`
+          }
+        >
+          <FaUser />
+          <span style={{ fontFamily: "Roboto", fontSize: "16px" }}>
+            Profile
+          </span>
+        </NavLink>
+        <NavLink
+          onClick={handleLogOut}
+          className="flex items-center p-3 space-x-3  rounded-s-xl hover:bg-red-600"
+        >
+          <FaSignOutAlt />
+          <span>Logout</span>
+        </NavLink>
+      </div>
     </div>
   );
 };

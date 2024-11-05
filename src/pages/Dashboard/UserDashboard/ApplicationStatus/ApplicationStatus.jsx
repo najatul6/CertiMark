@@ -2,9 +2,10 @@ import { MdOutlinePendingActions } from "react-icons/md";
 import useApplication from "../../../../hooks/useApplication";
 import { FcApproval } from "react-icons/fc";
 import { CiCircleRemove } from "react-icons/ci";
+import Loading from "../../../../Components/Shared/Loading/Loading";
 
 const ApplicationStatus = () => {
-  const [application] = useApplication();
+  const [isLoading,application] = useApplication();
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
     const options = {
@@ -18,6 +19,9 @@ const ApplicationStatus = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
+  if(isLoading){
+    return <Loading />
+  }
   return (
     <div className=" bg-[#FEFFFF] md:p-6 flex flex-col items-center">
       <h2 className="text-2xl font-semibold text-darkGreen mb-4 text-center md:text-left">
