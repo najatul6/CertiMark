@@ -41,8 +41,12 @@ const Register = () => {
       if (data.image && data.image.length > 0) {
         // Upload Image
         const imageData = await imageUpload(data.image[0]);
-        imageUrl = imageData?.data.display_url;
-
+        if (imageData && imageData.data) {
+          imageUrl = imageData.data.display_url;
+        } else {
+          throw new Error("Image upload failed. Please try again.");
+        }
+  
         // Update User Profile
         await updateUserProfile(data.name, imageUrl);
       }
