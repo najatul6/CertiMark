@@ -29,7 +29,7 @@ const ContactUs = () => {
               type="text"
               id="name"
               {...register("name", { required: "Name is required" })}
-              className={`mt-1 block w-full border rounded-md p-2 ${errors.name ? "border-[#E76F51]" : "border-[#2B7A78]"}`}
+              className={`mt-1 block w-full border rounded-md p-2 bg-transparent focus:outline-none ${errors.name ? "border-[#E76F51]" : "border-[#2B7A78]"}`}
             />
             {errors.name && <p className="text-[#E76F51] text-sm">{errors.name.message}</p>}
           </div>
@@ -48,7 +48,7 @@ const ContactUs = () => {
                   message: "Invalid email address"
                 }
               })}
-              className={`mt-1 block w-full border rounded-md p-2 ${errors.email ? "border-[#E76F51]" : "border-[#2B7A78]"}`}
+              className={`mt-1 block w-full border rounded-md p-2 bg-transparent focus:outline-none ${errors.email ? "border-[#E76F51]" : "border-[#2B7A78]"}`}
             />
             {errors.email && <p className="text-[#E76F51] text-sm">{errors.email.message}</p>}
           </div>
@@ -60,7 +60,7 @@ const ContactUs = () => {
             <textarea
               id="message"
               {...register("message", { required: "Message is required" })}
-              className={`mt-1 block w-full border rounded-md p-2 ${errors.message ? "border-[#E76F51]" : "border-[#2B7A78]"}`}
+              className={`mt-1 block w-full border rounded-md p-2 bg-transparent focus:outline-none ${errors.message ? "border-[#E76F51]" : "border-[#2B7A78]"}`}
               rows="4"
             ></textarea>
             {errors.message && <p className="text-[#E76F51] text-sm">{errors.message.message}</p>}
