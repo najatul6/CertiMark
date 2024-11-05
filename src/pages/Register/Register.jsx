@@ -28,13 +28,18 @@ const Register = () => {
       const imageData = await imageUpload(image);
 
       // Create User
-      await createUser(email, password);
-
-      // Update User Profile
-      await updateUserProfile(name, imageData?.data.display_url);
-
-      navigate("/");
-      toast.success("SignUp Successful");
+      await createUser(email, password).then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        // Update User Profile
+        updateUserProfile(name, imageData?.data.display_url).then(() => {
+          // send Data to Database
+          // Reset form
+          form.reset();
+          navigate("/");
+          toast.success("SignUp Successful");
+        });
+      });
     } catch (err) {
       toast.error(err?.message);
     } finally {
@@ -51,7 +56,7 @@ const Register = () => {
       toast.success("SignUp Successful");
     } catch (err) {
       toast.error(err?.code);
-    }finally{
+    } finally {
       setLoading(false);
     }
   };
