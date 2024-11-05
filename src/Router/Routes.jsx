@@ -16,7 +16,6 @@ import ApplicationStatus from "../pages/Dashboard/UserDashboard/ApplicationStatu
 import UserManagement from "../pages/Dashboard/AdminDashboard/UserManagement/UserManagement";
 import VerifiedCertificates from "../pages/Dashboard/AdminDashboard/VerifiedCertificates/VerifiedCertificates";
 import PendingApplications from "../pages/Dashboard/AdminDashboard/PendingApplications/PendingApplications";
-import UserOverview from "../pages/Dashboard/UserDashboard/UserOverview/UserOverview";
 import OverView from "../pages/Dashboard/OverView/OverView";
 import Apply from "../pages/Apply/Apply";
 
