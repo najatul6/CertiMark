@@ -5,11 +5,12 @@ import { TbFidgetSpinner } from "react-icons/tb";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const LogIn = () => {
   const {
     register,
-    handleSubmit,
+    handleSubmit, reset,
     formState: { errors },
   } = useForm();
   const { userLogIn, signInWithGoogle, loading, setLoading } = useAuth();
@@ -21,21 +22,27 @@ const LogIn = () => {
 
   // Form Submit Handle sign up
   const onSubmit = async (data) => {
-    setLoading(true); // Start loading state
+    setLoading(true); 
+    
+    const loadingToastId = toast.loading("Signing In...");
     try {
       // User LogIn
       await userLogIn(data.email, data.password);
       navigate(from, { replace: true });
+      reset();
       toast.success("Log In Successful");
     } catch (err) {
       toast.error(err?.message);
     } finally {
-      setLoading(false); // End loading state
+      setLoading(false); 
+      toast.dismiss(loadingToastId); 
     }
   };
 
   // Handle Google
   const handleGoogle = async () => {
+    setLoading(true);
+    const loadingToastId = toast.loading("Signing In with Google...");
     try {
       // User Registration using google
       await signInWithGoogle();
@@ -46,6 +53,7 @@ const LogIn = () => {
       toast.error(err?.message);
     } finally {
       setLoading(false);
+      toast.dismiss(loadingToastId);
     }
   };
   return (

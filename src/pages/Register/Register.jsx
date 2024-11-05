@@ -55,7 +55,7 @@ const Register = () => {
       });
 
       // Reset form and navigate
-      toast.success("SignUp Successful", { id: loadingToastId });
+      toast.success("SignUp Successful");
       navigate("/");
     } catch (err) {
       toast.error(err?.message || "An error occurred during sign up.", {
@@ -63,11 +63,14 @@ const Register = () => {
       });
     } finally {
       setLoading(false);
+      toast.dismiss(loadingToastId);
     }
   };
 
   // Handle Google
   const handleGoogle = async () => {
+    setLoading(true);
+    const loadingToastId = toast.loading("Signing In with Google...");
     try {
       // User Registration using google
       await signInWithGoogle();
@@ -77,6 +80,7 @@ const Register = () => {
       toast.error(err?.code);
     } finally {
       setLoading(false);
+      toast.dismiss(loadingToastId);
     }
   };
   return (
