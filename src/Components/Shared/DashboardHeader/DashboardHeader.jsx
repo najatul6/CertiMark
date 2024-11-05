@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import DropdownNotification from "./DropdownNotification";
+import PropTypes from "prop-types";
 
 const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
   return (
@@ -10,13 +11,13 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
           <button
             aria-controls="sidebar"
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="z-99999 block rounded-sm border border-stroke bg-red-600 p-1.5 shadow-sm lg:hidden"
+            className="z-[99999] block rounded-sm border border-stroke p-1.5 shadow-sm lg:hidden"
           >
             {/* Hamburger Icon */}
-            <span className="relative block h-5.5 w-5.5 cursor-pointer">
+            <span className="relative block  w-7 cursor-pointer">
               {/* Open and Close Animation */}
-              <span className={`relative left-0 top-0 my-1 block h-0.5 w-full bg-black duration-300 ease-in-out ${sidebarOpen ? "rotate-45" : ""}`} />
-              <span className={`relative left-0 top-0 my-1 block h-0.5 w-full bg-black duration-300 ease-in-out ${sidebarOpen ? "-rotate-45" : ""}`} />
+              <span className={`relative left-0 top-0 my-1 block h-1 rounded-full w-full bg-lightTeal duration-300 ease-in-out ${sidebarOpen ? "rotate-45" : ""}`} />
+              <span className={`relative left-0 top-0 my-1 block h-1 rounded-full w-full bg-lightTeal duration-300 ease-in-out ${sidebarOpen ? "-rotate-45" : ""}`} />
             </span>
           </button>
 
@@ -34,5 +35,12 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
     </header>
   );
 };
+
+DashboardHeader.propTypes = {
+  sidebarOpen: PropTypes.any,
+  setSidebarOpen: PropTypes.any,
+};
+
+
 
 export default DashboardHeader;

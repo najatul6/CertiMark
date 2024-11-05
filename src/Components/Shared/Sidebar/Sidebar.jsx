@@ -11,6 +11,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       className={`absolute left-0 top-0 z-[9999] flex h-screen w-72 flex-col overflow-y-hidden bg-darkGreen duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
+      style={{
+        boxShadow: '5px 0 15px rgba(0, 0, 0, 0.3)', // Custom right shadow
+      }}
     >
       <div className="flex items-center justify-between gap-2 px-6 py-5 lg:py-6">
         <NavLink to="/">
@@ -24,7 +27,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           onClick={() => setSidebarOpen(!sidebarOpen)}
           aria-controls="sidebar"
           aria-expanded={sidebarOpen}
-          className="block lg:hidden"
+          className="block lg:hidden text-white"
         >
           <svg
             className="fill-current"
