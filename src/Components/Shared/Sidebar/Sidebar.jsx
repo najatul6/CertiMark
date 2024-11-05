@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import UserSidebar from "../../../pages/Dashboard/Sidebars/UserSidebar";
 import { useRef } from "react";
 import PropTypes from "prop-types";
+import { FaSignOutAlt, FaUser } from "react-icons/fa";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const sidebar = useRef(null);
@@ -46,6 +47,31 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       </div>
       <hr  className="mb-5"/>
       <UserSidebar />
+       {/* Profile and Logout at the bottom */}
+         <div className="absolute bottom-0 w-full px-2 space-y-2 pb-5">
+           <NavLink
+             to="/dashboard/profile"
+             className={({ isActive }) =>
+               `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+                 isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+               }`
+             }
+           >
+             <FaUser />
+             <span style={{ fontFamily: "Roboto", fontSize: "16px" }}>
+               Profile
+             </span>
+           </NavLink>
+           <NavLink
+             to="/logout"
+             className="flex items-center p-3 space-x-3  rounded-s-xl hover:bg-red-600"
+           >
+             <FaSignOutAlt />
+             <span>
+               Logout
+             </span>
+           </NavLink>
+         </div>
     </div>
   );
 };
