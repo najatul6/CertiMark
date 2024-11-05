@@ -14,22 +14,7 @@ const AdminSidebar = () => {
           }
         >
           <FaHome />
-          <span >
-            Overview
-          </span>
-        </NavLink>
-        <NavLink
-          to="/dashboard/verifiedCertificates"
-          className={({ isActive }) =>
-            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
-              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
-            }`
-          }
-        >
-          <FaCertificate />
-          <span >
-          Verified Certificates
-          </span>
+          <span>Overview</span>
         </NavLink>
         <NavLink
           to="/dashboard/pendingApplications"
@@ -40,9 +25,18 @@ const AdminSidebar = () => {
           }
         >
           <FaFileAlt />
-          <span >
-            Pending Applications
-          </span>
+          <span>Pending Applications</span>
+        </NavLink>
+        <NavLink
+          to="/dashboard/verifiedCertificates"
+          className={({ isActive }) =>
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+            }`
+          }
+        >
+          <FaCertificate />
+          <span>Verified Certificates</span>
         </NavLink>
         <NavLink
           to="/dashboard/user-management"
@@ -53,9 +47,7 @@ const AdminSidebar = () => {
           }
         >
           <FaUser />
-          <span >
-            User Management
-          </span>
+          <span>User Management</span>
         </NavLink>
       </nav>
     </>
