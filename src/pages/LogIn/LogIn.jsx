@@ -3,12 +3,20 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { TbFidgetSpinner } from "react-icons/tb";
 import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
 
 const LogIn = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { userLogIn, signInWithGoogle, loading, setLoading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
+  
+  const [showPassword, setShowPassword] = useState(false);
 
   // Form Submit Handle sign up
   const handleSubmit = async (event) => {
@@ -54,9 +62,7 @@ const LogIn = () => {
           </p>
         </div>
         <form
-          onSubmit={handleSubmit}
-          noValidate=""
-          action=""
+           onSubmit={handleSubmit(onSubmit)}
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
@@ -66,13 +72,21 @@ const LogIn = () => {
               </label>
               <input
                 type="email"
-                name="email"
                 id="email"
-                required
-                placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 rounded-md  focus:outline-none bg-transparent border border-lightTeal text-white"
-                data-temp-mail-org="0"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Enter a valid email address",
+                  },
+                })}
+                className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 ${
+                  errors.email ? "border-[#E76F51]" : "border-[#2B7A78]"
+                }`}
               />
+              {errors.email && (
+                <p className="text-[#E76F51] text-sm">{errors.email.message}</p>
+              )}
             </div>
             <div>
               <div className="flex justify-between">
@@ -80,15 +94,36 @@ const LogIn = () => {
                   Password
                 </label>
               </div>
-              <input
-                type="password"
-                name="password"
-                autoComplete="current-password"
-                id="password"
-                required
-                placeholder="*******"
-                className="w-full px-3 py-2  rounded-md  focus:outline-none bg-transparent border-lightTeal border text-white "
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  {...register("password", {
+                    required: "Password is required",
+                    pattern: {
+                      value:
+                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                      message:
+                        "Password must be at least 8 characters, include an uppercase letter, a lowercase letter, a number, and a special character.",
+                    },
+                  })}
+                  className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 pr-10 ${
+                    errors.password ? "border-[#E76F51]" : "border-[#2B7A78]"
+                  }`}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-2 flex items-center text-gray-500"
+                >
+                  {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                </button>
+              </div>
+              {errors.password && (
+                <p className="text-[#E76F51] text-sm">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
           </div>
 

@@ -26,8 +26,8 @@ const Register = () => {
   const axiosPublic = useAxiosPublic();
   const [showPassword, setShowPassword] = useState(false);
 
-   // Form Submit Handle sign up
-   const onSubmit = async (data) => {
+  // Form Submit Handle sign up
+  const onSubmit = async (data) => {
     setLoading(true);
     const loadingToastId = toast.loading("Signing Up...");
     try {
@@ -35,34 +35,36 @@ const Register = () => {
       const result = await createUser(data.email, data.password);
       const loggedUser = result.user;
       console.log("Logged User:", loggedUser);
-  
+
       // If user creation is successful and an image is provided
       let imageUrl = "";
       if (data.image && data.image.length > 0) {
         // Upload Image
         const imageData = await imageUpload(data.image[0]);
         imageUrl = imageData?.data.display_url;
-  
+
         // Update User Profile
         await updateUserProfile(data.name, imageUrl);
       }
-  
+
       // Send Data to Database
       await axiosPublic.post("/users", {
         name: data.name,
         email: data.email,
         image: imageUrl, // Use the uploaded image URL if it exists
       });
-  
+
       // Reset form and navigate
       toast.success("SignUp Successful", { id: loadingToastId });
       navigate("/");
     } catch (err) {
-      toast.error(err?.message || "An error occurred during sign up.", { id: loadingToastId });
+      toast.error(err?.message || "An error occurred during sign up.", {
+        id: loadingToastId,
+      });
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   // Handle Google
   const handleGoogle = async () => {
@@ -86,8 +88,6 @@ const Register = () => {
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          noValidate=""
-          action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
@@ -137,7 +137,6 @@ const Register = () => {
               {errors.name && (
                 <p className="text-[#E76F51] text-sm">{errors.name.message}</p>
               )}
-              
             </div>
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
@@ -163,40 +162,42 @@ const Register = () => {
             </div>
 
             <div>
-      <div className="flex justify-between">
-        <label htmlFor="password" className="text-sm mb-2">
-          Password
-        </label>
-      </div>
-      <div className="relative">
-        <input
-          type={showPassword ? "text" : "password"}
-          id="password"
-          {...register("password", {
-            required: "Password is required",
-            pattern: {
-              value:
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-              message:
-                "Password must be at least 8 characters, include an uppercase letter, a lowercase letter, a number, and a special character.",
-            },
-          })}
-          className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 pr-10 ${
-            errors.password ? "border-[#E76F51]" : "border-[#2B7A78]"
-          }`}
-        />
-        <button
-          type="button"
-          onClick={() => setShowPassword(!showPassword)}
-          className="absolute inset-y-0 right-2 flex items-center text-gray-500"
-        >
-          {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-        </button>
-      </div>
-      {errors.password && (
-        <p className="text-[#E76F51] text-sm">{errors.password.message}</p>
-      )}
-    </div>
+              <div className="flex justify-between">
+                <label htmlFor="password" className="text-sm mb-2">
+                  Password
+                </label>
+              </div>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  {...register("password", {
+                    required: "Password is required",
+                    pattern: {
+                      value:
+                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                      message:
+                        "Password must be at least 8 characters, include an uppercase letter, a lowercase letter, a number, and a special character.",
+                    },
+                  })}
+                  className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 pr-10 ${
+                    errors.password ? "border-[#E76F51]" : "border-[#2B7A78]"
+                  }`}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-2 flex items-center text-gray-500"
+                >
+                  {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                </button>
+              </div>
+              {errors.password && (
+                <p className="text-[#E76F51] text-sm">
+                  {errors.password.message}
+                </p>
+              )}
+            </div>
           </div>
 
           <div>
