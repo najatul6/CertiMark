@@ -1,13 +1,14 @@
 const Profile = () => {
   return (
     <div className="p-2 md:p-4">
+        <h2 className="text-2xl font-bold mb-6 text-center py-5 text-darkGreen">User Profile</h2>
+        <hr />
       <div className="w-full px-6 pb-8 mt-8 ">
-        <h2 className="pl-6 text-2xl font-bold sm:text-xl text-center">Profile</h2>
 
         <div className="grid w-full mx-auto mt-8">
-          <div className="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
+          <div className="flex items-center space-y-5 flex-col">
             <img
-              className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
+              className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 "
               src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
               alt="Bordered avatar"
             />
