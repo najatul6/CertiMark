@@ -16,7 +16,7 @@ const ApplicationStatus = () => {
     return date.toLocaleString("en-US", options);
   };
   return (
-    <div className="min-h-screen bg-[#FEFFFF] md:p-6 flex flex-col items-center">
+    <div className=" bg-[#FEFFFF] md:p-6 flex flex-col items-center">
       <h2 className="text-2xl font-semibold text-darkGreen mb-4 text-center md:text-left">
         Application Status
       </h2>
@@ -25,21 +25,21 @@ const ApplicationStatus = () => {
           <table className="w-full text-left border-collapse uppercase text-darkGreen">
             <thead>
               <tr>
-                <th className="border-b py-2 px-2 text-sm text-center md:text-base whitespace-nowrap text-wrap">
+                <th className="border-b py-2 px-2 text-sm text-center md:text-left md:text-base whitespace-nowrap text-wrap">
                   Application Type
                 </th>
-                <th className="border-b py-2 px-2 text-sm text-center md:text-base whitespace-nowrap text-wrap">
+                <th className="border-b py-2 px-2 text-sm text-center md:text-left md:text-base whitespace-nowrap text-wrap">
                   Submission Date
                 </th>
-                <th className="border-b py-2 px-2 text-sm text-center md:text-base whitespace-nowrap text-wrap">Status</th>
+                <th className="border-b py-2 px-2 text-sm text-center md:text-left md:text-base whitespace-nowrap text-wrap">Status</th>
               </tr>
             </thead>
             <tbody>
               {application.map((app, index) => (
                   <tr key={index} className="hover:bg-gray-100">
                     <td className="border-b py-2 capitalize">{app?.certificateType}</td>
-                    <td className="border-b py-2 capitalize">{app?.submissionDate}</td>
-                    <td className="border-b py-2 capitalize text-center ">
+                    <td className="border-b py-2 capitalize">{formatDate(app?.ApplyDate)}</td>
+                    <td className="border-b py-2 capitalize text-center md:text-left ">
                       <span
                         className={`px-2 py-1 rounded-full text-sm ${
                           app.Status === "Approved"
