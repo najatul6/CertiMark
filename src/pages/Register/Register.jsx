@@ -150,14 +150,14 @@ const Register = () => {
               </div>
               <input
                 type="password"
-                id="name"
-                {...register("name", { required: "Name is required" })}
+                id="password"
+                {...register("password", { required: "password is required" })}
                 className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 ${
-                  errors.name ? "border-[#E76F51]" : "border-[#2B7A78]"
+                  errors.password ? "border-[#E76F51]" : "border-[#2B7A78]"
                 }`}
               />
-              {errors.name && (
-                <p className="text-[#E76F51] text-sm">{errors.name.message}</p>
+              {errors.password && (
+                <p className="text-[#E76F51] text-sm">{errors.password.message}</p>
               )}
             </div>
           </div>
