@@ -5,7 +5,8 @@ import { CiCircleRemove } from "react-icons/ci";
 import Loading from "../../../../Components/Shared/Loading/Loading";
 
 const ApplicationStatus = () => {
-  const [isLoading,application] = useApplication();
+  const [application, ,isLoading] = useApplication();
+  console.log(application);
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
     const options = {
