@@ -92,16 +92,35 @@ const Register = () => {
           <div className="space-y-4">
             <div>
               <label htmlFor="image" className="block mb-2 text-sm">
-                Select Image:
+                Profile Picture:
               </label>
               <input
-                required
                 type="file"
                 id="image"
-                name="image"
                 accept="image/*"
+                {...register("image", {
+                  required: "Image is required",
+                  validate: {
+                    // Optional: Check if file size is less than 2MB
+                    lessThan2MB: (files) =>
+                      files[0]?.size < 2 * 1024 * 1024 ||
+                      "File size should be less than 2MB",
+                    // Optional: Check if file is an image
+                    acceptedFormats: (files) =>
+                      ["image/jpeg", "image/png", "image/gif"].includes(
+                        files[0]?.type
+                      ) || "Only JPEG, PNG, and GIF formats are allowed",
+                  },
+                })}
+                className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 ${
+                  errors.image ? "border-[#E76F51]" : "border-[#2B7A78]"
+                }`}
               />
+              {errors.image && (
+                <p className="text-[#E76F51] text-sm">{errors.image.message}</p>
+              )}
             </div>
+
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
                 Name
