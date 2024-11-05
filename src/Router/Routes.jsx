@@ -54,50 +54,90 @@ const Routes = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashBoardLayout />,
+    element: (
+      <PrivateRoute>
+        {" "}
+        <DashBoardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "profile",
-        element: <Profile />,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "overview",
-        element: <OverView />,
+        element: (
+          <PrivateRoute>
+            <OverView />
+          </PrivateRoute>
+        ),
       },
 
-      // Admin Dashboard 
-      
+      // Admin Dashboard
+
       {
-        path:"pendingApplications",
-        element:<PendingApplications />
+        path: "pendingApplications",
+        element: (
+          <PrivateRoute>
+            <PendingApplications />
+          </PrivateRoute>
+        ),
       },
       {
-        path:"verifiedCertificates",
-        element:<VerifiedCertificates />
+        path: "verifiedCertificates",
+        element: (
+          <PrivateRoute>
+            <VerifiedCertificates />
+          </PrivateRoute>
+        ),
       },
       {
         path: "user-management",
-        element: <UserManagement />,
+        element: (
+          <PrivateRoute>
+            <UserManagement />
+          </PrivateRoute>
+        ),
       },
       {
         path: "markSheet",
-        element: <UserManagement />,
+        element: (
+          <PrivateRoute>
+            <UserManagement />
+          </PrivateRoute>
+        ),
       },
 
-      // User Dashboard 
+      // User Dashboard
       {
         path: "userOverview",
-        element: <UserOverview />,
+        element: (
+          <PrivateRoute>
+            <UserOverview />
+          </PrivateRoute>
+        ),
       },
       {
         path: "applications",
-        element: <ApplicationStatus />,
+        element: (
+          <PrivateRoute>
+            <ApplicationStatus />
+          </PrivateRoute>
+        ),
       },
       {
-        path:"downloads",
-        element:<Downloads />,
-      }
-      
+        path: "downloads",
+        element: (
+          <PrivateRoute>
+            <Downloads />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
