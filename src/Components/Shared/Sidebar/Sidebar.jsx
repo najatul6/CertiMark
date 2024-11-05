@@ -43,10 +43,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         boxShadow: "5px 0 15px rgba(0, 0, 0, 0.3)", // Custom right shadow
       }}
     >
-      <div className="flex items-center justify-between gap-2 px-6 py-5 lg:py-6">
+      <div className="flex items-center justify-between gap-2 px-6 py-5 lg:py-5">
         <NavLink to="/">
           {/* <img src={Logo} alt="Logo" /> */}
-          <h2 className="text-white text-xl font-bold">
+          <h2 className="text-white text-3xl font-bold">
             Certi<span className="text-lightTeal">Mark</span>.
           </h2>
         </NavLink>
@@ -69,7 +69,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           </svg>
         </button>
       </div>
-      <hr className="mb-5" />
+      <hr />
       {isAdmin ? <AdminSidebar /> : <UserSidebar />}
       {/* Profile and Logout at the bottom */}
       <div className="absolute bottom-0 w-full px-2 space-y-2 pb-5">

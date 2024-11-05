@@ -113,14 +113,7 @@ const Routes = createBrowserRouter([
       },
 
       // User Dashboard
-      {
-        path: "userOverview",
-        element: (
-          <PrivateRoute>
-            <UserOverview />
-          </PrivateRoute>
-        ),
-      },
+     
       {
         path: "applications",
         element: (
