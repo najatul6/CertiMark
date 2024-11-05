@@ -133,7 +133,13 @@ const Register = () => {
               <input
                 type="email"
                 id="email"
-                {...register("email", { required: "Name is required" })}
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Enter a valid email address",
+                  },
+                })}
                 className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 ${
                   errors.email ? "border-[#E76F51]" : "border-[#2B7A78]"
                 }`}
@@ -142,6 +148,7 @@ const Register = () => {
                 <p className="text-[#E76F51] text-sm">{errors.email.message}</p>
               )}
             </div>
+
             <div>
               <div className="flex justify-between">
                 <label htmlFor="password" className="text-sm mb-2">
