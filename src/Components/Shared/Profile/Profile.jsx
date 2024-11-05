@@ -43,7 +43,7 @@ const Profile = () => {
                   id="first_name"
                   className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                   placeholder="Your first name"
-                  value="Jane"
+                  defaultValue="Jane"
                   required
                 />
               </div>
@@ -60,7 +60,7 @@ const Profile = () => {
                   id="last_name"
                   className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                   placeholder="Your last name"
-                  value="Ferguson"
+                  defaultValue="Ferguson"
                   required
                 />
               </div>
