@@ -104,7 +104,11 @@ const LogIn = () => {
                   id="password"
                   {...register("password", {
                     required: "Password is required",
+                    
                   })}
+                  className={`mt-1 block w-full border bg-transparent focus:outline-none rounded-md p-2 ${
+                    errors.email ? "border-[#E76F51]" : "border-[#2B7A78]"
+                  }`}
                 />
                 <button
                   type="button"
