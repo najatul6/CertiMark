@@ -4,13 +4,11 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaSearchengin } from "react-icons/fa";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { useForm } from "react-hook-form";
 
 const UserManagement = () => {
   const axiosSecure = useAxiosSecure();
   const [searchQuery, setSearchQuery] = useState("");
   
-  } = useForm();
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
