@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaSearchengin } from "react-icons/fa";
 
 const UserManagement = () => {
-  const axiosSecure = useAxiosSecure;
+  const axiosSecure = useAxiosSecure()
   const { data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -12,7 +12,19 @@ const UserManagement = () => {
       return res.data;
     },
   });
-  console.log(users.length);
+   // Function to format date to AM/PM
+   const formatDate = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    };
+    const date = new Date(dateString);
+    return date.toLocaleString("en-US", options);
+  };
   return (
     <div>
       <DashboardTitle title={"User Management"} />
@@ -66,7 +78,7 @@ const UserManagement = () => {
                   <td className="p-4 text-sm text-black">{user?.name}</td>
                   <td className="p-4 text-sm text-black">{user?.email}</td>
                   <td className="p-4 text-sm text-black">{user?.role}</td>
-                  <td className="p-4 text-sm text-black">{user?.joinDate}</td>
+                  <td className="p-4 text-sm text-black">{formatDate(user?.joinDate)}</td>
                   <td className="p-4">
                     <button className="mr-4" title="Edit">
                       <svg
