@@ -75,7 +75,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         const userData={email: currentUser.email}
-        // TODO: Get token and store client side
+        //  Get token and store client side
         axiosPublic.post("/jwt",userData)
         .then(res=>{
           // Store token on local storage
@@ -93,7 +93,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       return unsubscribe();
     };
-  }, []);
+  }, [axiosPublic]);
   const authInfo = {
     user,
     loading,
