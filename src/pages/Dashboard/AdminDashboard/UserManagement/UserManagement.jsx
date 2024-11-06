@@ -41,7 +41,7 @@ const UserManagement = () => {
     <div>
       <DashboardTitle title={"User Management"} />
       <div>
-        <div className=" bg-darkGreen rounded-xl border">
+        <div className=" rounded-xl border">
           <div className="p-4 flex justify-between items-center">
             <h1 className="text-3xl text-white">
               Total Users : {filteredUsers.length}
