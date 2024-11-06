@@ -9,10 +9,7 @@ import { useForm } from "react-hook-form";
 const UserManagement = () => {
   const axiosSecure = useAxiosSecure();
   const [searchQuery, setSearchQuery] = useState("");
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
+  
   } = useForm();
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
@@ -71,9 +68,7 @@ const UserManagement = () => {
     });
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+
   return (
     <div>
       <DashboardTitle title={"User Management"} />
@@ -99,8 +94,11 @@ const UserManagement = () => {
               </div>
             </form>
           </div>
+
+          {/* User Table */}
           <div className=" overflow-x-auto">
             <table className="min-w-full bg-darkGreen rounded-xl">
+              {/* Table Header */}
               <thead className="bg-teal whitespace-nowrap text-white">
                 <tr>
                   <th className="p-4 text-left text-lg uppercase font-medium">
@@ -135,9 +133,7 @@ const UserManagement = () => {
                         <button
                           className="mr-4"
                           title="Edit"
-                          onClick={() =>
-                            document.getElementById("my_modal_2").showModal()
-                          }
+                          
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -155,50 +151,6 @@ const UserManagement = () => {
                           </svg>
                         </button>
                         
-                        {/* Role Selection  */}
-                        <dialog id="my_modal_2" className="modal">
-                          <form
-                            onSubmit={handleSubmit(onSubmit)}
-                            className="modal-box"
-                          >
-                            <div>
-                              <label
-                                htmlFor="certificateType"
-                                className="block text-sm font-medium text-gray-700"
-                              >
-                                Change User Role
-                              </label>
-                              <select
-                                id="certificateType"
-                                {...register("certificateType", {
-                                  required: "Certificate type is required",
-                                })}
-                                className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen ${
-                                  errors.certificateType
-                                    ? "border-[#E76F51]"
-                                    : "border-gray-300"
-                                } rounded-md p-2`}
-                              >
-                                <option selected disabled>
-                                  Select Certificate Type
-                                </option>
-                                <option value="completion">
-                                  Completion Certificate
-                                </option>
-                                <option value="transcript">Transcript</option>
-                                <option value="diploma">Diploma</option>
-                              </select>
-                              {errors.certificateType && (
-                                <p className="text-[#E76F51] text-sm">
-                                  {errors.certificateType.message}
-                                </p>
-                              )}
-                            </div>
-                          </form>
-                          <form method="dialog" className="modal-backdrop">
-                            <button>close</button>
-                          </form>
-                        </dialog>
                         <button
                           className="mr-4"
                           title="Delete"
