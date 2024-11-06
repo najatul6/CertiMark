@@ -34,7 +34,6 @@ const Register = () => {
       // Create User
       const result = await createUser(data.email, data.password);
       const loggedUser = result.user;
-      console.log("Logged User:", loggedUser);
 
       // If user creation is successful and an image is provided
       let imageUrl = "";
@@ -48,14 +47,16 @@ const Register = () => {
         }
 
         // Update User Profile
-        await updateUserProfile(data.name, imageUrl);
+        await updateUserProfile(data?.name, imageUrl);
       }
-
+console.log(data);
       // Send Data to Database
       const res = await axiosPublic.post("/users", {
-        name: data.name,
-        email: data.email,
+        name: data?.name,
+        email: data?.email,
         image: imageUrl,
+        joinDate:loggedUser?.metadata?.creationTime,
+        role:"user",
       });
       // Check response from the server
       if (res.data && res.data.acknowledged === true) {
@@ -90,12 +91,14 @@ const Register = () => {
           name: result?.user?.displayName,
           email: result?.user?.email,
           image: result?.user?.photoURL,
+          joinDate: result?.user?.metadata?.creationTime,
+          role:"user"
         };
 
         axiosPublic
           .post("/users", userInfo)
           .then((res) => {
-            console.log(res.data);
+            console.log(res?.status);
             // Dismiss the loading toast and show success message
             toast.dismiss(loadingToastId);
             toast.success("Sign Up Successful");
