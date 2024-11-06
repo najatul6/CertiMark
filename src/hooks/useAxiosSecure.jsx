@@ -13,6 +13,7 @@ const useAxiosSecure = () => {
     function (err) {
       return Promise.reject(err);
     };
+    // Add response interceptor to handle session expiration
   axiosSecure.interceptors.response.use(
     function (response) {
       return response;
