@@ -8,7 +8,7 @@ const UserSidebar = () => {
 
       <nav className="flex-grow space-y-4">
         <NavLink
-          to="/dashboard/userOverview"
+          to="/dashboard/overview"
           className={({ isActive }) =>
             `flex items-center p-3  rounded-s-xl text-lg ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
