@@ -204,9 +204,9 @@ const UserManagement = () => {
                                 {...register("role")}
                                 className="text-lg bg-transparent border rounded-xl py-2 w-full text-center my-2 text-lightTeal"
                               >
-                                <option value="Admin">Admin</option>
-                                <option value="Teacher">Teacher</option>
-                                <option value="User">User</option>
+                                <option value="admin">Admin</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="user">User</option>
                               </select>
                               <button
                                 type="submit"
