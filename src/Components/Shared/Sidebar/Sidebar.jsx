@@ -6,13 +6,14 @@ import { FaSignOutAlt, FaUser } from "react-icons/fa";
 import useAuth from "../../../hooks/useAuth";
 import toast from "react-hot-toast";
 import AdminSidebar from "../../../pages/Dashboard/Sidebars/AdminSidebar";
+import useRole from "../../../hooks/useRole";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const sidebar = useRef(null);
   const { logOut } = useAuth();
   const navigate = useNavigate();
-  // TODO: Get Admin value from Data base
-  const isAdmin = true;
+  //  Get User Role from Data base
+  const [userRole]=useRole()
   const handleLogOut = async () => {
     // Show processing toast
     const loadingToast = toast.loading("Processing...");
@@ -72,7 +73,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       <hr />
 
       {/* TODO:Check user Role */}
-      {isAdmin ? <AdminSidebar /> : <UserSidebar />}
+      {userRole ? <AdminSidebar /> : <UserSidebar />}
       {/* Profile and Logout at the bottom */}
       <div className="absolute bottom-0 w-full px-2 space-y-2 pb-5">
         <NavLink
