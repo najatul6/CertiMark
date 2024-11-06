@@ -4,10 +4,16 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaSearchengin } from "react-icons/fa";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
 
 const UserManagement = () => {
   const axiosSecure = useAxiosSecure();
   const [searchQuery, setSearchQuery] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -39,7 +45,6 @@ const UserManagement = () => {
       )
     : users;
 
-    
   // Delete User from Database
   const handleDeleteUser = (user) => {
     Swal.fire({
@@ -64,6 +69,10 @@ const UserManagement = () => {
         });
       }
     });
+  };
+
+  const onSubmit = (data) => {
+    console.log(data);
   };
   return (
     <div>
@@ -123,7 +132,13 @@ const UserManagement = () => {
                         {formatDate(user?.joinDate)}
                       </td>
                       <td className="p-4">
-                        <button className="mr-4" title="Edit">
+                        <button
+                          className="mr-4"
+                          title="Edit"
+                          onClick={() =>
+                            document.getElementById("my_modal_2").showModal()
+                          }
+                        >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-5 fill-blue-500 hover:fill-blue-700"
@@ -139,6 +154,51 @@ const UserManagement = () => {
                             />
                           </svg>
                         </button>
+                        
+                        {/* Role Selection  */}
+                        <dialog id="my_modal_2" className="modal">
+                          <form
+                            onSubmit={handleSubmit(onSubmit)}
+                            className="modal-box"
+                          >
+                            <div>
+                              <label
+                                htmlFor="certificateType"
+                                className="block text-sm font-medium text-gray-700"
+                              >
+                                Change User Role
+                              </label>
+                              <select
+                                id="certificateType"
+                                {...register("certificateType", {
+                                  required: "Certificate type is required",
+                                })}
+                                className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen ${
+                                  errors.certificateType
+                                    ? "border-[#E76F51]"
+                                    : "border-gray-300"
+                                } rounded-md p-2`}
+                              >
+                                <option selected disabled>
+                                  Select Certificate Type
+                                </option>
+                                <option value="completion">
+                                  Completion Certificate
+                                </option>
+                                <option value="transcript">Transcript</option>
+                                <option value="diploma">Diploma</option>
+                              </select>
+                              {errors.certificateType && (
+                                <p className="text-[#E76F51] text-sm">
+                                  {errors.certificateType.message}
+                                </p>
+                              )}
+                            </div>
+                          </form>
+                          <form method="dialog" className="modal-backdrop">
+                            <button>close</button>
+                          </form>
+                        </dialog>
                         <button
                           className="mr-4"
                           title="Delete"
