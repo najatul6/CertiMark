@@ -1,10 +1,29 @@
-import axios from "axios"
+import axios from "axios";
 
-const axiosSecure=axios.create({
-    baseURL: import.meta.env.VITE_BASE_URL,
-})
+const axiosSecure = axios.create({
+  baseURL: import.meta.env.VITE_BASE_URL,
+});
 const useAxiosSecure = () => {
-  return axiosSecure
-}
+  // Add request interceptor to attach token to each request
+  axiosSecure.interceptors.request.use(function (config) {
+    const token = localStorage.getItem("access-token");
+    config.headers.authorization = `Bearer ${token}`;
+    return config;
+  }),
+    function (err) {
+      return Promise.reject(err);
+    };
+  axiosSecure.interceptors.response.use(
+    function (response) {
+      return response;
+    },
+    (error) => {
+      const status=error.response?.status
+      console.log(status);
+      return Promise.reject(error);
+    }
+  );
+  return axiosSecure;
+};
 
-export default useAxiosSecure
+export default useAxiosSecure;
