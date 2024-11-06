@@ -10,7 +10,7 @@ const UserSidebar = () => {
         <NavLink
           to="/dashboard/overview"
           className={({ isActive }) =>
-            `flex items-center p-3  rounded-s-xl text-lg ${
+            `flex items-center p-3  rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
             }`
           }
@@ -21,7 +21,7 @@ const UserSidebar = () => {
         <NavLink
           to="/dashboard/applications"
           className={({ isActive }) =>
-            `flex items-center p-3  rounded-s-xl text-lg ${
+            `flex items-center p-3  rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
             }`
           }
@@ -33,7 +33,7 @@ const UserSidebar = () => {
         <NavLink
           to="/dashboard/downloads"
           className={({ isActive }) =>
-            `flex items-center p-3  rounded-s-xl text-lg ${
+            `flex items-center p-3  rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
             }`
           }

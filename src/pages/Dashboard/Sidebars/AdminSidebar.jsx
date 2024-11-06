@@ -8,7 +8,7 @@ const AdminSidebar = () => {
         <NavLink
           to="/dashboard/overview"
           className={({ isActive }) =>
-            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
             }`
           }
@@ -19,7 +19,7 @@ const AdminSidebar = () => {
         <NavLink
           to="/dashboard/pendingApplications"
           className={({ isActive }) =>
-            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
             }`
           }
@@ -30,7 +30,7 @@ const AdminSidebar = () => {
         <NavLink
           to="/dashboard/verifiedCertificates"
           className={({ isActive }) =>
-            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
             }`
           }
@@ -41,7 +41,7 @@ const AdminSidebar = () => {
         <NavLink
           to="/dashboard/user-management"
           className={({ isActive }) =>
-            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
             }`
           }

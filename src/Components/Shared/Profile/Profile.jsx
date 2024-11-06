@@ -1,8 +1,9 @@
+import DashboardTitle from "../DashboardTitle/DashboardTitle";
+
 const Profile = () => {
   return (
-    <div className="p-2 md:p-4">
-        <h2 className="text-2xl font-bold mb-6 text-center py-5 text-darkGreen">User Profile</h2>
-        <hr />
+    <div>
+      <DashboardTitle title="User Profile"/>
       <div className="w-full px-6 pb-8 mt-8 ">
 
         <div className="grid w-full mx-auto mt-8">

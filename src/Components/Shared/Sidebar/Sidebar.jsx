@@ -70,7 +70,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           </svg>
         </button>
       </div>
-      <hr />
+      <hr className="mb-2"/>
 
       {/* TODO:Check user Role */}
       {userRole ? <AdminSidebar /> : <UserSidebar />}
@@ -79,7 +79,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         <NavLink
           to="/dashboard/profile"
           className={({ isActive }) =>
-            `flex items-center p-3 space-x-3 rounded-s-xl text-lg ${
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
             }`
           }
