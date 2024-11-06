@@ -4,6 +4,7 @@ import { FcApproval } from "react-icons/fc";
 import { CiCircleRemove } from "react-icons/ci";
 import Loading from "../../../../Components/Shared/Loading/Loading";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
+import { FaHandHoldingDollar } from "react-icons/fa6";
 
 const ApplicationStatus = () => {
   const [application, , isLoading] = useApplication();
@@ -24,9 +25,9 @@ const ApplicationStatus = () => {
     return <Loading />;
   }
   return (
-    <div className="md:p-6 flex flex-col items-center">
+    <div >
       <DashboardTitle title={"Application Status"} />
-      <div className=" border shadow-lg  w-full">
+      <div className=" border overflow-x-auto shadow-lg  w-full">
         <div>
           <table className="w-full text-center border-collapse capitalize text-darkGreen">
             <thead className="">
@@ -49,7 +50,7 @@ const ApplicationStatus = () => {
               {application.map((app, index) => (
                 <tr
                   key={index}
-                  className="hover:bg-gray-100 text-xs md:text-base"
+                  className="hover:bg-darkGreen text-white text-xs md:text-base"
                 >
                   <td className="border-b py-2 capitalize">
                     {app?.certificateType}
@@ -87,22 +88,10 @@ const ApplicationStatus = () => {
                       {app.Status === "Pending" ? (
                         <button
                         type="button"
-                        className="px-5 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-700 active:bg-purple-600"
+                        className="px-5 py-2.5 flex items-center justify-center gap-2 rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-700 active:bg-purple-600"
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16px"
-                          fill="currentColor"
-                          className="mr-2 inline"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M1 1a1 1 0 1 0 0 2h1.78a.694.694 35.784 0 1 .657.474l3.297 9.893c.147.44.165.912.053 1.362l-.271 1.087C6.117 17.41 7.358 19 9 19h12a1 1 0 1 0 0-2H9c-.39 0-.64-.32-.545-.697l.205-.818A.64.64 142.028 0 1 9.28 15H20a1 1 0 0 0 .95-.684l2.665-8A1 1 0 0 0 22.666 5H6.555a.694.694 35.783 0 1-.658-.474l-.948-2.842A1 1 0 0 0 4 1zm7 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
-                            data-original="#000000"
-                            paintOrder="fill markers stroke"
-                          />
-                        </svg>
-                        Buy
+                        <FaHandHoldingDollar className="text-2xl" />
+                        Pay
                       </button>
                       ) : app.Status === "Approved" ? (
                         <button
