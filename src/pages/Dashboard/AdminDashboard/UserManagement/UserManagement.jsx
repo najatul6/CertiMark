@@ -4,10 +4,15 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaSearchengin } from "react-icons/fa";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
 
 const UserManagement = () => {
   const axiosSecure = useAxiosSecure();
   const [searchQuery, setSearchQuery] = useState("");
+  const { register, handleSubmit } = useForm()
+  const [selectedUser,setSelectedUser]=useState([])
+  const [isOpen, setIsOpen] = useState(false);
+  const [loading,setLoading] = useState(true);
   
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
@@ -66,6 +71,31 @@ const UserManagement = () => {
     });
   };
 
+  const onSubmit = (data) => {
+    // Swal.fire({
+    //   title: "Are you sure to delete user?",
+    //   text: "You won't be able to revert this!",
+    //   icon: "warning",
+    //   showCancelButton: true,
+    //   confirmButtonColor: "#3085d6",
+    //   cancelButtonColor: "#d33",
+    //   confirmButtonText: "Yes, delete it!",
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     axiosSecure.delete(`/users/${user?._id}`).then((res) => {
+    //       if (res.data.deletedCount > 0) {
+    //         refetch();
+    //         Swal.fire({
+    //           title: "Deleted!",
+    //           text: "Your file has been deleted.",
+    //           icon: "success",
+    //         });
+    //       }
+    //     });
+    //   }
+    // });
+    console.log(data,selectedUser)
+  }
 
   return (
     <div>
@@ -129,9 +159,13 @@ const UserManagement = () => {
                       </td>
                       <td className="p-4">
                         <button
-                          className="mr-4"
+                          className="mr-4 btn"
                           title="Edit"
-                          
+                          onClick={() =>{
+                            setSelectedUser(user)
+                            document.getElementById("my_modal_3").showModal()
+                          }
+                          }
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +182,7 @@ const UserManagement = () => {
                             />
                           </svg>
                         </button>
-                        
+
                         <button
                           className="mr-4"
                           title="Delete"
@@ -176,6 +210,29 @@ const UserManagement = () => {
               </tbody>
             </table>
           </div>
+
+          {/* Role Change Dialog  */}
+          <dialog id="my_modal_3" className="modal">
+            <div className="modal-box">
+              <form method="dialog">
+                {/* if there is a button in form, it will close the modal */}
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                  ✕
+                </button>
+              </form>
+              <h3 className="font-bold text-xl text-center text-lightTeal py-5">Hello!</h3>
+              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center">
+                <select {...register("role")} className="text-lg bg-transparent border rounded-xl py-2 w-full text-center my-2 text-lightTeal">
+                  <option value="Admin">Admin</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="User">User</option>
+                </select>
+                <button type="submit" className="btn w-full mt-5 text-white bg-transparent border border-teal hover:bg-teal">
+                 Change Role
+                </button>
+              </form>
+            </div>
+          </dialog>
         </div>
       </div>
     </div>
