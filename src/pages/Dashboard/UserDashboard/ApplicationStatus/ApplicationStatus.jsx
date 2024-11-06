@@ -7,7 +7,6 @@ import DashboardTitle from "../../../../Components/Shared/DashboardTitle/Dashboa
 
 const ApplicationStatus = () => {
   const [application, , isLoading] = useApplication();
-  console.log(application);
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
     const options = {
