@@ -3,6 +3,7 @@ import { Outlet } from "react-router";
 import DashboardHeader from "../Components/Shared/DashboardHeader/DashboardHeader";
 import Sidebar from "../Components/Shared/Sidebar/Sidebar";
 import { useState } from "react";
+import './custom.css'
 
 
 const DashBoardLayout = () => {
@@ -19,7 +20,7 @@ const DashBoardLayout = () => {
           />
 
           <main>
-            <div className="mx-auto max-w-screen-2xl bg-white/20 min-h-screen p-4 md:p-6 2xl:p-10">
+            <div className="mx-auto max-w-screen-2xl myStyle min-h-screen p-4 md:p-6 2xl:p-10">
               <Outlet />
             </div>
           </main>
