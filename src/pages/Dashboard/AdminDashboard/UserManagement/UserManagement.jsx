@@ -201,11 +201,12 @@ const UserManagement = () => {
                               className="flex flex-col justify-center items-center"
                             >
                               <select
+                              defaultValue="selected"
                                 {...register("role")}
                                 className="text-lg bg-transparent border rounded-xl py-2 w-full text-center my-2 text-lightTeal"
                               >
+                                <option value="selected">Select Role</option>
                                 <option value="admin">Admin</option>
-                                <option value="teacher">Teacher</option>
                                 <option value="user">User</option>
                               </select>
                               <button

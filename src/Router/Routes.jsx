@@ -18,6 +18,7 @@ import VerifiedCertificates from "../pages/Dashboard/AdminDashboard/VerifiedCert
 import PendingApplications from "../pages/Dashboard/AdminDashboard/PendingApplications/PendingApplications";
 import OverView from "../pages/Dashboard/OverView/OverView";
 import Apply from "../pages/Apply/Apply";
+import AdminRoutes from "./AdminRoutes";
 
 const Routes = createBrowserRouter([
   {
@@ -72,19 +73,33 @@ const Routes = createBrowserRouter([
 
       {
         path: "pendingApplications",
-        element: <PendingApplications />,
+        element: (
+          <AdminRoutes>
+            <PendingApplications />
+          </AdminRoutes>
+        ),
       },
       {
         path: "verifiedCertificates",
-        element: <VerifiedCertificates />,
+        element: (
+          <AdminRoutes>
+            <VerifiedCertificates />
+          </AdminRoutes>
+        ),
       },
       {
         path: "user-management",
-        element: <UserManagement />,
+        element: (
+          <AdminRoutes>
+            <UserManagement />
+          </AdminRoutes>
+        ),
       },
       {
         path: "markSheet",
-        element: <UserManagement />,
+        element: <AdminRoutes>
+        <UserManagement />
+      </AdminRoutes>,
       },
 
       // User Dashboard
