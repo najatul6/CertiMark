@@ -85,7 +85,7 @@ const ApplicationStatus = () => {
                     <span
                       className={`px-2 py-1 rounded-full text-sm flex justify-center items-center`}
                     >
-                      {app.Status === "Pending" ? (
+                      {app?.fee === "unPaid" ? (
                         <button
                         type="button"
                         className="px-5 py-2.5 flex items-center justify-center gap-2 rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-700 active:bg-purple-600"
@@ -93,7 +93,7 @@ const ApplicationStatus = () => {
                         <FaHandHoldingDollar className="text-2xl" />
                         Pay
                       </button>
-                      ) : app.Status === "Approved" ? (
+                      ) : app.fee === "paid" ? (
                         <button
                         type="button"
                         className="w-10 h-10 inline-flex items-center justify-center rounded border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600"
@@ -116,12 +116,11 @@ const ApplicationStatus = () => {
                         type="button"
                         className="px-5 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-red-600 hover:bg-red-700 active:bg-red-600"
                       >
-                        <span className="border-r border-white pr-3">Red</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="11px"
                           fill="currentColor"
-                          className="ml-3 inline"
+                          className="inline"
                           viewBox="0 0 320.591 320.591"
                         >
                           <path
