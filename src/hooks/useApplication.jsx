@@ -5,14 +5,14 @@ import useAuth from "./useAuth"
 const useApplication =() => { 
     const axiosSecure=useAxiosSecure()
     const {user}=useAuth()
-    const {isLoading,refetch,data:application=[]}=useQuery({
+    const {isPending,refetch,data:application=[]}=useQuery({
         queryKey:["application",user?.email],
         queryFn:async()=>{
             const res = await axiosSecure.get(`/applicants?email=${user?.email}`)
             return res.data
         }
     })
-  return [application,refetch,isLoading]
+  return [application,refetch,isPending]
 }
 
 export default useApplication

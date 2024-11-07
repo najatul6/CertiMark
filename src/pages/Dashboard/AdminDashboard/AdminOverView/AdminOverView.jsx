@@ -1,8 +1,12 @@
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
+import Loading from "../../../../Components/Shared/Loading/Loading";
 import useApplication from "../../../../hooks/useApplication";
 
 const AdminOverView = () => {
-  const [application]=useApplication()
+  const [application,,isPending]=useApplication()
+  if (isPending) {
+    return <Loading />;
+  }
   return (
     <div>
       <DashboardTitle title={"Dashboard Overview"}/>

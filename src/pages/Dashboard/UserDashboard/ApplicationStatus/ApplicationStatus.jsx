@@ -7,7 +7,7 @@ import DashboardTitle from "../../../../Components/Shared/DashboardTitle/Dashboa
 import { FaHandHoldingDollar } from "react-icons/fa6";
 
 const ApplicationStatus = () => {
-  const [application, , isLoading] = useApplication();
+  const [application, , isPending] = useApplication();
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
     const options = {
@@ -21,7 +21,7 @@ const ApplicationStatus = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
-  if (isLoading) {
+  if (isPending) {
     return <Loading />;
   }
   return (

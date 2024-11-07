@@ -1,8 +1,9 @@
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
+import Loading from "../../../../Components/Shared/Loading/Loading";
 import useApplication from "../../../../hooks/useApplication";
 
 const UserOverview = () => {
-  const [application] = useApplication();
+  const [application,,isPending] = useApplication();
   //  const [paidApplication,setpaidApplication] = useState()
   const paidApplication = application?.filter((data) => data.fee === "paid");
   const unPaidApplication = application?.filter(
@@ -23,7 +24,9 @@ const UserOverview = () => {
     0
   );
 
-  
+  if (isPending) {
+    return <Loading />;
+  }
 
   return (
     <div className="">

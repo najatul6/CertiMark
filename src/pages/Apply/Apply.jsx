@@ -6,13 +6,14 @@ import toast from "react-hot-toast";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import useApplication from "../../hooks/useApplication";
+import Loading from "../../Components/Shared/Loading/Loading";
 
 const Apply = () => {
   const { user } = useAuth();
   const [isLoading,setIsLoading]=useState()
   const axiosSecure=useAxiosSecure()
   const navigate=useNavigate()
-  const [,refetch]=useApplication()
+  const [,refetch,isPending,]=useApplication()
   const {
     register,
     handleSubmit,
@@ -44,6 +45,9 @@ const Apply = () => {
       setIsLoading(false);
     }
   };
+  if (isPending) {
+    return <Loading />;
+  }
 
   return (
     <div className="bg-[#FEFFFF] min-h-screen flex items-center justify-center px-6 py-12 !font-roboto">
