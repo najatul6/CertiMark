@@ -1,16 +1,15 @@
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import "./Dropdown.css"; 
+import "./Dropdown.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import useAuth from "../../../hooks/useAuth";
 import toast from "react-hot-toast";
-import Loading from "../Loading/Loading";
 
 const ProfileDropDown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { logOut, loading, setLoading } = useAuth();
-  const dropdownRef = useRef(null); 
+  const { logOut, loading,setLoading } = useAuth();
+  const dropdownRef = useRef(null);
 
   const handleLogOut = async () => {
     try {
@@ -23,8 +22,8 @@ const ProfileDropDown = ({ user }) => {
     }
   };
 
-  if (loading) {
-    return <Loading />;
+  if(loading){
+   return <span className="loading loading-ring loading-md"></span>
   }
 
   return (
@@ -68,9 +67,12 @@ const ProfileDropDown = ({ user }) => {
         timeout={150}
         classNames="dropdown"
         unmountOnExit
-        nodeRef={dropdownRef} 
+        nodeRef={dropdownRef}
       >
-        <div ref={dropdownRef} className="mt-2 absolute right-0 origin-top-right text-left">
+        <div
+          ref={dropdownRef}
+          className="mt-2 absolute right-0 origin-top-right text-left"
+        >
           <div className="w-64 bg-white rounded-lg shadow-lg">
             <div className="flex items-center px-6 py-4">
               <div className="ml-4">

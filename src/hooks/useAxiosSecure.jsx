@@ -1,6 +1,7 @@
 import axios from "axios";
 import useAuth from "./useAuth";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 const axiosSecure = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -27,6 +28,7 @@ const useAxiosSecure = () => {
       // If session expired, log out and redirect to login page
       if(status === 401 || status ===403){
         await logOut();
+        toast.error('Session expired, please log in again');
         navigate("/login");
       }
       console.log(status);
