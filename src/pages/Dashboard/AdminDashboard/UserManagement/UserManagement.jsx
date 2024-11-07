@@ -229,7 +229,7 @@ const UserManagement = () => {
                           </div>
                         </dialog>
                         <button
-                          className="mr-4"
+                          className="mr-4 btn"
                           title="Delete"
                           onClick={() => handleDeleteUser(user)}
                         >
