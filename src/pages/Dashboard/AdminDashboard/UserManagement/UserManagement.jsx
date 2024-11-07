@@ -81,8 +81,7 @@ const UserManagement = () => {
       confirmButtonText: "Yes, change it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.patch(`/users/admin/${selectedUser?._id}`)
-        .then((res) => {
+        axiosSecure.patch(`/users/admin/${selectedUser?._id}`).then((res) => {
           if (res.data.modifiedCount > 0) {
             refetch();
             Swal.fire({
@@ -96,7 +95,7 @@ const UserManagement = () => {
         });
       }
     });
-    console.log(data,selectedUser)
+    console.log(data, selectedUser);
   };
 
   return (
@@ -132,6 +131,9 @@ const UserManagement = () => {
               <thead className="bg-teal whitespace-nowrap text-white">
                 <tr>
                   <th className="p-4 text-left text-lg uppercase font-medium">
+                    Profile
+                  </th>
+                  <th className="p-4 text-left text-lg uppercase font-medium">
                     Name
                   </th>
                   <th className="p-4 text-left text-lg uppercase font-medium">
@@ -153,6 +155,14 @@ const UserManagement = () => {
                 {filteredUsers.map((user) => {
                   return (
                     <tr key={user?._id} className="border-b text-lightTeal">
+                      <td className="p-4 text-sm ">
+                        <div className="avatar">
+                          <div className="ring-primary ring-offset-base-100 w-9 rounded-full ring ring-offset-2">
+                            <img src={user?.image} />
+                          </div>
+                        </div>
+                        
+                      </td>
                       <td className="p-4 text-sm ">{user?.name}</td>
                       <td className="p-4 text-sm ">{user?.email}</td>
                       <td className="p-4 text-sm capitalize">{user?.role}</td>
@@ -201,7 +211,7 @@ const UserManagement = () => {
                               className="flex flex-col justify-center items-center"
                             >
                               <select
-                              defaultValue="selected"
+                                defaultValue="selected"
                                 {...register("role")}
                                 className="text-lg bg-transparent border rounded-xl py-2 w-full text-center my-2 text-lightTeal"
                               >
