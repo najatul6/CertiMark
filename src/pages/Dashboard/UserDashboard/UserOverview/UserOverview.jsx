@@ -9,7 +9,10 @@ const UserOverview = () => {
     (data) => data.fee === "unPaid"
   );
   const verifiedApplication = application?.filter(
-    (data) => data.Status === "approved"
+    (data) => data.Status === "Approved"
+  );
+  const rejectedApplication = application?.filter(
+    (data) => data.Status === "Rejected"
   );
   const totalPaid = paidApplication.reduce(
     (total, item) => total + parseFloat(item.feeAmount),
@@ -46,6 +49,16 @@ const UserOverview = () => {
             Verified Certificates
           </h3>
           <p className="text-white text-lg pl-4">{verifiedApplication?.length}</p>
+        </div>
+
+        {/* Rejected Certificates */}
+        <div className="bg-lightTeal shadow rounded-lg p-10">
+          <h3
+            className="font-semibold text-darkGreen text-xl pb-5 "
+          >
+            Rejected Certificates
+          </h3>
+          <p className="text-white text-lg pl-4">{rejectedApplication?.length}</p>
         </div>
 
         {/* Total Paid */}
