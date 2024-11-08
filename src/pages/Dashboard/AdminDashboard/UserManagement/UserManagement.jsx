@@ -102,7 +102,7 @@ const UserManagement = () => {
     <div>
       <DashboardTitle title={"User Management"} />
       <div>
-        <div className=" rounded-xl border">
+        <div className=" rounded-t-xl border">
           <div className="p-4 flex justify-between items-center">
             <h1 className="text-3xl text-white">
               Total Users : {filteredUsers.length}
@@ -130,22 +130,22 @@ const UserManagement = () => {
               {/* Table Header */}
               <thead className="bg-teal whitespace-nowrap text-white">
                 <tr>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
+                  <th className="p-4 text-left text-lg capitalize font-medium border-r">
                     Profile
                   </th>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
+                  <th className="p-4 text-left text-lg capitalize font-medium border-r">
                     Name
                   </th>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
+                  <th className="p-4 text-left text-lg capitalize font-medium border-r">
                     Email
                   </th>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
+                  <th className="p-4 text-left text-lg capitalize font-medium border-r">
                     Role
                   </th>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
+                  <th className="p-4 text-left text-lg capitalize font-medium border-r">
                     Joined At
                   </th>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
+                  <th className="p-4 text-left text-lg capitalize font-medium">
                     Actions
                   </th>
                 </tr>
@@ -154,8 +154,8 @@ const UserManagement = () => {
               <tbody className="whitespace-nowrap">
                 {filteredUsers.map((user) => {
                   return (
-                    <tr key={user?._id} className="border-b text-lightTeal">
-                      <td className="p-4 text-sm ">
+                    <tr key={user?._id} className="border-b text-lightTeal border-r">
+                      <td className="p-4 text-sm border-r">
                         <div className="avatar">
                           <div className="ring-primary ring-offset-base-100 w-9 rounded-full ring ring-offset-2">
                             <img src={user?.image} />
@@ -163,10 +163,10 @@ const UserManagement = () => {
                         </div>
                         
                       </td>
-                      <td className="p-4 text-sm ">{user?.name}</td>
-                      <td className="p-4 text-sm ">{user?.email}</td>
-                      <td className="p-4 text-sm capitalize">{user?.role}</td>
-                      <td className="p-4 text-sm ">
+                      <td className="p-4 text-sm  text-wrap border-r">{user?.name}</td>
+                      <td className="p-4 text-sm  text-wrap border-r">{user?.email}</td>
+                      <td className="p-4 text-sm text-wrap border-r capitalize">{user?.role}</td>
+                      <td className="p-4 text-sm text-wrap border-r ">
                         {formatDate(user?.joinDate)}
                       </td>
                       <td className="p-4">
