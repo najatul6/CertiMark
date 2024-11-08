@@ -6,16 +6,13 @@ import { useState } from "react";
 import { FaSearchengin } from "react-icons/fa6";
 
 const PendingApplications = () => {
-  const [searchQuery,setSearchQuery]=useState()
+  const [searchQuery, setSearchQuery] = useState();
   const axiosSecure = useAxiosSecure();
 
-  const {
-    isPending,
-    data: applications = [],
-  } = useQuery({
+  const { isPending, data: applications = [] } = useQuery({
     queryKey: ["applications"],
     queryFn: async () => {
-      const res = await axiosSecure.get('/applications');
+      const res = await axiosSecure.get("/applications");
       return res.data;
     },
   });
@@ -37,21 +34,25 @@ const PendingApplications = () => {
     ? applications.filter(
         (user) =>
           user?.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          user?.userEmail.toLowerCase().includes(searchQuery.toLowerCase())||
-          user?.registrationNo.toLowerCase().includes(searchQuery.toLowerCase())||
+          user?.userEmail.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          user?.registrationNo
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase()) ||
           user?.studentId.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : applications;
-    if(isPending){
-      return <Loading/>
-    }
+  if (isPending) {
+    return <Loading />;
+  }
   return (
     <div>
       <DashboardTitle title={"Pending Applications"} />
       <div>
-        <div className=" rounded-xl border">
+        <div className=" rounded-t-xl border">
           <div className="p-4 flex justify-between items-center">
-            <h1 className="text-3xl text-white">Total Application :</h1>
+            <h1 className="text-3xl text-white">
+              Total Application : {filterSearch?.length}
+            </h1>
             <form className="max-w-[480px] w-full px-4">
               <div className="relative">
                 <input
@@ -73,21 +74,33 @@ const PendingApplications = () => {
           <div className=" overflow-x-auto">
             <table className="min-w-full bg-darkGreen rounded-xl">
               {/* Table Header */}
-              <thead className="bg-teal whitespace-nowrap text-white">
+              <thead className="bg-lightTeal text-wrap whitespace-nowrap  text-white">
                 <tr>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
-                    Name
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    student name
                   </th>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
-                    Email
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    Student ID
                   </th>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
-                    Role
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    Registration No.
                   </th>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
-                    Joined At
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    Technology
                   </th>
-                  <th className="p-4 text-left text-lg uppercase font-medium">
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    certificate type
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    year Of Completion
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    Apply Date
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    Payment Status
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium">
                     Actions
                   </th>
                 </tr>
@@ -95,14 +108,32 @@ const PendingApplications = () => {
               <tbody className="whitespace-nowrap">
                 {filterSearch.map((application) => {
                   return (
-                    <tr key={application?._id} className="border-b text-lightTeal">
-                      <td className="p-4 text-sm ">{application?.name}</td>
-                      <td className="p-4 text-sm ">{application?.userEmail}</td>
-                      <td className="p-4 text-sm capitalize">{application?.Status}</td>
-                      <td className="p-4 text-sm ">
-                        {formatDate(application?.fee)}
+                    <tr
+                      key={application?._id}
+                      className="border-b text-lightTeal text-wrap "
+                    >
+                      <td className="p-2 text-sm border-r">{application?.name}</td>
+                      <td className="p-2 text-sm border-r">{application?.studentId}</td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.registrationNo}
                       </td>
-                      <td className="p-4"></td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.technology}
+                      </td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.certificateType}
+                      </td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.yearOfCompletion}
+                      </td>
+                      <td className="p-2 text-sm border-r">
+                        {formatDate(application?.ApplyDate)}
+                      </td>
+                      <td className="p-2 text-sm border-r">{application?.fee}</td>
+                      <td className="py-2 px-1 flex flex-col justify-center items-center gap-2 text-sm capitalize">
+                        <button className="w-full bg-green-600 hover:bg-green-500 rounded-xl text-white">Approve</button>
+                        <button className="w-full bg-red-600 hover:bg-red-400 rounded-xl text-white">Reject</button>
+                      </td>
                     </tr>
                   );
                 })}
