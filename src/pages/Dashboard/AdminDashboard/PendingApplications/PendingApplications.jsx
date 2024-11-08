@@ -89,7 +89,7 @@ const PendingApplications = () => {
                     Technology
                   </th>
                   <th className="p-4 text-left capitalize font-medium border-r">
-                    certificate type
+                  Reason
                   </th>
                   <th className="p-4 text-left capitalize font-medium border-r">
                     year Of Completion
@@ -129,7 +129,7 @@ const PendingApplications = () => {
                       <td className="p-2 text-sm border-r">
                         {formatDate(application?.ApplyDate)}
                       </td>
-                      <td className="p-2 text-sm border-r">{application?.fee}</td>
+                      <td className={`p-2 text-sm border-r text-center uppercase ${application?.fee === 'unPaid' && 'text-red-600'}`}>{application?.fee}</td>
                       <td className="py-2 px-1 flex flex-col justify-center items-center gap-2 text-sm capitalize">
                         <button className="w-full bg-green-600 hover:bg-green-500 rounded-xl text-white">Approve</button>
                         <button className="w-full bg-red-600 hover:bg-red-400 rounded-xl text-white">Reject</button>
