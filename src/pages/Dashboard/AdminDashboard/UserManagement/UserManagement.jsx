@@ -130,22 +130,22 @@ const UserManagement = () => {
               {/* Table Header */}
               <thead className="bg-teal whitespace-nowrap text-white">
                 <tr>
-                  <th className="p-4 text-left text-lg capitalize font-medium border-r">
+                  <th className="p-4 text-center capitalize font-medium border-r">
                     Profile
                   </th>
-                  <th className="p-4 text-left text-lg capitalize font-medium border-r">
+                  <th className="p-4 text-center capitalize font-medium border-r">
                     Name
                   </th>
-                  <th className="p-4 text-left text-lg capitalize font-medium border-r">
+                  <th className="p-4 text-center capitalize font-medium border-r">
                     Email
                   </th>
-                  <th className="p-4 text-left text-lg capitalize font-medium border-r">
+                  <th className="p-4 text-center capitalize font-medium border-r">
                     Role
                   </th>
-                  <th className="p-4 text-left text-lg capitalize font-medium border-r">
+                  <th className="p-4 text-center capitalize font-medium border-r">
                     Joined At
                   </th>
-                  <th className="p-4 text-left text-lg capitalize font-medium">
+                  <th className="p-4 text-center capitalize font-medium">
                     Actions
                   </th>
                 </tr>
@@ -169,7 +169,7 @@ const UserManagement = () => {
                       <td className="p-4 text-sm text-wrap border-r ">
                         {formatDate(user?.joinDate)}
                       </td>
-                      <td className="p-4">
+                      <td className="p-4 flex  justify-center items-center">
                         <button
                           className="mr-4 btn"
                           title="Edit"
