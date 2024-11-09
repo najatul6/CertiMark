@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import useAuth from "../../../hooks/useAuth";
 import toast from "react-hot-toast";
+import useRole from "../../../hooks/useRole";
 
 const ProfileDropDown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { logOut, loading,setLoading } = useAuth();
+  const { logOut, loading, setLoading } = useAuth();
   const dropdownRef = useRef(null);
-
+  const [userRole] = useRole();
   const handleLogOut = async () => {
     try {
       await logOut();
@@ -22,8 +23,8 @@ const ProfileDropDown = ({ user }) => {
     }
   };
 
-  if(loading){
-   return <span className="loading loading-ring loading-md"></span>
+  if (loading) {
+    return <span className="loading loading-ring loading-md"></span>;
   }
 
   return (
@@ -91,18 +92,29 @@ const ProfileDropDown = ({ user }) => {
             </div>
 
             <div className="border-t-2 border-gray-200 py-1">
-              <Link
-                to="/dashboard/overview"
-                className="block px-6 py-3 leading-tight hover:bg-gray-200"
-              >
-                Dashboard
-              </Link>
-              <Link
-                to="/dashboard/applications"
-                className="block px-6 py-3 leading-tight hover:bg-gray-200"
-              >
-                Application status
-              </Link>
+              {userRole ? (
+                <Link
+                  to="/dashboard/overview"
+                  className="block px-6 py-3 leading-tight hover:bg-gray-200"
+                >
+                  Dashboard
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    to="/dashboard/overview"
+                    className="block px-6 py-3 leading-tight hover:bg-gray-200"
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
+                    to="/dashboard/applications"
+                    className="block px-6 py-3 leading-tight hover:bg-gray-200"
+                  >
+                    Application status
+                  </Link>
+                </>
+              )}
             </div>
             <button
               onClick={handleLogOut}
