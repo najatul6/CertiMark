@@ -40,7 +40,7 @@ const UserManagement = () => {
           user?.email.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : users;
-    
+
   // Delete User from Database
   const handleDeleteUser = (user) => {
     Swal.fire({
@@ -66,45 +66,40 @@ const UserManagement = () => {
       }
     });
   };
-//TODO: modifiedCount
+  //TODO: modifiedCount
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     document.getElementById("my_modal_3").close();
     const form = e.target;
-    const getRole={
-      role:form.userRoles.value
-    }
+    const getRole = {
+      role: form.userRoles.value,
+    };
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: `Are you sure to change ${selectedUser.name} Role?`,
+      text: `${getRole.role} role selected!`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
+      confirmButtonText: "Yes, change it!",
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success"
-        });
+        const menuRes = await axiosSecure.patch(
+          `/users/${selectedUser?._id}`,
+          getRole
+        );
+        console.log(menuRes.data);
+        if (menuRes.data.modifiedCount > 0) {
+          refetch();
+          Swal.fire({
+            title: "Great!",
+            text: `${selectedUser.name} is now ${selectedUser?.role}`,
+            icon: "success",
+          });
+        }
       }
     });
-    console.log("usersRoll:",getRole, selectedUser);
-    // const menuRes=axiosSecure.patch(`/users/${selectedUser?._id}`,getRole)
-    // .then(res=>{
-    //   console.log("from  me",res.data) 
-    // })
-    // console.log(menuRes.data);
-    // if(menuRes.data.modified>0){
-    //   Swal.fire({
-    //     title: "Role Changed!",
-    //     text: `${selectedUser.name} is now ${selectedUser?.role}`,
-    //     icon: "success",
-    //   });
-    //   form.reset()
-    // }
+    
   };
 
   return (
@@ -163,18 +158,26 @@ const UserManagement = () => {
               <tbody className="whitespace-nowrap">
                 {filteredUsers.map((user) => {
                   return (
-                    <tr key={user?._id} className="border-b text-lightTeal border-r">
+                    <tr
+                      key={user?._id}
+                      className="border-b text-lightTeal border-r"
+                    >
                       <td className="p-4 text-sm border-r">
                         <div className="avatar">
                           <div className="ring-primary ring-offset-base-100 w-9 rounded-full ring ring-offset-2">
                             <img src={user?.image} />
                           </div>
                         </div>
-                        
                       </td>
-                      <td className="p-4 text-sm  text-wrap border-r">{user?.name}</td>
-                      <td className="p-4 text-sm  text-wrap border-r">{user?.email}</td>
-                      <td className="p-4 text-sm text-wrap border-r capitalize">{user?.role}</td>
+                      <td className="p-4 text-sm  text-wrap border-r">
+                        {user?.name}
+                      </td>
+                      <td className="p-4 text-sm  text-wrap border-r">
+                        {user?.email}
+                      </td>
+                      <td className="p-4 text-sm text-wrap border-r capitalize">
+                        {user?.role}
+                      </td>
                       <td className="p-4 text-sm text-wrap border-r ">
                         {formatDate(user?.joinDate)}
                       </td>
@@ -216,7 +219,7 @@ const UserManagement = () => {
                               Hello! {selectedUser.name}
                             </h3>
                             <form
-                             onSubmit={handleSubmit}
+                              onSubmit={handleSubmit}
                               className="flex flex-col justify-center items-center"
                             >
                               <select
