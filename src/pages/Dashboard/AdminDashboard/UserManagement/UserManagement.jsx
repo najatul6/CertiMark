@@ -99,7 +99,6 @@ const UserManagement = () => {
         }
       }
     });
-    
   };
 
   return (
@@ -223,11 +222,11 @@ const UserManagement = () => {
                               className="flex flex-col justify-center items-center"
                             >
                               <select
-                                defaultValue={"selected"}
+                                defaultValue={selectedUser?.role || "selected"}
                                 name="userRoles"
                                 className="text-lg bg-transparent border rounded-xl py-2 w-full text-center my-2 text-lightTeal"
                               >
-                                <option value="selected">Select Role</option>
+                                <option value="selected" disabled>Select Role</option>
                                 <option value="admin">Admin</option>
                                 <option value="user">User</option>
                               </select>
