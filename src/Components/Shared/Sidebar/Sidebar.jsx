@@ -72,7 +72,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       </div>
       <hr className="mb-2"/>
 
-      {/* TODO:Check user Role */}
+      {/* conditionally show sidebar for user */}
       {userRole ? <AdminSidebar /> : <UserSidebar />}
       {/* Profile and Logout at the bottom */}
       <div className="absolute bottom-0 w-full px-2 space-y-2 pb-5">
