@@ -1,9 +1,21 @@
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import Loading from "../../../../Components/Shared/Loading/Loading";
-import useApplication from "../../../../hooks/useApplication";
+import useApplicants from "../../../../hooks/useApplicants";
 
 const AdminOverView = () => {
-  const [application, , isPending] = useApplication();
+  const [applicants, , isPending] = useApplicants();
+
+  // Filter Applications by Status
+  const pendingApplications = applicants.filter(
+    (user) => user.Status === "Pending"
+  );
+  const approvedApplications = applicants.filter(
+    (user) => user.Status === "Pending"
+  );
+  const rejectedApplications = applicants.filter(
+    (user) => user.Status === "Rejected"
+  );
+
   if (isPending) {
     return <Loading />;
   }
@@ -15,11 +27,15 @@ const AdminOverView = () => {
         {/* Cards for overview section */}
         <div className="bg-white shadow rounded-lg p-4">
           <h3 className="font-semibold">Pending Applications</h3>
-          <p className="text-gray-600">{application?.length}</p>
+          <p className="text-gray-600">{pendingApplications?.length}</p>
+        </div>
+        <div className="bg-white shadow rounded-lg p-4">
+          <h3 className="font-semibold">Rejected Applications</h3>
+          <p className="text-gray-600">{rejectedApplications?.length}</p>
         </div>
         <div className="bg-white shadow rounded-lg p-4">
           <h3 className="font-semibold">Verified Certificates</h3>
-          <p className="text-gray-600">120</p>
+          <p className="text-gray-600">{approvedApplications?.length}</p>
         </div>
         <div className="bg-white shadow rounded-lg p-4">
           <h3 className="font-semibold">Total Users</h3>
