@@ -1,36 +1,54 @@
+import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../../hooks/useAuth";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import DashboardTitle from "../DashboardTitle/DashboardTitle";
+import Loading from "../Loading/Loading";
 
 const Profile = () => {
+  const axiosPublic = useAxiosPublic();
+  const {user}=useAuth()
+  const { data: userData = [], isLoading } = useQuery({
+    queryKey: ["userData", user.email],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/user/${user.email}`);
+      return res.data;
+    },
+  });
+  if (isLoading) return <Loading/>;
+
+  // Function to format date to AM/PM
+  const formatDate = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    };
+    const date = new Date(dateString);
+    return date.toLocaleString("en-US", options);
+  };
   return (
     <div>
-      <DashboardTitle title="User Profile"/>
-      <div className="w-full px-6 pb-8 mt-8 ">
+      <DashboardTitle title={`${userData?.role} Profile`}/>
+      <div className="w-full px-6 pb-8 mt-8 mx-auto">
 
         <div className="grid w-full mx-auto mt-8">
           <div className="flex items-center space-y-5 flex-col">
             <img
               className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 "
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+              src={userData?.image || "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"}
               alt="Bordered avatar"
             />
-
-            <div className="flex flex-col space-y-5 sm:ml-8">
-              <button
-                type="button"
-                className="py-3.5 px-7 text-base font-medium text-indigo-100 focus:outline-none bg-[#202142] rounded-lg border border-indigo-200 hover:bg-indigo-900 focus:z-10 focus:ring-4 focus:ring-indigo-200 "
-              >
-                Change picture
-              </button>
-              <button
-                type="button"
-                className="py-3.5 px-7 text-base font-medium text-indigo-900 focus:outline-none bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:text-[#202142] focus:z-10 focus:ring-4 focus:ring-indigo-200 "
-              >
-                Delete picture
-              </button>
-            </div>
+          </div>
+          <div className="flex flex-col justify-start items-start mx-auto gap-2 mt-10">
+            <h2 className="text-lg"><span className="text-xl font-bold text-white mr-2">Name:</span> {userData?.name}</h2>
+            <h2 className="text-lg"><span className="text-xl font-bold text-white mr-2">Email:</span> {userData?.email}</h2>
+            <h2 className="text-lg"><span className="text-xl font-bold text-white mr-2">Join Date:</span> {formatDate(userData?.joinDate)}</h2>
           </div>
 
-          <div className="items-center mt-8 sm:mt-14 text-[#202142]">
+          {/* <div className="items-center mt-8 sm:mt-14 text-[#202142]">
             <div className="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
               <div className="w-full">
                 <label
@@ -122,7 +140,7 @@ const Profile = () => {
                 Save
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
