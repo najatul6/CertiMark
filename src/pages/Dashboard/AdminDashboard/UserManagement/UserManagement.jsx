@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 const UserManagement = () => {
   const axiosSecure = useAxiosSecure();
   const [searchQuery, setSearchQuery] = useState("");
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,setValue } = useForm();
   const [selectedUser, setSelectedUser] = useState([]);
 
   const { refetch, data: users = [] } = useQuery({
@@ -69,11 +69,19 @@ const UserManagement = () => {
     });
   };
 
+  // Handle setting selectedUser and opening the dialog
+  const openRoleDialog = (user) => {
+    setSelectedUser(user);
+    setValue("userRoles", user.role); // Set default role in the form
+    document.getElementById("my_modal_3").showModal();
+  };
+
+  // Submit form to change user role
   const onSubmit = (data) => {
     document.getElementById("my_modal_3").close();
     Swal.fire({
       title: `Are you sure to change ${selectedUser.name} Role?`,
-      text: `${data.role} role selected!`,
+      text: `${data.userRoles} role selected!`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -81,21 +89,20 @@ const UserManagement = () => {
       confirmButtonText: "Yes, change it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.patch(`/users/admin/${selectedUser?._id}`).then((res) => {
-          if (res.data.modifiedCount > 0) {
-            refetch();
-            Swal.fire({
-              title: "Role Changed!",
-              text: `${selectedUser.name} is now ${selectedUser?.role}`,
-              icon: "success",
-            });
-            console.log(res?.data);
-          }
-          console.log(res?.data, selectedUser);
-        });
+        axiosSecure
+          .patch(`/users/admin/${selectedUser?._id}`, { role: data.userRoles })
+          .then((res) => {
+            if (res.data.modifiedCount > 0) {
+              refetch();
+              Swal.fire({
+                title: "Role Changed!",
+                text: `${selectedUser.name} is now ${data.userRoles}`,
+                icon: "success",
+              });
+            }
+          });
       }
     });
-    console.log(data, selectedUser);
   };
 
   return (
@@ -154,18 +161,26 @@ const UserManagement = () => {
               <tbody className="whitespace-nowrap">
                 {filteredUsers.map((user) => {
                   return (
-                    <tr key={user?._id} className="border-b text-lightTeal border-r">
+                    <tr
+                      key={user?._id}
+                      className="border-b text-lightTeal border-r"
+                    >
                       <td className="p-4 text-sm border-r">
                         <div className="avatar">
                           <div className="ring-primary ring-offset-base-100 w-9 rounded-full ring ring-offset-2">
                             <img src={user?.image} />
                           </div>
                         </div>
-                        
                       </td>
-                      <td className="p-4 text-sm  text-wrap border-r">{user?.name}</td>
-                      <td className="p-4 text-sm  text-wrap border-r">{user?.email}</td>
-                      <td className="p-4 text-sm text-wrap border-r capitalize">{user?.role}</td>
+                      <td className="p-4 text-sm  text-wrap border-r">
+                        {user?.name}
+                      </td>
+                      <td className="p-4 text-sm  text-wrap border-r">
+                        {user?.email}
+                      </td>
+                      <td className="p-4 text-sm text-wrap border-r capitalize">
+                        {user?.role}
+                      </td>
                       <td className="p-4 text-sm text-wrap border-r ">
                         {formatDate(user?.joinDate)}
                       </td>
@@ -173,10 +188,7 @@ const UserManagement = () => {
                         <button
                           className="mr-4 btn"
                           title="Edit"
-                          onClick={() => {
-                            setSelectedUser(user);
-                            document.getElementById("my_modal_3").showModal();
-                          }}
+                          onClick={() => openRoleDialog(user)}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -204,15 +216,15 @@ const UserManagement = () => {
                               </button>
                             </form>
                             <h3 className="font-bold text-xl text-center text-lightTeal py-5">
-                              Hello!
+                              Hello! {selectedUser.name}
                             </h3>
                             <form
                               onSubmit={handleSubmit(onSubmit)}
                               className="flex flex-col justify-center items-center"
                             >
                               <select
-                                defaultValue="selected"
-                                {...register("role")}
+                                defaultValue={selectedUser.role}
+                                {...register("userRoles")}
                                 className="text-lg bg-transparent border rounded-xl py-2 w-full text-center my-2 text-lightTeal"
                               >
                                 <option value="selected">Select Role</option>
