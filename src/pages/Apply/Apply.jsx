@@ -75,8 +75,8 @@ const Apply = () => {
             >
               <option selected disabled>Select Certificate Type</option>
               <option value="completion">Completion Certificate</option>
-              <option value="transcript">Transcript</option>
-              <option value="diploma">Diploma</option>
+              {/* <option value="transcript">Transcript</option>
+              <option value="diploma">Diploma</option> */}
             </select>
             {errors.certificateType && (
               <p className="text-[#E76F51] text-sm">
