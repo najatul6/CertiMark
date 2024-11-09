@@ -1,7 +1,74 @@
+import Swal from "sweetalert2";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
+import Loading from "../../../../Components/Shared/Loading/Loading";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const VerifiedCertificates = () => {
-  
+  const axiosSecure = useAxiosSecure();
+  // Function to format date to AM/PM
+  const formatDate = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    };
+    const date = new Date(dateString);
+    return date.toLocaleString("en-US", options);
+  };
+  const { isPending, data: applications = [],refetch } = useQuery({
+    queryKey: ["applications"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/applications");
+      return res.data;
+    },
+  });
+
+  const filterSearch = applications.filter(
+    (user) => user.Status === "Approved"
+  );
+
+  // Delete Application from Database
+  const handleDeleteApplication = (application) => {
+    console.log(application);
+    Swal.fire({
+      title: "Are you sure to delete this Application?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/applications/${application?._id}`).then((res) => {
+            console.log(res.data);
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }else {
+        Swal.fire({
+          title: "Failed!",
+          text: "Deletion unsuccessful.",
+          icon: "error",
+        });
+      }
+    });
+  };
+
+  //   Loading Effect
+  if (isPending) {
+    return <Loading />;
+  }
   return (
     <div>
       <DashboardTitle title={"Approved Applications"} />
