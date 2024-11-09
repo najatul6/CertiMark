@@ -29,18 +29,20 @@ const PendingApplications = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
+  
   // Show all users if no search query; otherwise, filter users
-  const filterSearch = searchQuery
-    ? applications.filter(
-        (user) =>
-          user?.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  const filterSearch = applications
+    .filter((user) => user.Status === "Pending")
+    .filter((user) =>
+      searchQuery
+        ? user?.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
           user?.userEmail.toLowerCase().includes(searchQuery.toLowerCase()) ||
           user?.registrationNo
             .toLowerCase()
             .includes(searchQuery.toLowerCase()) ||
           user?.studentId.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : applications;
+        : true
+    );
   if (isPending) {
     return <Loading />;
   }
