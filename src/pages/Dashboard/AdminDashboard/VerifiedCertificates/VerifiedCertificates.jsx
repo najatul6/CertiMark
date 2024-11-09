@@ -144,11 +144,9 @@ const VerifiedCertificates = () => {
                         {formatDate(application?.ApplyDate)}
                       </td>
                       <td
-                        className={`p-2 text-sm border-r text-center uppercase ${
-                          application?.fee === "unPaid" && "text-red-600"
-                        }`}
+                        className={`p-2 text-sm border-r text-center`}
                       >
-                        {application?.fee}
+                         {formatDate(application?.publishDate)}
                       </td>
                       <td className="py-2 px-1 flex flex-col justify-center items-center gap-2 text-sm capitalize">
                         <button
