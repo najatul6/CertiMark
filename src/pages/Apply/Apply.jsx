@@ -7,13 +7,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import useApplication from "../../hooks/useApplication";
 import Loading from "../../Components/Shared/Loading/Loading";
+import Marquee from "react-fast-marquee";
 
 const Apply = () => {
   const { user } = useAuth();
-  const [isLoading,setIsLoading]=useState()
-  const axiosSecure=useAxiosSecure()
-  const navigate=useNavigate()
-  const [,refetch,isPending,]=useApplication()
+  const [isLoading, setIsLoading] = useState();
+  const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
+  const [, refetch, isPending] = useApplication();
   const {
     register,
     handleSubmit,
@@ -21,27 +22,25 @@ const Apply = () => {
     reset,
   } = useForm();
 
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     const applicantData = {
-      ...data, 
+      ...data,
       userEmail: user?.email,
       ApplyDate: new Date().toISOString(),
-      Status:"Pending",
-      fee:"Unpaid",
-      feeAmount:"300"
+      Status: "Pending",
+      fee: "Unpaid",
+      feeAmount: "300",
     };
-    try{
+    try {
       setIsLoading(true);
-      await axiosSecure.post('/applicants', applicantData);
+      await axiosSecure.post("/applicants", applicantData);
       reset();
       toast.success("Application submitted successfully");
-      refetch()
-      navigate("/dashboard/applications")
-    }
-    catch(err){
+      refetch();
+      navigate("/dashboard/applications");
+    } catch (err) {
       toast.error(err?.message);
-      
-    }finally {
+    } finally {
       setIsLoading(false);
     }
   };
@@ -51,6 +50,10 @@ const Apply = () => {
 
   return (
     <div className="bg-[#FEFFFF] min-h-screen flex items-center justify-center px-6 py-12 !font-roboto">
+      <Marquee>
+        I can be a React component, multiple React components, or just some
+        text.
+      </Marquee>
       <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-6 border border-[#2B7A78]">
         <h2 className="text-2xl font-bold text-darkGreen mb-6 text-center">
           Certificate Application
@@ -73,7 +76,9 @@ const Apply = () => {
                 errors.certificateType ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             >
-              <option selected disabled>Select Certificate Type</option>
+              <option selected disabled>
+                Select Certificate Type
+              </option>
               <option value="completion">Completion Certificate</option>
               {/* <option value="transcript">Transcript</option>
               <option value="diploma">Diploma</option> */}
@@ -233,7 +238,7 @@ const Apply = () => {
               htmlFor="yearOfCompletion"
               className="block text-sm font-medium text-gray-700"
             >
-             Session
+              Session
             </label>
             <input
               type="text"
