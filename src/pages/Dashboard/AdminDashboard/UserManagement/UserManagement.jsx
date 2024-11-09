@@ -40,7 +40,7 @@ const UserManagement = () => {
           user?.email.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : users;
-    //TODO: modifiedCount
+    
   // Delete User from Database
   const handleDeleteUser = (user) => {
     Swal.fire({
@@ -66,19 +66,37 @@ const UserManagement = () => {
       }
     });
   };
-
+//TODO: modifiedCount
   const handleSubmit = (e) => {
     e.preventDefault()
+    document.getElementById("my_modal_3").close();
     const form = e.target;
     const getRole={
       role:form.userRoles.value
     }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+      }
+    });
     console.log("usersRoll:",getRole, selectedUser);
-    const menuRes=axiosSecure.patch(`/users/${selectedUser?._id}`,getRole)
-    .then(res=>{
-      console.log("from  me",res.data) 
-    })
-    console.log(menuRes.data);
+    // const menuRes=axiosSecure.patch(`/users/${selectedUser?._id}`,getRole)
+    // .then(res=>{
+    //   console.log("from  me",res.data) 
+    // })
+    // console.log(menuRes.data);
     // if(menuRes.data.modified>0){
     //   Swal.fire({
     //     title: "Role Changed!",
