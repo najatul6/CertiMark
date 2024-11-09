@@ -93,7 +93,7 @@ const UserManagement = () => {
           refetch();
           Swal.fire({
             title: "Great!",
-            text: `${selectedUser.name} is now ${selectedUser?.role}`,
+            text: `${selectedUser?.name} is now ${selectedUser?.role}`,
             icon: "success",
           });
         }
@@ -108,7 +108,7 @@ const UserManagement = () => {
         <div className=" rounded-t-xl border">
           <div className="p-4 flex justify-between items-center">
             <h1 className="text-3xl text-white">
-              Total Users : {filteredUsers.length}
+              Total Users : {filteredUsers?.length}
             </h1>
             <form className="max-w-[480px] w-full px-4">
               <div className="relative">
