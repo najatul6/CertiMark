@@ -1,8 +1,25 @@
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import Loading from "../../../../Components/Shared/Loading/Loading";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import useApplicants from "../../../../hooks/useApplicants";
 import useUsers from "../../../../hooks/useUsers";
-
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 const AdminOverView = () => {
   const [applicants, , isPending] = useApplicants();
   const [users] = useUsers();
@@ -30,39 +47,73 @@ const AdminOverView = () => {
   if (isPending) {
     return <Loading />;
   }
+
+   // Chart Data
+   const data = {
+    labels: ["Pending", "Approved", "Rejected", "Paid (BDT)", "Unpaid (BDT)"],
+    datasets: [
+      {
+        label: "Application Overview",
+        data: [
+          pendingApplications.length,
+          approvedApplications.length,
+          rejectedApplications.length,
+          totalPaidSum,
+          totalUnpaidSum,
+        ],
+        backgroundColor: [
+          "#ffb703",
+          "#38b000",
+          "#d00000",
+          "#3A5A98",
+          "#FFCA3A",
+        ],
+      },
+    ],
+  };
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: { position: "top" },
+      // title: { display: true, text: "Admin Dashboard Overview" },
+    },
+  };
+  
   return (
     <div>
       <DashboardTitle title={"Dashboard Overview"} />
 
-      <section className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-montserrat">
         {/* Cards for overview section */}
-        <div className="bg-white shadow rounded-lg p-4">
-          <h3 className="font-semibold">Pending Applications</h3>
-          <p className="text-gray-600">{pendingApplications?.length}</p>
+        <div className="bg-yellow-100 shadow-lg rounded-lg px-4 py-10 border-l-4 border-yellow-500">
+          <h3 className="text-xl mb-2 font-semibold text-yellow-700">Pending Applications</h3>
+          <p className="text-gray-600 text-lg">{pendingApplications?.length}</p>
         </div>
-        <div className="bg-white shadow rounded-lg p-4">
-          <h3 className="font-semibold">Rejected Applications</h3>
-          <p className="text-gray-600">{rejectedApplications?.length}</p>
+        <div className="bg-red-100 shadow-lg rounded-lg px-4 py-10 border-l-4 border-red-500">
+          <h3 className="text-xl mb-2 font-semibold text-red-700">Rejected Applications</h3>
+          <p className="text-gray-600 text-lg">{rejectedApplications?.length}</p>
         </div>
-        <div className="bg-white shadow rounded-lg p-4">
-          <h3 className="font-semibold">Verified Certificates</h3>
-          <p className="text-gray-600">{approvedApplications?.length}</p>
+        <div className="bg-green-100 shadow-lg rounded-lg px-4 py-10 border-l-4 border-green-500">
+          <h3 className="text-xl mb-2 font-semibold text-green-700">Verified Certificates</h3>
+          <p className="text-gray-600 text-lg">{approvedApplications?.length}</p>
         </div>
-        <div className="bg-white shadow rounded-lg p-4">
-          <h3 className="font-semibold">Total Users</h3>
-          <p className="text-gray-600">{users?.length}</p>
+        <div className="bg-blue-100 shadow-lg rounded-lg px-4 py-10 border-l-4 border-blue-500">
+          <h3 className="text-xl mb-2 font-semibold text-blue-700">Total Users</h3>
+          <p className="text-gray-600 text-lg">{users?.length}</p>
         </div>
-        <div className="bg-white shadow rounded-lg p-4">
-          <h3 className="font-semibold">Total Paid Amount</h3>
-          <p className="text-gray-600">{totalPaidSum.toLocaleString()} BDT</p>
+        <div className="bg-indigo-100 shadow-lg rounded-lg px-4 py-10 border-l-4 border-indigo-500">
+          <h3 className="text-xl mb-2 font-semibold text-indigo-700">Total Paid Amount</h3>
+          <p className="text-gray-600 text-lg">{totalPaidSum.toLocaleString()} BDT</p>
         </div>
-        <div className="bg-white shadow rounded-lg p-4">
-          <h3 className="font-semibold">Total Unpaid Amount</h3>
-          <p className="text-gray-600">{totalUnpaidSum.toLocaleString()} BDT</p>
+        <div className="bg-purple-100 shadow-lg rounded-lg px-4 py-10 border-l-4 border-purple-500">
+          <h3 className="text-xl mb-2 font-semibold text-purple-700">Total Unpaid Amount</h3>
+          <p className="text-gray-600 text-lg">{totalUnpaidSum.toLocaleString()} BDT</p>
         </div>
       </section>
       <section className="mt-6">
-        <h3 className="font-semibold mb-4">Recent Activity</h3>
+      <section className="mt-6">
+        <Bar data={data} options={options}/>
+      </section>
       </section>
     </div>
   );
