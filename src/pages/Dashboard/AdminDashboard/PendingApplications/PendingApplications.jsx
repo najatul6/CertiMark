@@ -1,21 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
-import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Loading from "../../../../Components/Shared/Loading/Loading";
 import { useState } from "react";
 import { FaSearchengin } from "react-icons/fa6";
+import useApplicants from "../../../../hooks/useApplicants";
 
 const PendingApplications = () => {
   const [searchQuery, setSearchQuery] = useState();
-  const axiosSecure = useAxiosSecure();
-
-  const { isPending, data: applications = [] } = useQuery({
-    queryKey: ["applications"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/applications");
-      return res.data;
-    },
-  });
+const [applicants, ,isPending]=useApplicants()
+ 
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
     const options = {
@@ -31,7 +23,7 @@ const PendingApplications = () => {
   };
   
   // Show all users if no search query; otherwise, filter users
-  const filterSearch = applications
+  const filterSearch = applicants
     .filter((user) => user.Status === "Pending")
     .filter((user) =>
       searchQuery

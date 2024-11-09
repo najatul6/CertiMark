@@ -1,10 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import Loading from "../../../../Components/Shared/Loading/Loading";
 import Swal from "sweetalert2";
+import useApplicants from "../../../../hooks/useApplicants";
 
 const RejectedApplications = () => {
+  const [applicants,refetch,isPending]=useApplicants()
   const axiosSecure = useAxiosSecure();
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
@@ -19,15 +20,9 @@ const RejectedApplications = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
-  const { isPending, data: applications = [],refetch } = useQuery({
-    queryKey: ["applications"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/applications");
-      return res.data;
-    },
-  });
 
-  const filterSearch = applications.filter(
+  // Filter Applications by Status
+  const filterSearch = applicants.filter(
     (user) => user.Status === "Rejected"
   );
 
