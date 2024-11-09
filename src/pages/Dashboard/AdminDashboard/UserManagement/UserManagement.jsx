@@ -2,14 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaSearchengin } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
-import { useForm } from "react-hook-form";
 
 const UserManagement = () => {
   const axiosSecure = useAxiosSecure();
   const [searchQuery, setSearchQuery] = useState("");
-  const { register, handleSubmit,setValue } = useForm();
   const [selectedUser, setSelectedUser] = useState([]);
 
   const { refetch, data: users = [] } = useQuery({
@@ -42,7 +40,7 @@ const UserManagement = () => {
           user?.email.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : users;
-
+    //TODO: modifiedCount
   // Delete User from Database
   const handleDeleteUser = (user) => {
     Swal.fire({
@@ -69,49 +67,27 @@ const UserManagement = () => {
     });
   };
 
-  // Handle setting selectedUser and opening the dialog
-  const openRoleDialog = (user) => {
-    setSelectedUser(user);
-    setValue("userRoles", user.role); // Set default role in the form
-    document.getElementById("my_modal_3").showModal();
-    console.log(user.role);
-  };
-
-  // Submit form to change user role
-  const onSubmit = (data) => {
-    document.getElementById("my_modal_3").close();
-    const getRole=data.userRole
-    Swal.fire({
-      title: `Are you sure to change ${selectedUser.name} Role?`,
-      text: `${getRole} role selected!`,
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, change it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosSecure
-          .patch(`/users/${selectedUser?._id}`, getRole)
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.modifiedCount > 0) {
-              refetch();
-              Swal.fire({
-                title: "Role Changed!",
-                text: `${selectedUser.name} is now ${getRole}`,
-                icon: "success",
-              });
-            }
-          });
-      }
-    });
-  };
-  useEffect(() => {
-    if (selectedUser) {
-      setValue("userRoles", selectedUser.role); // Update the form's value when selectedUser changes
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target;
+    const getRole={
+      role:form.userRoles.value
     }
-  }, [selectedUser, setValue]);
+    console.log("usersRoll:",getRole, selectedUser);
+    const menuRes=axiosSecure.patch(`/users/${selectedUser?._id}`,getRole)
+    .then(res=>{
+      console.log("from  me",res.data) 
+    })
+    console.log(menuRes.data);
+    // if(menuRes.data.modified>0){
+    //   Swal.fire({
+    //     title: "Role Changed!",
+    //     text: `${selectedUser.name} is now ${selectedUser?.role}`,
+    //     icon: "success",
+    //   });
+    //   form.reset()
+    // }
+  };
 
   return (
     <div>
@@ -169,26 +145,18 @@ const UserManagement = () => {
               <tbody className="whitespace-nowrap">
                 {filteredUsers.map((user) => {
                   return (
-                    <tr
-                      key={user?._id}
-                      className="border-b text-lightTeal border-r"
-                    >
+                    <tr key={user?._id} className="border-b text-lightTeal border-r">
                       <td className="p-4 text-sm border-r">
                         <div className="avatar">
                           <div className="ring-primary ring-offset-base-100 w-9 rounded-full ring ring-offset-2">
                             <img src={user?.image} />
                           </div>
                         </div>
+                        
                       </td>
-                      <td className="p-4 text-sm  text-wrap border-r">
-                        {user?.name}
-                      </td>
-                      <td className="p-4 text-sm  text-wrap border-r">
-                        {user?.email}
-                      </td>
-                      <td className="p-4 text-sm text-wrap border-r capitalize">
-                        {user?.role}
-                      </td>
+                      <td className="p-4 text-sm  text-wrap border-r">{user?.name}</td>
+                      <td className="p-4 text-sm  text-wrap border-r">{user?.email}</td>
+                      <td className="p-4 text-sm text-wrap border-r capitalize">{user?.role}</td>
                       <td className="p-4 text-sm text-wrap border-r ">
                         {formatDate(user?.joinDate)}
                       </td>
@@ -196,7 +164,10 @@ const UserManagement = () => {
                         <button
                           className="mr-4 btn"
                           title="Edit"
-                          onClick={() => openRoleDialog(user)}
+                          onClick={() => {
+                            setSelectedUser(user);
+                            document.getElementById("my_modal_3").showModal();
+                          }}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -227,12 +198,12 @@ const UserManagement = () => {
                               Hello! {selectedUser.name}
                             </h3>
                             <form
-                              onSubmit={handleSubmit(onSubmit)}
+                             onSubmit={handleSubmit}
                               className="flex flex-col justify-center items-center"
                             >
                               <select
-                                defaultValue={selectedUser.role}
-                                {...register("userRoles")}
+                                defaultValue={"selected"}
+                                name="userRoles"
                                 className="text-lg bg-transparent border rounded-xl py-2 w-full text-center my-2 text-lightTeal"
                               >
                                 <option value="selected">Select Role</option>
