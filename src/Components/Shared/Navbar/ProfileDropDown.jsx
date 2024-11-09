@@ -93,12 +93,20 @@ const ProfileDropDown = ({ user }) => {
 
             <div className="border-t-2 border-gray-200 py-1">
               {userRole ? (
-                <Link
-                  to="/dashboard/overview"
-                  className="block px-6 py-3 leading-tight hover:bg-gray-200"
-                >
-                  Dashboard
-                </Link>
+                <>
+                  <Link
+                    to="/dashboard/overview"
+                    className="block px-6 py-3 leading-tight hover:bg-gray-200"
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
+                    to="/dashboard/pendingApplications"
+                    className="block px-6 py-3 leading-tight hover:bg-gray-200"
+                  >
+                   Pending Applications
+                  </Link>
+                </>
               ) : (
                 <>
                   <Link
