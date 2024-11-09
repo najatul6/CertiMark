@@ -49,12 +49,14 @@ const Apply = () => {
   }
 
   return (
-    <div className="bg-[#FEFFFF] min-h-screen flex items-center justify-center px-6 py-12 !font-roboto">
-      <Marquee>
-        I can be a React component, multiple React components, or just some
-        text.
-      </Marquee>
-      <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-6 border border-[#2B7A78]">
+    <div className="bg-[#FEFFFF] min-h-screen flex flex-col items-center justify-center px-6 pb-10 !font-roboto">
+      <div className="border-red-600 border-2 border-t-0 w-full flex justify-center items-center">
+        <p className="text-xl bg-lightTeal text-white font-bold leading-tight py-3 px-5">বিঃদ্রঃ</p>
+        <Marquee>
+          সঠিক ভাবে Apply করুন, তারপর Application Status Check করুন এবং নির্ধারিত পেমেন্ট পরিশোধ করুন !!
+        </Marquee>
+      </div>
+      <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-6 mt-12 border border-[#2B7A78]">
         <h2 className="text-2xl font-bold text-darkGreen mb-6 text-center">
           Certificate Application
         </h2>

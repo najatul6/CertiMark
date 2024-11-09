@@ -14,7 +14,8 @@ export default {
       },
       fontFamily: {
         roboto:  ["'Roboto', sans-serif" ],
-        montserrat:['"Montserrat", sans-serif']
+        montserrat:['"Montserrat", sans-serif'],
+        siligri:['"Hind Siliguri", sans-serif']
       },
       transition: {
         transition: ["transform 0.2s ease-in-out"]
