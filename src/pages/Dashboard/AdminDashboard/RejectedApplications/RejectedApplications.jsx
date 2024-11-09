@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import Loading from "../../../../Components/Shared/Loading/Loading";
+import Swal from "sweetalert2";
 
 const RejectedApplications = () => {
   const axiosSecure = useAxiosSecure();
@@ -18,7 +19,7 @@ const RejectedApplications = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
-  const { isPending, data: applications = [] } = useQuery({
+  const { isPending,refetch, data: applications = [] } = useQuery({
     queryKey: ["applications"],
     queryFn: async () => {
       const res = await axiosSecure.get("/applications");
@@ -29,6 +30,32 @@ const RejectedApplications = () => {
   const filterSearch = applications.filter(
     (user) => user.Status === "Rejected"
   );
+
+  // Delete User from Database
+  const handleDeleteApplication = (application) => {
+    Swal.fire({
+      title: "Are you sure to delete this Application?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/applications/${application?._id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
 
   //   Loading Effect
   if (isPending) {

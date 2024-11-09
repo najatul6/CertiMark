@@ -66,7 +66,6 @@ const UserManagement = () => {
       }
     });
   };
-  //TODO: modifiedCount
   const handleSubmit = (e) => {
     e.preventDefault();
     document.getElementById("my_modal_3").close();
