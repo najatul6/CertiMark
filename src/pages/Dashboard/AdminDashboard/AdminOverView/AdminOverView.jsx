@@ -1,9 +1,11 @@
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import Loading from "../../../../Components/Shared/Loading/Loading";
 import useApplicants from "../../../../hooks/useApplicants";
+import useUsers from "../../../../hooks/useUsers";
 
 const AdminOverView = () => {
   const [applicants, , isPending] = useApplicants();
+  const [users] = useUsers();
 
   // Filter Applications by Status
   const pendingApplications = applicants.filter(
@@ -15,6 +17,15 @@ const AdminOverView = () => {
   const rejectedApplications = applicants.filter(
     (user) => user.Status === "Rejected"
   );
+  // Calculate total paid amount
+  const totalPaidSum = applicants
+    .filter((user) => user.fee === "paid")
+    .reduce((acc, user) => acc + parseFloat(user.feeAmount), 0);
+
+  // Calculate total unpaid amount
+  const totalUnpaidSum = applicants
+    .filter((user) => user.fee === "unPaid")
+    .reduce((acc, user) => acc + parseFloat(user.feeAmount), 0);
 
   if (isPending) {
     return <Loading />;
@@ -39,34 +50,19 @@ const AdminOverView = () => {
         </div>
         <div className="bg-white shadow rounded-lg p-4">
           <h3 className="font-semibold">Total Users</h3>
-          <p className="text-gray-600">342</p>
+          <p className="text-gray-600">{users?.length}</p>
+        </div>
+        <div className="bg-white shadow rounded-lg p-4">
+          <h3 className="font-semibold">Total Paid Amount</h3>
+          <p className="text-gray-600">{totalPaidSum.toLocaleString()} BDT</p>
+        </div>
+        <div className="bg-white shadow rounded-lg p-4">
+          <h3 className="font-semibold">Total Unpaid Amount</h3>
+          <p className="text-gray-600">{totalUnpaidSum.toLocaleString()} BDT</p>
         </div>
       </section>
       <section className="mt-6">
         <h3 className="font-semibold mb-4">Recent Activity</h3>
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white">
-            <thead>
-              <tr>
-                <th className="text-left p-4">Name</th>
-                <th className="text-left p-4">Action</th>
-                <th className="text-left p-4">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="p-4">John Doe</td>
-                <td className="p-4">Approved a certificate</td>
-                <td className="p-4">2024-10-25</td>
-              </tr>
-              <tr>
-                <td className="p-4">Jane Smith</td>
-                <td className="p-4">Requested a marksheet</td>
-                <td className="p-4">2024-10-24</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </section>
     </div>
   );

@@ -1,22 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaSearchengin } from "react-icons/fa";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import useUsers from "../../../../hooks/useUsers";
+import Loading from "../../../../Components/Shared/Loading/Loading";
 
 const UserManagement = () => {
   const axiosSecure = useAxiosSecure();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedUser, setSelectedUser] = useState([]);
-
-  const { refetch, data: users = [] } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/users");
-      return res.data;
-    },
-  });
+  const [users, refetch, isPending] = useUsers();
 
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
@@ -66,6 +60,8 @@ const UserManagement = () => {
       }
     });
   };
+
+  // Update User Role in Database
   const handleSubmit = (e) => {
     e.preventDefault();
     document.getElementById("my_modal_3").close();
@@ -99,6 +95,10 @@ const UserManagement = () => {
       }
     });
   };
+
+  if (isPending) {
+    return <Loading />;
+  }
 
   return (
     <div>
@@ -225,7 +225,9 @@ const UserManagement = () => {
                                 name="userRoles"
                                 className="text-lg bg-transparent border rounded-xl py-2 w-full text-center my-2 text-lightTeal"
                               >
-                                <option value="selected" disabled>Select Role</option>
+                                <option value="selected" disabled>
+                                  Select Role
+                                </option>
                                 <option value="admin">Admin</option>
                                 <option value="user">User</option>
                               </select>
