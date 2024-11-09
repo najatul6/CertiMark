@@ -29,7 +29,7 @@ const AdminSidebar = () => {
           <span>Pending Applications</span>
         </NavLink>
         <NavLink
-          to="/dashboard/pendingApplications"
+          to="/dashboard/rejectedApplications"
           className={({ isActive }) =>
             `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"

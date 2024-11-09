@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoutes from "./AdminRoutes";
 import MainLayout from "../Layout/MainLayout";
 import ErrorPage from "../Components/Shared/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
@@ -9,16 +11,16 @@ import LogIn from "../pages/LogIn/LogIn";
 import Register from "../pages/Register/Register";
 import ForgetPassword from "../pages/ForgetPassword/ForgetPassword";
 import DashBoardLayout from "../Layout/DashBoardLayout";
-import PrivateRoute from "./PrivateRoute";
 import Downloads from "../pages/Dashboard/UserDashboard/Downloads/Downloads";
 import Profile from "../Components/Shared/Profile/Profile";
 import ApplicationStatus from "../pages/Dashboard/UserDashboard/ApplicationStatus/ApplicationStatus";
 import UserManagement from "../pages/Dashboard/AdminDashboard/UserManagement/UserManagement";
 import VerifiedCertificates from "../pages/Dashboard/AdminDashboard/VerifiedCertificates/VerifiedCertificates";
 import PendingApplications from "../pages/Dashboard/AdminDashboard/PendingApplications/PendingApplications";
+import RejectedApplications from "../pages/Dashboard/AdminDashboard/RejectedApplications/RejectedApplications";
 import OverView from "../pages/Dashboard/OverView/OverView";
 import Apply from "../pages/Apply/Apply";
-import AdminRoutes from "./AdminRoutes";
+
 
 const Routes = createBrowserRouter([
   {
@@ -76,6 +78,14 @@ const Routes = createBrowserRouter([
         element: (
           <AdminRoutes>
             <PendingApplications />
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "rejectedApplications",
+        element: (
+          <AdminRoutes>
+            <RejectedApplications />
           </AdminRoutes>
         ),
       },
