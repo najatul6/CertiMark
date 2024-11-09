@@ -19,7 +19,7 @@ const RejectedApplications = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
-  const { isPending,refetch, data: applications = [] } = useQuery({
+  const { isPending, data: applications = [],refetch } = useQuery({
     queryKey: ["applications"],
     queryFn: async () => {
       const res = await axiosSecure.get("/applications");
@@ -31,8 +31,9 @@ const RejectedApplications = () => {
     (user) => user.Status === "Rejected"
   );
 
-  // Delete User from Database
+  // Delete Application from Database
   const handleDeleteApplication = (application) => {
+    console.log(application);
     Swal.fire({
       title: "Are you sure to delete this Application?",
       text: "You won't be able to revert this!",
@@ -44,6 +45,7 @@ const RejectedApplications = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/applications/${application?._id}`).then((res) => {
+            console.log(res.data);
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire({
@@ -52,6 +54,12 @@ const RejectedApplications = () => {
               icon: "success",
             });
           }
+        });
+      }else {
+        Swal.fire({
+          title: "Failed!",
+          text: "Deletion unsuccessful.",
+          icon: "error",
         });
       }
     });
