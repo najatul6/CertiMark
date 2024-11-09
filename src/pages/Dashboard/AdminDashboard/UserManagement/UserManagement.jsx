@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaSearchengin } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 
@@ -106,6 +106,11 @@ const UserManagement = () => {
       }
     });
   };
+  useEffect(() => {
+    if (selectedUser) {
+      setValue("userRoles", selectedUser.role); // Update the form's value when selectedUser changes
+    }
+  }, [selectedUser, setValue]);
 
   return (
     <div>
