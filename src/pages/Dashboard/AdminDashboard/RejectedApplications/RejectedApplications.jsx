@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
+import Loading from "../../../../Components/Shared/Loading/Loading";
 
 const RejectedApplications = () => {
   const axiosSecure = useAxiosSecure();
@@ -29,7 +30,11 @@ const RejectedApplications = () => {
     (user) => user.Status === "Rejected"
   );
 
-  
+  //   Loading Effect
+  if (isPending) {
+    return <Loading />;
+  }
+
   return (
     <div>
       <DashboardTitle title={"Rejected Applications"} />
@@ -39,21 +44,6 @@ const RejectedApplications = () => {
             <h1 className="text-3xl text-white">
               Total Application : {filterSearch?.length}
             </h1>
-            <form className="max-w-[480px] w-full px-4">
-              <div className="relative">
-                <input
-                  type="text"
-                  name="q"
-                  className="w-full border h-12 shadow border-lightTeal p-4 rounded-full bg-transparent focus:outline-none"
-                  placeholder="search"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <button>
-                  <FaSearchengin className="text-lightTeal h-5 w-5 absolute top-3.5 right-3 fill-current " />
-                </button>
-              </div>
-            </form>
           </div>
 
           {/* User Table */}
