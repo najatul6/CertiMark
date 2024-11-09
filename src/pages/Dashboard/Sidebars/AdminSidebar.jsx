@@ -1,4 +1,5 @@
 import { FaCertificate, FaFileAlt, FaHome,  FaUsersCog } from "react-icons/fa";
+import { FaFileCircleXmark } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
 const AdminSidebar = () => {
@@ -26,6 +27,17 @@ const AdminSidebar = () => {
         >
           <FaFileAlt />
           <span>Pending Applications</span>
+        </NavLink>
+        <NavLink
+          to="/dashboard/pendingApplications"
+          className={({ isActive }) =>
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
+              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+            }`
+          }
+        >
+          <FaFileCircleXmark />
+          <span>Rejected Applications</span>
         </NavLink>
         <NavLink
           to="/dashboard/verifiedCertificates"
