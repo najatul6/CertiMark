@@ -74,6 +74,7 @@ const UserManagement = () => {
     setSelectedUser(user);
     setValue("userRoles", user.role); // Set default role in the form
     document.getElementById("my_modal_3").showModal();
+    console.log(user.role);
   };
 
   // Submit form to change user role
@@ -90,8 +91,9 @@ const UserManagement = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure
-          .patch(`/users/admin/${selectedUser?._id}`, { role: data.userRoles })
+          .patch(`/users/${selectedUser?._id}`, { role: data.userRoles })
           .then((res) => {
+            console.log(res.data);
             if (res.data.modifiedCount > 0) {
               refetch();
               Swal.fire({
