@@ -77,7 +77,7 @@ const RejectedApplications = () => {
         <div className=" rounded-t-xl border">
           <div className="p-4 flex justify-between items-center">
             <h1 className="text-3xl text-white">
-              Total Application : {filterSearch?.length}
+              Total Rejected Application : {filterSearch?.length}
             </h1>
           </div>
 
