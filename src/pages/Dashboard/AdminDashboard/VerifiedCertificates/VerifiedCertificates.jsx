@@ -1,29 +1,120 @@
-import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle"
+import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 
 const VerifiedCertificates = () => {
+  
   return (
     <div>
-      <DashboardTitle title={"Verified Certificates"}/>
-      <table>
-        <thead>
-          <th>Name</th>
-          <th>Roll</th>
-          <th>Reason</th>
-          <th>Apply date</th>
-          <th>Approved date</th>
-        </thead>
-        <tbody>
-          <td>Md. Najatul islam</td>
-          <td>490862</td>
-          <td>Clarification</td>
-          <td>2024-10-20</td>
-          <td>2024-10-25</td>
+      <DashboardTitle title={"Approved Applications"} />
+      <div>
+        <div className=" rounded-t-xl border">
+          <div className="p-4 flex justify-between items-center">
+            <h1 className="text-3xl text-white">
+              Total Rejected Application : {filterSearch?.length}
+            </h1>
+          </div>
 
-
-        </tbody>
-      </table>
+          {/* User Table */}
+          <div className=" overflow-x-auto">
+            <table className="min-w-full bg-darkGreen rounded-xl">
+              {/* Table Header */}
+              <thead className="bg-lightTeal text-wrap whitespace-nowrap  text-white">
+                <tr>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    student name
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    Student ID
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    Registration No.
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    Technology
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    Reason
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    year Of Completion
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                    Apply Date
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
+                  Approved date
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="whitespace-nowrap">
+                {filterSearch.map((application) => {
+                  return (
+                    <tr
+                      key={application?._id}
+                      className="border-b text-lightTeal text-wrap "
+                    >
+                      <td className="p-2 text-sm border-r">
+                        {application?.name}
+                      </td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.studentId}
+                      </td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.registrationNo}
+                      </td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.technology}
+                      </td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.certificateType}
+                      </td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.yearOfCompletion}
+                      </td>
+                      <td className="p-2 text-sm border-r">
+                        {formatDate(application?.ApplyDate)}
+                      </td>
+                      <td
+                        className={`p-2 text-sm border-r text-center uppercase ${
+                          application?.fee === "unPaid" && "text-red-600"
+                        }`}
+                      >
+                        {application?.fee}
+                      </td>
+                      <td className="py-2 px-1 flex flex-col justify-center items-center gap-2 text-sm capitalize">
+                        <button
+                          className="mr-4 btn"
+                          title="Delete"
+                          onClick={() => handleDeleteApplication(application)}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-5 fill-red-500 hover:fill-red-700"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z"
+                              data-original="#000000"
+                            />
+                            <path
+                              d="M11 17v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Zm4 0v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Z"
+                              data-original="#000000"
+                            />
+                          </svg>
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default VerifiedCertificates
+export default VerifiedCertificates;
