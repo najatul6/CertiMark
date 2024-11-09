@@ -215,14 +215,14 @@ const UserManagement = () => {
                               </button>
                             </form>
                             <h3 className="font-bold text-xl text-center text-lightTeal py-5">
-                              Hello! {selectedUser.name}
+                              Change {selectedUser.name}&#39;s role!
                             </h3>
                             <form
                               onSubmit={handleSubmit}
                               className="flex flex-col justify-center items-center"
                             >
                               <select
-                                defaultValue={selectedUser?.role || "selected"}
+                                defaultValue={selectedUser?.role ?? "selected"}
                                 name="userRoles"
                                 className="text-lg bg-transparent border rounded-xl py-2 w-full text-center my-2 text-lightTeal"
                               >
