@@ -80,9 +80,10 @@ const UserManagement = () => {
   // Submit form to change user role
   const onSubmit = (data) => {
     document.getElementById("my_modal_3").close();
+    const getRole=data.userRole
     Swal.fire({
       title: `Are you sure to change ${selectedUser.name} Role?`,
-      text: `${data.userRoles} role selected!`,
+      text: `${getRole} role selected!`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -91,14 +92,14 @@ const UserManagement = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure
-          .patch(`/users/${selectedUser?._id}`, { role: data.userRoles })
+          .patch(`/users/${selectedUser?._id}`, getRole)
           .then((res) => {
             console.log(res.data);
             if (res.data.modifiedCount > 0) {
               refetch();
               Swal.fire({
                 title: "Role Changed!",
-                text: `${selectedUser.name} is now ${data.userRoles}`,
+                text: `${selectedUser.name} is now ${getRole}`,
                 icon: "success",
               });
             }
