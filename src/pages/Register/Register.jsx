@@ -49,15 +49,14 @@ const Register = () => {
         // Update User Profile
         await updateUserProfile(data?.name, imageUrl);
       }
-console.log(data);
       // Send Data to Database
       const res = await axiosPublic.post("/users", {
         name: data?.name,
         email: data?.email,
         image: imageUrl,
-        joinDate:loggedUser?.metadata?.creationTime,
-        role:"user",
-        uid:data?.uid
+        joinDate: loggedUser?.metadata?.creationTime,
+        role: "user",
+        uid: data?.uid,
       });
       // Check response from the server
       if (res.data && res.data.acknowledged === true) {
@@ -93,9 +92,8 @@ console.log(data);
           email: result?.user?.email,
           image: result?.user?.photoURL,
           joinDate: result?.user?.metadata?.creationTime,
-          role:"user",
-          uid: result?.user?.uid
-
+          role: "user",
+          uid: result?.user?.uid,
         };
 
         axiosPublic
