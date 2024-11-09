@@ -1,11 +1,12 @@
 import Swal from "sweetalert2";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import Loading from "../../../../Components/Shared/Loading/Loading";
-import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useApplicants from "../../../../hooks/useApplicants";
 
 const VerifiedCertificates = () => {
   const axiosSecure = useAxiosSecure();
+  const [applicants,refetch,isPending]=useApplicants()
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
     const options = {
@@ -19,15 +20,8 @@ const VerifiedCertificates = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
-  const { isPending, data: applications = [],refetch } = useQuery({
-    queryKey: ["applications"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/applications");
-      return res.data;
-    },
-  });
-
-  const filterSearch = applications.filter(
+  // Show all users if no search query; otherwise, filter users
+  const filterSearch = applicants.filter(
     (user) => user.Status === "Approved"
   );
 

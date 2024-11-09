@@ -3,41 +3,26 @@ import Loading from "../../../../Components/Shared/Loading/Loading";
 import useApplication from "../../../../hooks/useApplication";
 
 const AdminOverView = () => {
-  const [application,,isPending]=useApplication()
+  const [application, , isPending] = useApplication();
   if (isPending) {
     return <Loading />;
   }
   return (
     <div>
-      <DashboardTitle title={"Dashboard Overview"}/>
+      <DashboardTitle title={"Dashboard Overview"} />
 
       <section className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Cards for overview section */}
         <div className="bg-white shadow rounded-lg p-4">
-          <h3
-            className="font-semibold"
-            style={{ fontFamily: "Roboto", fontSize: "16px" }}
-          >
-            Pending Applications
-          </h3>
+          <h3 className="font-semibold">Pending Applications</h3>
           <p className="text-gray-600">{application?.length}</p>
         </div>
         <div className="bg-white shadow rounded-lg p-4">
-          <h3
-            className="font-semibold"
-            style={{ fontFamily: "Roboto", fontSize: "16px" }}
-          >
-            Verified Certificates
-          </h3>
+          <h3 className="font-semibold">Verified Certificates</h3>
           <p className="text-gray-600">120</p>
         </div>
         <div className="bg-white shadow rounded-lg p-4">
-          <h3
-            className="font-semibold"
-            style={{ fontFamily: "Roboto", fontSize: "16px" }}
-          >
-            Total Users
-          </h3>
+          <h3 className="font-semibold">Total Users</h3>
           <p className="text-gray-600">342</p>
         </div>
       </section>
