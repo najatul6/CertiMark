@@ -28,7 +28,7 @@ const Apply = () => {
       userEmail: user?.email,
       ApplyDate: new Date().toISOString(),
       Status: "Pending",
-      fee: "Unpaid",
+      fee: "unPaid",
       feeAmount: "300",
     };
     try {
