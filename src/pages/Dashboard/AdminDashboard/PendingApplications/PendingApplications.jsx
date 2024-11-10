@@ -44,16 +44,28 @@ const PendingApplications = () => {
 
   // Approve and Reject Applications
   const handleApprove=(application)=>{
+    const applicationData={
+      Status: "Approved",
+      fee:application?.fee,
+      publishDate:new Date().toISOString()
+    }
     Swal.fire({
       title: "Do you want to Approve?",
       showCancelButton: true,
       confirmButtonText: "Save",
-    }).then((result) => {
+    }).then(async(result) => {
       if (result.isConfirmed) {
-        Swal.fire("Application Approved!", "", "success");
+        const updateData=await axiosSecure.patch(`/applications/${application?._id}`,applicationData)
+        if(updateData.data?.modifiedCount>0){
+          refetch();
+          Swal.fire("Application Approved!", "", "success");
+        }
+        else{
+          Swal.fire("Failed to Approve Application!", "", "error");
+        }
+       
       } 
     });
-    console.log(application);
   }
   const handleReject=(application)=>{
     const applicationData={
