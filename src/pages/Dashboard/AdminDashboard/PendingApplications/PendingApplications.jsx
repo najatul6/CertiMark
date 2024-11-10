@@ -4,10 +4,12 @@ import { useState } from "react";
 import { FaSearchengin } from "react-icons/fa6";
 import useApplicants from "../../../../hooks/useApplicants";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const PendingApplications = () => {
   const [searchQuery, setSearchQuery] = useState();
   const [applicants, , isPending] = useApplicants();
+  const axiosSecure=useAxiosSecure()
 
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
@@ -54,12 +56,19 @@ const PendingApplications = () => {
     console.log(application);
   }
   const handleReject=(application)=>{
+    const applicationData={
+      Status: "Rejected",
+      fee: "Rejected",
+      RejectDate:new Date().toISOString()
+    }
     Swal.fire({
       title: "Do you want to Reject?",
       showCancelButton: true,
       confirmButtonText: "Save",
-    }).then((result) => {
+    }).then(async(result) => {
       if (result.isConfirmed) {
+        const updateData=await axiosSecure.patch(`/applications/${application?._id}`,applicationData)
+        console.log(updateData);
         Swal.fire("Application Rejected!", "", "success");
       } 
     });
