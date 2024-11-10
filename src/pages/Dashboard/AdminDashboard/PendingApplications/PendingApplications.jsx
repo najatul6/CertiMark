@@ -6,8 +6,8 @@ import useApplicants from "../../../../hooks/useApplicants";
 
 const PendingApplications = () => {
   const [searchQuery, setSearchQuery] = useState();
-const [applicants, ,isPending]=useApplicants()
- 
+  const [applicants, , isPending] = useApplicants();
+
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
     const options = {
@@ -21,7 +21,7 @@ const [applicants, ,isPending]=useApplicants()
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
-  
+
   // Show all users if no search query; otherwise, filter users
   const filterSearch = applicants
     .filter((user) => user.Status === "Pending")
@@ -37,6 +37,14 @@ const [applicants, ,isPending]=useApplicants()
     );
   if (isPending) {
     return <Loading />;
+  }
+
+  // Approve and Reject Applications
+  const handleApprove=(application)=>{
+    console.log(application);
+  }
+  const handleReject=(application)=>{
+    console.log(application);
   }
   return (
     <div>
@@ -83,7 +91,7 @@ const [applicants, ,isPending]=useApplicants()
                     Technology
                   </th>
                   <th className="p-4 text-left capitalize font-medium border-r">
-                  Reason
+                    Reason
                   </th>
                   <th className="p-4 text-left capitalize font-medium border-r">
                     year Of Completion
@@ -106,8 +114,12 @@ const [applicants, ,isPending]=useApplicants()
                       key={application?._id}
                       className="border-b text-lightTeal text-wrap "
                     >
-                      <td className="p-2 text-sm border-r">{application?.name}</td>
-                      <td className="p-2 text-sm border-r">{application?.studentId}</td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.name}
+                      </td>
+                      <td className="p-2 text-sm border-r">
+                        {application?.studentId}
+                      </td>
                       <td className="p-2 text-sm border-r">
                         {application?.registrationNo}
                       </td>
@@ -123,10 +135,20 @@ const [applicants, ,isPending]=useApplicants()
                       <td className="p-2 text-sm border-r">
                         {formatDate(application?.ApplyDate)}
                       </td>
-                      <td className={`p-2 text-sm border-r text-center uppercase ${application?.fee === 'unPaid' && 'text-red-600'}`}>{application?.fee}</td>
+                      <td
+                        className={`p-2 text-sm border-r text-center uppercase ${
+                          application?.fee === "unPaid" && "text-red-600"
+                        }`}
+                      >
+                        {application?.fee}
+                      </td>
                       <td className="py-2 px-1 flex flex-col justify-center items-center gap-2 text-sm capitalize">
-                        <button className="w-full bg-green-600 hover:bg-green-500 rounded-xl text-white">Approve</button>
-                        <button className="w-full bg-red-600 hover:bg-red-400 rounded-xl text-white">Reject</button>
+                        <button onClick={()=>handleApprove(application)} className="w-full bg-green-600 hover:bg-green-500 rounded-xl text-white">
+                          Approve
+                        </button>
+                        <button onClick={()=>handleReject(application)} className="w-full bg-red-600 hover:bg-red-400 rounded-xl text-white">
+                          Reject
+                        </button>
                       </td>
                     </tr>
                   );
