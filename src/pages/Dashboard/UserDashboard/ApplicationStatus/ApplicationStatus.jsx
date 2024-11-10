@@ -88,10 +88,10 @@ const ApplicationStatus = () => {
                       {app?.fee === "unPaid" ? (
                         <button
                         type="button"
-                        className="px-5 py-2.5 flex items-center justify-center gap-2 rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-700 active:bg-purple-600"
+                        className="px-5 py-2.5 flex items-center justify-center gap-2 rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-800 active:bg-purple-600 hover:text-lightTeal"
                       >
                         <FaHandHoldingDollar className="text-2xl" />
-                        Pay
+                        Pay {app?.feeAmount}
                       </button>
                       ) : app.fee === "paid" ? (
                         <button
