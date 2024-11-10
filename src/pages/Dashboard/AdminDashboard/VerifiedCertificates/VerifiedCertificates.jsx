@@ -110,7 +110,16 @@ const VerifiedCertificates = () => {
                 </tr>
               </thead>
               <tbody className="whitespace-nowrap">
-                {filterSearch.map((application) => {
+                {filterSearch.length===0&&( // No Data Found Row
+                  <tr>
+                    <td
+                      colSpan="9"
+                      className="py-10 text-center text-2xl font-bold text-white"
+                    >
+                      No Approved applications found...
+                    </td>
+                  </tr>)}
+                {filterSearch.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate)).map((application) => {
                   return (
                     <tr
                       key={application?._id}

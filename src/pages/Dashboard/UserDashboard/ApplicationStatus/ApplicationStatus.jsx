@@ -60,7 +60,7 @@ const ApplicationStatus = () => {
               ) : (
                 // Table rows for each application
                 <>
-                  {application.map((app, index) => (
+                  {application.sort((a, b) => new Date(b.ApplyDate) - new Date(a.ApplyDate)).map((app, index) => (
                     <tr
                       key={index}
                       className="hover:bg-darkGreen text-white text-xs md:text-base"

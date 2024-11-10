@@ -154,7 +154,7 @@ const UserManagement = () => {
               </thead>
 
               <tbody className="whitespace-nowrap">
-                {filteredUsers.map((user) => {
+                {filteredUsers.sort((a, b) => new Date(b.joinDate) - new Date(a.joinDate)).map((user) => {
                   return (
                     <tr
                       key={user?._id}

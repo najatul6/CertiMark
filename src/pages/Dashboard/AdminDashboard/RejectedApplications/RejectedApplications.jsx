@@ -117,13 +117,13 @@ const RejectedApplications = () => {
                       colSpan="9"
                       className="py-10 text-center text-2xl font-bold text-white"
                     >
-                      No Data Found...
+                      No Rejected applications found...
                     </td>
                   </tr>
                 ) : (
                   // Data Rows
                   <>
-                    {filterSearch.map((application) => {
+                    {filterSearch.sort((a, b) => new Date(b?.RejectDate) - new Date(a?.RejectDate)).map((application) => {
                       return (
                         <tr
                           key={application?._id}
