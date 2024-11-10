@@ -8,7 +8,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const PendingApplications = () => {
   const [searchQuery, setSearchQuery] = useState();
-  const [applicants, , isPending] = useApplicants();
+  const [applicants,refetch , isPending] = useApplicants();
   const axiosSecure=useAxiosSecure()
 
   // Function to format date to AM/PM
@@ -68,8 +68,13 @@ const PendingApplications = () => {
     }).then(async(result) => {
       if (result.isConfirmed) {
         const updateData=await axiosSecure.patch(`/applications/${application?._id}`,applicationData)
-        console.log(updateData);
-        Swal.fire("Application Rejected!", "", "success");
+        if(updateData.data?.modifiedCount>0){
+          refetch();
+          Swal.fire("Application Rejected!", "", "success");
+        }
+        else{
+          Swal.fire("Failed to Reject Application!", "", "error");
+        }
       } 
     });
     console.log(application);
