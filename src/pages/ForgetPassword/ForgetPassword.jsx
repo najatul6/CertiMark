@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { TbFidgetSpinner } from "react-icons/tb";
@@ -7,6 +7,7 @@ import { useState } from "react";
 const ForgetPassword = () => {
   const { resetPassword, setLoading, loading } = useAuth();
   const [isDisabled,setDisabled] =useState(false)
+  const navigate=useNavigate("")
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,8 +15,9 @@ const ForgetPassword = () => {
     try {
       setLoading(true);
       await resetPassword(email);
-      toast.success("Password reset link has been sent to your email.");
       form.reset();
+      navigate('/login')
+      toast.success("Password reset link has been sent to your email.");
       setDisabled(true)
     } catch (err) {
       toast.error(err?.code);
