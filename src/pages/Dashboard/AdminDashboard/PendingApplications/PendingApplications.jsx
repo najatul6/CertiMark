@@ -3,6 +3,7 @@ import Loading from "../../../../Components/Shared/Loading/Loading";
 import { useState } from "react";
 import { FaSearchengin } from "react-icons/fa6";
 import useApplicants from "../../../../hooks/useApplicants";
+import Swal from "sweetalert2";
 
 const PendingApplications = () => {
   const [searchQuery, setSearchQuery] = useState();
@@ -41,9 +42,27 @@ const PendingApplications = () => {
 
   // Approve and Reject Applications
   const handleApprove=(application)=>{
+    Swal.fire({
+      title: "Do you want to Approve?",
+      showCancelButton: true,
+      confirmButtonText: "Save",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Application Approved!", "", "success");
+      } 
+    });
     console.log(application);
   }
   const handleReject=(application)=>{
+    Swal.fire({
+      title: "Do you want to Reject?",
+      showCancelButton: true,
+      confirmButtonText: "Save",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Application Rejected!", "", "success");
+      } 
+    });
     console.log(application);
   }
   return (
