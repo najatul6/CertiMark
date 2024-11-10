@@ -31,7 +31,6 @@ const useAxiosSecure = () => {
         toast.error("Session expired, please log in again");
         navigate("/login");
       }
-      console.log(status);
       return Promise.reject(error);
     }
   );
