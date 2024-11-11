@@ -17,7 +17,7 @@ const ContactUs = () => {
     <div className="bg-[#FEFFFF] min-h-screen flex items-center justify-center px-6 py-12">
       <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-6 border border-[#2B7A78]">
         <h2 className="text-center font-bold mb-6 font-montserrat text-[28px]" >
-          Contact Us
+        Support
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

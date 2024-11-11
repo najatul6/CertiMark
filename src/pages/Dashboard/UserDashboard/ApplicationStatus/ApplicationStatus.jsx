@@ -133,7 +133,7 @@ const ApplicationStatus = () => {
                                 <FaHandHoldingDollar className="text-2xl" />
                                 Pay {app?.feeAmount}
                               </button>
-                            ) : app.fee === "paid" ? (
+                            ) : app.Status === "Approved" ? (
                               <button
                                 type="button"
                                 className="w-10 h-10 inline-flex items-center justify-center rounded border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600"
@@ -150,13 +150,14 @@ const ApplicationStatus = () => {
                                     data-original="#000000"
                                   ></path>
                                 </svg>
+                                
                               </button>
                             ) : (
                               <button
                                 type="button"
-                                className="px-5 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-red-600 hover:bg-red-700 active:bg-red-600"
+                                className="px-5 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600"
                               >
-                                <svg
+                                {/* <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="11px"
                                   fill="currentColor"
@@ -171,7 +172,8 @@ const ApplicationStatus = () => {
                                     d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
                                     data-original="#000000"
                                   />
-                                </svg>
+                                </svg> */}
+                                Paid
                               </button>
                             )}
                           </span>
