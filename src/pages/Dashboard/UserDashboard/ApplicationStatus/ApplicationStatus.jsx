@@ -30,12 +30,12 @@ const ApplicationStatus = () => {
       <DashboardTitle title={"Application Status"} />
       {application.length > 0 && (
         <div className="flex justify-center items-center bg-gradient-to-r from-green-600 to-green-900 font-siligri pr-4 my-5">
-          <p className="text-xl bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-4 px-5 whitespace-nowrap">
+          <p className="md:text-xl bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-4 px-5 whitespace-nowrap">
             বিঃ দ্রঃ
           </p>
           <div>
             <Marquee speed={100}>
-              <p className="text-white text-xl font-semibold py-1 ml-5 flex gap-2">
+              <p className="text-white md:text-xl font-semibold py-1 ml-5 flex gap-2">
                 আবেদন প্রক্রিয়া সম্পন্ন করতে আবেদন ফি প্রদান আবশ্যক। ফি প্রদান
                 না করলে আবেদনটি অনুমোদিত হবে না এবং কনফার্মেশন পাওয়া যাবে না।
                 তাই

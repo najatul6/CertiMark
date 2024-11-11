@@ -51,12 +51,12 @@ const Apply = () => {
   return (
     <div className="bg-[#FEFFFF] min-h-screen flex flex-col items-center justify-center px-6 pb-10 !font-roboto">
      <div className="flex justify-center items-center bg-gradient-to-r from-red-500 to-orange-500 font-siligri pr-4">
-        <p className="text-xl  bg-lightTeal text-white font-bold py-4 px-5 whitespace-nowrap">
+        <p className="md:text-xl  bg-lightTeal text-white font-bold py-4 px-5 whitespace-nowrap">
           বিঃ দ্রঃ
         </p>
        <div>
        <Marquee>
-          <p  className="text-white text-xl font-semibold">
+          <p  className="text-white md:text-xl font-semibold">
 
           সঠিক ভাবে Apply করুন, তারপর Application Status Check করুন এবং
           নির্ধারিত পেমেন্ট পরিশোধ করুন !!
