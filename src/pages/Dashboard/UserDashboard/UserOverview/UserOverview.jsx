@@ -35,7 +35,7 @@ const UserOverview = () => {
       {/* User-specific overview cards */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Pending Applications */}
-        <div className="bg-gradient-to-r from-teal to-green-600 shadow rounded-lg p-10 border-l-[6px] border-green-600">
+        <div className="bg-gradient-to-r from-teal to-green-600 shadow rounded-lg p-10 border-l-[5px] border-green-600">
           <h3 className="font-semibold text-darkGreen text-xl pb-5">
             My Pending Applications
           </h3>
@@ -43,7 +43,7 @@ const UserOverview = () => {
         </div>
 
         {/* Verified Certificates */}
-        <div className="bg-gradient-to-r from-blue-400 to-indigo-600 shadow rounded-lg p-10 border-l-[6px] border-yellow-500">
+        <div className="bg-gradient-to-r from-blue-400 to-indigo-600 shadow rounded-lg p-10 border-l-[5px] border-indigo-600">
           <h3 className="font-semibold text-darkGreen text-xl pb-5">
             Verified Certificates
           </h3>
@@ -53,7 +53,7 @@ const UserOverview = () => {
         </div>
 
         {/* Rejected Certificates */}
-        <div className="bg-gradient-to-r from-red-400 to-red-700 shadow rounded-lg p-10 border-l-[6px] border-yellow-500">
+        <div className="bg-gradient-to-r from-red-400 to-red-700 shadow rounded-lg p-10 border-l-[5px] border-red-700">
           <h3 className="font-semibold text-darkGreen text-xl pb-5">
             Rejected Certificates
           </h3>
@@ -63,7 +63,7 @@ const UserOverview = () => {
         </div>
 
         {/* Total Paid */}
-        <div className="bg-gradient-to-r from-purple-500 to-purple-700 shadow rounded-lg p-10 border-l-[6px] border-yellow-500">
+        <div className="bg-gradient-to-r from-purple-500 to-purple-700 shadow rounded-lg p-10 border-l-[5px] border-purple-700">
           <h3 className="font-semibold text-darkGreen text-xl pb-5">
             Total Paid
           </h3>
@@ -71,7 +71,7 @@ const UserOverview = () => {
         </div>
 
         {/* Total Due */}
-        <div className="bg-gradient-to-r from-yellow-500 to-orange-500 shadow rounded-lg p-10 border-l-[6px] border-yellow-500">
+        <div className="bg-gradient-to-r from-yellow-500 to-orange-500 shadow rounded-lg p-10 border-l-[5px] border-orange-500">
           <h3 className="font-semibold text-darkGreen text-xl pb-5">
             Total Due
           </h3>
