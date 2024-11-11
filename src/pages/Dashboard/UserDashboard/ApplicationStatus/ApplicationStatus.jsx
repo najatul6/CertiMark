@@ -28,18 +28,28 @@ const ApplicationStatus = () => {
   return (
     <div>
       <DashboardTitle title={"Application Status"} />
-      <div className="flex justify-center items-center bg-gradient-to-r from-green-600 to-green-900 font-siligri pr-4 my-5">
-        <p className="text-xl  bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-4 px-5 whitespace-nowrap">
-          বিঃ দ্রঃ
-        </p>
-        <div>
-          <Marquee speed={120}>
-            <p className="text-white text-xl font-semibold py-1 ml-5 flex gap-2">
-            আবেদন প্রক্রিয়া সম্পন্ন করতে আবেদন ফি প্রদান আবশ্যক। ফি প্রদান না করলে আবেদনটি অনুমোদিত হবে না এবং কনফার্মেশন পাওয়া যাবে না। তাই <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent font-extrabold"> &#11162; <span className="underline">Pay </span></span> বাটন - এ ক্লিক করে ফি প্রদান করুন !! <span className="ml-4">||</span>
-            </p>
-          </Marquee>
+      {application.length > 0 && (
+        <div className="flex justify-center items-center bg-gradient-to-r from-green-600 to-green-900 font-siligri pr-4 my-5">
+          <p className="text-xl bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-4 px-5 whitespace-nowrap">
+            বিঃ দ্রঃ
+          </p>
+          <div>
+            <Marquee speed={100}>
+              <p className="text-white text-xl font-semibold py-1 ml-5 flex gap-2">
+                আবেদন প্রক্রিয়া সম্পন্ন করতে আবেদন ফি প্রদান আবশ্যক। ফি প্রদান
+                না করলে আবেদনটি অনুমোদিত হবে না এবং কনফার্মেশন পাওয়া যাবে না।
+                তাই
+                <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-extrabold animate-pulse ml-2">
+                  &#11162; <span className="underline">Pay</span>
+                </span>
+                বাটন - এ ক্লিক করে ফি প্রদান করুন !!
+                <span className="ml-4">||</span>
+              </p>
+            </Marquee>
+          </div>
         </div>
-      </div>
+      )}
+
       <div className=" border overflow-x-auto shadow-lg  w-full">
         <div>
           <table className="w-full text-center border-collapse capitalize text-darkGreen">
