@@ -28,7 +28,7 @@ const ApplicationStatus = () => {
   return (
     <div>
       <DashboardTitle title={"Application Status"} />
-      <div className="flex justify-center items-center bg-gradient-to-r from-red-500 to-orange-500 pl-0 pr-4">
+      <div className="flex justify-center items-center bg-gradient-to-r from-red-500 to-orange-500 pl-0 pr-4 my-5">
         <p className="text-xl  bg-lightTeal text-white font-bold py-4 px-5 whitespace-nowrap">
           বিঃ দ্রঃ
         </p>
