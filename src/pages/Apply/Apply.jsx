@@ -86,7 +86,7 @@ const Apply = () => {
                 errors.certificateType ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
             >
-              <option selected disabled>
+              <option disabled>
                 Select Certificate Type
               </option>
               <option value="completion">Completion Certificate</option>
@@ -193,7 +193,7 @@ const Apply = () => {
               </p>
             )}
           </div>
-
+          {/* Student ID */}
           <div>
             <label
               htmlFor="studentId"
@@ -217,7 +217,7 @@ const Apply = () => {
               </p>
             )}
           </div>
-
+          {/* Technology */}
           <div>
             <label
               htmlFor="technology"
@@ -269,8 +269,7 @@ const Apply = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold"
-            style={{ fontFamily: "Montserrat", fontSize: "18px" }}
+            className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold font-montserrat text-lg"
           >
             {isLoading ? (
               <TbFidgetSpinner className="animate-spin m-auto" />
