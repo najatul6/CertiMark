@@ -30,7 +30,7 @@ const AdminOverView = () => {
     (user) => user.Status === "Pending"
   );
   const approvedApplications = applicants.filter(
-    (user) => user.Status === "Pending"
+    (user) => user.Status === "Approved"
   );
   const rejectedApplications = applicants.filter(
     (user) => user.Status === "Rejected"
