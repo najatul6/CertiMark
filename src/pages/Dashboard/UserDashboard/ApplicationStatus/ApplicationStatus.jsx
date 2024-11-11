@@ -28,19 +28,17 @@ const ApplicationStatus = () => {
   return (
     <div>
       <DashboardTitle title={"Application Status"} />
-      <div className="flex justify-center items-center bg-gradient-to-r from-red-500 to-orange-500 pl-0 pr-4 my-5">
-        <p className="text-xl  bg-lightTeal text-white font-bold py-4 px-5 whitespace-nowrap">
+      <div className="flex justify-center items-center bg-gradient-to-r from-green-600 to-green-900 font-siligri pr-4 my-5">
+        <p className="text-xl  bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-4 px-5 whitespace-nowrap">
           বিঃ দ্রঃ
         </p>
-       <div>
-       <Marquee>
-          <p  className="text-white text-xl font-semibold">
-
-          সঠিক ভাবে Apply করুন, তারপর Application Status Check করুন এবং
-          নির্ধারিত পেমেন্ট পরিশোধ করুন !!
-          </p>
-        </Marquee>
-       </div>
+        <div>
+          <Marquee speed={120}>
+            <p className="text-white text-xl font-semibold py-1 ml-5 flex gap-2">
+            আবেদন প্রক্রিয়া সম্পন্ন করতে আবেদন ফি প্রদান আবশ্যক। ফি প্রদান না করলে আবেদনটি অনুমোদিত হবে না এবং কনফার্মেশন পাওয়া যাবে না। তাই <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent font-extrabold"> &#11162; <span className="underline">Pay </span></span> বাটন - এ ক্লিক করে ফি প্রদান করুন !! <span className="ml-4">||</span>
+            </p>
+          </Marquee>
+        </div>
       </div>
       <div className=" border overflow-x-auto shadow-lg  w-full">
         <div>
@@ -63,7 +61,7 @@ const ApplicationStatus = () => {
             </thead>
             <tbody>
               {application.length === 0 ? (
-                // No Data Found 
+                // No Data Found
                 <tr>
                   <td
                     colSpan="9"
@@ -75,97 +73,101 @@ const ApplicationStatus = () => {
               ) : (
                 // Table rows for each application
                 <>
-                  {application.sort((a, b) => new Date(b.ApplyDate) - new Date(a.ApplyDate)).map((app, index) => (
-                    <tr
-                      key={index}
-                      className="hover:bg-darkGreen text-white text-xs md:text-base"
-                    >
-                      <td className="border-b py-2 capitalize">
-                        {app?.certificateType}
-                      </td>
-                      <td className="border-b py-2 capitalize">
-                        {formatDate(app?.ApplyDate)}
-                      </td>
+                  {application
+                    .sort(
+                      (a, b) => new Date(b.ApplyDate) - new Date(a.ApplyDate)
+                    )
+                    .map((app, index) => (
+                      <tr
+                        key={index}
+                        className="hover:bg-darkGreen text-white text-xs md:text-base"
+                      >
+                        <td className="border-b py-2 capitalize">
+                          {app?.certificateType}
+                        </td>
+                        <td className="border-b py-2 capitalize">
+                          {formatDate(app?.ApplyDate)}
+                        </td>
 
-                      <td className="border-b py-2 capitalize text-center ">
-                        <span
-                          className={`px-2 py-1 rounded-full text-sm flex justify-center items-center`}
-                        >
-                          {app.Status === "Pending" ? (
-                            <>
-                              <MdOutlinePendingActions className="text-yellow-600 text-2xl mr-1" />
-                              <span className="text-yellow-600">Pending</span>
-                            </>
-                          ) : app.Status === "Approved" ? (
-                            <>
-                              <FcApproval className="bg-green-700 text-2xl mr-1" />
-                              <span className="text-green-700">Approved</span>
-                            </>
-                          ) : (
-                            <>
-                              <CiCircleRemove className="text-red-600 text-2xl mr-1" />
-                              <span className="text-red-600">Rejected</span>
-                            </>
-                          )}
-                        </span>
-                      </td>
-                      <td className="border-b py-2 capitalize text-center ">
-                        <span
-                          className={`px-2 py-1 rounded-full text-sm flex justify-center items-center`}
-                        >
-                          {app?.fee === "unPaid" ? (
-                            <button
-                              type="button"
-                              className="px-5 py-2.5 flex items-center justify-center gap-2 rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-800 active:bg-purple-600 hover:text-lightTeal"
-                            >
-                              <FaHandHoldingDollar className="text-2xl" />
-                              Pay {app?.feeAmount}
-                            </button>
-                          ) : app.fee === "paid" ? (
-                            <button
-                              type="button"
-                              className="w-10 h-10 inline-flex items-center justify-center rounded border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16px"
-                                fill="#fff"
-                                className="inline"
-                                viewBox="0 0 24 24"
+                        <td className="border-b py-2 capitalize text-center ">
+                          <span
+                            className={`px-2 py-1 rounded-full text-sm flex justify-center items-center`}
+                          >
+                            {app.Status === "Pending" ? (
+                              <>
+                                <MdOutlinePendingActions className="text-yellow-600 text-2xl mr-1" />
+                                <span className="text-yellow-600">Pending</span>
+                              </>
+                            ) : app.Status === "Approved" ? (
+                              <>
+                                <FcApproval className="bg-green-700 text-2xl mr-1" />
+                                <span className="text-green-700">Approved</span>
+                              </>
+                            ) : (
+                              <>
+                                <CiCircleRemove className="text-red-600 text-2xl mr-1" />
+                                <span className="text-red-600">Rejected</span>
+                              </>
+                            )}
+                          </span>
+                        </td>
+                        <td className="border-b py-2 capitalize text-center ">
+                          <span
+                            className={`px-2 py-1 rounded-full text-sm flex justify-center items-center`}
+                          >
+                            {app?.fee === "unPaid" ? (
+                              <button
+                                type="button"
+                                className="px-5 py-2.5 flex items-center justify-center gap-2 rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-800 active:bg-purple-600 hover:text-lightTeal"
                               >
-                                <path
-                                  d="M12 16a.749.749 0 0 1-.542-.232l-5.25-5.5A.75.75 0 0 1 6.75 9H9.5V3.25c0-.689.561-1.25 1.25-1.25h2.5c.689 0 1.25.561 1.25 1.25V9h2.75a.75.75 0 0 1 .542 1.268l-5.25 5.5A.749.749 0 0 1 12 16zm10.25 6H1.75C.785 22 0 21.215 0 20.25v-.5C0 18.785.785 18 1.75 18h20.5c.965 0 1.75.785 1.75 1.75v.5c0 .965-.785 1.75-1.75 1.75z"
-                                  data-original="#000000"
-                                ></path>
-                              </svg>
-                            </button>
-                          ) : (
-                            <button
-                              type="button"
-                              className="px-5 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-red-600 hover:bg-red-700 active:bg-red-600"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="11px"
-                                fill="currentColor"
-                                className="inline"
-                                viewBox="0 0 320.591 320.591"
+                                <FaHandHoldingDollar className="text-2xl" />
+                                Pay {app?.feeAmount}
+                              </button>
+                            ) : app.fee === "paid" ? (
+                              <button
+                                type="button"
+                                className="w-10 h-10 inline-flex items-center justify-center rounded border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600"
                               >
-                                <path
-                                  d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
-                                  data-original="#000000"
-                                />
-                                <path
-                                  d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
-                                  data-original="#000000"
-                                />
-                              </svg>
-                            </button>
-                          )}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16px"
+                                  fill="#fff"
+                                  className="inline"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M12 16a.749.749 0 0 1-.542-.232l-5.25-5.5A.75.75 0 0 1 6.75 9H9.5V3.25c0-.689.561-1.25 1.25-1.25h2.5c.689 0 1.25.561 1.25 1.25V9h2.75a.75.75 0 0 1 .542 1.268l-5.25 5.5A.749.749 0 0 1 12 16zm10.25 6H1.75C.785 22 0 21.215 0 20.25v-.5C0 18.785.785 18 1.75 18h20.5c.965 0 1.75.785 1.75 1.75v.5c0 .965-.785 1.75-1.75 1.75z"
+                                    data-original="#000000"
+                                  ></path>
+                                </svg>
+                              </button>
+                            ) : (
+                              <button
+                                type="button"
+                                className="px-5 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-red-600 hover:bg-red-700 active:bg-red-600"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="11px"
+                                  fill="currentColor"
+                                  className="inline"
+                                  viewBox="0 0 320.591 320.591"
+                                >
+                                  <path
+                                    d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
+                                    data-original="#000000"
+                                  />
+                                  <path
+                                    d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
+                                    data-original="#000000"
+                                  />
+                                </svg>
+                              </button>
+                            )}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
                 </>
               )}
             </tbody>
