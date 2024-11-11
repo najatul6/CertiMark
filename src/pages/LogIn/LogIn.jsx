@@ -52,6 +52,9 @@ const handleGoogle = () => {
         name: result?.user?.displayName,
         email: result?.user?.email,
         image: result?.user?.photoURL,
+        joinDate: result?.user?.metadata?.creationTime,
+        role: "user",
+        uid: result?.user?.uid,
       };
 
       axiosPublic.post('/users', userInfo)  
@@ -187,7 +190,7 @@ const handleGoogle = () => {
             to="/register"
             className="hover:underline hover:text-deep-orange text-gray-500"
           >
-            Sign up
+            Create Account
           </Link>
           .
         </p>
