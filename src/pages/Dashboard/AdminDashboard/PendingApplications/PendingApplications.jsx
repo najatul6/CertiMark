@@ -89,12 +89,12 @@ const PendingApplications = () => {
         }
       } 
     });
-    console.log(application);
   }
   return (
     <div>
       <DashboardTitle title={"Pending Applications"} />
       <div>
+      
         <div className=" rounded-t-xl border">
           <div className="p-4 flex justify-between items-center">
             <h1 className="text-3xl text-white">

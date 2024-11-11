@@ -5,6 +5,7 @@ import { CiCircleRemove } from "react-icons/ci";
 import Loading from "../../../../Components/Shared/Loading/Loading";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import { FaHandHoldingDollar } from "react-icons/fa6";
+import Marquee from "react-fast-marquee";
 
 const ApplicationStatus = () => {
   const [application, , isPending] = useApplication();
@@ -27,6 +28,20 @@ const ApplicationStatus = () => {
   return (
     <div>
       <DashboardTitle title={"Application Status"} />
+      <div className="flex justify-center items-center bg-gradient-to-r from-red-500 to-orange-500 pl-0 pr-4">
+        <p className="text-xl  bg-lightTeal text-white font-bold py-4 px-5 whitespace-nowrap">
+          বিঃ দ্রঃ
+        </p>
+       <div>
+       <Marquee>
+          <p  className="text-white text-xl font-semibold">
+
+          সঠিক ভাবে Apply করুন, তারপর Application Status Check করুন এবং
+          নির্ধারিত পেমেন্ট পরিশোধ করুন !!
+          </p>
+        </Marquee>
+       </div>
+      </div>
       <div className=" border overflow-x-auto shadow-lg  w-full">
         <div>
           <table className="w-full text-center border-collapse capitalize text-darkGreen">

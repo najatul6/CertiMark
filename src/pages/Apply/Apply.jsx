@@ -50,14 +50,19 @@ const Apply = () => {
 
   return (
     <div className="bg-[#FEFFFF] min-h-screen flex flex-col items-center justify-center px-6 pb-10 !font-roboto">
-      <div className="border border-red-500 rounded-lg shadow-lg w-1/2 flex items-center font-siligri bg-gradient-to-r from-red-500 to-orange-500 p-4 mt-2">
-        <p className="text-xl bg-lightTeal text-white font-bold leading-tight py-3 px-5 rounded-md mr-2 whitespace-nowrap">
+     <div className="flex justify-center items-center bg-gradient-to-r from-red-500 to-orange-500 pl-0 pr-4">
+        <p className="text-xl  bg-lightTeal text-white font-bold py-4 px-5 whitespace-nowrap">
           বিঃ দ্রঃ
         </p>
-        <Marquee className="text-white text-xl font-semibold">
+       <div>
+       <Marquee>
+          <p  className="text-white text-xl font-semibold">
+
           সঠিক ভাবে Apply করুন, তারপর Application Status Check করুন এবং
           নির্ধারিত পেমেন্ট পরিশোধ করুন !!
+          </p>
         </Marquee>
+       </div>
       </div>
       <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-6 mt-12 border border-[#2B7A78]">
         <h2 className="text-2xl font-bold text-darkGreen mb-6 text-center">
