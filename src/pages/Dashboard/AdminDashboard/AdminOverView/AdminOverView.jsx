@@ -129,7 +129,7 @@ const AdminOverView = () => {
         </Link>
         <div className="bg-indigo-100 shadow-lg rounded-lg px-4 py-10 border-l-4 border-indigo-500">
           <h3 className="text-xl mb-2 font-semibold text-indigo-700">
-            Total Paid Amount
+            Total Paid
           </h3>
           <p className="text-gray-600 text-lg">
             {totalPaidSum.toLocaleString()} BDT
@@ -137,7 +137,7 @@ const AdminOverView = () => {
         </div>
         <div className="bg-purple-100 shadow-lg rounded-lg px-4 py-10 border-l-4 border-purple-500">
           <h3 className="text-xl mb-2 font-semibold text-purple-700">
-            Total Unpaid Amount
+            Total Due
           </h3>
           <p className="text-gray-600 text-lg">
             {totalUnpaidSum.toLocaleString()} BDT
