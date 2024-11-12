@@ -111,7 +111,7 @@ const AdminOverView = () => {
         <Link to="/dashboard/verifiedCertificates">
           <div className="bg-green-100 shadow-lg rounded-lg px-4 py-10 border-l-4 border-green-500">
             <h3 className="text-xl mb-2 font-semibold text-green-700">
-              Verified Certificates
+              Approved Certificates
             </h3>
             <p className="text-gray-600 text-lg">
               {approvedApplications?.length}
