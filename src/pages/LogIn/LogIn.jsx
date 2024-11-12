@@ -188,7 +188,7 @@ const handleGoogle = () => {
           Don&apos;t have an account yet?{" "}
           <Link
             to="/register"
-            className="hover:underline hover:text-deep-orange text-lightTeal"
+            className="hover:underline hover:text-deep-orange text-lightTeal font-bold"
           >
             Create Account
           </Link>
