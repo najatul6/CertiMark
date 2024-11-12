@@ -71,7 +71,7 @@ const ApplicationStatus = () => {
               </tr>
             </thead>
             <tbody>
-              {application.length === 0 ? (
+              {application?.length === 0 ? (
                 // No Data Found
                 <tr>
                   <td
