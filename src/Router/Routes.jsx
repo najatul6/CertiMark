@@ -20,6 +20,7 @@ import PendingApplications from "../pages/Dashboard/AdminDashboard/PendingApplic
 import RejectedApplications from "../pages/Dashboard/AdminDashboard/RejectedApplications/RejectedApplications";
 import OverView from "../pages/Dashboard/OverView/OverView";
 import Apply from "../pages/Apply/Apply";
+import Payment from "../pages/Dashboard/UserDashboard/Payment/Payment";
 
 
 const Routes = createBrowserRouter([
@@ -117,6 +118,10 @@ const Routes = createBrowserRouter([
       {
         path: "applications",
         element: <ApplicationStatus />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
       {
         path: "downloads",
