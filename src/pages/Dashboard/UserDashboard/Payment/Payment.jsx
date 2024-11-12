@@ -1,7 +1,13 @@
+import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle"
 
 const Payment = () => {
   return (
-    <div>Payment</div>
+    <div>
+          <DashboardTitle title={"Payment"} />
+          <div>
+            Hello here
+          </div>
+    </div>
   )
 }
 
