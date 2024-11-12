@@ -51,7 +51,7 @@ const AdminOverView = () => {
 
   // Chart Data
   const data = {
-    labels: ["Pending", "Approved", "Rejected", "Paid (BDT)", "Unpaid (BDT)"],
+    labels: ["Pending", "Approved", "Rejected", "Paid (BDT)", "Due (BDT)"],
     datasets: [
       {
         label: "Application Overview",
