@@ -122,7 +122,7 @@ const Register = () => {
 
   return (
     <div className="flex justify-center items-center backgroundStyle min-h-screen">
-      <div className="flex flex-col max-w-md px-6 py-3 rounded-md shadow-inner shadow-white  text-white">
+      <div className="flex flex-col max-w-md px-6 py-3 rounded-md shadow-inner shadow-white/40 text-white">
         <div className="mb-2 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
           <p className="text-sm text-gray-400">Welcome to CertiMark</p>
