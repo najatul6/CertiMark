@@ -5,7 +5,7 @@ const Payment = () => {
     <div>
           <DashboardTitle title={"Payment"} />
           <div>
-            Hello here
+            
           </div>
     </div>
   )
