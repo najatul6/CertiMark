@@ -76,7 +76,7 @@ const AdminOverView = () => {
     responsive: true,
     plugins: {
       legend: { position: "top" },
-      // title: { display: true, text: "Admin Dashboard Overview" },
+      
     },
   };
 
