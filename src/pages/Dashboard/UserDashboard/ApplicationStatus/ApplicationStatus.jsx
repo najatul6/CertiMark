@@ -127,7 +127,7 @@ const ApplicationStatus = () => {
                             className={`px-2 py-1 rounded-full text-sm flex justify-center items-center`}
                           >
                             {app?.fee === "unPaid" ? (
-                              <Link>
+                              <Link to="/dashboard/payment">
                               <button
                                 type="button"
                                 className="px-5 py-2.5 flex items-center justify-center gap-2 rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-800 active:bg-purple-600 hover:text-lightTeal"
@@ -155,7 +155,7 @@ const ApplicationStatus = () => {
                                 </svg>
                                 
                               </button>
-                            ) : (
+                            ) :app?.fee === "unPaid" ? (
                               <button
                                 type="button"
                                 className="px-5 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600"
@@ -178,7 +178,7 @@ const ApplicationStatus = () => {
                                 </svg> */}
                                 Paid
                               </button>
-                            )}
+                            ):<p>{app?.Status}</p>}
                           </span>
                         </td>
                       </tr>
