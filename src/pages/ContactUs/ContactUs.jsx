@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const ContactUs = () => {
   const {
@@ -11,7 +11,7 @@ const ContactUs = () => {
   const onSubmit = (data) => {
     // TODO: Implement form submission logic here (e.g., API call)
     console.log("Contact form submitted:", data);
-    swal.success("Your message has been sent!");
+    Swal.fire("Your message has been sent!");
   };
 
   return (
