@@ -8,7 +8,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import
+import './RegisterCss.css'
 const Register = () => {
   const {
     register,
@@ -121,7 +121,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center items-center backgroundStyle min-h-screen">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-white/5 text-white">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
