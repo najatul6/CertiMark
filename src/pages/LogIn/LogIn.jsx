@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import
+import './loginStyle.css'
 const LogIn = () => {
   const {
     register,
@@ -83,8 +83,8 @@ const handleGoogle = () => {
 
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-white/10  text-white">
+    <div className="flex justify-center items-center min-h-screen myStyle">
+      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10  shadow-white/40  shadow-inner text-white">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Log In</h1>
           <p className="text-sm text-gray-400">
