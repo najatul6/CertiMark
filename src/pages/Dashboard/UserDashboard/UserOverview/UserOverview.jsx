@@ -44,7 +44,7 @@ const UserOverview = () => {
         {/* Verified Certificates */}
         <div className="bg-gradient-to-r from-blue-400 to-indigo-600 shadow rounded-lg p-10 border-l-[5px] border-indigo-600">
           <h3 className="font-semibold text-darkGreen text-xl pb-5">
-            Verified Certificates
+            Approved Certificates
           </h3>
           <p className="text-white text-lg pl-4">
             {verifiedApplication?.length}
