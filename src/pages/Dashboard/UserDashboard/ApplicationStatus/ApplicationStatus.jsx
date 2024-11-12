@@ -6,6 +6,7 @@ import Loading from "../../../../Components/Shared/Loading/Loading";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import { FaHandHoldingDollar } from "react-icons/fa6";
 import Marquee from "react-fast-marquee";
+import { Link } from "react-router-dom";
 
 const ApplicationStatus = () => {
   const [application, , isPending] = useApplication();
@@ -126,6 +127,7 @@ const ApplicationStatus = () => {
                             className={`px-2 py-1 rounded-full text-sm flex justify-center items-center`}
                           >
                             {app?.fee === "unPaid" ? (
+                              <Link>
                               <button
                                 type="button"
                                 className="px-5 py-2.5 flex items-center justify-center gap-2 rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-800 active:bg-purple-600 hover:text-lightTeal"
@@ -133,6 +135,7 @@ const ApplicationStatus = () => {
                                 <FaHandHoldingDollar className="text-2xl" />
                                 Pay {app?.feeAmount}
                               </button>
+                              </Link>
                             ) : app.Status === "Approved" ? (
                               <button
                                 type="button"
