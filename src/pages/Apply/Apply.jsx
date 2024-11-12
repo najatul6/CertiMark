@@ -59,7 +59,7 @@ const Apply = () => {
           <p  className="text-white md:text-xl font-semibold">
 
           সঠিক ভাবে Apply করুন, তারপর Application Status Check করুন এবং
-          নির্ধারিত পেমেন্ট পরিশোধ করুন !!
+          নির্ধারিত ফি পরিশোধ করুন !!
           </p>
         </Marquee>
        </div>
