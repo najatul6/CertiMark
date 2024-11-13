@@ -44,7 +44,7 @@ const CheckOutForm = () => {
           },
         }}>
       <button type="submit" className="bg-white w-full" disabled={!stripe}>
-        Pay
+        Pay Me now
       </button>
       </CardElement>
     </form>
