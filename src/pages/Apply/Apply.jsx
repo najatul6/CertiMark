@@ -23,6 +23,7 @@ const Apply = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    
     const applicantData = {
       ...data,
       userEmail: user?.email,
