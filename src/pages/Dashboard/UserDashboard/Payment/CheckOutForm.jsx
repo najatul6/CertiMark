@@ -33,14 +33,14 @@ const CheckOutForm = () => {
         style: {
           base: {
             fontSize: '16px',
-            color: '#424770',
+            color: '#3AAFA9',
             '::placeholder': {
-              color: '#3AAFA9',
+              color: '#2B7A78',
             },
             
           },
           invalid: {
-            color: '#9e2146',
+            color: '#FF0000',
           },
         },
       }}
