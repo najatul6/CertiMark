@@ -223,6 +223,38 @@ const Apply = () => {
               htmlFor="technology"
               className="block text-sm font-medium text-gray-700"
             >
+              Select Technology
+            </label>
+            <select
+              id="technology"
+              {...register("technology", {
+                required: "Technology is required",
+              })}
+              className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen ${
+                errors.technology ? "border-[#E76F51]" : "border-gray-300"
+              } rounded-md p-2`}
+            >
+              <option disabled>
+              Select Your Technology
+              </option>
+              <option value="computer">Computer</option>
+              <option value="power">Power</option>
+              <option value="electrical">Electrical</option>
+              <option value="textile">Textile</option>
+              <option value="mechanical">Mechanical</option>
+            </select>
+            {errors.technology && (
+              <p className="text-[#E76F51] text-sm">
+                {errors?.technology?.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="technology"
+              className="block text-sm font-medium text-gray-700"
+            >
               Technology
             </label>
             <input
