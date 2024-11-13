@@ -90,8 +90,8 @@ const Apply = () => {
                 Select Certificate Type
               </option>
               <option value="completion">Completion Certificate</option>
-              {/* <option value="transcript">Transcript</option>
-              <option value="diploma">Diploma</option> */}
+              <option value="testimonial">Testimonial</option>
+              <option value="diploma">Diploma</option>
             </select>
             {errors.certificateType && (
               <p className="text-[#E76F51] text-sm">
@@ -248,24 +248,31 @@ const Apply = () => {
               htmlFor="yearOfCompletion"
               className="block text-sm font-medium text-gray-700"
             >
-              Session
+              Select Your Session
             </label>
-            <input
-              type="text"
+            <select
               id="yearOfCompletion"
               {...register("yearOfCompletion", {
                 required: "Year of Completion is required",
               })}
-              className={`mt-1 block w-full border bg-transparent text-darkGreen ${
+              className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen ${
                 errors.yearOfCompletion ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
-            />
+            >
+              <option disabled>
+              Select Your Session
+              </option>
+              <option value="2018-19">2018-19</option>
+              <option value="2019-20">2019-20</option>
+              <option value="2020-21">2020-21</option>
+            </select>
             {errors.yearOfCompletion && (
               <p className="text-[#E76F51] text-sm">
-                {errors.yearOfCompletion.message}
+                {errors?.yearOfCompletion?.message}
               </p>
             )}
           </div>
+         
 
           <button
             type="submit"
