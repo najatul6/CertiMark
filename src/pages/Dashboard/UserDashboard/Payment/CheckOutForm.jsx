@@ -28,14 +28,14 @@ const CheckOutForm = () => {
   return (
     <form onSubmit={handleSubmit} className="w-full">
     <CardElement
-    className="py-4 border"
+    className="py-4 border rounded-md"
       options={{
         style: {
           base: {
             fontSize: '16px',
             color: '#424770',
             '::placeholder': {
-              color: '#aab7c4',
+              color: '#3AAFA9',
             },
             
           },
