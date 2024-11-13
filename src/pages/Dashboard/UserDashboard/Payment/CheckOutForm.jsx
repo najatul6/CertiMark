@@ -1,5 +1,4 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import './common.css'
 const CheckOutForm = () => {
     const stripe = useStripe();
   const elements = useElements();
@@ -29,6 +28,7 @@ const CheckOutForm = () => {
   return (
     <form onSubmit={handleSubmit} className="w-full">
     <CardElement
+    className="py-4 border"
       options={{
         style: {
           base: {
@@ -45,7 +45,7 @@ const CheckOutForm = () => {
         },
       }}
     />
-    <button type="submit" disabled={!stripe} className="w-full border py-2 rounded-md text-xl">
+    <button type="submit" disabled={!stripe} className="w-full border py-2 rounded-md text-xl mt-5">
       Pay
     </button>
   </form>
