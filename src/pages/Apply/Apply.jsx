@@ -250,30 +250,6 @@ const Apply = () => {
             )}
           </div>
 
-          <div>
-            <label
-              htmlFor="technology"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Technology
-            </label>
-            <input
-              type="text"
-              id="technology"
-              {...register("technology", {
-                required: "Technology is required",
-              })}
-              className={`mt-1 block w-full border bg-transparent text-darkGreen ${
-                errors.technology ? "border-[#E76F51]" : "border-gray-300"
-              } rounded-md p-2`}
-            />
-            {errors.technology && (
-              <p className="text-[#E76F51] text-sm">
-                {errors.technology.message}
-              </p>
-            )}
-          </div>
-
           {/* Year of Completion Input Section  */}
           <div>
             <label
@@ -304,7 +280,6 @@ const Apply = () => {
               </p>
             )}
           </div>
-         
 
           <button
             type="submit"
