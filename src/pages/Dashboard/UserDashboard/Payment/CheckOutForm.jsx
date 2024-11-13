@@ -28,7 +28,7 @@ const CheckOutForm = () => {
   return (
     <form onSubmit={handleSubmit} className="w-full">
     <CardElement
-    className="py-4 border rounded-md"
+    className="py-4 border rounded-md px-2"
       options={{
         style: {
           base: {
