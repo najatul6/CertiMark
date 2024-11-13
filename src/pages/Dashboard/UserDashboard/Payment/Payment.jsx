@@ -2,8 +2,7 @@ import { loadStripe } from "@stripe/stripe-js"
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle"
 import { Elements } from "@stripe/react-stripe-js"
 
-// TODO: add publishable key 
-const stripePromise=loadStripe('')
+const stripePromise=loadStripe(import.meta.env.VITE_PAYMENT_PK)
 const Payment = () => {
   return (
     <div>
