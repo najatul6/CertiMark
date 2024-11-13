@@ -1,8 +1,15 @@
-import { CardElement } from "@stripe/react-stripe-js";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 const CheckOutForm = () => {
+    const stripe = useStripe();
+  const elements = useElements();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!stripe || !elements) {
+        // Stripe.js has not loaded yet. Make sure to disable
+        // form submission until Stripe.js has loaded.
+        return;
+      }
   };
   return (
     <form onSubmit={handleSubmit}>
