@@ -9,6 +9,21 @@ const CheckOutForm = () => {
         return;
       }
       const card = elements.getElement(CardElement);
+
+      if (card == null) {
+        return;
+      }
+      
+      const {error, paymentMethod} = await stripe.createPaymentMethod({
+        type: 'card',
+        card,
+      });
+  
+      if (error) {
+        console.log('[error]', error);
+      } else {
+        console.log('[PaymentMethod]', paymentMethod);
+      }
   };
   return (
     <form onSubmit={handleSubmit}>
