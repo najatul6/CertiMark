@@ -1,5 +1,5 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-// import './common.css'
+import './common.css'
 const CheckOutForm = () => {
     const stripe = useStripe();
   const elements = useElements();
