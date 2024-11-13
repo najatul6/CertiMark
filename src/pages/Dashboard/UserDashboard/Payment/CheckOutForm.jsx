@@ -27,7 +27,7 @@ const CheckOutForm = () => {
       }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="w-full">
     <CardElement
       options={{
         style: {
@@ -37,6 +37,7 @@ const CheckOutForm = () => {
             '::placeholder': {
               color: '#aab7c4',
             },
+            
           },
           invalid: {
             color: '#9e2146',
@@ -44,7 +45,7 @@ const CheckOutForm = () => {
         },
       }}
     />
-    <button type="submit" disabled={!stripe}>
+    <button type="submit" disabled={!stripe} className="w-full border py-2 rounded-md text-xl">
       Pay
     </button>
   </form>
