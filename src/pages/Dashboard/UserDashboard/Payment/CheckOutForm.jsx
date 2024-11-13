@@ -36,13 +36,14 @@ const CheckOutForm = () => {
               '::placeholder': {
                 color: '#aab7c4',
               },
+              backgroundColor:"#fff"
             },
             invalid: {
               color: '#9e2146',
             },
           },
         }}>
-      <button type="submit" disabled={!stripe}>
+      <button type="submit" className="bg-white w-full" disabled={!stripe}>
         Pay
       </button>
       </CardElement>
