@@ -5,6 +5,7 @@ import hridoy from '../assets/Team/hridoy.png'
 import jwel from '../assets/Team/Jwel.png'
 import ashikur from '../assets/Team/ashikur.png'
 import fahim from '../assets/Team/fahim.png'
+import alamin from '../assets/Team/alamin.png'
 
 // female 
 import israt from '../assets/Team/Israt.png'
@@ -87,6 +88,17 @@ export const teams=[
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
         "image":`${fahim}`,
+        "fbLink":"https://www.facebook.com/najatul6/",
+        "github":"https://github.com/najatul6",
+        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+    },
+    {
+        "_id":'672abca618b4430ee3fb5ffC',
+        "Name":"Md. Najatul Islam",
+        "Email":"najatulislam11@gmail.com",
+        "profession":"Team Leader",
+        "skill":"Full Stack Developer",
+        "image":`${alamin}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
