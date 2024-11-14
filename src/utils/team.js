@@ -3,10 +3,14 @@ import aziz from '../assets/Team/Aziz.png'
 import atikur from '../assets/Team/atikur.png'
 import hridoy from '../assets/Team/hridoy.png'
 import jwel from '../assets/Team/Jwel.png'
+import ashikur from '../assets/Team/ashikur.png'
 
 // female 
 import israt from '../assets/Team/Israt.png'
+import tasnia from '../assets/Team/tasnia.png'
 import romisa from '../assets/Team/romisa.png'
+import sumaya from '../assets/Team/sumaya.png'
+import Suraiya from '../assets/Team/Suraiya.png'
 
 export const teams=[
     {
