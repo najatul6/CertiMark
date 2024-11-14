@@ -30,7 +30,7 @@ export const teams=[
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
-        "image":`${israt}`,
+        "image":`${jwel}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
@@ -41,7 +41,7 @@ export const teams=[
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
-        "image":`${najatul}`,
+        "image":`${ashikur}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
@@ -52,7 +52,7 @@ export const teams=[
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
-        "image":`${najatul}`,
+        "image":`${hridoy}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
@@ -63,7 +63,7 @@ export const teams=[
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
-        "image":`${najatul}`,
+        "image":`${atikur}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
@@ -74,11 +74,12 @@ export const teams=[
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
-        "image":`${najatul}`,
+        "image":`${aziz}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
+    // Female 
     {
         "_id":'672abca0618b4430e3fb5ffC',
         "Name":"Md. Najatul Islam",
