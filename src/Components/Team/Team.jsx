@@ -22,16 +22,26 @@ const Team = () => {
       <hr className="w-1/3 mx-auto mt-2" />
       {/* Teams Data Show here  */}
       <div>
-        <div className="md:w-11/12 flex justify-center items-center mx-auto p-4">
+        <div className="md:w-11/12 flex justify-center items-center mx-auto p-4 mt-12">
           {/* <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 max-md:justify-center mt-12"> */}
             <Swiper
-              slidesPerView={3}
+              slidesPerView={1}
               spaceBetween={30}
               freeMode={true}
               pagination={{
                 clickable: true,
               }}
               modules={[FreeMode, Pagination]}
+              breakpoints={{
+                // When window width is >= 640px, show 2 slides
+                640: {
+                  slidesPerView: 2,
+                },
+                // When window width is >= 1024px, show 3 slides
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
             >
               {teams?.map((team) => (
                 <SwiperSlide key={team?._id}>
