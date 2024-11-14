@@ -112,7 +112,7 @@ export const teams=[
         "skill":"Graphic Designer",
         "image":`${israt}`,
         "fbLink":"https://www.facebook.com/isratjahan.esha.92754",
-        "github":"https://github.com/najatul6",
+        "github":"https://github.com/mollica4404",
         "linkedin":"https://www.linkedin.com/in/mollica-sorkar-891441317"
     },
 
