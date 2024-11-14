@@ -13,7 +13,7 @@ import tasnia from '../assets/Team/tasnia.png'
 import romisa from '../assets/Team/romisa.png'
 import sumaya from '../assets/Team/sumaya.png'
 import Suraiya from '../assets/Team/Suraiya.png'
-import kemi from '../assets/Team/Suraiya.png'
+import kemi from '../assets/Team/kemi.png'
 
 export const teams=[
     {
@@ -121,9 +121,8 @@ export const teams=[
     {
         "_id":'672abca0618b4430ee3b5ffC',
         "Name":"Mst. Tasnia",
-        "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
-        "skill":"Full Stack Developer",
+        "Email":"tasniadisha27@gmail.com",
+        "skill":"Presentation",
         "image":`${tasnia}`,
         "fbLink":"https://www.facebook.com/TasniaDisha2002",
         "github":"https://github.com/Tasnia9900",
@@ -134,10 +133,10 @@ export const teams=[
         "_id":'67abca0618b4430e3fb5ffC',
         "Name":"Mst. Marfia akter sumaya",
         "Email":"najatulislam11@gmail.com",
-        "skill":"Full Stack Developer",
+        "skill":"Graphic Designer",
         "image":`${sumaya}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100073360401203",
-        "github":"https://github.com/najatul6",
+        "github":"https://github.com/sumaiya5060",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
     // Suraiya
@@ -148,6 +147,16 @@ export const teams=[
         "skill":"Graphic Designer",
         "image":`${Suraiya}`,
         "fbLink":"https://www.facebook.com/najatul6/",
+        "github":"https://github.com/najatul6",
+        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+    },
+    {
+        "_id":'67abca0618b4430e3fb5ftrffC',
+        "Name":"Jannatul ferdoushi kemi",
+        "Email":"najatulislam11@gmail.com",
+        "skill":"Graphic Designer",
+        "image":`${kemi}`,
+        "fbLink":"https://www.facebook.com/profile.php?id=100071305042212",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
