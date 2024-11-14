@@ -53,8 +53,8 @@ export const teams=[
     {
         "_id":'672abca0618b440ee3fb5ffC',
         "Name":"Md. Imran Hossen Rana",
-        "Email":"najatulislam11@gmail.com",
-        "skill":"Full Stack Developer",
+        "Email":"evanrana22@gmail.com",
+        "skill":"Graphic Designer",
         "image":`${evan}`,
         "fbLink":"https://www.facebook.com/evanrana22",
         "github":"https://github.com/evanrana22",
