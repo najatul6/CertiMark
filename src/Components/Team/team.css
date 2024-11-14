@@ -50,9 +50,10 @@
   }
   
   .card:hover img {
-    scale: 0.5;
+    scale: 0.6;
     opacity: 0.9;
-    transform: translateY(-70px);
+    transform: translateY(-90px);
+    padding-bottom: 5px;
     border:1px solid #fff;
     border-radius: 5px;
   }
@@ -66,11 +67,15 @@
     align-items: center;
     transform: scale(0);
     transition: 0.5s;
+    background: #2B7A78;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 10px;
   }
   
   .card:hover .content {
     transform: scale(1);
-    bottom: 25px;
+    bottom: 0px;
   }
   
   .content .title {
