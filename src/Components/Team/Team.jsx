@@ -43,7 +43,7 @@ const Team = () => {
               },
               // When window width is >= 1024px, show 3 slides
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 4,
               },
             }}
           >
@@ -52,8 +52,10 @@ const Team = () => {
                 <div className="card">
                   <img src={team?.image} alt="" />
                   <div className="content">
-                    <p className="title">
+                    <p className="title ">
                       {team?.Name}
+                      <br />
+                      <span className="text-xs lowercase text-white/65">{team?.Email}</span>
                       <br />
                       <span>{team?.skill}</span>
                     </p>
