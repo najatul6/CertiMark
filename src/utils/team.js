@@ -32,8 +32,7 @@ export const teams=[
         "_id":'672abca0618b440ee3fb5ffC',
         "Name":"Md.Juwel Rana",
         "Email":"najatulislam11@gmail.com",
-        
-        "skill":"Full Stack Developer",
+        "skill":"Developer",
         "image":`${jwel}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100093127164307",
         "github":"https://github.com/najatul6",
@@ -41,15 +40,15 @@ export const teams=[
     },
     {
         "_id":'672abca0618b4430e3fb5ffC',
-        "Name":"Md. Najatul Islam",
+        "Name":"Md. Atikur Rahman",
         "Email":"najatulislam11@gmail.com",
-        
         "skill":"Full Stack Developer",
         "image":`${ashikur}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
+    // Imran Hossen Rana
     {
         "_id":'672abca0618b440ee3fb5ffC',
         "Name":"Md. Imran Hossen Rana",
@@ -60,7 +59,7 @@ export const teams=[
         "github":"https://github.com/evanrana22",
         "linkedin":"https://www.linkedin.com/in/evan-rana-2b5899338/"
     },
-    
+    // Hridoy islam
     {
         "_id":'672abca0618b4430ee3fbffC',
         "Name":"Md Hridoy islam",

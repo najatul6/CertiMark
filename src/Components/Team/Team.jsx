@@ -16,7 +16,13 @@ import "./team.css";
 
 const Team = () => {
   return (
-    <div className="py-16  font-montserrat">
+    <div className="py-16 relative font-montserrat border-b">
+      <div className="absolute top-0 left-0 w-full overflow-hidden">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#f3f4f6"></path>
+</svg>
+
+</div>
       <h2 className="text-white text-3xl font-extrabold text-center">
         Meet Our Team
       </h2>
@@ -36,15 +42,19 @@ const Team = () => {
             spaceBetween={20}
             loop={true}
             freeMode={true}
-            modules={[Autoplay, FreeMode,]}
+            modules={[Autoplay, FreeMode]}
             breakpoints={{
-              // When window width is >= 640px, show 2 slides
               640: {
                 slidesPerView: 2,
+                spaceBetween: 20,
               },
-              // When window width is >= 1024px, show 3 slides
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
               1024: {
-                slidesPerView: 4,
+                slidesPerView: 3,
+                spaceBetween: 30,
               },
             }}
           >
@@ -56,7 +66,9 @@ const Team = () => {
                     <p className="title ">
                       {team?.Name}
                       <br />
-                      <span className="text-xs lowercase text-white/65">{team?.Email}</span>
+                      <span className="text-xs lowercase text-white/65">
+                        {team?.Email}
+                      </span>
                       <br />
                       <span>{team?.skill}</span>
                     </p>
