@@ -119,7 +119,7 @@ export const teams=[
     // tasnia 
     {
         "_id":'672abca0618b4430ee3b5ffC',
-        "Name":"Md. Najatul Islam",
+        "Name":"Mst. Tasnia",
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
