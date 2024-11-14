@@ -1,4 +1,5 @@
-import najatul from '../assets/Team/Najatul_islam.jpg'
+import najatul from '../assets/Team/najatul6.png'
+import israt from '../assets/Team/Israt.png'
 export const teams=[
     {
         "_id":'672abca0618b4430ee3fb5ffC',
@@ -17,7 +18,7 @@ export const teams=[
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
-        "image":`${najatul}`,
+        "image":`${israt}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
@@ -35,7 +36,7 @@ export const teams=[
     },
     {
         "_id":'672abca0618b4430ee3fbffC',
-        "Name":"Md. Najatul Islam",
+        "Name":"মালিয়াত আহমেদ রামিশা",
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
