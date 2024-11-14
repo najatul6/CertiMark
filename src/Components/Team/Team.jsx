@@ -6,12 +6,12 @@ import "./team.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
 
 // import required modules
-import { FreeMode, Pagination } from 'swiper/modules';
+import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 
 const Team = () => {
   return (
@@ -24,78 +24,83 @@ const Team = () => {
       <div>
         <div className="md:w-11/12 flex justify-center items-center mx-auto p-4 mt-12">
           {/* <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 max-md:justify-center mt-12"> */}
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={30}
-              freeMode={true}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[FreeMode, Pagination]}
-              breakpoints={{
-                // When window width is >= 640px, show 2 slides
-                640: {
-                  slidesPerView: 2,
-                },
-                // When window width is >= 1024px, show 3 slides
-                1024: {
-                  slidesPerView: 3,
-                },
-              }}
-            >
-              {teams?.map((team) => (
-                <SwiperSlide key={team?._id}>
-                  <div className="card">
-                    <img src={team?.image} alt="" />
-                    <div className="content">
-                      <p className="title">
-                        {team?.Name}
-                        <br />
-                        <span>{team?.skill}</span>
-                      </p>
-                      <ul className="sci">
-                        {/* Facebook Link  */}
-                        <li>
-                          <Link target="_blank" to={team?.fbLink}>
-                            <svg
-                              className="fa-brands fa-facebook"
-                              width="20"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 320 512"
-                            >
-                              <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
-                            </svg>
-                          </Link>
-                        </li>
+          <Swiper
+            autoplay={{
+              delay: 1500,
+              disableOnInteraction: false,
+            }}
+            centeredSlides={true}
+            slidesPerView={1}
+            spaceBetween={20}
+            freeMode={true}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Autoplay, FreeMode, Pagination]}
+            breakpoints={{
+              // When window width is >= 640px, show 2 slides
+              640: {
+                slidesPerView: 2,
+              },
+              // When window width is >= 1024px, show 3 slides
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+          >
+            {teams?.map((team) => (
+              <SwiperSlide key={team?._id}>
+                <div className="card">
+                  <img src={team?.image} alt="" />
+                  <div className="content">
+                    <p className="title">
+                      {team?.Name}
+                      <br />
+                      <span>{team?.skill}</span>
+                    </p>
+                    <ul className="sci">
+                      {/* Facebook Link  */}
+                      <li>
+                        <Link target="_blank" to={team?.fbLink}>
+                          <svg
+                            className="fa-brands fa-facebook"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512"
+                          >
+                            <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                          </svg>
+                        </Link>
+                      </li>
 
-                        {/* GitHub Link  */}
-                        <li>
-                          <Link target="_blank" to={team?.github}>
-                            <FaGithub />
-                          </Link>
-                        </li>
-                        {/* linkedin Links  */}
-                        <li>
-                          <Link target="_blank" to={team?.linkedin}>
-                            <svg
-                              className="fa-brands fa-linkedin-in"
-                              width="24"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 448 512"
-                            >
-                              <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
-                            </svg>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
+                      {/* GitHub Link  */}
+                      <li>
+                        <Link target="_blank" to={team?.github}>
+                          <FaGithub />
+                        </Link>
+                      </li>
+                      {/* linkedin Links  */}
+                      <li>
+                        <Link target="_blank" to={team?.linkedin}>
+                          <svg
+                            className="fa-brands fa-linkedin-in"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"
+                          >
+                            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
+                          </svg>
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
+    </div>
     // </div>
   );
 };
