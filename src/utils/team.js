@@ -142,17 +142,17 @@ export const teams=[
     {
         "_id":'67abca0618b4430e3fb5ffC',
         "Name":"Mst. Suraiya Akter",
-        "Email":"najatulislam11@gmail.com",
+        "Email":"suraiyaa716@gmail.com",
         "skill":"Graphic Designer",
         "image":`${Suraiya}`,
         "fbLink":"https://www.facebook.com/suraiya.aktersony.9",
         "github":"https://github.com/Suraiya-Akter125",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+        "linkedin":"https://bd.linkedin.com/in/suraiya-akter-932772312"
     },
     {
         "_id":'67abca0618b4430e3fb5ftrffC',
         "Name":"Jannatul ferdoushi kemi",
-        "Email":"najatulislam11@gmail.com",
+        "Email":"kemiprodhan22@gmail.com",
         "skill":"Graphic Designer",
         "image":`${kemi}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100071305042212",
