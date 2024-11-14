@@ -92,15 +92,16 @@ export const teams=[
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
+    // AL AMIN
     {
         "_id":'672abca618b4430ee3fb5ffC',
         "Name":"MD. AL AMIN ISLAM",
-        "Email":"najatulislam11@gmail.com",
+        "Email":"alamin506250@gmail.com",
         "skill":"Full Stack Developer",
         "image":`${alamin}`,
         "fbLink":"https://www.facebook.com/share/12CspvXHsHZ/",
-        "github":"https://github.com/najatul6",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+        "github":"https://github.com/alamin506052",
+        "linkedin":"https://bd.linkedin.com/in/md-al-amin-islam-575105317"
     },
     // Female 
     // Israt 
