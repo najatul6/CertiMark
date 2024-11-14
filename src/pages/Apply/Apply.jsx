@@ -51,7 +51,7 @@ const Apply = () => {
 
   return (
     <div className="myStyle min-h-screen flex flex-col items-center justify-center px-6 pb-10 !font-roboto">
-     <div className="flex justify-center items-center bg-gradient-to-r from-red-500 to-orange-500 font-siligri pr-4">
+     <div className="flex justify-center items-center bg-gradient-to-r from-red-500 mt-20 to-orange-500 font-siligri pr-4">
         <p className="md:text-xl  bg-lightTeal text-white font-bold py-4 px-5 whitespace-nowrap">
           বিঃ দ্রঃ
         </p>
