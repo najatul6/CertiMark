@@ -32,11 +32,9 @@ const Team = () => {
             centeredSlides={true}
             slidesPerView={1}
             spaceBetween={20}
+            loop={true}
             freeMode={true}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Autoplay, FreeMode, Pagination]}
+            modules={[Autoplay, FreeMode,]}
             breakpoints={{
               // When window width is >= 640px, show 2 slides
               640: {
