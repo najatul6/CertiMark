@@ -60,16 +60,16 @@ export const teams=[
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
+    //  ATIKUR 
     {
         "_id":'672abca0618b4430ee3b5ffC',
-        "Name":"Md. Najatul Islam",
-        "Email":"najatulislam11@gmail.com",
-        
+        "Name":"Md. ATIKUR RAHMAN",
+        "Email":"atikur49a@gmail.com",
         "skill":"Full Stack Developer",
         "image":`${atikur}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
-        "github":"https://github.com/najatul6",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+        "fbLink":"https://www.facebook.com/atik420a?mibextid=ZbWKwL",
+        "github":"https://github.com/atikur49a",
+        "linkedin":"https://www.linkedin.com/in/atikur-rahman-410686263"
     },
     {
         "_id":'672abca618b4430ee3fb5ffC',
@@ -94,11 +94,11 @@ export const teams=[
     },
     {
         "_id":'672abca618b4430ee3fb5ffC',
-        "Name":"Md. Najatul Islam",
+        "Name":"MD. AL AMIN ISLAM",
         "Email":"najatulislam11@gmail.com",
         "skill":"Full Stack Developer",
         "image":`${alamin}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
+        "fbLink":"https://www.facebook.com/share/12CspvXHsHZ/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
@@ -144,8 +144,8 @@ export const teams=[
         "Email":"najatulislam11@gmail.com",
         "skill":"Graphic Designer",
         "image":`${Suraiya}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
-        "github":"https://github.com/najatul6",
+        "fbLink":"https://www.facebook.com/suraiya.aktersony.9",
+        "github":"https://github.com/Suraiya-Akter125",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
     {
