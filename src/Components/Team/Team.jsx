@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { teams } from "../../utils/team";
 import { FaGithub } from "react-icons/fa";
-import "./team.css";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Autoplay, FreeMode } from "swiper/modules";
+import "./team.css";
 
 const Team = () => {
   return (
