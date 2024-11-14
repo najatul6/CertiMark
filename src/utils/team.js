@@ -132,7 +132,7 @@ export const teams=[
     {
         "_id":'67abca0618b4430e3fb5ffC',
         "Name":"Mst. Marfia akter sumaya",
-        "Email":"najatulislam11@gmail.com",
+        "Email":"marfiaakter772@gmail.com",
         "skill":"Graphic Designer",
         "image":`${sumaya}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100073360401203",
