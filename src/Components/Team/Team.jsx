@@ -34,6 +34,7 @@ const Team = () => {
             centeredSlides={true}
             slidesPerView={1}
             spaceBetween={20}
+            loop={true}
             freeMode={true}
             modules={[Autoplay, FreeMode,]}
             breakpoints={{

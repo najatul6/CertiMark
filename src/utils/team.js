@@ -63,7 +63,7 @@ export const teams=[
     
     {
         "_id":'672abca0618b4430ee3fbffC',
-        "Name":"মালিয়াত আহমেদ রামিশা",
+        "Name":"Md Hridoy islam",
         "Email":"najatulislam11@gmail.com",
         
         "skill":"Full Stack Developer",
@@ -131,7 +131,7 @@ export const teams=[
     // tasnia 
     {
         "_id":'672abca0618b4430ee3b5ffC',
-        "Name":"Mst. Tasnia",
+        "Name":"Tasnia khandker disha",
         "Email":"tasniadisha27@gmail.com",
         "skill":"Presentation",
         "image":`${tasnia}`,
@@ -173,9 +173,9 @@ export const teams=[
     },
     {
         "_id":'67abca0618b4430e3fb5ffC',
-        "Name":"Md. Najatul Islam",
+        "Name":"মালিয়াত আহমেদ রামিশা",
         "Email":"najatulislam11@gmail.com",
-        "skill":"Full Stack Developer",
+        "skill":"Presentation",
         "image":`${romisa}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
