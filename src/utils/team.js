@@ -39,6 +39,17 @@ export const teams=[
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
     {
+        "_id":'672abca0618b440ee3fb5ffC',
+        "Name":"Md. Imran Hossen Rana",
+        "Email":"najatulislam11@gmail.com",
+        
+        "skill":"Full Stack Developer",
+        "image":`${jwel}`,
+        "fbLink":"https://www.facebook.com/najatul6/",
+        "github":"https://github.com/najatul6",
+        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+    },
+    {
         "_id":'672abca0618b4430e3fb5ffC',
         "Name":"Md. Najatul Islam",
         "Email":"najatulislam11@gmail.com",
