@@ -29,7 +29,7 @@ const Team = () => {
       <hr className="w-1/3 mx-auto mt-2" />
       {/* Teams Data Show here  */}
       <div>
-        <div className="md:w-11/12 flex justify-center items-center mx-auto p-4 mt-12">
+        <div className="md:w-11/12 flex justify-center items-center mx-auto px-2 md:p-4 mt-12">
           {/* <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 max-md:justify-center mt-12"> */}
           <Swiper
             autoplay={{
@@ -39,22 +39,17 @@ const Team = () => {
             }}
             centeredSlides={true}
             slidesPerView={1}
-            spaceBetween={20}
+            spaceBetween={30}
             loop={true}
             freeMode={true}
             modules={[Autoplay, FreeMode]}
             breakpoints={{
               640: {
                 slidesPerView: 2,
-                spaceBetween: 20,
               },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
+              // When window width is >= 1024px, show 3 slides
               1024: {
                 slidesPerView: 3,
-                spaceBetween: 30,
               },
             }}
           >

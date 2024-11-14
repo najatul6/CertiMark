@@ -84,8 +84,8 @@ const Navbar = () => {
   return (
       <nav
         className={`transition-transform duration-300 ${
-          isScroll ? "sticky top-0 shadow-xl w-full" : ""
-        } w-full z-50 bg-darkGreen`}
+          isScroll ? "sticky top-0 shadow-xl w-full bg-darkGreen" : ""
+        } w-full z-50 fixed backdrop-blur-lg`}
       >
         <div className="py-4 max-w-[1440px] w-full mx-auto flex gap-6 items-center justify-between">
           {/* menu dropdown */}

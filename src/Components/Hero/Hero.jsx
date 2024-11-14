@@ -29,7 +29,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
             {/* Overlay */}
             <div className="relative text-center max-w-3xl px-4">
-              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+              <h1 className="text-3xl lg:text-6xl font-bold text-white mb-6 mt-2">
                 Apply, Receive, and Verify Your Certificates Digitally
               </h1>
               <p className="text-lg lg:text-xl text-gray-200 mb-8">
@@ -63,7 +63,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
             {/* Overlay */}
             <div className="relative text-center max-w-3xl px-4">
-              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+              <h1 className="text-3xl lg:text-6xl font-bold text-white mb-6 mt-2">
                 Secure & Instant Access to Your Credentials
               </h1>
               <p className="text-lg lg:text-xl text-gray-200 mb-8">
@@ -96,7 +96,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
             {/* Overlay */}
             <div className="relative text-center max-w-3xl px-4">
-              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+              <h1 className="text-3xl lg:text-6xl font-bold text-white mb-6 mt-2">
                 Empowering Digital Verification Solutions
               </h1>
               <p className="text-lg lg:text-xl text-gray-200 mb-8">
