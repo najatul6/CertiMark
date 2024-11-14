@@ -1,5 +1,13 @@
 import najatul from '../assets/Team/najatul6.png'
+import aziz from '../assets/Team/Aziz.png'
+import atikur from '../assets/Team/atikur.png'
+import hridoy from '../assets/Team/hridoy.png'
+import jwel from '../assets/Team/Jwel.png'
+
+// female 
 import israt from '../assets/Team/Israt.png'
+import romisa from '../assets/Team/romisa.png'
+
 export const teams=[
     {
         "_id":'672abca0618b4430ee3fb5ffC',
