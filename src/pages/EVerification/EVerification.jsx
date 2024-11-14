@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-
+import '../LogIn/loginStyle.css'
 const EVerification = () => {
   const [verificationResult, setVerificationResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
@@ -39,7 +39,7 @@ const EVerification = () => {
   };
 
   return (
-    <div className="bg-[#FEFFFF] min-h-screen flex items-center justify-center px-6 py-12">
+    <div className="myStyle min-h-screen flex items-center justify-center px-6 py-12">
       <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-6 border border-[#2B7A78]">
         <h2
           className="text-center font-bold mb-6"
