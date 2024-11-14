@@ -15,8 +15,8 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="myStyle min-h-screen flex items-center justify-center px-6 py-12">
-      <div className="max-w-md w-full  shadow-lg rounded-lg p-6 border border-[#2B7A78]">
+    <div className="myStyle min-h-screen flex items-center justify-center px-6  py-12">
+      <div className="max-w-md w-full mt-10 shadow-lg rounded-lg p-6 border border-[#2B7A78]">
         <h2 className="text-center font-bold mb-6 font-montserrat text-[28px]" >
         Support
         </h2>

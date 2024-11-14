@@ -28,7 +28,7 @@ const ProfileDropDown = ({ user }) => {
   }
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block z-[999]">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="inline-flex items-center rounded-full font-semibold text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline active:bg-gray-900"
@@ -58,7 +58,7 @@ const ProfileDropDown = ({ user }) => {
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0"
+          className="fixed inset-0 z-[999]"
           tabIndex="-1"
         />
       )}
@@ -74,7 +74,7 @@ const ProfileDropDown = ({ user }) => {
           ref={dropdownRef}
           className="mt-2 absolute right-0 origin-top-right text-left"
         >
-          <div className="w-64 bg-white rounded-lg shadow-lg">
+          <div className="w-64 bg-teal shadow-inner rounded-lg shadow-lightTeal">
             <div className="flex items-center px-6 py-4">
               <div className="ml-4">
                 <p className="font-semibold text-gray-900 leading-none">

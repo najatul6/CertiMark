@@ -85,7 +85,7 @@ const Navbar = () => {
       <nav
         className={`transition-transform duration-300 ${
           isScroll ? "sticky top-0 shadow-xl w-full bg-darkGreen" : ""
-        } w-full z-50 backdrop-blur-lg`}
+        } w-full z-[999] fixed backdrop-blur-lg`}
       >
         <div className="py-4 max-w-[1440px] w-full mx-auto flex gap-6 items-center justify-between">
           {/* menu dropdown */}
@@ -101,7 +101,7 @@ const Navbar = () => {
           </div>
           {/* navlinks for small device */}
           <div
-            className={`lg:hidden flex z-50 flex-col gap-4 absolute ${
+            className={`lg:hidden flex z-[999] flex-col gap-4 absolute ${
               isScroll ?  "top-[80px] shadow-inner" : "top-[80px] shadow-inner"
             } w-full  py-3 px-3 bg-darkGreen ${
               isMobileMenuOpen
@@ -111,7 +111,7 @@ const Navbar = () => {
           >
             {navLinks}
           </div>
-          <div className="max-w-full">
+          <div className="max-w-full z-[999]">
             {user?<ProfileDropDown user={user}/>:<Link to="/logIn" className="rounded-xl bg-lightTeal border-none font-semibold text-white hover:text-black px-6 py-4 flex text-center items-center justify-center">
               Log In
             </Link>}
