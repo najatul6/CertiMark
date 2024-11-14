@@ -86,7 +86,7 @@ export const teams=[
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
-        "image":`${najatul}`,
+        "image":`${israt}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
@@ -97,7 +97,7 @@ export const teams=[
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
-        "image":`${najatul}`,
+        "image":`${tasnia}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
@@ -108,7 +108,29 @@ export const teams=[
         "Email":"najatulislam11@gmail.com",
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
-        "image":`${najatul}`,
+        "image":`${sumaya}`,
+        "fbLink":"https://www.facebook.com/najatul6/",
+        "github":"https://github.com/najatul6",
+        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+    },
+    {
+        "_id":'67abca0618b4430e3fb5ffC',
+        "Name":"Md. Najatul Islam",
+        "Email":"najatulislam11@gmail.com",
+        "profession":"Team Leader",
+        "skill":"Full Stack Developer",
+        "image":`${Suraiya}`,
+        "fbLink":"https://www.facebook.com/najatul6/",
+        "github":"https://github.com/najatul6",
+        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+    },
+    {
+        "_id":'67abca0618b4430e3fb5ffC',
+        "Name":"Md. Najatul Islam",
+        "Email":"najatulislam11@gmail.com",
+        "profession":"Team Leader",
+        "skill":"Full Stack Developer",
+        "image":`${romisa}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
