@@ -6,6 +6,7 @@ import jwel from '../assets/Team/Jwel.png'
 import ashikur from '../assets/Team/ashikur.png'
 import fahim from '../assets/Team/fahim.png'
 import alamin from '../assets/Team/alamin.png'
+import evan from '../assets/Team/evan.png'
 
 // female 
 import israt from '../assets/Team/Israt.png'
@@ -39,17 +40,6 @@ export const teams=[
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
     {
-        "_id":'672abca0618b440ee3fb5ffC',
-        "Name":"Md. Imran Hossen Rana",
-        "Email":"najatulislam11@gmail.com",
-        
-        "skill":"Full Stack Developer",
-        "image":`${jwel}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
-        "github":"https://github.com/najatul6",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
-    },
-    {
         "_id":'672abca0618b4430e3fb5ffC',
         "Name":"Md. Najatul Islam",
         "Email":"najatulislam11@gmail.com",
@@ -60,6 +50,17 @@ export const teams=[
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
+    {
+        "_id":'672abca0618b440ee3fb5ffC',
+        "Name":"Md. Imran Hossen Rana",
+        "Email":"najatulislam11@gmail.com",
+        "skill":"Full Stack Developer",
+        "image":`${evan}`,
+        "fbLink":"https://www.facebook.com/evanrana22",
+        "github":"https://github.com/evanrana22",
+        "linkedin":"https://www.linkedin.com/in/evan-rana-2b5899338/"
+    },
+    
     {
         "_id":'672abca0618b4430ee3fbffC',
         "Name":"মালিয়াত আহমেদ রামিশা",
