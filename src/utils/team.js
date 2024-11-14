@@ -30,12 +30,12 @@ export const teams=[
     },
     {
         "_id":'672abca0618b440ee3fb5ffC',
-        "Name":"Md. Najatul Islam",
+        "Name":"Md.Juwel Rana",
         "Email":"najatulislam11@gmail.com",
         
         "skill":"Full Stack Developer",
         "image":`${jwel}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
+        "fbLink":"https://www.facebook.com/profile.php?id=100093127164307",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
