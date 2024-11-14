@@ -95,14 +95,13 @@ export const teams=[
     // Israt 
     {
         "_id":'672abca0618b4430e3fb5ffC',
-        "Name":"Md. Najatul Islam",
-        "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
-        "skill":"Full Stack Developer",
+        "Name":"Mst. Mollica Sorkar",
+        "Email":"isratjahan440435@gmail.com",
+        "skill":"Graphic Designer",
         "image":`${israt}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
+        "fbLink":"https://www.facebook.com/isratjahan.esha.92754",
         "github":"https://github.com/najatul6",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+        "linkedin":"https://www.linkedin.com/in/mollica-sorkar-891441317"
     },
 
     // tasnia 
@@ -113,8 +112,8 @@ export const teams=[
         "profession":"Team Leader",
         "skill":"Full Stack Developer",
         "image":`${tasnia}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
-        "github":"https://github.com/najatul6",
+        "fbLink":"https://www.facebook.com/TasniaDisha2002",
+        "github":"https://github.com/Tasnia9900",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
     // sumaiya 
@@ -129,7 +128,7 @@ export const teams=[
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
-
+    // Suraiya
     {
         "_id":'67abca0618b4430e3fb5ffC',
         "Name":"Mst. Suraiya Akter",
