@@ -20,7 +20,7 @@ export const teams=[
         "_id":'672abca0618b4430ee3fb5ffC',
         "Name":"Md. Najatul Islam",
         "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
+        
         "skill":"Full Stack Developer",
         "image":`${najatul}`,
         "fbLink":"https://www.facebook.com/najatul6/",
@@ -31,7 +31,7 @@ export const teams=[
         "_id":'672abca0618b440ee3fb5ffC',
         "Name":"Md. Najatul Islam",
         "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
+        
         "skill":"Full Stack Developer",
         "image":`${jwel}`,
         "fbLink":"https://www.facebook.com/najatul6/",
@@ -42,7 +42,7 @@ export const teams=[
         "_id":'672abca0618b4430e3fb5ffC',
         "Name":"Md. Najatul Islam",
         "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
+        
         "skill":"Full Stack Developer",
         "image":`${ashikur}`,
         "fbLink":"https://www.facebook.com/najatul6/",
@@ -53,7 +53,7 @@ export const teams=[
         "_id":'672abca0618b4430ee3fbffC',
         "Name":"মালিয়াত আহমেদ রামিশা",
         "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
+        
         "skill":"Full Stack Developer",
         "image":`${hridoy}`,
         "fbLink":"https://www.facebook.com/najatul6/",
@@ -64,7 +64,7 @@ export const teams=[
         "_id":'672abca0618b4430ee3b5ffC',
         "Name":"Md. Najatul Islam",
         "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
+        
         "skill":"Full Stack Developer",
         "image":`${atikur}`,
         "fbLink":"https://www.facebook.com/najatul6/",
@@ -75,7 +75,7 @@ export const teams=[
         "_id":'672abca618b4430ee3fb5ffC',
         "Name":"Md. Najatul Islam",
         "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
+        
         "skill":"Full Stack Developer",
         "image":`${aziz}`,
         "fbLink":"https://www.facebook.com/najatul6/",
@@ -86,7 +86,6 @@ export const teams=[
         "_id":'672abca618b4430ee3fb5ffC',
         "Name":"Md. Najatul Islam",
         "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
         "skill":"Full Stack Developer",
         "image":`${fahim}`,
         "fbLink":"https://www.facebook.com/najatul6/",
@@ -97,7 +96,6 @@ export const teams=[
         "_id":'672abca618b4430ee3fb5ffC',
         "Name":"Md. Najatul Islam",
         "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
         "skill":"Full Stack Developer",
         "image":`${alamin}`,
         "fbLink":"https://www.facebook.com/najatul6/",
@@ -164,7 +162,6 @@ export const teams=[
         "_id":'67abca0618b4430e3fb5ffC',
         "Name":"Md. Najatul Islam",
         "Email":"najatulislam11@gmail.com",
-        "profession":"Team Leader",
         "skill":"Full Stack Developer",
         "image":`${romisa}`,
         "fbLink":"https://www.facebook.com/najatul6/",
