@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 const CheckOutForm = ({ applicationId }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -18,7 +19,9 @@ const CheckOutForm = ({ applicationId }) => {
       .then((response) => {
         const applicantData = response.data;
         setApplicant(applicantData);
-        const amount = parseFloat(applicantData.feeAmount);
+        const fees=applicantData.feeAmount
+        // const amount = parseFloat(applicantData.feeAmount);
+        const amount = fees/120;
         return axiosSecure.post("/create-payment-intent", { fee: amount });
       })
       .then((res) => {
@@ -72,6 +75,13 @@ const CheckOutForm = ({ applicationId }) => {
     } else {
       console.log("paymentIntent", paymentIntent);
       // setMessage("An unexpected error occurred.");
+      if(paymentIntent.status ==='succeeded'){
+        Swal.fire({
+          title: "Payment Successful",
+          text: `Your Transaction id: ${paymentIntent?.id}`,
+          icon: "success"
+        });
+      }
     }
   };
   return (
