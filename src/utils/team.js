@@ -16,6 +16,7 @@ import sumaya from '../assets/Team/sumaya.png'
 import Suraiya from '../assets/Team/Suraiya.png'
 import kemi from '../assets/Team/kemi.png'
 import rezia from '../assets/Team/rezia.png'
+import fatiha from '../assets/Team/fatiha.png'
 
 export const teams=[
     {
@@ -204,6 +205,17 @@ export const teams=[
         "skill":"Presentation",
         "image":`${romisa}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100038222978328",
+        "github":"https://github.com/maliate77",
+        "linkedin":"https://www.linkedin.com/in/maliate-ahmed-805113256"
+    },
+    // Fatiha
+    {
+        "_id":'67abcafgtt0617t8b4430e3fb5ffC',
+        "Name":"Umme Fatiha Binte Abdur Rahman",
+        "Email":"fatihar303@gmail.com",
+        "skill":"Testing",
+        "image":`${fatiha}`,
+        "fbLink":"https://www.facebook.com/fatiha.rahman.313?mibextid=ZbWKwL",
         "github":"https://github.com/maliate77",
         "linkedin":"https://www.linkedin.com/in/maliate-ahmed-805113256"
     },
