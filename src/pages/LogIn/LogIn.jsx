@@ -34,7 +34,7 @@ const LogIn = () => {
       reset();
       toast.success("Log In Successful");
     } catch (err) {
-      toast.error(err?.message);
+      toast.error(err?.code);
     } finally {
       setLoading(false);
       toast.dismiss(loadingToastId);
@@ -75,7 +75,7 @@ const handleGoogle = () => {
     .catch(error => {
       // Dismiss the loading toast and show error message if Google sign-in fails
       toast.dismiss(loadingToastId);
-      toast.error(error.message || "Failed to log in with Google.");
+      toast.error(error?.code || "Failed to log in with Google.");
       console.error(error);
     });
 };

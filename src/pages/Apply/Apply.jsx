@@ -40,7 +40,7 @@ const Apply = () => {
       refetch();
       navigate("/dashboard/applications");
     } catch (err) {
-      toast.error(err?.message);
+      toast.error(err?.code);
     } finally {
       setIsLoading(false);
     }

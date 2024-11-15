@@ -17,7 +17,7 @@ const ProfileDropDown = ({ user }) => {
       await logOut();
       toast.success("Logged out successfully!");
     } catch (err) {
-      toast.error(err?.message);
+      toast.error(err?.code);
     } finally {
       setLoading(false);
     }
