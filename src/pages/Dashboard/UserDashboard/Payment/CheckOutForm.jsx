@@ -7,26 +7,29 @@ const CheckOutForm = ({ applicationId }) => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
-  const [applicant,setApplicant]=useState({})
-  const [clientSecret,setClientSecret]=useState('')
+  const [applicant, setApplicant] = useState({});
+  const [clientSecret, setClientSecret] = useState("");
+  const [message, setMessage] = useState("");
   console.log(applicant);
-  console.log("clientSecret:",clientSecret);
-  useEffect(()=>{
-    axiosSecure.get(`/applicants/${applicationId}`)
-    .then(response => {
-      const applicantData = response.data;
-      setApplicant(applicantData); 
-      const amount = parseFloat(applicantData.feeAmount);
-      return axiosSecure.post('/create-payment-intent', { fee: amount });
-    })
-    .then((res) => {
-      setClientSecret(res.data.clientSecret);
-    })
-    .catch(error => {
-      toast.error("Failed to fetch applicant data");
-      console.error(error);
-    });
-  },[applicationId, axiosSecure])
+  console.log("clientSecret:", clientSecret);
+  useEffect(() => {
+    axiosSecure
+      .get(`/applicants/${applicationId}`)
+      .then((response) => {
+        const applicantData = response.data;
+        setApplicant(applicantData);
+        const amount = parseFloat(applicantData.feeAmount);
+        return axiosSecure.post("/create-payment-intent", { fee: amount });
+      })
+      .then((res) => {
+        setClientSecret(res.data.clientSecret);
+      })
+      .catch((error) => {
+        toast.error("Failed to fetch applicant data");
+        setMessage("Failed to fetch applicant data");
+        console.error(error);
+      });
+  }, [applicationId, axiosSecure]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,9 +50,28 @@ const CheckOutForm = ({ applicationId }) => {
 
     if (error) {
       toast.error(error.message);
+      setMessage(error.message);
       console.log("[error]", error);
     } else {
       console.log("[PaymentMethod]", paymentMethod);
+    }
+    // confirm payment
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: applicant?.name,
+            email: applicant?.userEmail,
+          },
+        },
+      })
+    if (confirmError) {
+      console.log(confirmError);
+      setMessage(confirmError.message);
+    } else {
+      console.log("paymentIntent", paymentIntent);
+      // setMessage("An unexpected error occurred.");
     }
   };
   return (
@@ -71,14 +93,15 @@ const CheckOutForm = ({ applicationId }) => {
           },
         }}
       />
+      <p className="text-red-600 font-bold font-montserrat">{message}</p>
       <button
         type="submit"
         disabled={!stripe || !clientSecret}
         className={`w-full border py-2 rounded-md text-xl mt-5 text-white duration-300 ${
-    !stripe || !clientSecret
-      ? 'bg-gray-400 cursor-not-allowed' 
-      : 'bg-lightTeal hover:bg-teal-600'
-  }`}
+          !stripe || !clientSecret
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-lightTeal hover:bg-teal-600"
+        }`}
       >
         Pay
       </button>
@@ -89,6 +112,5 @@ const CheckOutForm = ({ applicationId }) => {
 CheckOutForm.propTypes = {
   applicationId: PropTypes.node,
 };
-
 
 export default CheckOutForm;
