@@ -120,7 +120,7 @@ const Routes = createBrowserRouter([
         element: <ApplicationStatus />,
       },
       {
-        path: "payment",
+        path: "payment/:applicationId",
         element: <Payment />,
       },
       {
