@@ -39,7 +39,7 @@ const Team = () => {
           {/* <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 max-md:justify-center mt-12"> */}
           <Swiper
             autoplay={{
-              delay: 1500,
+              delay: 2000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
