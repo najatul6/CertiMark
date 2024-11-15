@@ -68,7 +68,7 @@ export const teams=[
         "skill":"Testing",
         "image":`${hridoy}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100080935458107",
-        "github":"https://github.com/najatul6",
+        "github":"https://github.com/hridoy506024",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
     //  ATIKUR 
@@ -108,7 +108,7 @@ export const teams=[
         "_id":'672abca618b4430ee3fb5ffC',
         "Name":"MD. AL AMIN ISLAM",
         "Email":"alamin506250@gmail.com",
-        "skill":"Full Stack Developer",
+        "skill":"Testing",
         "image":`${alamin}`,
         "fbLink":"https://www.facebook.com/share/12CspvXHsHZ/",
         "github":"https://github.com/alamin506052",
