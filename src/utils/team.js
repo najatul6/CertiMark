@@ -90,8 +90,8 @@ export const teams=[
         "skill":"Presentation",
         "image":`${aziz}`,
         "fbLink":"https://www.facebook.com/aziz.45610?mibextid=LQQJ4d",
-        "github":"https://github.com/najatul6",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+        "github":"https://github.com/Aziz68-ctrl",
+        "linkedin":"https://www.linkedin.com/in/azizul-islam-912654248"
     },
     {
         "_id":'672abca618b4430ee3fb5ffC',
