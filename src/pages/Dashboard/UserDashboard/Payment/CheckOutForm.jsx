@@ -45,7 +45,7 @@ const CheckOutForm = () => {
         },
       }}
     />
-    <button type="submit" disabled={!stripe} className="w-full border py-2 rounded-md text-xl mt-5">
+    <button type="submit" disabled={!stripe} className="w-full border py-2 rounded-md text-xl mt-5 text-white duration-300 hover:bg-lightTeal">
       Pay
     </button>
   </form>
