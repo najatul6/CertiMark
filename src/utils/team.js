@@ -84,10 +84,10 @@ export const teams=[
     },
     {
         "_id":'672abca618b4430ee3fb5ffC',
-        "Name":"Md. Najatul Islam",
+        "Name":"Md. Azizur Rahman",
         "Email":"najatulislam11@gmail.com",
         
-        "skill":"Full Stack Developer",
+        "skill":"Presentation",
         "image":`${aziz}`,
         "fbLink":"https://www.facebook.com/najatul6/",
         "github":"https://github.com/najatul6",
