@@ -79,8 +79,8 @@ const CheckOutForm = ({ applicationId }) => {
       if (paymentIntent.status === "succeeded") {
         const applicantData = {
           Status: applicant?.Status,
-          publishDate: applicant?.publishDate,
-          RejectDate: applicant?.RejectDate,
+          publishDate: applicant?.publishDate || "",
+          RejectDate: applicant?.RejectDate || "",
           paymentId: paymentIntent?.id,
           paymentDate: new Date().toISOString(),
           fee: "paid",
