@@ -34,7 +34,6 @@ export const teams=[
         "_id":'672abca0618b4430ee3gtfb5ffC',
         "Name":"Md. Shakhawat Hossain",
         "Email":"mshakhawathossain09@gmail.com",
-        
         "skill":"Web Developer",
         "image":`${najatul}`,
         "fbLink":"https://www.facebook.com/mdshakhawathossain.shakil.94?mibextid=ZbWKwL",
@@ -197,11 +196,11 @@ export const teams=[
         "github":"https://github.com/rezia66",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
-    // মালিয়াত আহমেদ রামিশা
+    // Maliate Ahmed Ramisha
     {
         "_id":'67abca0617t8b4430e3fb5ffC',
-        "Name":"মালিয়াত আহমেদ রামিশা",
-        "Email":"najatulislam11@gmail.com",
+        "Name":"Maliate Ahmed Ramisha",
+        "Email":"maliateahmed146@gmaail.com",
         "skill":"Presentation",
         "image":`${romisa}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100038222978328",
