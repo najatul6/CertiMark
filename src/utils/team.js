@@ -50,7 +50,7 @@ export const teams=[
         "image":`${jwel}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100093127164307",
         "github":"https://github.com/juwel506035",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+        "linkedin":"https://www.linkedin.com/in/juwel-rana-3b924a318"
     },
     // Ashikur Rahman
     {
@@ -186,6 +186,7 @@ export const teams=[
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
+    // Rezia Akter
     {
         "_id":'67abca06tr1y8b4430e3fb5ftrffC',
         "Name":"Mst. Rezia Akter",
@@ -196,13 +197,14 @@ export const teams=[
         "github":"https://github.com/rezia66",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
+    // মালিয়াত আহমেদ রামিশা
     {
         "_id":'67abca0617t8b4430e3fb5ffC',
         "Name":"মালিয়াত আহমেদ রামিশা",
         "Email":"najatulislam11@gmail.com",
         "skill":"Presentation",
         "image":`${romisa}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
+        "fbLink":"https://www.facebook.com/profile.php?id=100038222978328",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
