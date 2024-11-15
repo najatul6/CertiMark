@@ -194,7 +194,7 @@ export const teams=[
         "image":`${rezia}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100069809895020&mibextid=ZbWKwL",
         "github":"https://github.com/rezia66",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3"
     },
     // Maliate Ahmed Ramisha
     {
@@ -205,6 +205,6 @@ export const teams=[
         "image":`${romisa}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100038222978328",
         "github":"https://github.com/najatul6",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+        "linkedin":"https://www.linkedin.com/in/maliate-ahmed-805113256"
     },
 ]
