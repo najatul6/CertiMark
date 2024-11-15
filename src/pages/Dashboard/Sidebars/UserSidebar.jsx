@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaFileAlt, FaDownload, FaHome } from "react-icons/fa";
+import { FaFileAlt, FaDownload, FaHome, FaHistory } from "react-icons/fa";
 
 const UserSidebar = () => {
   return (
@@ -50,7 +50,7 @@ const UserSidebar = () => {
             }`
           }
         >
-          <FaDownload className="mr-3" />
+          <FaHistory className="mr-3" />
           Payment History
         </NavLink>
       </nav>

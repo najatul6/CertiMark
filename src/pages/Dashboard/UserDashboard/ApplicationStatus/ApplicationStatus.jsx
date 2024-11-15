@@ -155,7 +155,7 @@ const ApplicationStatus = () => {
                                 </svg>
                                 
                               </button>
-                            ) :app?.fee === "unPaid" ? (
+                            ) :app?.fee === "paid" ? (
                               <button
                                 type="button"
                                 className="px-5 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600"

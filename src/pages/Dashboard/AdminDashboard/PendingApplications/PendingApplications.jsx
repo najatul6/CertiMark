@@ -8,8 +8,8 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const PendingApplications = () => {
   const [searchQuery, setSearchQuery] = useState();
-  const [applicants,refetch , isPending] = useApplicants();
-  const axiosSecure=useAxiosSecure()
+  const [applicants, refetch, isPending] = useApplicants();
+  const axiosSecure = useAxiosSecure();
 
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
@@ -43,58 +43,64 @@ const PendingApplications = () => {
   }
 
   // Approve and Reject Applications
-  const handleApprove=(application)=>{
-    const applicationData={
+  const handleApprove = (application) => {
+    const applicationData = {
       Status: "Approved",
-      fee:application?.fee,
-      publishDate:new Date().toISOString()
-    }
+      fee: application?.fee,
+      publishDate: new Date().toISOString(),
+      paymentId: application?.paymentId,
+      paymentDate: application?.paymentDate,
+    };
     Swal.fire({
       title: "Do you want to Approve?",
       showCancelButton: true,
       confirmButtonText: "Save",
-    }).then(async(result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        const updateData=await axiosSecure.patch(`/applications/${application?._id}`,applicationData)
-        if(updateData.data?.modifiedCount>0){
+        const updateData = await axiosSecure.patch(
+          `/applications/${application?._id}`,
+          applicationData
+        );
+        if (updateData.data?.modifiedCount > 0) {
           refetch();
           Swal.fire("Application Approved!", "", "success");
-        }
-        else{
+        } else {
           Swal.fire("Failed to Approve Application!", "", "error");
         }
-       
-      } 
+      }
     });
-  }
-  const handleReject=(application)=>{
-    const applicationData={
+  };
+  const handleReject = (application) => {
+    const applicationData = {
       Status: "Rejected",
-      fee: "Rejected",
-      RejectDate:new Date().toISOString()
-    }
+      fee: application?.fee,
+      paymentId: application?.paymentId || "",
+      paymentDate: application?.paymentDate || "",
+      RejectDate: new Date().toISOString(),
+    };
     Swal.fire({
       title: "Do you want to Reject?",
       showCancelButton: true,
       confirmButtonText: "Save",
-    }).then(async(result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        const updateData=await axiosSecure.patch(`/applications/${application?._id}`,applicationData)
-        if(updateData.data?.modifiedCount>0){
+        const updateData = await axiosSecure.patch(
+          `/applications/${application?._id}`,
+          applicationData
+        );
+        if (updateData.data?.modifiedCount > 0) {
           refetch();
           Swal.fire("Application Rejected!", "", "success");
-        }
-        else{
+        } else {
           Swal.fire("Failed to Reject Application!", "", "error");
         }
-      } 
+      }
     });
-  }
+  };
   return (
     <div>
       <DashboardTitle title={"Pending Applications"} />
       <div>
-      
         <div className=" rounded-t-xl border">
           <div className="p-4 flex justify-between items-center">
             <h1 className="text-3xl text-white">
@@ -153,61 +159,70 @@ const PendingApplications = () => {
                 </tr>
               </thead>
               <tbody className="whitespace-nowrap">
-                {
-                  filterSearch.length === 0 && (
-                    <tr>
-                      <td colSpan="9" className="py-10 text-center text-2xl font-bold text-white">
-                        No pending applications found.
-                      </td>
-                    </tr>
-                  )
-                }
-                
-                {filterSearch.sort((a, b) => new Date(b.ApplyDate) - new Date(a.ApplyDate)).map((application) => {
-                  return (
-                    <tr
-                      key={application?._id}
-                      className="border-b text-lightTeal text-wrap "
+                {filterSearch.length === 0 && (
+                  <tr>
+                    <td
+                      colSpan="9"
+                      className="py-10 text-center text-2xl font-bold text-white"
                     >
-                      <td className="p-2 text-sm border-r">
-                        {application?.name}
-                      </td>
-                      <td className="p-2 text-sm border-r">
-                        {application?.studentId}
-                      </td>
-                      <td className="p-2 text-sm border-r">
-                        {application?.registrationNo}
-                      </td>
-                      <td className="p-2 text-sm border-r">
-                        {application?.technology}
-                      </td>
-                      <td className="p-2 text-sm border-r">
-                        {application?.certificateType}
-                      </td>
-                      <td className="p-2 text-sm border-r">
-                        {application?.yearOfCompletion}
-                      </td>
-                      <td className="p-2 text-sm border-r">
-                        {formatDate(application?.ApplyDate)}
-                      </td>
-                      <td
-                        className={`p-2 text-sm border-r text-center uppercase ${
-                          application?.fee === "unPaid" && "text-red-600"
-                        }`}
+                      No pending applications found.
+                    </td>
+                  </tr>
+                )}
+
+                {filterSearch
+                  .sort((a, b) => new Date(b.ApplyDate) - new Date(a.ApplyDate))
+                  .map((application) => {
+                    return (
+                      <tr
+                        key={application?._id}
+                        className="border-b text-lightTeal text-wrap "
                       >
-                        {application?.fee}
-                      </td>
-                      <td className="py-2 px-1 flex flex-col justify-center items-center gap-2 text-sm capitalize">
-                        <button onClick={()=>handleApprove(application)} className="w-full bg-green-600 hover:bg-green-500 rounded-xl text-white">
-                          Approve
-                        </button>
-                        <button onClick={()=>handleReject(application)} className="w-full bg-red-600 hover:bg-red-400 rounded-xl text-white">
-                          Reject
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
+                        <td className="p-2 text-sm border-r">
+                          {application?.name}
+                        </td>
+                        <td className="p-2 text-sm border-r">
+                          {application?.studentId}
+                        </td>
+                        <td className="p-2 text-sm border-r">
+                          {application?.registrationNo}
+                        </td>
+                        <td className="p-2 text-sm border-r">
+                          {application?.technology}
+                        </td>
+                        <td className="p-2 text-sm border-r">
+                          {application?.certificateType}
+                        </td>
+                        <td className="p-2 text-sm border-r">
+                          {application?.yearOfCompletion}
+                        </td>
+                        <td className="p-2 text-sm border-r">
+                          {formatDate(application?.ApplyDate)}
+                        </td>
+                        <td
+                          className={`p-2 text-sm border-r text-center uppercase ${
+                            application?.fee === "unPaid" && "text-red-600"
+                          }`}
+                        >
+                          {application?.fee}
+                        </td>
+                        <td className="py-2 px-1 flex flex-col justify-center items-center gap-2 text-sm capitalize">
+                          <button
+                            onClick={() => handleApprove(application)}
+                            className="w-full bg-green-600 hover:bg-green-500 rounded-xl text-white"
+                          >
+                            Approve
+                          </button>
+                          <button
+                            onClick={() => handleReject(application)}
+                            className="w-full bg-red-600 hover:bg-red-400 rounded-xl text-white"
+                          >
+                            Reject
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
               </tbody>
             </table>
           </div>

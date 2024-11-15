@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 const CheckOutForm = ({ applicationId }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -11,17 +12,16 @@ const CheckOutForm = ({ applicationId }) => {
   const [applicant, setApplicant] = useState({});
   const [clientSecret, setClientSecret] = useState("");
   const [message, setMessage] = useState("");
-  console.log(applicant);
-  console.log("clientSecret:", clientSecret);
+  const navigate = useNavigate();
   useEffect(() => {
     axiosSecure
       .get(`/applicants/${applicationId}`)
       .then((response) => {
         const applicantData = response.data;
         setApplicant(applicantData);
-        const fees=applicantData.feeAmount
+        const fees = applicantData.feeAmount;
         // const amount = parseFloat(applicantData.feeAmount);
-        const amount = fees/120;
+        const amount = fees / 120;
         return axiosSecure.post("/create-payment-intent", { fee: amount });
       })
       .then((res) => {
@@ -68,19 +68,36 @@ const CheckOutForm = ({ applicationId }) => {
             email: applicant?.userEmail,
           },
         },
-      })
+      });
     if (confirmError) {
       console.log(confirmError);
+
       setMessage(confirmError.message);
     } else {
       console.log("paymentIntent", paymentIntent);
       // setMessage("An unexpected error occurred.");
-      if(paymentIntent.status ==='succeeded'){
-        Swal.fire({
-          title: "Payment Successful",
-          text: `Your Transaction id: ${paymentIntent?.id}`,
-          icon: "success"
-        });
+      if (paymentIntent.status === "succeeded") {
+        const applicantData = {
+          Status: applicant?.Status,
+          publishDate: applicant?.publishDate,
+          RejectDate: applicant?.RejectDate,
+          paymentId: paymentIntent?.id,
+          paymentDate: new Date().toISOString(),
+          fee: "paid",
+        };
+        const updateData = await axiosSecure.patch(
+          `/applications/${applicant?._id}`,
+          applicantData
+        );
+        if (updateData.data?.modifiedCount > 0) {
+          navigate("/dashboard/applications");
+          Swal.fire({
+            title: "Payment Successful",
+            text: `Your Transaction id: ${paymentIntent?.id}`,
+            icon: "success",
+          });
+          console.log("updated payment::", updateData.data);
+        }
       }
     }
   };
