@@ -38,6 +38,7 @@ export const teams=[
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
+    // Ashikur Rahman
     {
         "_id":'672abca0618b4430e3fb5ffC',
         "Name":"Md Ashikur Rahman",
@@ -63,11 +64,10 @@ export const teams=[
     {
         "_id":'672abca0618b4430ee3fbffC',
         "Name":"Md Hridoy islam",
-        "Email":"najatulislam11@gmail.com",
-        
-        "skill":"Full Stack Developer",
+        "Email":"mdhridoykobir299@gmail.com",
+        "skill":"Testing",
         "image":`${hridoy}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
+        "fbLink":"https://www.facebook.com/profile.php?id=100080935458107",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
@@ -82,14 +82,14 @@ export const teams=[
         "github":"https://github.com/atikur49a",
         "linkedin":"https://www.linkedin.com/in/atikur-rahman-410686263"
     },
+    // Azizur
     {
         "_id":'672abca618b4430ee3fb5ffC',
-        "Name":"Md. Azizur Rahman",
-        "Email":"najatulislam11@gmail.com",
-        
+        "Name":"Md Azizul Islam",
+        "Email":"abirihsan70@gmail.com",
         "skill":"Presentation",
         "image":`${aziz}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
+        "fbLink":"https://www.facebook.com/aziz.45610?mibextid=LQQJ4d",
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
@@ -115,10 +115,10 @@ export const teams=[
         "linkedin":"https://bd.linkedin.com/in/md-al-amin-islam-575105317"
     },
     // Female 
-    // Israt 
+    // Mollica 
     {
         "_id":'672abca0618b4430e3fb5ffC',
-        "Name":"Mst. Mollica Sorkar",
+        "Name":"Mollica Sorkar",
         "Email":"isratjahan440435@gmail.com",
         "skill":"Graphic Designer",
         "image":`${israt}`,
