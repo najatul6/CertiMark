@@ -204,7 +204,7 @@ export const teams=[
         "skill":"Presentation",
         "image":`${romisa}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100038222978328",
-        "github":"https://github.com/najatul6",
+        "github":"https://github.com/maliate77",
         "linkedin":"https://www.linkedin.com/in/maliate-ahmed-805113256"
     },
 ]
