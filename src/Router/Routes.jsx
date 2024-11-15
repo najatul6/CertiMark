@@ -21,6 +21,7 @@ import RejectedApplications from "../pages/Dashboard/AdminDashboard/RejectedAppl
 import OverView from "../pages/Dashboard/OverView/OverView";
 import Apply from "../pages/Apply/Apply";
 import Payment from "../pages/Dashboard/UserDashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory/PaymentHistory";
 
 
 const Routes = createBrowserRouter([
@@ -126,6 +127,10 @@ const Routes = createBrowserRouter([
       {
         path: "downloads",
         element: <Downloads />,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory />,
       },
     ],
   },

@@ -41,6 +41,18 @@ const UserSidebar = () => {
           <FaDownload className="mr-3" />
           Downloads
         </NavLink>
+
+        <NavLink
+          to="/dashboard/paymentHistory"
+          className={({ isActive }) =>
+            `flex items-center p-3  rounded-s-xl text-lg hover:bg-teal ${
+              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+            }`
+          }
+        >
+          <FaDownload className="mr-3" />
+          Payment History
+        </NavLink>
       </nav>
     </>
   );
