@@ -40,13 +40,13 @@ export const teams=[
     },
     {
         "_id":'672abca0618b4430e3fb5ffC',
-        "Name":"Md. Atikur Rahman",
-        "Email":"najatulislam11@gmail.com",
-        "skill":"Full Stack Developer",
+        "Name":"Md Ashikur Rahman",
+        "Email":"ashik.rpir1@gmail.com",
+        "skill":"Testing",
         "image":`${ashikur}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
-        "github":"https://github.com/najatul6",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+        "fbLink":"https://www.facebook.com/profile.php?id=100090556634472&mibextid=ZbWKwL",
+        "github":"https://github.com/ashikurashik",
+        "linkedin":"https://www.linkedin.com/in/mohammad-ashikur-rahman-4b79a2333"
     },
     // Imran Hossen Rana
     {

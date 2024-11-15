@@ -8,16 +8,19 @@ const CheckOutForm = ({ applicationId }) => {
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
   const [applicant,setApplicant]=useState({})
+  const [clientSecret,setClientSecret]=useState('')
   console.log(applicant);
+  console.log("clientSecret:",clientSecret);
   useEffect(()=>{
     axiosSecure.get(`/applicants/${applicationId}`)
     .then(response => {
       const applicantData = response.data;
       setApplicant(applicantData); 
-      axiosSecure.post('/create-payment-intent',{fee: applicantData?.feeAmount})
-      .then(res=>{
-        console.log(res.data.client_secret);
-      })
+      const amount = parseFloat(applicantData.feeAmount);
+      return axiosSecure.post('/create-payment-intent', { fee: amount });
+    })
+    .then((res) => {
+      setClientSecret(res.data.clientSecret);
     })
     .catch(error => {
       toast.error("Failed to fetch applicant data");
@@ -70,8 +73,12 @@ const CheckOutForm = ({ applicationId }) => {
       />
       <button
         type="submit"
-        disabled={!stripe}
-        className="w-full border py-2 rounded-md text-xl mt-5 text-white duration-300 hover:bg-lightTeal"
+        disabled={!stripe || !clientSecret}
+        className={`w-full border py-2 rounded-md text-xl mt-5 text-white duration-300 ${
+    !stripe || !clientSecret
+      ? 'bg-gray-400 cursor-not-allowed' 
+      : 'bg-lightTeal hover:bg-teal-600'
+  }`}
       >
         Pay
       </button>
@@ -80,7 +87,7 @@ const CheckOutForm = ({ applicationId }) => {
 };
 
 CheckOutForm.propTypes = {
-  applicationId: PropTypes.number.isRequired,
+  applicationId: PropTypes.node,
 };
 
 
