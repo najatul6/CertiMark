@@ -15,6 +15,7 @@ import romisa from '../assets/Team/romisa.png'
 import sumaya from '../assets/Team/sumaya.png'
 import Suraiya from '../assets/Team/Suraiya.png'
 import kemi from '../assets/Team/kemi.png'
+import rezia from '../assets/Team/rezia.png'
 
 export const teams=[
     {
@@ -28,6 +29,7 @@ export const teams=[
         "github":"https://github.com/najatul6",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
+    // Shakhawat Hossain 
     {
         "_id":'672abca0618b4430ee3gtfb5ffC',
         "Name":"Md. Shakhawat Hossain",
@@ -39,14 +41,15 @@ export const teams=[
         "github":"https://github.com/shakhawat091",
         "linkedin":"https://www.linkedin.com/in/shakhawat-hossain-7a7912338/"
     },
+    // Md.Juwel Rana
     {
         "_id":'672abca0618b45j40ee3fb5ffC',
         "Name":"Md.Juwel Rana",
-        "Email":"najatulislam11@gmail.com",
+        "Email":"rana.bfe@gmail.com",
         "skill":"Web Developer",
         "image":`${jwel}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100093127164307",
-        "github":"https://github.com/najatul6",
+        "github":"https://github.com/juwel506035",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
     // Ashikur Rahman
@@ -172,6 +175,7 @@ export const teams=[
         "github":"https://github.com/Suraiya-Akter125",
         "linkedin":"https://bd.linkedin.com/in/suraiya-akter-932772312"
     },
+    // Jannatul ferdoushi kemi
     {
         "_id":'67abca061y8b4430e3fb5ftrffC',
         "Name":"Jannatul ferdoushi kemi",
@@ -180,6 +184,16 @@ export const teams=[
         "image":`${kemi}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100071305042212",
         "github":"https://github.com/najatul6",
+        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+    },
+    {
+        "_id":'67abca06tr1y8b4430e3fb5ftrffC',
+        "Name":"Mst. Rezia Akter",
+        "Email":"reziaa66@ gmail.com",
+        "skill":"Presentation",
+        "image":`${rezia}`,
+        "fbLink":"https://www.facebook.com/profile.php?id=100069809895020&mibextid=ZbWKwL",
+        "github":"https://github.com/rezia66",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
     {
