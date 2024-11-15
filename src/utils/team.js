@@ -29,10 +29,21 @@ export const teams=[
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
     {
-        "_id":'672abca0618b440ee3fb5ffC',
+        "_id":'672abca0618b4430ee3gtfb5ffC',
+        "Name":"Md. Shakhawat Hossain",
+        "Email":"mshakhawathossain09@gmail.com",
+        
+        "skill":"Web Developer",
+        "image":`${najatul}`,
+        "fbLink":"https://www.facebook.com/mdshakhawathossain.shakil.94?mibextid=ZbWKwL",
+        "github":"https://github.com/shakhawat091",
+        "linkedin":"https://www.linkedin.com/in/shakhawat-hossain-7a7912338/"
+    },
+    {
+        "_id":'672abca0618b45j40ee3fb5ffC',
         "Name":"Md.Juwel Rana",
         "Email":"najatulislam11@gmail.com",
-        "skill":"Developer",
+        "skill":"Web Developer",
         "image":`${jwel}`,
         "fbLink":"https://www.facebook.com/profile.php?id=100093127164307",
         "github":"https://github.com/najatul6",
@@ -40,7 +51,7 @@ export const teams=[
     },
     // Ashikur Rahman
     {
-        "_id":'672abca0618b4430e3fb5ffC',
+        "_id":'672abca0618b4i8430e3fb5ffC',
         "Name":"Md Ashikur Rahman",
         "Email":"ashik.rpir1@gmail.com",
         "skill":"Testing",
@@ -62,7 +73,7 @@ export const teams=[
     },
     // Hridoy islam
     {
-        "_id":'672abca0618b4430ee3fbffC',
+        "_id":'672abca0618b5l4430ee3fbffC',
         "Name":"Md Hridoy islam",
         "Email":"mdhridoykobir299@gmail.com",
         "skill":"Testing",
@@ -84,7 +95,7 @@ export const teams=[
     },
     // Azizur
     {
-        "_id":'672abca618b4430ee3fb5ffC',
+        "_id":'672abca618b4430e5te3fb5ffC',
         "Name":"Md Azizul Islam",
         "Email":"abirihsan70@gmail.com",
         "skill":"Presentation",
@@ -93,19 +104,20 @@ export const teams=[
         "github":"https://github.com/Aziz68-ctrl",
         "linkedin":"https://www.linkedin.com/in/azizul-islam-912654248"
     },
+    // Md:Sajedin Jahan Fahim
     {
-        "_id":'672abca618b4430ee3fb5ffC',
-        "Name":"Md. Najatul Islam",
-        "Email":"najatulislam11@gmail.com",
-        "skill":"Full Stack Developer",
+        "_id":'672abca618b4h7430ee3fb5ffC',
+        "Name":"Md:Sajedin Jahan Fahim",
+        "Email":"maxfahim88@gmail.com",
+        "skill":"Graphic Designer",
         "image":`${fahim}`,
-        "fbLink":"https://www.facebook.com/najatul6/",
-        "github":"https://github.com/najatul6",
-        "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
+        "fbLink":"https://www.facebook.com/maxfahim88",
+        "github":"https://github.com/maxfahim88",
+        "linkedin":"https://www.linkedin.com/in/md-sajedin-jahan-fahim-405b622a9"
     },
     // AL AMIN
     {
-        "_id":'672abca618b4430ee3fb5ffC',
+        "_id":'672abcar5618b4430ee3fb5ffC',
         "Name":"MD. AL AMIN ISLAM",
         "Email":"alamin506250@gmail.com",
         "skill":"Testing",
@@ -117,7 +129,7 @@ export const teams=[
     // Female 
     // Mollica 
     {
-        "_id":'672abca0618b4430e3fb5ffC',
+        "_id":'672abca0618b443ju70e3fb5ffC',
         "Name":"Mollica Sorkar",
         "Email":"isratjahan440435@gmail.com",
         "skill":"Graphic Designer",
@@ -129,7 +141,7 @@ export const teams=[
 
     // tasnia 
     {
-        "_id":'672abca0618b4430ee3b5ffC',
+        "_id":'672abca0618b4ht430ee3b5ffC',
         "Name":"Tasnia khandker disha",
         "Email":"tasniadisha27@gmail.com",
         "skill":"Presentation",
@@ -140,7 +152,7 @@ export const teams=[
     },
     // sumaiya 
     {
-        "_id":'67abca0618b4430e3fb5ffC',
+        "_id":'67abca06185b4430e3fb5ffC',
         "Name":"Mst. Marfia akter sumaya",
         "Email":"marfiaakter772@gmail.com",
         "skill":"Graphic Designer",
@@ -151,7 +163,7 @@ export const teams=[
     },
     // Suraiya
     {
-        "_id":'67abca0618b4430e3fb5ffC',
+        "_id":'67abca064518b4430e3fb5ffC',
         "Name":"Mst. Suraiya Akter",
         "Email":"suraiyaa716@gmail.com",
         "skill":"Graphic Designer",
@@ -161,7 +173,7 @@ export const teams=[
         "linkedin":"https://bd.linkedin.com/in/suraiya-akter-932772312"
     },
     {
-        "_id":'67abca0618b4430e3fb5ftrffC',
+        "_id":'67abca061y8b4430e3fb5ftrffC',
         "Name":"Jannatul ferdoushi kemi",
         "Email":"kemiprodhan22@gmail.com",
         "skill":"Graphic Designer",
@@ -171,7 +183,7 @@ export const teams=[
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
     },
     {
-        "_id":'67abca0618b4430e3fb5ffC',
+        "_id":'67abca0617t8b4430e3fb5ffC',
         "Name":"মালিয়াত আহমেদ রামিশা",
         "Email":"najatulislam11@gmail.com",
         "skill":"Presentation",
