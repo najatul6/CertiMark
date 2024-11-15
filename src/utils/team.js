@@ -7,6 +7,7 @@ import ashikur from '../assets/Team/ashikur.png'
 import fahim from '../assets/Team/fahim.png'
 import alamin from '../assets/Team/alamin.png'
 import evan from '../assets/Team/evan.png'
+import shakil from '../assets/Team/shakil.jpg'
 
 // female 
 import israt from '../assets/Team/Israt.png'
@@ -36,7 +37,7 @@ export const teams=[
         "Name":"Md. Shakhawat Hossain",
         "Email":"mshakhawathossain09@gmail.com",
         "skill":"Web Developer",
-        "image":`${najatul}`,
+        "image":`${shakil}`,
         "fbLink":"https://www.facebook.com/mdshakhawathossain.shakil.94?mibextid=ZbWKwL",
         "github":"https://github.com/shakhawat091",
         "linkedin":"https://www.linkedin.com/in/shakhawat-hossain-7a7912338/"
