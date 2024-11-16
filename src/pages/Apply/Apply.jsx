@@ -30,20 +30,20 @@ const Apply = () => {
       ApplyDate: new Date().toISOString(),
       Status: "Pending",
       fee: "unPaid",
-      feeAmount: "300",
     };
-    try {
-      setIsLoading(true);
-      await axiosSecure.post("/applicants", applicantData);
-      reset();
-      toast.success("Application submitted successfully");
-      refetch();
-      navigate("/dashboard/applications");
-    } catch (err) {
-      toast.error(err?.code);
-    } finally {
-      setIsLoading(false);
-    }
+    console.log(applicantData);
+    // try {
+    //   setIsLoading(true);
+    //   await axiosSecure.post("/applicants", applicantData);
+    //   reset();
+    //   toast.success("Application submitted successfully");
+    //   refetch();
+    //   navigate("/dashboard/applications");
+    // } catch (err) {
+    //   toast.error(err?.code);
+    // } finally {
+    //   setIsLoading(false);
+    // }
   };
   if (isPending) {
     return <Loading />;
@@ -290,7 +290,7 @@ const Apply = () => {
             >
               Fees
             </label>
-            <input defaultValue="test" {...register("feeAmount")} />
+            <input className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen border-gray-300 rounded-md p-2`} defaultValue="300" {...register("feeAmount")} disabled/>
           </div>
 
           <button
