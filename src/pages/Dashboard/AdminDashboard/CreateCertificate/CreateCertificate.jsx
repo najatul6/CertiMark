@@ -80,6 +80,12 @@ const CreateCertificate = () => {
 
                 {/* Result  */}
                 <h6 className="absolute capitalize top-[294px] right-[157px] font-playwrite text-[10px] font-bold text-blackDiamond">3.72</h6>
+
+                {/* Publication of Result  */}
+                <h6 className="absolute capitalize top-[345px] left-[175px] font-playwrite text-[8px] font-bold text-blackDiamond">May 12, 2025</h6>
+
+                {/* Date of issue  */}
+                <h6 className="absolute capitalize top-[362px] left-[110px] font-playwrite text-[8px] font-bold text-blackDiamond">November 11, 2025</h6>
               </div>
             )}
           </div>
