@@ -48,7 +48,7 @@ const Apply = () => {
 
   const handleCertificateTypeChange = (e) => {
     const selectedType = e.target.value;
-    let amount = "300"; // Default amount
+    let amount = "300"; 
     if (selectedType === "testimonial") amount = "400";
     else if (selectedType === "diploma") amount = "500";
     setFeeAmount(amount);

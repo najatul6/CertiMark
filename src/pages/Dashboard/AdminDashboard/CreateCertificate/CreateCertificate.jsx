@@ -19,16 +19,39 @@ const CreateCertificate = () => {
   return (
     <div>
       <DashboardTitle title={"Create Certificate"} />
-      <div></div>
-      {application?.certificateType === "testimonial" ? (
-        <div>
-          <img src={testimonial} alt={`${application.name}'s certificate`} />
+      <div>
+        <div className="relative">
+            {/* Image  */}
+          {application?.certificateType === "testimonial" ? (
+            <div className="w-[560px] h-[400px]">
+              <img
+                src={testimonial}
+                alt={`${application.name}'s certificate`}
+                className="w-[560px] h-[426px]"
+              />
+            </div>
+          ) : (
+            <div className="w-[560px] h-[400px]">
+              <img
+                src={clearnes}
+                alt={`${application.name}'s certificate`}
+                className="w-[560px] h-[426px]"
+              />
+            </div>
+          )}
+          {/* Content  */}
+          <div className="absolute top-0 left-0 w-full h-full">
+            {application?.certificateType === "testimonial" ? (
+              <>helo</>
+            ) : (
+              <div className="">
+                {/* Year  */}
+                <h2 className="font-montserrat">2024</h2>
+              </div>
+            )}
+          </div>
         </div>
-      ) : (
-        <div>
-            <img src={clearnes} alt={`${application.name}'s certificate`} />
-        </div>
-      )}
+      </div>
     </div>
   );
 };
