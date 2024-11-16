@@ -60,8 +60,8 @@ const CreateCertificate = () => {
                 {/* Student Name  */}
                 <h6 className="absolute top-[160px] right-[178px] font-playwrite text-[12px] font-bold text-blackDiamond">Md. Najatul Islam</h6>
 
-                {/* Student Name  */}
-                <h6 className="absolute top-[180px] right-[178px] font-playwrite text-[12px] font-bold text-blackDiamond">Md. Mozibur Rahman</h6>
+                {/* Father Name  */}
+                <h6 className="absolute top-[182px] right-[160px] font-playwrite text-[12px] font-bold text-blackDiamond">Md. Mozibur Rahman</h6>
               </div>
             )}
           </div>
