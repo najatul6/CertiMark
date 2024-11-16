@@ -8,6 +8,9 @@ const UserOverview = () => {
   const unPaidApplication = application?.filter(
     (data) => data.fee === "unPaid"
   );
+  const pendingApplication = application?.filter(
+    (data) => data.Status === "Pending"
+  );
   const verifiedApplication = application?.filter(
     (data) => data.Status === "Approved"
   );
@@ -33,12 +36,19 @@ const UserOverview = () => {
 
       {/* User-specific overview cards */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Total Applications */}
+        <div className="bg-gradient-to-r from-lime-400 to-lime-300 shadow rounded-lg p-10 border-l-[5px] border-lime-600">
+          <h3 className="font-semibold text-darkGreen text-xl pb-5">
+            Total Applications
+          </h3>
+          <p className="text-white text-lg pl-4">{application?.length}</p>
+        </div>
         {/* Pending Applications */}
         <div className="bg-gradient-to-r from-teal to-green-600 shadow rounded-lg p-10 border-l-[5px] border-green-600">
           <h3 className="font-semibold text-darkGreen text-xl pb-5">
             My Pending Applications
           </h3>
-          <p className="text-white text-lg pl-4">{application?.length}</p>
+          <p className="text-white text-lg pl-4">{pendingApplication?.length}</p>
         </div>
 
         {/* Verified Certificates */}
