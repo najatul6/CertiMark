@@ -71,6 +71,9 @@ const CreateCertificate = () => {
 
                 {/* Student Roll  */}
                 <h6 className="absolute capitalize top-[250px] left-[127px] font-playwrite text-[10px] font-bold text-blackDiamond">490862</h6>
+
+                {/* Technology  */}
+                <h6 className="absolute capitalize top-[266px] left-[180px] font-playwrite text-[12px] font-bold text-blackDiamond">Computer Technology</h6>
               </div>
             )}
           </div>
