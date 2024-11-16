@@ -68,6 +68,9 @@ const CreateCertificate = () => {
 
                 {/* College Name  */}
                 <h6 className="absolute capitalize top-[222px] right-[120px] font-playwrite text-[12px] font-bold text-blackDiamond">Rangpur Polytechnic Institute, Rangpur</h6>
+
+                {/* Student Roll  */}
+                <h6 className="absolute capitalize top-[250px] left-[127px] font-playwrite text-[10px] font-bold text-blackDiamond">490862</h6>
               </div>
             )}
           </div>
