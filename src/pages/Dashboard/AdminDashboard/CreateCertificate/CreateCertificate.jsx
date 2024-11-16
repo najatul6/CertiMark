@@ -26,7 +26,7 @@ const CreateCertificate = () => {
         </div>
       ) : (
         <div>
-            <img src={clearnes} alt="" />
+            <img src={clearnes} alt={`${application.name}'s certificate`} />
         </div>
       )}
     </div>
