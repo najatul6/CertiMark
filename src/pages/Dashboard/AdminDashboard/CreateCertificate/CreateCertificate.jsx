@@ -74,6 +74,9 @@ const CreateCertificate = () => {
 
                 {/* Technology  */}
                 <h6 className="absolute capitalize top-[266px] left-[180px] font-playwrite text-[12px] font-bold text-blackDiamond">Computer Technology</h6>
+
+                {/* Held of Month  */}
+                <h6 className="absolute capitalize top-[293px] left-[65px] font-playwrite text-[10px] font-bold text-blackDiamond">December,2019 - February, 2025</h6>
               </div>
             )}
           </div>
