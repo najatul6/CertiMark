@@ -282,6 +282,17 @@ const Apply = () => {
             )}
           </div>
 
+          {/* Fees  */}
+          <div>
+            <label
+              htmlFor="feeAmount"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Fees
+            </label>
+            <input defaultValue="test" {...register("feeAmount")} />
+          </div>
+
           <button
             type="submit"
             className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold font-montserrat text-lg"
