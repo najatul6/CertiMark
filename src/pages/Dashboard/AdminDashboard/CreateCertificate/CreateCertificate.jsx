@@ -58,10 +58,13 @@ const CreateCertificate = () => {
                 <h6 className="absolute top-[145px] right-[80px] font-playwrite text-[7px] font-bold text-blackDiamond">2019-20</h6>
 
                 {/* Student Name  */}
-                <h6 className="absolute top-[160px] right-[178px] font-playwrite text-[12px] font-bold text-blackDiamond">Md. Najatul Islam</h6>
+                <h6 className="absolute capitalize top-[160px] right-[178px] font-playwrite text-[12px] font-bold text-blackDiamond">Md. Najatul Islam</h6>
 
                 {/* Father Name  */}
-                <h6 className="absolute top-[182px] right-[160px] font-playwrite text-[12px] font-bold text-blackDiamond">Md. Mozibur Rahman</h6>
+                <h6 className="absolute capitalize top-[182px] right-[165px] font-playwrite text-[12px] font-bold text-blackDiamond">Md. Mozibur Rahman</h6>
+
+                {/* Mother Name  */}
+                <h6 className="absolute capitalize top-[202px] right-[162px] font-playwrite text-[12px] font-bold text-blackDiamond">Mst. Khadija begum</h6>
               </div>
             )}
           </div>
