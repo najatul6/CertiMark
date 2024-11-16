@@ -5,6 +5,7 @@ import { FaSearchengin } from "react-icons/fa6";
 import useApplicants from "../../../../hooks/useApplicants";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const PendingApplications = () => {
   const [searchQuery, setSearchQuery] = useState();
@@ -208,10 +209,14 @@ const PendingApplications = () => {
                         </td>
                         <td className="py-2 px-1 flex flex-col justify-center items-center gap-2 text-sm capitalize">
                           <button
-                            onClick={() => handleApprove(application)}
+                            // onClick={() => handleApprove(application)}
                             className="w-full bg-green-600 hover:bg-green-500 rounded-xl text-white"
                           >
-                            Approve
+                            <Link
+                              to={`/dashboard/createCertificate/${application?._id}`}
+                            >
+                              Approve
+                            </Link>
                           </button>
                           <button
                             onClick={() => handleReject(application)}

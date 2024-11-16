@@ -22,6 +22,7 @@ import OverView from "../pages/Dashboard/OverView/OverView";
 import Apply from "../pages/Apply/Apply";
 import Payment from "../pages/Dashboard/UserDashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory/PaymentHistory";
+import CreateCertificate from "../pages/Dashboard/AdminDashboard/CreateCertificate/CreateCertificate";
 
 const Routes = createBrowserRouter([
   {
@@ -115,10 +116,10 @@ const Routes = createBrowserRouter([
         ),
       },
       {
-        path: "createCertificate",
+        path: "createCertificate/:applicationId",
         element: (
           <AdminRoutes>
-            <UserManagement />
+            <CreateCertificate />
           </AdminRoutes>
         ),
       },
