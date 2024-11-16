@@ -12,6 +12,7 @@ import '../LogIn/loginStyle.css'
 const Apply = () => {
   const { user } = useAuth();
   const [isLoading, setIsLoading] = useState();
+  const [feeAmount, setFeeAmount] = useState(""); 
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const [, refetch, isPending] = useApplication();
@@ -20,6 +21,7 @@ const Apply = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -31,19 +33,26 @@ const Apply = () => {
       Status: "Pending",
       fee: "unPaid",
     };
-    console.log(applicantData);
-    // try {
-    //   setIsLoading(true);
-    //   await axiosSecure.post("/applicants", applicantData);
-    //   reset();
-    //   toast.success("Application submitted successfully");
-    //   refetch();
-    //   navigate("/dashboard/applications");
-    // } catch (err) {
-    //   toast.error(err?.code);
-    // } finally {
-    //   setIsLoading(false);
-    // }
+    try {
+      setIsLoading(true);
+      await axiosSecure.post("/applicants", applicantData);
+      reset();
+      toast.success("Application submitted successfully");
+      refetch();
+      navigate("/dashboard/applications");
+    } catch (err) {
+      toast.error(err?.code);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleCertificateTypeChange = (e) => {
+    const selectedType = e.target.value;
+    let amount = "300"; // Default amount
+    if (selectedType === "testimonial") amount = "400";
+    else if (selectedType === "diploma") amount = "500";
+    setValue("feeAmount", amount);
   };
   if (isPending) {
     return <Loading />;
@@ -80,9 +89,11 @@ const Apply = () => {
             </label>
             <select
               id="certificateType"
-              {...register("certificateType", {
-                required: "Certificate type is required",
-              })}
+              {...register("certificateType", { required: "Certificate type is required" })}
+              onChange={(e) => {
+                handleCertificateTypeChange(e);
+                register("certificateType").onChange(e); // Ensures validation works
+              }}
               className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen ${
                 errors.certificateType ? "border-[#E76F51]" : "border-gray-300"
               } rounded-md p-2`}
@@ -290,7 +301,7 @@ const Apply = () => {
             >
               Fees
             </label>
-            <input className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen border-gray-300 rounded-md p-2`} defaultValue="300" {...register("feeAmount")} disabled/>
+            <input className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen border-gray-300 rounded-md p-2`}   value={feeAmount} {...register("feeAmount")} disabled/>
           </div>
 
           <button
