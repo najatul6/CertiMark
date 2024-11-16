@@ -44,9 +44,24 @@ const CreateCertificate = () => {
             {application?.certificateType === "testimonial" ? (
               <>helo</>
             ) : (
-              <div className="">
+              <div className="relative w-[560px] h-[400px]">
+                {/* Serial Number  */}
+                <h6 className="absolute top-[108px] left-[85px] tracking-[3px] font-montserrat text-[9px] font-bold text-blackDiamond">26458589</h6>
+
                 {/* Year  */}
-                <h2 className="font-montserrat">2024</h2>
+                <h2 className="absolute top-[90px] left-[405px] font-tenor text-blackDiamond">2024</h2>
+
+                {/* Registration Number  */}
+                <h6 className="absolute top-[125px] right-[57px] font-playwrite text-[7px] font-bold text-blackDiamond">1502041769</h6>
+
+                {/* Session  */}
+                <h6 className="absolute top-[145px] right-[80px] font-playwrite text-[7px] font-bold text-blackDiamond">2019-20</h6>
+
+                {/* Student Name  */}
+                <h6 className="absolute top-[160px] right-[178px] font-playwrite text-[12px] font-bold text-blackDiamond">Md. Najatul Islam</h6>
+
+                {/* Student Name  */}
+                <h6 className="absolute top-[180px] right-[178px] font-playwrite text-[12px] font-bold text-blackDiamond">Md. Mozibur Rahman</h6>
               </div>
             )}
           </div>

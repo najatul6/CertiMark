@@ -10,14 +10,15 @@ export default {
         teal: '#2B7A78 ',
         darkGreen: '#17252A ',
         white: '#FEFFFF',
-        lightTeal:"#3AAFA9"
+        lightTeal:"#3AAFA9",
+        blackDiamond:"#343031",
       },
       fontFamily: {
         roboto:  ["'Roboto', sans-serif" ],
         montserrat:['"Montserrat", sans-serif'],
         siligri:['"Hind Siliguri", sans-serif'],
-        Tenor :['"Tenor Sans", sans-serif'],
-        Playwrite :['"Playwrite CZ", cursive']
+        tenor :['"Tenor Sans", sans-serif'],
+        playwrite :['"Playwrite CZ", cursive']
       },
       transition: {
         transition: ["transform 0.2s ease-in-out"]
