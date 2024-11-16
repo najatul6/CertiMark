@@ -20,8 +20,7 @@ const Apply = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-    setValue
+    reset
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -32,6 +31,7 @@ const Apply = () => {
       ApplyDate: new Date().toISOString(),
       Status: "Pending",
       fee: "unPaid",
+      feeAmount,
     };
     try {
       setIsLoading(true);
@@ -52,7 +52,7 @@ const Apply = () => {
     let amount = "300"; // Default amount
     if (selectedType === "testimonial") amount = "400";
     else if (selectedType === "diploma") amount = "500";
-    setValue("feeAmount", amount);
+    setFeeAmount(amount);
   };
   if (isPending) {
     return <Loading />;
@@ -293,15 +293,18 @@ const Apply = () => {
             )}
           </div>
 
-          {/* Fees  */}
+          {/* Fee Amount */}
           <div>
-            <label
-              htmlFor="feeAmount"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="feeAmount" className="block text-sm font-medium text-gray-700">
               Fees
             </label>
-            <input className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen border-gray-300 rounded-md p-2`}   value={feeAmount} {...register("feeAmount")} disabled/>
+            <input
+              type="text"
+              id="feeAmount"
+              value={feeAmount}
+              readOnly
+              className="mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen border-gray-300 rounded-md p-2"
+            />
           </div>
 
           <button
