@@ -23,7 +23,6 @@ import Apply from "../pages/Apply/Apply";
 import Payment from "../pages/Dashboard/UserDashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory/PaymentHistory";
 
-
 const Routes = createBrowserRouter([
   {
     path: "/",
@@ -109,9 +108,19 @@ const Routes = createBrowserRouter([
       },
       {
         path: "markSheet",
-        element: <AdminRoutes>
-        <UserManagement />
-      </AdminRoutes>,
+        element: (
+          <AdminRoutes>
+            <UserManagement />
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "createCertificate",
+        element: (
+          <AdminRoutes>
+            <UserManagement />
+          </AdminRoutes>
+        ),
       },
 
       // User Dashboard
