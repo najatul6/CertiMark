@@ -128,13 +128,13 @@ const ApplicationStatus = () => {
                           >
                             {app?.fee === "unPaid" ? (
                               <Link to={`/dashboard/payment/${app?._id}`}>
-                              <button
-                                type="button"
-                                className="px-5 py-2.5 flex items-center justify-center gap-2 rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-800 active:bg-purple-600 hover:text-lightTeal"
-                              >
-                                <FaHandHoldingDollar className="text-2xl" />
-                                Pay &#x9F3; {app?.feeAmount}
-                              </button>
+                                <button
+                                  type="button"
+                                  className="px-5 py-2.5 flex items-center justify-center gap-2 rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-800 active:bg-purple-600 hover:text-lightTeal"
+                                >
+                                  <FaHandHoldingDollar className="text-2xl" />
+                                  Pay &#x9F3; {app?.feeAmount}
+                                </button>
                               </Link>
                             ) : app.Status === "Approved" ? (
                               <button
@@ -154,14 +154,20 @@ const ApplicationStatus = () => {
                                   ></path>
                                 </svg>
                               </button>
-                            ) :app?.fee === "paid" ? (
+                            ) : app?.fee === "paid" ? (
                               <button
                                 type="button"
                                 className="px-5 py-2.5 flex items-center justify-center rounded text-white text-sm tracking-wider font-medium border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600"
                               >
                                 Paid
                               </button>
-                            ):<p>{app?.Status}</p>}
+                            ) : (
+                              <p className="text-red-600 flex  justify-center items-center">
+                                {" "}
+                                <CiCircleRemove className="text-red-600 text-2xl mr-1" />{" "}
+                                {app?.Status}
+                              </p>
+                            )}
                           </span>
                         </td>
                       </tr>

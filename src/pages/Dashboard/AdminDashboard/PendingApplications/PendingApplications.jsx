@@ -74,7 +74,7 @@ const PendingApplications = () => {
   const handleReject = (application) => {
     const applicationData = {
       Status: "Rejected",
-      fee: application?.fee,
+      fee: "Rejected",
       paymentId: application?.paymentId || "",
       paymentDate: application?.paymentDate || "",
       RejectDate: new Date().toISOString(),
