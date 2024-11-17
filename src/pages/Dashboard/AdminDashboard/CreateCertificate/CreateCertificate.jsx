@@ -11,6 +11,7 @@ import { toPng } from "html-to-image";
 import { imageUpload } from "../../../../utils/imageUpload";
 import useApplicants from "../../../../hooks/useApplicants";
 import toast from "react-hot-toast";
+import Loading from "../../../../Components/Shared/Loading/Loading";
 
 const CreateCertificate = () => {
   const { applicationId } = useParams();
@@ -99,6 +100,9 @@ const CreateCertificate = () => {
     }
     return new Blob([ab], { type: mimeString });
   };
+  if(isLoading){
+    return <Loading/>
+  }
   return (
     <div>
       <DashboardTitle title={"Create Certificate"} />
