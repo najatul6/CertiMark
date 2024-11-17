@@ -23,6 +23,28 @@ const ApplicationStatus = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
+  // Certificate Download Function 
+  const downloadButton = async (certificateUrl) => {
+    try {
+      const response = await fetch(certificateUrl);
+      if (response.ok) {
+        const blob = await response.blob();
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        link.href = url;
+        link.download = "certificate.jpg"; // You can customize the filename
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      } else {
+        console.error("Failed to download certificate");
+      }
+    } catch (error) {
+      console.error("Error downloading certificate:", error);
+    }
+  };
+
   if (isPending) {
     return <Loading />;
   }
@@ -139,6 +161,7 @@ const ApplicationStatus = () => {
                             ) : app.Status === "Approved" ? (
                               <button
                                 type="button"
+                                onClick={() => downloadButton(app.certificate)}
                                 className="w-10 h-10 inline-flex items-center justify-center rounded border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600"
                               >
                                 <svg
