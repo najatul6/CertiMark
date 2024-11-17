@@ -11,6 +11,7 @@ const CreateCertificate = () => {
   const { applicationId } = useParams();
   const axiosSecure = useAxiosSecure();
   const [application, setApplication] = useState({});
+  const [serialNumber,setSerialNumber]=useState('')
 
   useEffect(() => {
     axiosSecure.get(`/applicants/${applicationId}`).then((res) => {
@@ -28,8 +29,10 @@ const CreateCertificate = () => {
         <div className="w-full bg-white h-full">
           {/* Testimonial Form  */}
           <form></form>
-          {/* Testimonial Form  */}
-          <form></form>
+          {/* Clearance Form  */}
+          <div>
+            <input type="text" name="serial Number" onChange={(e)=>setSerialNumber(e.target.value)} />
+          </div>
         </div>
         <div className="relative">
           {/* Image  */}
@@ -139,27 +142,27 @@ const CreateCertificate = () => {
 
                 {/* Registration Number  */}
                 <h6 className="absolute top-[125px] right-[57px] font-playwrite text-[7px] font-bold text-blackDiamond">
-                  1502041769
+                  {application?.registrationNo}
                 </h6>
 
                 {/* Session  */}
                 <h6 className="absolute top-[145px] right-[80px] font-playwrite text-[7px] font-bold text-blackDiamond">
-                  2019-20
+                  {application?.yearOfCompletion}
                 </h6>
 
                 {/* Student Name  */}
                 <h6 className="absolute capitalize top-[160px] right-[178px] font-playwrite text-[12px] font-bold text-blackDiamond">
-                  Md. Najatul Islam
+                  {application?.name}
                 </h6>
 
                 {/* Father Name  */}
                 <h6 className="absolute capitalize top-[182px] right-[165px] font-playwrite text-[12px] font-bold text-blackDiamond">
-                  Md. Mozibur Rahman
+                  {application?.fatherName}
                 </h6>
 
                 {/* Mother Name  */}
                 <h6 className="absolute capitalize top-[202px] right-[162px] font-playwrite text-[12px] font-bold text-blackDiamond">
-                  Mst. Khadija begum
+                  {application?.motherName}
                 </h6>
 
                 {/* College Name  */}
@@ -169,12 +172,12 @@ const CreateCertificate = () => {
 
                 {/* Student Roll  */}
                 <h6 className="absolute capitalize top-[250px] left-[127px] font-playwrite text-[10px] font-bold text-blackDiamond">
-                  490862
+                  {application?.studentId}
                 </h6>
 
                 {/* Technology  */}
                 <h6 className="absolute capitalize top-[266px] left-[180px] font-playwrite text-[12px] font-bold text-blackDiamond">
-                  Computer Technology
+                  {application?.technology}
                 </h6>
 
                 {/* Held of Month  */}
