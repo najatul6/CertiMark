@@ -11,7 +11,6 @@ import { toPng } from "html-to-image";
 import { imageUpload } from "../../../../utils/imageUpload";
 import useApplicants from "../../../../hooks/useApplicants";
 import toast from "react-hot-toast";
-import Loading from "../../../../Components/Shared/Loading/Loading";
 
 const CreateCertificate = () => {
   const { applicationId } = useParams();
@@ -143,7 +142,7 @@ const CreateCertificate = () => {
                   className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
                   placeholder="Enter Held of Month"
                   type="text"
-                  defaultValue={"December,2019 - February, 2025"}
+                  value={"December,2019 - February, 2025"}
                   name="Held of Month"
                   onChange={(e) => setHeldOnMonth(e.target.value)}
                 />
@@ -179,7 +178,7 @@ const CreateCertificate = () => {
                   placeholder={`Enter Publication of Result`}
                   type="text"
                   name="publishDate"
-                  defaultValue={" May 12, 2025"}
+                  value={" May 12, 2025"}
                   onChange={(e) => setPublishDate(e.target.value)}
                 />
               </div>
@@ -197,7 +196,7 @@ const CreateCertificate = () => {
                   placeholder={`Enter date of issue`}
                   type="text"
                   name="dateOfIssue"
-                  defaultValue={"November 11, 2025"}
+                  value={"November 11, 2025"}
                   onChange={(e) => setDateOfIssue(e.target.value)}
                 />
               </div>
