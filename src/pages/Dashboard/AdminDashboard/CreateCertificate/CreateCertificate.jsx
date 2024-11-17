@@ -11,6 +11,7 @@ import { toPng } from "html-to-image";
 import { imageUpload } from "../../../../utils/imageUpload";
 import Swal from "sweetalert2";
 import useApplicants from "../../../../hooks/useApplicants";
+import toast from "react-hot-toast";
 
 const CreateCertificate = () => {
   const { applicationId } = useParams();
@@ -65,7 +66,7 @@ const CreateCertificate = () => {
                   if (updateData.data?.modifiedCount > 0) {
                     refetch();
                     navigate("/dashboard/pendingApplications");
-                    console.log(
+                   toast.success(
                       "Application Approved and Updated Successfully!"
                     );
                   } else {
