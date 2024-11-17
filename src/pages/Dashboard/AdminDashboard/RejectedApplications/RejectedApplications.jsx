@@ -3,10 +3,14 @@ import DashboardTitle from "../../../../Components/Shared/DashboardTitle/Dashboa
 import Loading from "../../../../Components/Shared/Loading/Loading";
 import Swal from "sweetalert2";
 import useApplicants from "../../../../hooks/useApplicants";
+import { useState } from "react";
 
 const RejectedApplications = () => {
   const [applicants, refetch, isPending] = useApplicants();
   const axiosSecure = useAxiosSecure();
+  const [isLoading,setIsLoading]=useState(false)
+
+
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
     const options = {
@@ -27,6 +31,7 @@ const RejectedApplications = () => {
   // Delete Application from Database
   const handleDeleteApplication = (application) => {
     console.log(application);
+    setIsLoading(true)
     Swal.fire({
       title: "Are you sure to delete this Application?",
       text: "You won't be able to revert this!",
@@ -41,6 +46,7 @@ const RejectedApplications = () => {
           console.log(res.data);
           if (res.data.deletedCount > 0) {
             refetch();
+            setIsLoading(false)
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
@@ -59,7 +65,7 @@ const RejectedApplications = () => {
   };
 
   //   Loading Effect
-  if (isPending) {
+  if (isPending || isLoading) {
     return <Loading />;
   }
 
