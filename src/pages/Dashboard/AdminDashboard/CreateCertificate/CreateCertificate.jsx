@@ -11,27 +11,60 @@ const CreateCertificate = () => {
   const { applicationId } = useParams();
   const axiosSecure = useAxiosSecure();
   const [application, setApplication] = useState({});
-  const [serialNumber,setSerialNumber]=useState('')
+  const [serialNumber, setSerialNumber] = useState("");
 
   useEffect(() => {
     axiosSecure.get(`/applicants/${applicationId}`).then((res) => {
       setApplication(res?.data);
       console.log(res.data);
     });
-  }, [applicationId,axiosSecure]);
-
-  
+  }, [applicationId, axiosSecure]);
 
   return (
     <div>
       <DashboardTitle title={"Create Certificate"} />
       <div className="grid grid-cols-2 place-items-center">
-        <div className="w-full bg-white h-full">
+        <div className="w-full h-full border rounded-md py-2 px-2">
           {/* Testimonial Form  */}
           <form></form>
           {/* Clearance Form  */}
           <div>
-            <input type="text" name="serial Number" onChange={(e)=>setSerialNumber(e.target.value)} />
+            <h1 className="text-xl font-bold text-lightTeal text-center py-2 underline capitalize font-montserrat">
+              Fill Information
+            </h1>
+            {/* serial Number */}
+            <div>
+              <label
+                htmlFor="serial Number"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Serial Number:
+              </label>
+              <input
+                className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen border-gray-300 rounded-md p-2`}
+                placeholder="Enter Certificate Serial Number"
+                type="text"
+                name="serial Number"
+                onChange={(e) => setSerialNumber(e.target.value)}
+              />
+            </div>
+
+            {/* Held of Month */}
+            <div>
+              <label
+                htmlFor="Held of Month"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Held of Month :
+              </label>
+              <input
+                className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen border-gray-300 rounded-md p-2`}
+                placeholder="Enter Held of Month"
+                type="text"
+                name="Held of Month"
+                onChange={(e) => setSerialNumber(e.target.value)}
+              />
+            </div>
           </div>
         </div>
         <div className="relative">
