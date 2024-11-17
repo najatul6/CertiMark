@@ -100,9 +100,6 @@ const CreateCertificate = () => {
     }
     return new Blob([ab], { type: mimeString });
   };
-  if(isLoading){
-    return <Loading/>
-  }
   return (
     <div>
       <DashboardTitle title={"Create Certificate"} />

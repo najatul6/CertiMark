@@ -7,9 +7,13 @@ import DashboardTitle from "../../../../Components/Shared/DashboardTitle/Dashboa
 import { FaHandHoldingDollar } from "react-icons/fa6";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const ApplicationStatus = () => {
   const [application, , isPending] = useApplication();
+  const [isLoading,setIsLoading]=useState(false)
+
+
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
     const options = {
@@ -25,6 +29,7 @@ const ApplicationStatus = () => {
   };
   // Certificate Download Function 
   const downloadButton =  async(app) => {
+    setIsLoading(true)
     try {
       const response = await fetch(app?.certificate);
       if (response?.ok) {
@@ -37,6 +42,7 @@ const ApplicationStatus = () => {
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
+        setIsLoading(false)
       } else {
         console.error("Failed to download certificate");
       }
@@ -45,7 +51,7 @@ const ApplicationStatus = () => {
     }
   };
 
-  if (isPending) {
+  if (isPending || isLoading) {
     return <Loading />;
   }
   return (
