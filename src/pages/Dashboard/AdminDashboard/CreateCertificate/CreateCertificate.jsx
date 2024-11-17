@@ -11,12 +11,15 @@ const CreateCertificate = () => {
   const { applicationId } = useParams();
   const axiosSecure = useAxiosSecure();
   const [application, setApplication] = useState({});
+
   useEffect(() => {
     axiosSecure.get(`/applicants/${applicationId}`).then((res) => {
       setApplication(res?.data);
       console.log(res.data);
     });
-  }, [applicationId, axiosSecure]);
+  }, [applicationId,axiosSecure]);
+
+  
 
   return (
     <div>
@@ -50,9 +53,10 @@ const CreateCertificate = () => {
           {/* Content  */}
           <div className="absolute top-0 left-0 w-full h-full">
             {application?.certificateType === "testimonial" ? (
+              // For Testimonial
               <div className="relative w-[560px] h-[400px]">
                 {/* Student Name  */}
-                <h6 className="absolute capitalize top-[160px] right-[178px] font-playwrite text-[12px] font-bold text-blackDiamond">
+                <h6 className="absolute uppercase top-[145px] left-[128px] tracking-[2px] font-serif text-[12px] font-[800] italic text-blackDiamond">
                   Md. Najatul Islam
                 </h6>
 
@@ -121,10 +125,11 @@ const CreateCertificate = () => {
                 /> */}
               </div>
             ) : (
+              // For Clearance
               <div className="relative w-[560px] h-[400px]">
                 {/* Serial Number  */}
                 <h6 className="absolute top-[108px] left-[85px] tracking-[3px] font-montserrat text-[9px] font-bold text-blackDiamond">
-                  26458589
+                  {serialNumber}
                 </h6>
 
                 {/* Year  */}
