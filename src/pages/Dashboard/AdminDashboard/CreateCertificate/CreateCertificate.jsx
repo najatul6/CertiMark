@@ -57,25 +57,24 @@ const CreateCertificate = () => {
                 paymentDate: application?.paymentDate,
                 certificate: response.data.url,
               };
-              Swal.fire({
-                title: "Do you want to Approve?",
-                showCancelButton: true,
-                confirmButtonText: "Save",
-              }).then(async (result) => {
-                if (result.isConfirmed) {
-                  const updateData = await axiosSecure.patch(
-                    `/applications/${applicationId}`,
-                    applicationData
-                  );
+
+              // Directly update the application data
+              axiosSecure
+                .patch(`/applications/${applicationId}`, applicationData)
+                .then((updateData) => {
                   if (updateData.data?.modifiedCount > 0) {
                     refetch();
                     navigate("/dashboard/pendingApplications");
-                    Swal.fire("Application Approved!", "", "success");
+                    console.log(
+                      "Application Approved and Updated Successfully!"
+                    );
                   } else {
-                    Swal.fire("Failed to Approve Application!", "", "error");
+                    console.error("Failed to Approve and Update Application!");
                   }
-                }
-              });
+                })
+                .catch((err) => {
+                  console.error("Error while updating application:", err);
+                });
             }
             setIsLoading(false);
           })
@@ -88,7 +87,7 @@ const CreateCertificate = () => {
         console.error("Image Generation Failed:", err);
         setIsLoading(false);
       });
-  }, [ref]);
+  }, [ref, application, applicationId, axiosSecure, navigate, refetch]);
 
   const dataUrlToBlob = (dataUrl) => {
     const byteString = atob(dataUrl.split(",")[1]);
