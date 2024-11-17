@@ -11,6 +11,7 @@ import { TbFidgetSpinner } from "react-icons/tb";
 const CreateCertificate = () => {
   const { applicationId } = useParams();
   const axiosSecure = useAxiosSecure();
+  const [isLoading, setIsLoading]=useState(false)
   const [application, setApplication] = useState({});
   const [serialNumber, setSerialNumber] = useState("");
   const [heldOnMonth, setHeldOnMonth] = useState("");
@@ -315,13 +316,13 @@ const CreateCertificate = () => {
         </div>
       </div>
       <button
-            type="submit"
-            className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold font-montserrat text-lg"
+            type="button"
+            className="w-full mt-5 bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold font-montserrat text-lg"
           >
             {isLoading ? (
               <TbFidgetSpinner className="animate-spin m-auto" />
             ) : (
-              "Apply Now"
+              "Generate Certificate & Approve"
             )}
           </button>
     </div>
