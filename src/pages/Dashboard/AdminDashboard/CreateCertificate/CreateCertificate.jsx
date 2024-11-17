@@ -6,12 +6,17 @@ import testimonial from "../../../../assets/cartificates/Testimonial.png";
 import clearnes from "../../../../assets/cartificates/clearanceCertificate .jpg";
 import compared from "../../../../assets/cartificates/compared.png";
 import controller from "../../../../assets/cartificates/controller.png";
+import { TbFidgetSpinner } from "react-icons/tb";
 
 const CreateCertificate = () => {
   const { applicationId } = useParams();
   const axiosSecure = useAxiosSecure();
   const [application, setApplication] = useState({});
   const [serialNumber, setSerialNumber] = useState("");
+  const [heldOnMonth, setHeldOnMonth] = useState("");
+  const [result, setResult] = useState("");
+  const [publishDate, setPublishDate] = useState("");
+  const [dateOfIssue, setDateOfIssue] = useState("");
 
   useEffect(() => {
     axiosSecure.get(`/applicants/${applicationId}`).then((res) => {
@@ -23,53 +28,111 @@ const CreateCertificate = () => {
   return (
     <div>
       <DashboardTitle title={"Create Certificate"} />
-      <div className="grid grid-cols-2 place-items-center">
+      <div className="flex justify-center  gap-2">
         <div className="w-full h-full border rounded-md py-2 px-2">
-          {/* Testimonial Form  */}
-          <form></form>
+          {/* Testimonial Form 
+          <form></form> */}
           {/* Clearance Form  */}
           <div>
             <h1 className="text-xl font-bold text-lightTeal text-center py-2 underline capitalize font-montserrat">
               Fill Information
             </h1>
-            {/* serial Number */}
-            <div>
-              <label
-                htmlFor="serial Number"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Serial Number:
-              </label>
-              <input
-                className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen border-gray-300 rounded-md p-2`}
-                placeholder="Enter Certificate Serial Number"
-                type="text"
-                name="serial Number"
-                onChange={(e) => setSerialNumber(e.target.value)}
-              />
-            </div>
 
-            {/* Held of Month */}
-            <div>
-              <label
-                htmlFor="Held of Month"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Held of Month :
-              </label>
-              <input
-                className={`mt-1 block w-full focus:outline-none border bg-transparent text-darkGreen border-gray-300 rounded-md p-2`}
-                placeholder="Enter Held of Month"
-                type="text"
-                name="Held of Month"
-                onChange={(e) => setSerialNumber(e.target.value)}
-              />
+            <div className="space-y-[9px]">
+              {/* serial Number */}
+              <div>
+                <label
+                  htmlFor="serial Number"
+                  className="block text-sm font-medium text-teal"
+                >
+                  Serial Number:
+                </label>
+                <input
+                  className={`mt-1 block w-full focus:outline-none border bg-transparent text-white placeholder:text-white border-gray-300 rounded-md p-2`}
+                  placeholder="Enter Certificate Serial Number"
+                  type="text"
+                  name="serial Number"
+                  onChange={(e) => setSerialNumber(e.target.value)}
+                />
+              </div>
+
+              {/* Held of Month */}
+              <div>
+                <label
+                  htmlFor="Held of Month"
+                  className="block text-sm font-medium text-teal"
+                >
+                  Held of Month :
+                </label>
+                <input
+                  className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                  placeholder="Enter Held of Month"
+                  type="text"
+                  defaultValue={"December,2019 - February, 2025"}
+                  name="Held of Month"
+                  onChange={(e) => setHeldOnMonth(e.target.value)}
+                />
+              </div>
+
+              {/* Result */}
+              <div>
+                <label
+                  htmlFor="result"
+                  className="block text-sm font-medium text-teal"
+                >
+                  Result (CGPA) :
+                </label>
+                <input
+                  className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                  placeholder={`Enter (${application?.name}'s) Result (CGPA)`}
+                  type="text"
+                  name="result"
+                  onChange={(e) => setResult(e.target.value)}
+                />
+              </div>
+
+              {/* Publication of Result */}
+              <div>
+                <label
+                  htmlFor="publishDate"
+                  className="block text-sm font-medium text-teal"
+                >
+                  Publication of Result :
+                </label>
+                <input
+                  className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                  placeholder={`Enter Publication of Result`}
+                  type="text"
+                  name="publishDate"
+                  defaultValue={" May 12, 2025"}
+                  onChange={(e) => setPublishDate(e.target.value)}
+                />
+              </div>
+
+              {/* Date of Issue */}
+              <div>
+                <label
+                  htmlFor="dateOfIssue"
+                  className="block text-sm font-medium text-teal"
+                >
+                  Date of Issue :
+                </label>
+                <input
+                  className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                  placeholder={`Enter date of issue`}
+                  type="text"
+                  name="dateOfIssue"
+                  defaultValue={"November 11, 2025"}
+                  onChange={(e) => setDateOfIssue(e.target.value)}
+                />
+              </div>
             </div>
           </div>
         </div>
         <div className="relative">
           {/* Image  */}
           {application?.certificateType === "testimonial" ? (
+            // Testimonial Image 
             <div className="w-[560px] h-[400px]">
               <img
                 src={testimonial}
@@ -78,6 +141,7 @@ const CreateCertificate = () => {
               />
             </div>
           ) : (
+            // Clearance Image 
             <div className="w-[560px] h-[400px]">
               <img
                 src={clearnes}
@@ -215,22 +279,22 @@ const CreateCertificate = () => {
 
                 {/* Held of Month  */}
                 <h6 className="absolute capitalize top-[293px] left-[65px] font-playwrite text-[10px] font-bold text-blackDiamond">
-                  December,2019 - February, 2025
+                  {heldOnMonth}
                 </h6>
 
                 {/* Result  */}
                 <h6 className="absolute capitalize top-[294px] right-[157px] font-playwrite text-[10px] font-bold text-blackDiamond">
-                  3.72
+                  {result}
                 </h6>
 
                 {/* Publication of Result  */}
                 <h6 className="absolute capitalize top-[345px] left-[175px] font-playwrite text-[8px] font-bold text-blackDiamond">
-                  May 12, 2025
+                  {publishDate}
                 </h6>
 
                 {/* Date of issue  */}
                 <h6 className="absolute capitalize top-[362px] left-[110px] font-playwrite text-[8px] font-bold text-blackDiamond">
-                  November 11, 2025
+                  {dateOfIssue}
                 </h6>
                 {/* Compared By  */}
                 <img
@@ -250,6 +314,16 @@ const CreateCertificate = () => {
           </div>
         </div>
       </div>
+      <button
+            type="submit"
+            className="w-full bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold font-montserrat text-lg"
+          >
+            {isLoading ? (
+              <TbFidgetSpinner className="animate-spin m-auto" />
+            ) : (
+              "Apply Now"
+            )}
+          </button>
     </div>
   );
 };
