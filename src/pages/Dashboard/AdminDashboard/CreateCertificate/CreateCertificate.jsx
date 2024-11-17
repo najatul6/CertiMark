@@ -23,8 +23,8 @@ const CreateCertificate = () => {
   const [publishDate, setPublishDate] = useState("");
   const [dateOfIssue, setDateOfIssue] = useState("");
   const ref = useRef(null);
-  const navigate=useNavigate()
-  const [, refetch, ] = useApplicants();
+  const navigate = useNavigate();
+  const [, refetch] = useApplicants();
   useEffect(() => {
     axiosSecure.get(`/applicants/${applicationId}`).then((res) => {
       setApplication(res?.data);
@@ -32,7 +32,6 @@ const CreateCertificate = () => {
     });
   }, [applicationId, axiosSecure]);
 
-  
   const onButtonClick = useCallback(() => {
     if (ref.current === null) {
       return;
@@ -42,59 +41,58 @@ const CreateCertificate = () => {
     // Generate high-quality image
     toPng(ref.current, { cacheBust: true, quality: 1, pixelRatio: 2 })
       .then((dataUrl) => {
-
         // Convert base64 data URL to a Blob
         const blob = dataUrlToBlob(dataUrl);
 
         // Upload to ImgBB using the provided imageUpload function
         imageUpload(blob)
           .then((response) => {
-            console.log('Uploaded Successfully:', response.data.url);
-            if(response?.data?.url){
-                const applicationData = {
-                    Status: "Approved",
-                    fee: application?.fee,
-                    publishDate: new Date().toISOString(),
-                    paymentId: application?.paymentId,
-                    paymentDate: application?.paymentDate,
-                    certificate:response.data.url
-                  };
-                  Swal.fire({
-                    title: "Do you want to Approve?",
-                    showCancelButton: true,
-                    confirmButtonText: "Save",
-                  }).then(async (result) => {
-                    if (result.isConfirmed) {
-                      const updateData = await axiosSecure.patch(
-                        `/applications/${application?._id}`,
-                        applicationData
-                      );
-                      if (updateData.data?.modifiedCount > 0) {
-                        refetch();
-                        navigate("/dashboard/pendingApplications")
-                        Swal.fire("Application Approved!", "", "success");
-                      } else {
-                        Swal.fire("Failed to Approve Application!", "", "error");
-                      }
-                    }
-                  });
+            console.log("Uploaded Successfully:", response.data.url);
+            if (response?.data?.url) {
+              const applicationData = {
+                Status: "Approved",
+                fee: application?.fee,
+                publishDate: new Date().toISOString(),
+                paymentId: application?.paymentId,
+                paymentDate: application?.paymentDate,
+                certificate: response.data.url,
+              };
+              Swal.fire({
+                title: "Do you want to Approve?",
+                showCancelButton: true,
+                confirmButtonText: "Save",
+              }).then(async (result) => {
+                if (result.isConfirmed) {
+                  const updateData = await axiosSecure.patch(
+                    `/applications/${applicationId}`,
+                    applicationData
+                  );
+                  if (updateData.data?.modifiedCount > 0) {
+                    refetch();
+                    navigate("/dashboard/pendingApplications");
+                    Swal.fire("Application Approved!", "", "success");
+                  } else {
+                    Swal.fire("Failed to Approve Application!", "", "error");
+                  }
+                }
+              });
             }
             setIsLoading(false);
           })
           .catch((error) => {
-            console.error('Upload Failed:', error);
+            console.error("Upload Failed:", error);
             setIsLoading(false);
           });
       })
       .catch((err) => {
-        console.error('Image Generation Failed:', err);
+        console.error("Image Generation Failed:", err);
         setIsLoading(false);
       });
   }, [ref]);
 
   const dataUrlToBlob = (dataUrl) => {
-    const byteString = atob(dataUrl.split(',')[1]);
-    const mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0];
+    const byteString = atob(dataUrl.split(",")[1]);
+    const mimeString = dataUrl.split(",")[0].split(":")[1].split(";")[0];
     const ab = new ArrayBuffer(byteString.length);
     const ia = new Uint8Array(ab);
     for (let i = 0; i < byteString.length; i++) {
