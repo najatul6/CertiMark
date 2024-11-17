@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -9,7 +9,8 @@ import controller from "../../../../assets/cartificates/controller.png";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { toPng } from "html-to-image";
 import { imageUpload } from "../../../../utils/imageUpload";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+import useApplicants from "../../../../hooks/useApplicants";
 
 const CreateCertificate = () => {
   const { applicationId } = useParams();
@@ -22,6 +23,8 @@ const CreateCertificate = () => {
   const [publishDate, setPublishDate] = useState("");
   const [dateOfIssue, setDateOfIssue] = useState("");
   const ref = useRef(null);
+  const navigate=useNavigate()
+  const [, refetch, ] = useApplicants();
   useEffect(() => {
     axiosSecure.get(`/applicants/${applicationId}`).then((res) => {
       setApplication(res?.data);
@@ -47,7 +50,35 @@ const CreateCertificate = () => {
         imageUpload(blob)
           .then((response) => {
             console.log('Uploaded Successfully:', response.data.url);
-            toast.success('Uploaded Successfully:');
+            if(response?.data?.url){
+                const applicationData = {
+                    Status: "Approved",
+                    fee: application?.fee,
+                    publishDate: new Date().toISOString(),
+                    paymentId: application?.paymentId,
+                    paymentDate: application?.paymentDate,
+                    certificate:response.data.url
+                  };
+                  Swal.fire({
+                    title: "Do you want to Approve?",
+                    showCancelButton: true,
+                    confirmButtonText: "Save",
+                  }).then(async (result) => {
+                    if (result.isConfirmed) {
+                      const updateData = await axiosSecure.patch(
+                        `/applications/${application?._id}`,
+                        applicationData
+                      );
+                      if (updateData.data?.modifiedCount > 0) {
+                        refetch();
+                        navigate("/dashboard/pendingApplications")
+                        Swal.fire("Application Approved!", "", "success");
+                      } else {
+                        Swal.fire("Failed to Approve Application!", "", "error");
+                      }
+                    }
+                  });
+            }
             setIsLoading(false);
           })
           .catch((error) => {
