@@ -316,7 +316,10 @@ const CreateCertificate = () => {
                 className="w-full mt-10 bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold font-montserrat text-lg"
               >
                 {isLoading ? (
-                  <TbFidgetSpinner className="animate-spin m-auto" />
+                <>
+                 <span className="loading loading-bars loading-xs"></span>
+                 <span className="loading loading-bars loading-sm"></span>
+                </>
                 ) : (
                   "Generate Certificate & Approve"
                 )}

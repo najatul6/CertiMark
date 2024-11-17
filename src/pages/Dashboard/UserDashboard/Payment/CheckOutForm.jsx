@@ -12,6 +12,7 @@ const CheckOutForm = ({ applicationId }) => {
   const [applicant, setApplicant] = useState({});
   const [clientSecret, setClientSecret] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     axiosSecure
@@ -44,6 +45,8 @@ const CheckOutForm = ({ applicationId }) => {
     if (card == null) {
       return;
     }
+    // Set loading state to true when payment is being processed
+    setLoading(true);
 
     //   Use your card Element with other Stripe.js APIs
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -69,6 +72,7 @@ const CheckOutForm = ({ applicationId }) => {
           },
         },
       });
+    setLoading(false);
     if (confirmError) {
       console.log(confirmError);
 
@@ -130,7 +134,14 @@ const CheckOutForm = ({ applicationId }) => {
             : "bg-lightTeal hover:bg-teal-600"
         }`}
       >
-        Pay
+        {loading ? (
+          <span className="flex justify-center items-center">
+            <div className="w-5 h-5 border-t-2 border-white rounded-full animate-spin"></div>
+            <span className="ml-2">Processing...</span>
+          </span>
+        ) : (
+          "Pay"
+        )}
       </button>
     </form>
   );
