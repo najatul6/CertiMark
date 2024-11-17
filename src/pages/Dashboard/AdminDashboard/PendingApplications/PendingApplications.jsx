@@ -43,34 +43,34 @@ const PendingApplications = () => {
     return <Loading />;
   }
 
-  // Approve and Reject Applications
-  const handleApprove = (application) => {
-    const applicationData = {
-      Status: "Approved",
-      fee: application?.fee,
-      publishDate: new Date().toISOString(),
-      paymentId: application?.paymentId,
-      paymentDate: application?.paymentDate,
-    };
-    Swal.fire({
-      title: "Do you want to Approve?",
-      showCancelButton: true,
-      confirmButtonText: "Save",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        const updateData = await axiosSecure.patch(
-          `/applications/${application?._id}`,
-          applicationData
-        );
-        if (updateData.data?.modifiedCount > 0) {
-          refetch();
-          Swal.fire("Application Approved!", "", "success");
-        } else {
-          Swal.fire("Failed to Approve Application!", "", "error");
-        }
-      }
-    });
-  };
+  // // Approve and Reject Applications
+  // const handleApprove = (application) => {
+  //   const applicationData = {
+  //     Status: "Approved",
+  //     fee: application?.fee,
+  //     publishDate: new Date().toISOString(),
+  //     paymentId: application?.paymentId,
+  //     paymentDate: application?.paymentDate,
+  //   };
+  //   Swal.fire({
+  //     title: "Do you want to Approve?",
+  //     showCancelButton: true,
+  //     confirmButtonText: "Save",
+  //   }).then(async (result) => {
+  //     if (result.isConfirmed) {
+  //       const updateData = await axiosSecure.patch(
+  //         `/applications/${application?._id}`,
+  //         applicationData
+  //       );
+  //       if (updateData.data?.modifiedCount > 0) {
+  //         refetch();
+  //         Swal.fire("Application Approved!", "", "success");
+  //       } else {
+  //         Swal.fire("Failed to Approve Application!", "", "error");
+  //       }
+  //     }
+  //   });
+  // };
   const handleReject = (application) => {
     const applicationData = {
       Status: "Rejected",
