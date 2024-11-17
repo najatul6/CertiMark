@@ -9,7 +9,6 @@ import controller from "../../../../assets/cartificates/controller.png";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { toPng } from "html-to-image";
 import { imageUpload } from "../../../../utils/imageUpload";
-import Swal from "sweetalert2";
 import useApplicants from "../../../../hooks/useApplicants";
 import toast from "react-hot-toast";
 
