@@ -32,7 +32,7 @@ const ApplicationStatus = () => {
         const link = document.createElement("a");
         const url = URL.createObjectURL(blob);
         link.href = url;
-        link.download = `${app.name}'s certificate.jpg`; // You can customize the filename
+        link.download = `${app.name}'s certificate.jpg`; 
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
