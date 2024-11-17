@@ -24,15 +24,15 @@ const ApplicationStatus = () => {
     return date.toLocaleString("en-US", options);
   };
   // Certificate Download Function 
-  const downloadButton = async (certificateUrl) => {
+  const downloadButton =  async(app) => {
     try {
-      const response = await fetch(certificateUrl);
-      if (response.ok) {
+      const response = await fetch(app?.certificate);
+      if (response?.ok) {
         const blob = await response.blob();
         const link = document.createElement("a");
         const url = URL.createObjectURL(blob);
         link.href = url;
-        link.download = "certificate.jpg"; // You can customize the filename
+        link.download = `${app.name}'s certificate.jpg`; // You can customize the filename
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -161,7 +161,7 @@ const ApplicationStatus = () => {
                             ) : app.Status === "Approved" ? (
                               <button
                                 type="button"
-                                onClick={() => downloadButton(app.certificate)}
+                                onClick={() => downloadButton(app)}
                                 className="w-10 h-10 inline-flex items-center justify-center rounded border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600"
                               >
                                 <svg
