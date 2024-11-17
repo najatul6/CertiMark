@@ -11,7 +11,7 @@ const PendingApplications = () => {
   const [searchQuery, setSearchQuery] = useState();
   const [applicants, refetch, isPending] = useApplicants();
   const axiosSecure = useAxiosSecure();
-
+const [isLoading,setIsLoading]=useState(false)
   // Function to format date to AM/PM
   const formatDate = (dateString) => {
     const options = {
@@ -39,9 +39,7 @@ const PendingApplications = () => {
           user?.studentId.toLowerCase().includes(searchQuery.toLowerCase())
         : true
     );
-  if (isPending) {
-    return <Loading />;
-  }
+
 
   // // Approve and Reject Applications
   // const handleApprove = (application) => {
@@ -72,6 +70,7 @@ const PendingApplications = () => {
   //   });
   // };
   const handleReject = (application) => {
+    setIsLoading(true)
     const applicationData = {
       Status: "Rejected",
       fee: "Rejected",
@@ -91,6 +90,7 @@ const PendingApplications = () => {
         );
         if (updateData.data?.modifiedCount > 0) {
           refetch();
+          setIsLoading(false)
           Swal.fire("Application Rejected!", "", "success");
         } else {
           Swal.fire("Failed to Reject Application!", "", "error");
@@ -98,6 +98,10 @@ const PendingApplications = () => {
       }
     });
   };
+  
+  if (isPending || isLoading) {
+    return <Loading />;
+  }
   return (
     <div>
       <DashboardTitle title={"Pending Applications"} />
