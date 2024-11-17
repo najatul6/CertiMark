@@ -82,7 +82,7 @@ const PendingApplications = () => {
     Swal.fire({
       title: "Do you want to Reject?",
       showCancelButton: true,
-      confirmButtonText: "Save",
+      confirmButtonText: "Reject",
     }).then(async (result) => {
       if (result.isConfirmed) {
         const updateData = await axiosSecure.patch(
