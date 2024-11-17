@@ -6,7 +6,6 @@ import testimonial from "../../../../assets/cartificates/Testimonial.png";
 import clearnes from "../../../../assets/cartificates/clearanceCertificate .jpg";
 import compared from "../../../../assets/cartificates/compared.png";
 import controller from "../../../../assets/cartificates/controller.png";
-import { TbFidgetSpinner } from "react-icons/tb";
 import { toPng } from "html-to-image";
 import { imageUpload } from "../../../../utils/imageUpload";
 import useApplicants from "../../../../hooks/useApplicants";
@@ -316,10 +315,10 @@ const CreateCertificate = () => {
                 className="w-full mt-10 bg-[#3AAFA9] text-white py-3 rounded-lg font-semibold font-montserrat text-lg"
               >
                 {isLoading ? (
-                <>
-                 <span className="loading loading-bars loading-xs"></span>
-                 <span className="loading loading-bars loading-sm"></span>
-                </>
+                <span className="flex justify-center items-center">
+                <div className="w-5 h-5 border-t-2 border-white rounded-full animate-spin"></div>
+                <span className="ml-2">Processing...</span>
+              </span>
                 ) : (
                   "Generate Certificate & Approve"
                 )}
