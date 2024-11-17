@@ -23,6 +23,9 @@ const CreateCertificate = () => {
       <DashboardTitle title={"Create Certificate"} />
       <div className="grid grid-cols-2 place-items-center">
         <div className="w-full bg-white h-full">
+            {/* Testimonial Form  */}
+            <form></form>
+            {/* Testimonial Form  */}
             <form></form>
         </div>
         <div className="relative">

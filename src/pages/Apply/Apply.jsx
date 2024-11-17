@@ -105,9 +105,9 @@ const Apply = () => {
                     : "border-gray-300"
                 } rounded-md p-2`}
               >
-                <option value="completion">Completion Certificate</option>
+                <option value="clearance">Clearance Certificate</option>
                 <option value="testimonial">Testimonial</option>
-                <option value="diploma">Diploma</option>
+                {/* <option value="diploma">Diploma</option> */}
               </select>
               {errors.certificateType && (
                 <p className="text-[#E76F51] text-sm">
