@@ -53,7 +53,7 @@ const HowItWork = () => {
                         <div className="flex flex-col items-center justify-center mr-5">
                             <div
                                 className="flex items-center justify-center h-20 w-20 rounded-full bg-lightTeal text-white border-4 border-white text-xl font-semibold">
-                                3
+                                03
                             </div>
                             <span className="text-white">STEP</span>
                         </div>
