@@ -3,7 +3,7 @@ const Features = () => {
     <div className="bg-gray-50 py-16 px-5 md:px-20">
       <div
         className="relative pt-20 pb-10 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('./2.jpg')" }}
+        style={{ backgroundImage: "url('./3.jpeg')" }}
       >
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-indigo-700 to-transparent opacity-80"></div>

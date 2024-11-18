@@ -24,6 +24,7 @@ import Payment from "../pages/Dashboard/UserDashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory/PaymentHistory";
 import CreateCertificate from "../pages/Dashboard/AdminDashboard/CreateCertificate/CreateCertificate";
 import About from "../pages/About/About";
+import Features from "../pages/Feature/Feature";
 
 const Routes = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const Routes = createBrowserRouter([
       {
         path:"aboutUs",
         element:<About/>
+      },
+      {
+        path:"features",
+        element:<Features/>
       },
       {
         path: "contactUs",
