@@ -6,11 +6,15 @@ const Features = () => {
         style={{ backgroundImage: "url('./3.jpeg')" }}
       >
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-indigo-700 to-transparent opacity-80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-600 via-gray-700 to-transparent opacity-80"></div>
         <div className="relative text-center text-white max-w-4xl mx-auto px-6 py-10">
           <h1 className="text-3xl font-bold text-center text-lightTeal-600 mb-10">
             Features
           </h1>
+          <p className="text-lg font-medium text-gray-200">
+            Discover the key functionalities and benefits of our online document
+            issuing platform.
+          </p>
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 lg:p-0 mt-10">
