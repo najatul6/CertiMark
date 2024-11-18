@@ -2,7 +2,7 @@ const About = () => {
   return (
     <div className="gradient-background py-10 ">
       <div
-        className="relative py-20 bg-cover bg-center bg-no-repeat"
+        className="relative pt-20 pb-10 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('./2.jpg')" }}
       >
         {/* Gradient Overlay */}
@@ -10,7 +10,7 @@ const About = () => {
 
         {/* Content */}
         <div className="relative text-center text-white max-w-4xl mx-auto px-6 py-10">
-          <h1 className="text-3xl font-bold mb-6">About Us</h1>
+          <h1 className="text-3xl font-bold mb-6 underline">About Us</h1>
           <p className="leading-relaxed text-lg mb-6">
             Welcome to{" "}
             <span className="font-semibold">
@@ -22,22 +22,22 @@ const About = () => {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto ">
+      <div className="max-w-4xl mx-auto mt-5 px-4 lg:p-0">
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-teal-500 mb-4">
+          <h2 className="text-2xl font-semibold text-teal mb-4">
             Our Mission
           </h2>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-300 leading-relaxed">
             Our mission is to simplify the process of applying for and issuing
             official student documents, ensuring accuracy, transparency, and
             accessibility for all students of Rangpur Polytechnic Institute.
           </p>
         </section>
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-teal-500 mb-4">
+          <h2 className="text-2xl font-semibold text-teal mb-4">
             What We Offer
           </h2>
-          <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
+          <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-2">
             <li>
               <span className="font-semibold">Apply for Certificates:</span>{" "}
               Students can easily apply for various certificates, including
@@ -60,10 +60,10 @@ const About = () => {
           </ul>
         </section>
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-teal-500 mb-4">
+          <h2 className="text-2xl font-semibold text-teal mb-4">
             Why Choose Us?
           </h2>
-          <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
+          <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-2">
             <li>
               <span className="font-semibold">Time-Saving:</span> No more
               waiting in long queues or navigating complex paperwork.
@@ -85,25 +85,25 @@ const About = () => {
           </ul>
         </section>
         <section>
-          <h2 className="text-2xl font-semibold text-teal-500 mb-4">
+          <h2 className="text-2xl font-semibold text-teal mb-4">
             For Students
           </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          <p className="text-gray-300 leading-relaxed mb-4">
             If you are a student of Rangpur Polytechnic Institute, this platform
             is here to empower you. From applying to downloading, every step is
             just a few clicks away.
           </p>
-          <h2 className="text-2xl font-semibold text-teal-500 mb-4">
+          <h2 className="text-2xl font-semibold text-teal mb-4">
             For Administrators
           </h2>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-300 leading-relaxed">
             For the administrative team, our platform provides a robust system
             to manage applications, approve requests, and generate documents
             efficiently.
           </p>
         </section>
         <div className="mt-8 text-center">
-          <p className="text-gray-700 font-medium">
+          <p className="text-gray-300 font-medium">
             Join us as we embrace technology to make document issuing faster and
             hassle-free.
           </p>
