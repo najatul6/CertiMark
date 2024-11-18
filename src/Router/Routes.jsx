@@ -23,6 +23,7 @@ import Apply from "../pages/Apply/Apply";
 import Payment from "../pages/Dashboard/UserDashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory/PaymentHistory";
 import CreateCertificate from "../pages/Dashboard/AdminDashboard/CreateCertificate/CreateCertificate";
+import About from "../pages/About/About";
 
 const Routes = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const Routes = createBrowserRouter([
       {
         path: "eVerification",
         element: <EVerification />,
+      },
+      {
+        path:"aboutUs",
+        element:<About/>
       },
       {
         path: "contactUs",

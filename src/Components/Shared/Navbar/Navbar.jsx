@@ -50,21 +50,6 @@ const Navbar = () => {
        Apply
         <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-lightTeal transition-transform origin-left transform scale-x-0 group-hover:scale-x-100 duration-200 w-full"></span>
       </NavLink>
-      
-      <NavLink
-        to={"/eVerification"}
-        onClick={() => {
-          if (window.innerWidth < 1024) setMobileMenuOpen(false); 
-        }}
-        className={({ isActive }) =>
-          isActive
-            ? "relative border-b-2 border-lightTeal inline-block text-lightTeal hover:text-white group font-semibold pt-2 pl-1 pr-2"
-            : "relative border-b-2 border-transparent inline-block text-white hover:text-white group font-semibold pt-2 pl-1 pr-2"
-        }
-      >
-       E-Verification
-        <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-lightTeal transition-transform origin-left transform scale-x-0 group-hover:scale-x-100 duration-200 w-full"></span>
-      </NavLink>
       <NavLink
         to={"/contactUs"}
         onClick={() => {
@@ -79,6 +64,21 @@ const Navbar = () => {
        Support
         <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-lightTeal transition-transform origin-left transform scale-x-0 group-hover:scale-x-100 duration-200 w-full"></span>
       </NavLink>
+      <NavLink
+        to={"/aboutUs"}
+        onClick={() => {
+          if (window.innerWidth < 1024) setMobileMenuOpen(false); 
+        }}
+        className={({ isActive }) =>
+          isActive
+            ? "relative border-b-2 border-lightTeal inline-block text-lightTeal hover:text-white group font-semibold pt-2 pl-1 pr-2"
+            : "relative border-b-2 border-transparent inline-block text-white hover:text-white group font-semibold pt-2 pl-1 pr-2"
+        }
+      >
+      About Us
+        <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-lightTeal transition-transform origin-left transform scale-x-0 group-hover:scale-x-100 duration-200 w-full"></span>
+      </NavLink>
+     
     </>
   );
   return (
