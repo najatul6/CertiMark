@@ -1,6 +1,6 @@
 const Features = () => {
   return (
-    <div className="bg-gray-50 py-16 px-5 md:px-20">
+    <div className="gradient-background py-16">
       <div
         className="relative pt-20 pb-10 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('./3.jpeg')" }}
@@ -8,16 +8,16 @@ const Features = () => {
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-indigo-700 to-transparent opacity-80"></div>
         <div className="relative text-center text-white max-w-4xl mx-auto px-6 py-10">
-          <h1 className="text-3xl font-bold text-center text-teal-600 mb-10">
+          <h1 className="text-3xl font-bold text-center text-lightTeal-600 mb-10">
             Features
           </h1>
         </div>
       </div>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 lg:p-0 mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Feature 1 */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-xl font-semibold text-teal-500 mb-4">
+          <div className="border shadow-lg rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-lightTeal mb-4">
               Online Application
             </h2>
             <p className="text-gray-700 leading-relaxed">
@@ -27,8 +27,8 @@ const Features = () => {
             </p>
           </div>
           {/* Feature 2 */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-xl font-semibold text-teal-500 mb-4">
+          <div className="border shadow-lg rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-lightTeal mb-4">
               Secure Payment System
             </h2>
             <p className="text-gray-700 leading-relaxed">
@@ -37,8 +37,8 @@ const Features = () => {
             </p>
           </div>
           {/* Feature 3 */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-xl font-semibold text-teal-500 mb-4">
+          <div className="border shadow-lg rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-lightTeal mb-4">
               Admin Approval
             </h2>
             <p className="text-gray-700 leading-relaxed">
@@ -47,8 +47,8 @@ const Features = () => {
             </p>
           </div>
           {/* Feature 4 */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-xl font-semibold text-teal-500 mb-4">
+          <div className="border shadow-lg rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-lightTeal mb-4">
               Instant Document Download
             </h2>
             <p className="text-gray-700 leading-relaxed">
@@ -57,8 +57,8 @@ const Features = () => {
             </p>
           </div>
           {/* Feature 5 */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-xl font-semibold text-teal-500 mb-4">
+          <div className="border shadow-lg rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-lightTeal mb-4">
               Real-Time Status Tracking
             </h2>
             <p className="text-gray-700 leading-relaxed">
@@ -67,8 +67,8 @@ const Features = () => {
             </p>
           </div>
           {/* Feature 6 */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-xl font-semibold text-teal-500 mb-4">
+          <div className="border shadow-lg rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-lightTeal mb-4">
               User-Friendly Dashboard
             </h2>
             <p className="text-gray-700 leading-relaxed">
