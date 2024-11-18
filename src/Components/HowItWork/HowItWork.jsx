@@ -1,15 +1,12 @@
-import '../'
 const HowItWork = () => {
   return (
-    <div className="">
+    <div className="gradient-background">
     <div className="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
 
         <div className="text-center">
-            <p className="mt-4 text-sm leading-7 text-gray-500 font-regular">
-                STEPS
-            </p>
-            <h3 className="text-3xl sm:text-5xl leading-normal font-extrabold tracking-tight text-gray-900">
-                How it <span className="text-indigo-600">Works?</span>
+            
+            <h3 className="text-3xl mt-5 sm:text-5xl leading-normal font-extrabold tracking-tight text-white">
+                How it <span className="text-lightTeal">Works?</span>
             </h3>
 
         </div>
