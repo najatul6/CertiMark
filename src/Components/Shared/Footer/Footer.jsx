@@ -67,7 +67,7 @@ const Footer = () => {
 
         {/* Bottom Text */}
         <div className="text-center mt-8 text-sm">
-          <p>&copy;2024 <span className="text-teal font-bold">CertiMark</span>. All rights reserved.| Developed By - <Link target="_blank" className="text-lightTeal font-bold hover:underline" to={"https://www.najatulislam.me"}>Najatul Islam</Link></p>
+          <p>&copy; 2024 All rights reserved <span className="text-teal font-bold">CertiMark</span>.| Developed By - <Link target="_blank" className="text-lightTeal font-bold hover:underline" to={"https://www.najatulislam.me"}>Najatul Islam</Link></p>
         </div>
       </div>
     </footer>
