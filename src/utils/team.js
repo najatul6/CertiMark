@@ -91,7 +91,7 @@ export const teams=[
         "_id":'672abca0618b4430ee3b5ffC',
         "Name":"Md. ATIKUR RAHMAN",
         "Email":"atikur49a@gmail.com",
-        "skill":"Full Stack Developer",
+        "skill":"Presentation",
         "image":`${atikur}`,
         "fbLink":"https://www.facebook.com/atik420a?mibextid=ZbWKwL",
         "github":"https://github.com/atikur49a",
