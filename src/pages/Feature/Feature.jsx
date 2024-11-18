@@ -24,7 +24,7 @@ const Features = () => {
             <h2 className="text-xl font-semibold text-lightTeal mb-4">
               Online Application
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               Students can apply for certificates, marksheets, and
               recommendation letters directly through an easy-to-use online
               platform.
@@ -35,7 +35,7 @@ const Features = () => {
             <h2 className="text-xl font-semibold text-lightTeal mb-4">
               Secure Payment System
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               Integrated secure payment gateway for hassle-free fee payments,
               ensuring data privacy and security.
             </p>
@@ -45,7 +45,7 @@ const Features = () => {
             <h2 className="text-xl font-semibold text-lightTeal mb-4">
               Admin Approval
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               Applications are reviewed and approved by administrators to ensure
               accuracy and compliance.
             </p>
@@ -55,7 +55,7 @@ const Features = () => {
             <h2 className="text-xl font-semibold text-lightTeal mb-4">
               Instant Document Download
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               Once approved, students can download their verified documents
               instantly from their dashboard.
             </p>
@@ -65,7 +65,7 @@ const Features = () => {
             <h2 className="text-xl font-semibold text-lightTeal mb-4">
               Real-Time Status Tracking
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               Track the status of your application in real-time to stay informed
               every step of the way.
             </p>
@@ -75,7 +75,7 @@ const Features = () => {
             <h2 className="text-xl font-semibold text-lightTeal mb-4">
               User-Friendly Dashboard
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               Simplified dashboard for both students and administrators to
               manage applications efficiently.
             </p>
