@@ -2,14 +2,16 @@ const About = () => {
   return (
     <div className="gradient-background py-10 ">
       <div
-        className="py-20 bg-cover bg-center bg-no-repeat"
+        className="relative py-20 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('./2.jpg')" }}
       >
-        <div className=" px-6 py-10 w-full mx-auto rounded-lg shadow-md">
-          <h1 className="text-3xl font-bold text-center text-teal-600 mb-6">
-            About Us
-          </h1>
-          <p className="text-gray-700 leading-relaxed text-lg mb-6">
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-indigo-700 to-transparent opacity-80"></div>
+
+        {/* Content */}
+        <div className="relative text-center text-white max-w-4xl mx-auto px-6 py-10">
+          <h1 className="text-3xl font-bold mb-6">About Us</h1>
+          <p className="leading-relaxed text-lg mb-6">
             Welcome to{" "}
             <span className="font-semibold">
               Rangpur Polytechnic Institute Online Document Issuing Platform
@@ -19,6 +21,7 @@ const About = () => {
           </p>
         </div>
       </div>
+
       <div className="max-w-4xl mx-auto ">
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-teal-500 mb-4">
