@@ -24,9 +24,10 @@ const About = () => {
 
       <div className="max-w-4xl mx-auto mt-5 px-4 lg:p-0">
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-teal mb-4">
+          <h2 className="text-2xl font-semibold text-teal mb-4 underline">
             Our Mission
           </h2>
+          <hr className="mb-2" />
           <p className="text-gray-300 leading-relaxed">
             Our mission is to simplify the process of applying for and issuing
             official student documents, ensuring accuracy, transparency, and
@@ -34,9 +35,10 @@ const About = () => {
           </p>
         </section>
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-teal mb-4">
+          <h2 className="text-2xl font-semibold text-teal mb-4 ">
             What We Offer
           </h2>
+          <hr className="mb-2" />
           <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-2">
             <li>
               <span className="font-semibold">Apply for Certificates:</span>{" "}
@@ -63,6 +65,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-teal mb-4">
             Why Choose Us?
           </h2>
+          <hr className="mb-2" />
           <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-2">
             <li>
               <span className="font-semibold">Time-Saving:</span> No more
@@ -88,6 +91,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-teal mb-4">
             For Students
           </h2>
+          <hr className="mb-2" />
           <p className="text-gray-300 leading-relaxed mb-4">
             If you are a student of Rangpur Polytechnic Institute, this platform
             is here to empower you. From applying to downloading, every step is
@@ -96,6 +100,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-teal mb-4">
             For Administrators
           </h2>
+          <hr className="mb-2" />
           <p className="text-gray-300 leading-relaxed">
             For the administrative team, our platform provides a robust system
             to manage applications, approve requests, and generate documents
@@ -103,10 +108,12 @@ const About = () => {
           </p>
         </section>
         <div className="mt-8 text-center">
+        <hr className="mb-2 w-1/2 mx-auto" />
           <p className="text-gray-300 font-medium">
             Join us as we embrace technology to make document issuing faster and
             hassle-free.
           </p>
+          <hr className="mt-2 w-1/2 mx-auto" />
         </div>
       </div>
     </div>
