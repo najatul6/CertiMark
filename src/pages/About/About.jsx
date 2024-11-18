@@ -1,15 +1,25 @@
-
 const About = () => {
   return (
-    <div className="gradient-background py-10 px-5 md:px-20">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-center text-teal-600 mb-6">
-          About Us
-        </h1>
-        <p className="text-gray-700 leading-relaxed text-lg mb-6">
-          Welcome to <span className="font-semibold">Rangpur Polytechnic Institute Online Document Issuing Platform</span>,
-          your one-stop solution for managing and obtaining student documents efficiently.
-        </p>
+    <div className="gradient-background py-10 ">
+      <div
+        className="py-20 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('./2.jpg')" }}
+      >
+        <div className=" px-6 py-10 w-full mx-auto rounded-lg shadow-md">
+          <h1 className="text-3xl font-bold text-center text-teal-600 mb-6">
+            About Us
+          </h1>
+          <p className="text-gray-700 leading-relaxed text-lg mb-6">
+            Welcome to{" "}
+            <span className="font-semibold">
+              Rangpur Polytechnic Institute Online Document Issuing Platform
+            </span>
+            , your one-stop solution for managing and obtaining student
+            documents efficiently.
+          </p>
+        </div>
+      </div>
+      <div className="max-w-4xl mx-auto ">
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-teal-500 mb-4">
             Our Mission
@@ -26,16 +36,23 @@ const About = () => {
           </h2>
           <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
             <li>
-              <span className="font-semibold">Apply for Certificates:</span> Students can easily apply for various certificates, including academic certificates, recommendation letters, and marksheets.
+              <span className="font-semibold">Apply for Certificates:</span>{" "}
+              Students can easily apply for various certificates, including
+              academic certificates, recommendation letters, and marksheets.
             </li>
             <li>
-              <span className="font-semibold">Secure Online Payments:</span> Pay application fees securely through our integrated payment gateway.
+              <span className="font-semibold">Secure Online Payments:</span> Pay
+              application fees securely through our integrated payment gateway.
             </li>
             <li>
-              <span className="font-semibold">Admin Approval Process:</span> Applications are reviewed by the admin team to ensure authenticity and compliance.
+              <span className="font-semibold">Admin Approval Process:</span>{" "}
+              Applications are reviewed by the admin team to ensure authenticity
+              and compliance.
             </li>
             <li>
-              <span className="font-semibold">Instant Downloads:</span> Once approved, students can download their verified certificates directly from their dashboard.
+              <span className="font-semibold">Instant Downloads:</span> Once
+              approved, students can download their verified certificates
+              directly from their dashboard.
             </li>
           </ul>
         </section>
@@ -45,16 +62,22 @@ const About = () => {
           </h2>
           <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
             <li>
-              <span className="font-semibold">Time-Saving:</span> No more waiting in long queues or navigating complex paperwork.
+              <span className="font-semibold">Time-Saving:</span> No more
+              waiting in long queues or navigating complex paperwork.
             </li>
             <li>
-              <span className="font-semibold">Secure:</span> We use state-of-the-art encryption and secure payment systems to protect your data.
+              <span className="font-semibold">Secure:</span> We use
+              state-of-the-art encryption and secure payment systems to protect
+              your data.
             </li>
             <li>
-              <span className="font-semibold">Transparent:</span> Track the status of your application in real time.
+              <span className="font-semibold">Transparent:</span> Track the
+              status of your application in real time.
             </li>
             <li>
-              <span className="font-semibold">User-Friendly Interface:</span> Our intuitive platform ensures a seamless experience for both students and administrators.
+              <span className="font-semibold">User-Friendly Interface:</span>{" "}
+              Our intuitive platform ensures a seamless experience for both
+              students and administrators.
             </li>
           </ul>
         </section>
@@ -63,18 +86,23 @@ const About = () => {
             For Students
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            If you are a student of Rangpur Polytechnic Institute, this platform is here to empower you. From applying to downloading, every step is just a few clicks away.
+            If you are a student of Rangpur Polytechnic Institute, this platform
+            is here to empower you. From applying to downloading, every step is
+            just a few clicks away.
           </p>
           <h2 className="text-2xl font-semibold text-teal-500 mb-4">
             For Administrators
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            For the administrative team, our platform provides a robust system to manage applications, approve requests, and generate documents efficiently.
+            For the administrative team, our platform provides a robust system
+            to manage applications, approve requests, and generate documents
+            efficiently.
           </p>
         </section>
         <div className="mt-8 text-center">
           <p className="text-gray-700 font-medium">
-            Join us as we embrace technology to make document issuing faster and hassle-free.
+            Join us as we embrace technology to make document issuing faster and
+            hassle-free.
           </p>
         </div>
       </div>
