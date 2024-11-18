@@ -38,11 +38,11 @@ const HowItWork = () => {
                                 className="flex items-center justify-center h-20 w-20 rounded-full bg-lightTeal text-white border-4 border-white text-xl font-semibold">
                                 02
                             </div>
-                            <span className="text-gray-500">STEP</span>
+                            <span className="text-white">STEP</span>
                         </div>
                         <div className="border-2 rounded-xl p-5 pb-10 ">
-                            <h4 className="text-lg leading-6 font-semibold text-gray-900">Check Status</h4>
-                            <p className="mt-2 text-base leading-6 text-gray-500">
+                            <h4 className="text-lg leading-6 font-semibold text-lightTeal">Check Status</h4>
+                            <p className="mt-2 text-base leading-6 text-teal">
                                Check application status by click on the application status button. You will get the status of your application.
                             </p>
                         </div>
