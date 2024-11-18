@@ -6,7 +6,7 @@ const About = () => {
         style={{ backgroundImage: "url('./2.jpg')" }}
       >
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-indigo-700 to-transparent opacity-80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-600 via-gray-700 to-transparent opacity-80"></div>
 
         {/* Content */}
         <div className="relative text-center text-white max-w-4xl mx-auto px-6 py-10">
