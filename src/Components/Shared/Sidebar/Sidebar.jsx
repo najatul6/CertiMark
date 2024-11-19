@@ -13,7 +13,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const { logOut } = useAuth();
   const navigate = useNavigate();
   //  Get User Role from Data base
-  const [userRole]=useRole()
+  const [userRole] = useRole();
   const handleLogOut = async () => {
     // Show processing toast
     const loadingToast = toast.loading("Processing...");
@@ -70,30 +70,33 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           </svg>
         </button>
       </div>
-      <hr className="mb-2"/>
-
-      {/* conditionally show sidebar for user */}
-      {userRole ? <AdminSidebar /> : <UserSidebar />}
-      {/* Profile and Logout at the bottom */}
-      <div className="absolute bottom-0 w-full px-2 space-y-2 pb-5">
-        <NavLink
-          to="/dashboard/profile"
-          className={({ isActive }) =>
-            `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
-              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
-            }`
-          }
+      <hr className="mb-2" />
+      <div>
+        {/* conditionally show sidebar for user */}
+        {userRole ? <AdminSidebar /> : <UserSidebar />}
+        {/* Profile and Logout at the bottom */}
+        <div 
+        // className="absolute bottom-0 w-full px-2 space-y-2 pb-5"
         >
-          <FaUser />
-          <span>Profile</span>
-        </NavLink>
-        <NavLink
-          onClick={handleLogOut}
-          className="flex items-center p-3 space-x-3  rounded-s-xl hover:bg-red-600"
-        >
-          <FaSignOutAlt />
-          <span>Logout</span>
-        </NavLink>
+          <NavLink
+            to="/dashboard/profile"
+            className={({ isActive }) =>
+              `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
+                isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+              }`
+            }
+          >
+            <FaUser />
+            <span>Profile</span>
+          </NavLink>
+          <NavLink
+            onClick={handleLogOut}
+            className="flex items-center p-3 space-x-3  rounded-s-xl hover:bg-red-600"
+          >
+            <FaSignOutAlt />
+            <span>Logout</span>
+          </NavLink>
+        </div>
       </div>
     </div>
   );

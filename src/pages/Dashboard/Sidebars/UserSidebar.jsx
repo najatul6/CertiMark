@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaFileAlt, FaDownload, FaHome, FaHistory } from "react-icons/fa";
+import { FaFileAlt, FaHome, FaHistory } from "react-icons/fa";
 
 const UserSidebar = () => {
   return (
