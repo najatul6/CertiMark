@@ -14,6 +14,7 @@ import {
 import { app } from "../firebase/firebase.config";
 import PropTypes from "prop-types";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -22,7 +23,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const axiosPublic=useAxiosPublic()
+  const axiosPublic = useAxiosPublic();
 
   //   Sign Up with Email & Password
   const createUser = (email, password) => {
@@ -71,29 +72,29 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
-        const userData={email: currentUser.email}
-        //  Get token and store client side
-        axiosPublic.post("/jwt",userData)
-        .then(res=>{
-          // Store token on local storage
-          if(res?.data?.token){
-
-            localStorage.setItem('access-token',res.data.token)
+        try {
+          const userData = { email: currentUser.email };
+          const res = await axiosPublic.post("/jwt", userData);
+          if (res?.data?.token) {
+            localStorage.setItem("access-token", res.data.token);
           }
-        })
+        } catch (err) {
+          toast.error("Token fetch failed:", err.message);
+          logOut(); 
+        }
       } else {
-        // Remove local stored token
-        localStorage.removeItem('access-token')
+        localStorage.removeItem("access-token");
       }
       setLoading(false);
     });
     return () => {
-      return unsubscribe();
+      unsubscribe();
     };
   }, [axiosPublic]);
+
   const authInfo = {
     user,
     loading,
