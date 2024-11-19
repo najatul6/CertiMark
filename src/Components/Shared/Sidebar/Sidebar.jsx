@@ -71,12 +71,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         </button>
       </div>
       <hr className="mb-2" />
-      <div>
-        {/* conditionally show sidebar for user */}
-        {userRole ? <AdminSidebar /> : <UserSidebar />}
+      <div className="flex flex-col justify-between border h-full">
+       <div>
+         {/* conditionally show sidebar for user */}
+         {userRole ? <AdminSidebar /> : <UserSidebar />}
+       </div>
         {/* Profile and Logout at the bottom */}
         <div 
-        // className="absolute bottom-0 w-full px-2 space-y-2 pb-5"
+        className="w-full px-2 space-y-2 pb-2"
         >
           <NavLink
             to="/dashboard/profile"
