@@ -134,7 +134,7 @@ export const teams=[
     // Mollica 
     {
         "_id":'672abca0618b443ju70e3fb5ffC',
-        "Name":"Mollica Sorkar",
+        "Name":"Mollica Sorker",
         "Email":"isratjahan440435@gmail.com",
         "skill":"Graphic Designer",
         "image":`${israt}`,
