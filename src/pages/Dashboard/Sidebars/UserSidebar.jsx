@@ -30,7 +30,7 @@ const UserSidebar = () => {
           Application Status
         </NavLink>
 
-        <NavLink
+        {/* <NavLink
           to="/dashboard/downloads"
           className={({ isActive }) =>
             `flex items-center p-3  rounded-s-xl text-lg hover:bg-teal ${
@@ -40,7 +40,7 @@ const UserSidebar = () => {
         >
           <FaDownload className="mr-3" />
           Downloads
-        </NavLink>
+        </NavLink> */}
 
         <NavLink
           to="/dashboard/paymentHistory"
