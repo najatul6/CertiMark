@@ -32,7 +32,7 @@ const Register = () => {
     const loadingToastId = toast.loading("Signing Up...");
     try {
       // Create User
-      const result = await createUser(data.email, data.password);
+      const result = await createUser(data?.email, data?.password);
       const loggedUser = result.user;
 
       // If user creation is successful and an image is provided

@@ -29,7 +29,7 @@ const LogIn = () => {
     const loadingToastId = toast.loading("Signing In...");
     try {
       // User LogIn
-      await userLogIn(data.email, data.password);
+      await userLogIn(data?.email, data?.password);
       navigate(from, { replace: true });
       reset();
       toast.success("Log In Successful");
