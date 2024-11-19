@@ -8,7 +8,7 @@ const Profile = () => {
   const axiosPublic = useAxiosPublic();
   const {user}=useAuth()
   const { data: userData = [], isLoading } = useQuery({
-    queryKey: ["userData", user.email],
+    queryKey: ["userData", user?.email],
     queryFn: async () => {
       const res = await axiosPublic.get(`/user/${user.email}`);
       return res.data;
