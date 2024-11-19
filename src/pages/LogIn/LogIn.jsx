@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import './loginStyle.css'
+import Swal from "sweetalert2";
 const LogIn = () => {
   const {
     register,
@@ -32,7 +33,7 @@ const LogIn = () => {
       await userLogIn(data?.email, data?.password);
       navigate(from, { replace: true });
       reset();
-      toast.success("Log In Successful");
+      Swal.fire("Log In Successful");
     } catch (err) {
       toast.error(err?.code);
     } finally {
