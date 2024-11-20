@@ -71,7 +71,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         </button>
       </div>
       <hr className="mb-2" />
-      <div className="flex flex-col justify-between border h-full">
+      <div className="flex flex-col justify-between h-full">
        <div>
          {/* conditionally show sidebar for user */}
          {userRole ? <AdminSidebar /> : <UserSidebar />}
