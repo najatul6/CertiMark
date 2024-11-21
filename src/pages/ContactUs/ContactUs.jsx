@@ -14,8 +14,14 @@ const ContactUs = () => {
     // TODO: Implement form submission logic here (e.g., API call)
     console.log("Contact form submitted:", data);
     axiosPublic.post('/support',data)
-    .then(res=>console.log(res.data))
-    Swal.fire("Your message has been sent!");
+    .then(res=>{
+      if(res.data.insertedId){
+        Swal.fire("Your message has been sent!");
+      }
+      else{
+        Swal.fire("Oops!", "Something went wrong", "error");
+      }
+    })
   };
 
   return (
