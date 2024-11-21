@@ -35,7 +35,7 @@ const Team = () => {
       <hr className="w-1/3 mx-auto mt-2" />
       {/* Teams Data Show here  */}
       <div>
-        <div className="md:w-11/12 flex justify-center items-center mx-auto px-2 md:p-4 mt-12">
+        <div className="max-w-screen-2xl flex justify-center items-center mx-auto px-2 md:p-4 mt-12">
           {/* <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 max-md:justify-center mt-12"> */}
           <Swiper
             autoplay={{
@@ -61,7 +61,7 @@ const Team = () => {
           >
             {teams?.map((team) => (
               <SwiperSlide key={team?._id}>
-                <div className="card">
+                <div className="card w-full mx-auto">
                   <img src={team?.image} alt="" />
                   <div className="content">
                     <p className="title ">
