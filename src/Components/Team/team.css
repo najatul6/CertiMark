@@ -155,13 +155,14 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background: #3aafa9;
-  color: #fff;
+  background: #fff;
+  color: #3aafa9;
   border: none;
-  padding: 10px 15px;
+  padding: 2px 15px;
   cursor: pointer;
-  border-radius: 50%;
-  font-size: 20px;
+  /* border-radius: 50%; */
+  font-size: 25px;
+  font-weight: 900;
   transition: background 0.3s ease;
 }
 
@@ -176,4 +177,5 @@
 .custom-navigation .custom-prev:hover,
 .custom-navigation .custom-next:hover {
   background: #2a7f7d;
+  color: #fff;
 }
