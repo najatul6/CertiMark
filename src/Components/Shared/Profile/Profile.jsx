@@ -43,9 +43,9 @@ const Profile = () => {
             />
           </div>
           <div className="flex flex-col justify-start items-start mx-auto gap-2 mt-10">
-            <h2 className="text-lg"><span className="text-xl font-bold text-white mr-2">Name:</span> {userData?.name}</h2>
-            <h2 className="text-lg"><span className="text-xl font-bold text-white mr-2">Email:</span> {userData?.email}</h2>
-            <h2 className="text-lg"><span className="text-xl font-bold text-white mr-2">Join Date:</span> {formatDate(userData?.joinDate)}</h2>
+            <h2 className="text-lg text-lightTeal"><span className="text-xl font-bold text-white mr-2">Name:</span> {userData?.name}</h2>
+            <h2 className="text-lg text-lightTeal"><span className="text-xl font-bold text-white mr-2">Email:</span> {userData?.email}</h2>
+            <h2 className="text-lg text-lightTeal"><span className="text-xl font-bold text-white mr-2">Join Date:</span> {formatDate(userData?.joinDate)}</h2>
           </div>
 
           {/* <div className="items-center mt-8 sm:mt-14 text-[#202142]">
