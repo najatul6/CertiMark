@@ -63,7 +63,7 @@ const AdminSidebar = () => {
           <span>User Management</span>
         </NavLink>
         <NavLink
-          to="/dashboard/user-management"
+          to="/dashboard/support"
           className={({ isActive }) =>
             `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
