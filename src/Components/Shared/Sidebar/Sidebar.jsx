@@ -93,7 +93,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           </NavLink>
           <NavLink
             onClick={handleLogOut}
-            className="flex items-center p-3 space-x-3  rounded-s-xl hover:bg-red-600"
+            className="flex items-center p-3 space-x-3 text-white rounded-s-xl hover:bg-red-600"
           >
             <FaSignOutAlt />
             <span>Logout</span>
