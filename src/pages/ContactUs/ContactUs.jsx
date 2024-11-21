@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import '../LogIn/loginStyle.css'
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 const ContactUs = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const axiosPublic=useAxiosPublic()
 
   const onSubmit = (data) => {
     // TODO: Implement form submission logic here (e.g., API call)
