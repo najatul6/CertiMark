@@ -110,28 +110,16 @@ const Support = () => {
               <thead className="bg-lightTeal text-wrap whitespace-nowrap  text-white">
                 <tr>
                   <th className="p-4 text-left capitalize font-medium border-r">
-                    student name
+                    Name
                   </th>
                   <th className="p-4 text-left capitalize font-medium border-r">
-                    Student ID
+                   Email
                   </th>
                   <th className="p-4 text-left capitalize font-medium border-r">
-                    Registration No.
-                  </th>
-                  <th className="p-4 text-left capitalize font-medium border-r">
-                    Technology
+                    User Email
                   </th>
                   <th className="p-4 text-left capitalize font-medium border-r">
                     Reason
-                  </th>
-                  <th className="p-4 text-left capitalize font-medium border-r">
-                    year Of Completion
-                  </th>
-                  <th className="p-4 text-left capitalize font-medium border-r">
-                    Apply Date
-                  </th>
-                  <th className="p-4 text-left capitalize font-medium border-r">
-                    Payment Status
                   </th>
                   <th className="p-4 text-left capitalize font-medium">
                     Actions
