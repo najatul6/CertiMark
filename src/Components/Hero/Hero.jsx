@@ -42,11 +42,11 @@ const Hero = () => {
                     Apply Now
                   </button>
                 </Link>
-                <Link to="/eVerification">
+                {/* <Link to="/eVerification">
                   <button className="bg-transparent border-2 border-lightTeal text-lightTeal hover:bg-lightTeal hover:text-white transition duration-300 px-6 py-3 rounded-lg text-lg font-semibold">
                     Verify Certificate
                   </button>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -75,11 +75,11 @@ const Hero = () => {
                     Get Started
                   </button>
                 </Link>
-                <Link to="/eVerification">
+                {/* <Link to="/eVerification">
                   <button className="bg-transparent border-2 border-lightTeal text-lightTeal hover:bg-lightTeal hover:text-white transition duration-300 px-6 py-3 rounded-lg text-lg font-semibold">
                     Verify Now
                   </button>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -109,11 +109,11 @@ const Hero = () => {
                     Start Now
                   </button>
                 </Link>
-                <Link to="/eVerification">
+                {/* <Link to="/eVerification">
                   <button className="bg-transparent border-2 border-lightTeal text-lightTeal hover:bg-lightTeal hover:text-white transition duration-300 px-6 py-3 rounded-lg text-lg font-semibold">
                     Verify Instantly
                   </button>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
