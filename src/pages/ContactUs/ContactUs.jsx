@@ -10,7 +10,6 @@ const ContactUs = () => {
 
   const onSubmit = (data) => {
     // TODO: Implement form submission logic here (e.g., API call)
-    //  TODO: Add Screenshort upload button
     console.log("Contact form submitted:", data);
     Swal.fire("Your message has been sent!");
   };
