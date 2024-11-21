@@ -2,7 +2,7 @@
 .card {
   position: relative;
   width: 300px;
-  height: 400px;
+  height: 300px;
   background: #3aafa9;
   border: 1px solid white;
   display: flex;

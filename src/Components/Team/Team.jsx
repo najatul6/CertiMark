@@ -64,7 +64,7 @@ const Team = () => {
               },
               // When window width is >= 1024px, show 3 slides
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 4,
               },
             }}
           >
