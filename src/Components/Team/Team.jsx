@@ -10,7 +10,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
 // import required modules
-import { Autoplay, FreeMode } from "swiper/modules";
+import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import "./team.css";
 
 const Team = () => {
@@ -48,7 +48,7 @@ const Team = () => {
             spaceBetween={30}
             loop={true}
             freeMode={true}
-            modules={[Autoplay, FreeMode]}
+            modules={[Pagination,Autoplay, FreeMode]}
             breakpoints={{
               640: {
                 slidesPerView: 2,
