@@ -9,7 +9,7 @@ import { FcOk } from "react-icons/fc";
 const Support = () => {
   const [isLoading, setIsLoading] = useState(false);
   const axiosSecure = useAxiosPublic();
-  const [support, refetch, ] = useSupport();
+  const [support, refetch] = useSupport();
 
   // Approve Support Message
   const handleApprove = (message) => {
@@ -25,23 +25,21 @@ const Support = () => {
       confirmButtonText: "Yes, Approve it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        const filter={
-            status: "Problem Solved" 
-        }
-        axiosSecure
-          .patch(`/support/${message?._id}`, filter)
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.modifiedCount > 0) {
-              refetch();
-              setIsLoading(false);
-              Swal.fire({
-                title: "Approved!",
-                text: "Your file has been Approved.",
-                icon: "success",
-              });
-            }
-          });
+        const filter = {
+          status: "Problem Solved",
+        };
+        axiosSecure.patch(`/support/${message?._id}`, filter).then((res) => {
+          console.log(res.data);
+          if (res.data.modifiedCount > 0) {
+            refetch();
+            setIsLoading(false);
+            Swal.fire({
+              title: "Approved!",
+              text: "Your file has been Approved.",
+              icon: "success",
+            });
+          }
+        });
       } else {
         Swal.fire({
           title: "Failed!",
@@ -69,27 +67,27 @@ const Support = () => {
         axiosSecure.delete(`/support/${message?._id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount > 0) {
+            setIsLoading(false);
             refetch();
             Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success",
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
             });
-        }
-    });
-} else {
-    Swal.fire({
-        title: "Failed!",
-        text: "Deletion unsuccessful.",
-        icon: "error",
-    });
-    setIsLoading(false);
-}
+          }
+        });
+      } else {
+        Swal.fire({
+          title: "Failed!",
+          text: "Deletion unsuccessful.",
+          icon: "error",
+        });
+      }
     });
   };
 
   //   Loading Effect
-  if ( isLoading) {
+  if (isLoading) {
     return <Loading />;
   }
   return (
@@ -113,7 +111,7 @@ const Support = () => {
                     Name
                   </th>
                   <th className="p-4 text-left capitalize font-medium border-r">
-                   Email
+                    Email
                   </th>
                   <th className="p-4 text-left capitalize font-medium border-r">
                     User Email
