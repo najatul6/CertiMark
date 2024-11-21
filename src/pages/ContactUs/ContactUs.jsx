@@ -13,6 +13,8 @@ const ContactUs = () => {
   const onSubmit = (data) => {
     // TODO: Implement form submission logic here (e.g., API call)
     console.log("Contact form submitted:", data);
+    axiosPublic.post('/support',data)
+    .then(res=>console.log(res))
     Swal.fire("Your message has been sent!");
   };
 
