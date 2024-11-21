@@ -25,8 +25,11 @@ const Support = () => {
       confirmButtonText: "Yes, Approve it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        const filter={
+            status: "Problem Solved" 
+        }
         axiosSecure
-          .patch(`/support/${message?._id}`, { status: "Problem Solved" })
+          .patch(`/support/${message?._id}`, filter)
           .then((res) => {
             console.log(res.data);
             if (res.data.modifiedCount > 0) {
