@@ -25,6 +25,7 @@ import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory/Paym
 import CreateCertificate from "../pages/Dashboard/AdminDashboard/CreateCertificate/CreateCertificate";
 import About from "../pages/About/About";
 import Features from "../pages/Feature/Feature";
+import Support from "../pages/Dashboard/AdminDashboard/Support/Support";
 
 const Routes = createBrowserRouter([
   {
@@ -122,6 +123,14 @@ const Routes = createBrowserRouter([
         element: (
           <AdminRoutes>
             <UserManagement />
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "support",
+        element: (
+          <AdminRoutes>
+            <Support />
           </AdminRoutes>
         ),
       },
