@@ -48,7 +48,7 @@ const AdminSidebar = () => {
           }
         >
           <FaCertificate />
-          <span>Verified Applications</span>
+          <span>Approved Applications</span>
         </NavLink>
         <NavLink
           to="/dashboard/user-management"
