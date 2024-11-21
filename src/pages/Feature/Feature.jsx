@@ -25,8 +25,7 @@ const Features = () => {
               Online Application
             </h2>
             <p className="text-gray-200 leading-relaxed">
-              Students can apply for certificates, marksheets, and
-              recommendation letters directly through an easy-to-use online
+              Students can apply for Clearance, Testimonial directly through an easy-to-use online
               platform.
             </p>
           </div>
