@@ -159,7 +159,7 @@ const Support = () => {
                             {message?.message}
                           </td>
 
-                          <td className="py-2 px-1 flex flex-col justify-center items-center gap-2 text-sm capitalize">
+                          <td className="py-2 px-1 flex  justify-center items-center gap-2 text-sm capitalize">
                             <button
                               className="mr-4 btn"
                               onClick={() => handleApprove(message)}
