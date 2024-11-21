@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import useSupport from "../../../../hooks/useSupport";
 import Loading from "../../../../Components/Shared/Loading/Loading";
 import DashboardTitle from "../../../../Components/Shared/DashboardTitle/DashboardTitle";
 import { FcOk } from "react-icons/fc";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const Support = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const axiosSecure = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const [support, refetch] = useSupport();
 
   // Approve Support Message
