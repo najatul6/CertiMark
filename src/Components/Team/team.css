@@ -1,150 +1,179 @@
-/* From Uiverse.io by Daniel1227k */ 
+/* From Uiverse.io by Daniel1227k */
 .card {
-    position: relative;
-    width: 300px;
-    height: 400px;
-    background: #3AAFA9;
-    border: 1px solid white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* background: linear-gradient(315deg,#03a9f4,#ff0058); */
-  }
-  
-  .card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* background: linear-gradient(315deg,#03a9f4,#ff0058); */
-    filter: blur(30px);
-  }
-  
-  .card b {
-    position: absolute;
-    inset: 6px;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 2;
-  }
-  
-  .card img {
-    position: absolute;
-    z-index: 3;
-    /* scale: 0.8; */
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background: #3aafa9;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-    transition: 0.5s;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .card:hover img {
-    scale: 0.6;
-    opacity: 0.9;
-    transform: translateY(-90px);
-    padding-bottom: 5px;
-    border:1px solid #fff;
-    border-radius: 5px;
-  }
-  
-  .card .content {
-    position: absolute;
-    z-index: 3;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: scale(0);
-    transition: 0.5s;
-    background: #2B7A78;
-    width: 100%;
-    padding-top: 15px;
-    padding-bottom: 10px;
-  }
-  
-  .card:hover .content {
-    transform: scale(1);
-    bottom: 0px;
-  }
-  
-  .content .title {
-    position: relative;
-    color: #fff;
-    font-weight: 500;
-    line-height: 1em;
-    font-size: 1em;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-align: center;
-  }
-  
-  .content .title span {
-    font-weight: 300;
-    font-size: 0.70em;
-  }
-  
-  .content .sci {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 5px;
-  }
-  
-  .sci li {
-    list-style: none;
-  }
-  
-  .sci li .fa-brands {
-    width: 14px;
-  }
-  
-  .sci li .fa-facebook {
-    width: 10px;
-  }
-  
-  .sci li a {
-    position: relative;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.5);
-    background: rgba(0, 0, 0, 0.2);
-    fill: currentColor;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    transition: 0.5s;
-  }
-  
-  .sci li a:hover {
-    fill: currentColor;
-    color: rgba(255, 255, 255, 1);
-  }
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(315deg,#03a9f4,#ff0058); */
+}
 
-  .myStyle {
-    width: 100%;
-    height: 100%;
-    background-color: #111111;
-    background-image: linear-gradient(
-      32deg,
-      rgba(8, 8, 8, 0.74) 30px,
-      transparent
-    );
-    background-size: 60px 60px;
-    background-position: -5px -5px;
-  }
-  
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(315deg,#03a9f4,#ff0058); */
+  filter: blur(30px);
+}
+
+.card b {
+  position: absolute;
+  inset: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.card img {
+  position: absolute;
+  z-index: 3;
+  /* scale: 0.8; */
+
+  transition: 0.5s;
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover img {
+  scale: 0.6;
+  opacity: 0.9;
+  transform: translateY(-90px);
+  padding-bottom: 5px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.card .content {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0);
+  transition: 0.5s;
+  background: #2b7a78;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.card:hover .content {
+  transform: scale(1);
+  bottom: 0px;
+}
+
+.content .title {
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1em;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.content .title span {
+  font-weight: 300;
+  font-size: 0.7em;
+}
+
+.content .sci {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.sci li {
+  list-style: none;
+}
+
+.sci li .fa-brands {
+  width: 14px;
+}
+
+.sci li .fa-facebook {
+  width: 10px;
+}
+
+.sci li a {
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.2);
+  fill: currentColor;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.sci li a:hover {
+  fill: currentColor;
+  color: rgba(255, 255, 255, 1);
+}
+
+.myStyle {
+  width: 100%;
+  height: 100%;
+  background-color: #111111;
+  background-image: linear-gradient(
+    32deg,
+    rgba(8, 8, 8, 0.74) 30px,
+    transparent
+  );
+  background-size: 60px 60px;
+  background-position: -5px -5px;
+}
+
+/* Custom Navigation */
+.custom-navigation .custom-prev,
+.custom-navigation .custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #3aafa9;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+  transition: background 0.3s ease;
+}
+
+.custom-navigation .custom-prev {
+  left: 10px;
+}
+
+.custom-navigation .custom-next {
+  right: 10px;
+}
+
+.custom-navigation .custom-prev:hover,
+.custom-navigation .custom-next:hover {
+  background: #2a7f7d;
+}
