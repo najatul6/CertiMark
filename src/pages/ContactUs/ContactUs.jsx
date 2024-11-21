@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import '../LogIn/loginStyle.css'
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { useState } from "react";
+import Loading from "../../Components/Shared/Loading/Loading";
 const ContactUs = () => {
   const {
     register,
@@ -9,13 +11,15 @@ const ContactUs = () => {
     formState: { errors },
   } = useForm();
   const axiosPublic=useAxiosPublic()
+  const [loading,setLoading]=useState(false)
 
   const onSubmit = (data) => {
-    // TODO: Implement form submission logic here (e.g., API call)
+    setLoading(true)
     console.log("Contact form submitted:", data);
     axiosPublic.post('/support',data)
     .then(res=>{
       if(res.data.insertedId){
+        setLoading(false)
         Swal.fire("Your message has been sent!");
       }
       else{
@@ -23,6 +27,9 @@ const ContactUs = () => {
       }
     })
   };
+  if (loading) {
+    return <Loading/>
+  }
 
   return (
     <div className="myStyle min-h-screen flex items-center justify-center px-6  py-12">
