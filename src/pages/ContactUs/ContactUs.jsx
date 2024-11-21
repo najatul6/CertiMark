@@ -17,13 +17,13 @@ const ContactUs = () => {
   return (
     <div className="myStyle min-h-screen flex items-center justify-center px-6  py-12">
       <div className="max-w-md w-full mt-10 shadow-lg rounded-lg p-6 border border-[#2B7A78]">
-        <h2 className="text-center font-bold mb-6 font-montserrat text-[28px]" >
+        <h2 className="text-center text-white font-bold mb-6 font-montserrat text-[28px]" >
         Support
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 text-[14px]" >
+            <label htmlFor="name" className="block text-sm font-medium text-white text-[14px]" >
               Name
             </label>
             <input
@@ -36,7 +36,7 @@ const ContactUs = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 text-[14px]">
+            <label htmlFor="email" className="block text-sm font-medium text-white text-[14px]">
               Email
             </label>
             <input
@@ -55,7 +55,7 @@ const ContactUs = () => {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 text-[14px]" >
+            <label htmlFor="message" className="block text-sm font-medium text-white text-[14px]" >
               Message
             </label>
             <textarea
