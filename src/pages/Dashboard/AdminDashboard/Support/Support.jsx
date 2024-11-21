@@ -117,6 +117,9 @@ const Support = () => {
                     User Email
                   </th>
                   <th className="p-4 text-left capitalize font-medium border-r">
+                    Status
+                  </th>
+                  <th className="p-4 text-left capitalize font-medium border-r">
                     Reason
                   </th>
                   <th className="p-4 text-left capitalize font-medium">
@@ -152,6 +155,9 @@ const Support = () => {
                           </td>
                           <td className="p-2 text-sm border-r">
                             {message?.userEmail}
+                          </td>
+                          <td className="p-2 text-sm border-r">
+                            {message?.status}
                           </td>
                           <td className="p-2 text-sm border-r">
                             {message?.message}
