@@ -9,7 +9,7 @@ import { FcOk } from "react-icons/fc";
 const Support = () => {
   const [isLoading, setIsLoading] = useState(false);
   const axiosSecure = useAxiosPublic();
-  const [support, refetch, isPending] = useSupport();
+  const [support, refetch, ] = useSupport();
 
   // Approve Support Message
   const handleApprove = (message) => {
@@ -53,7 +53,7 @@ const Support = () => {
   };
 
   // Delete Support Message from Database
-  const handleDeleteApplication = (message) => {
+  const handleDelete = (message) => {
     console.log(message);
     setIsLoading(true);
     Swal.fire({
@@ -70,26 +70,26 @@ const Support = () => {
           console.log(res.data);
           if (res.data.deletedCount > 0) {
             refetch();
-            setIsLoading(false);
             Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
             });
-          }
-        });
-      } else {
-        Swal.fire({
-          title: "Failed!",
-          text: "Deletion unsuccessful.",
-          icon: "error",
-        });
-      }
+        }
+    });
+} else {
+    Swal.fire({
+        title: "Failed!",
+        text: "Deletion unsuccessful.",
+        icon: "error",
+    });
+    setIsLoading(false);
+}
     });
   };
 
   //   Loading Effect
-  if (isPending || isLoading) {
+  if ( isLoading) {
     return <Loading />;
   }
   return (
@@ -99,7 +99,7 @@ const Support = () => {
         <div className=" rounded-t-xl border">
           <div className="p-4 flex justify-between items-center">
             <h1 className="text-3xl text-white">
-              Total Rejected Application : {support?.length}
+              Total Message : {support?.length}
             </h1>
           </div>
 
@@ -134,7 +134,7 @@ const Support = () => {
                       colSpan="9"
                       className="py-10 text-center text-2xl font-bold text-white"
                     >
-                      No Rejected applications found...
+                      No Messages found...
                     </td>
                   </tr>
                 ) : (
@@ -169,7 +169,7 @@ const Support = () => {
                             <button
                               className="mr-4 btn"
                               title="Delete"
-                              onClick={() => handleDeleteApplication(message)}
+                              onClick={() => handleDelete(message)}
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
