@@ -21,7 +21,7 @@ const HowItWork = () => {
                                 className="flex items-center justify-center h-20 w-20 rounded-full bg-lightTeal text-white border-4 border-white text-xl font-semibold">
                                01
                             </div>
-                            <span className="text-gray-500">STEP</span>
+                            <span className="text-white">STEP</span>
                         </div>
                         <div className="border-2 rounded-xl p-5 pb-10 ">
                             <h4 className="text-lg leading-6 font-semibold text-lightTeal">Apply</h4>
