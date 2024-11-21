@@ -4,6 +4,7 @@ import '../LogIn/loginStyle.css'
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useState } from "react";
 import Loading from "../../Components/Shared/Loading/Loading";
+import useAuth from "../../hooks/useAuth";
 const ContactUs = () => {
   const {
     register,
@@ -12,11 +13,19 @@ const ContactUs = () => {
   } = useForm();
   const axiosPublic=useAxiosPublic()
   const [loading,setLoading]=useState(false)
+  const {user}=useAuth()
 
   const onSubmit = (data) => {
     setLoading(true)
     console.log("Contact form submitted:", data);
-    axiosPublic.post('/support',data)
+    const messageData={
+      name:data.name,
+      email:data.email,
+      message:data.message,
+      userEmail:user?.email,
+      status:"Pending"
+    }
+    axiosPublic.post('/support',messageData)
     .then(res=>{
       if(res.data.insertedId){
         setLoading(false)
