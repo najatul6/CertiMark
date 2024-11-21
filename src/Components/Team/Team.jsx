@@ -40,7 +40,7 @@ const Team = () => {
           <button className="swiper-button-prev custom-prev">&larr;</button>
           <button className="swiper-button-next custom-next">&rarr;</button>
         </div>
-        <div className="max-w-screen-2xl border flex justify-center items-center mx-auto mt-12">
+        <div className="max-w-screen-2xl flex justify-center items-center mx-auto mt-12">
           {/* <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 max-md:justify-center mt-12"> */}
           <Swiper
             autoplay={{
