@@ -29,7 +29,6 @@ const Profile = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
-  console.log(userData);
   return (
     <div>
       <DashboardTitle title={`${userData?.role} Profile`}/>

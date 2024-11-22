@@ -20,7 +20,7 @@ const ProfileDropDown = ({ user }) => {
       setLoading(false);
     }
   };
-console.log(user.photoURL);
+  console.log(user.photoURL);
   if (loading) {
     return <span className="loading loading-ring loading-md"></span>;
   }
@@ -33,10 +33,8 @@ console.log(user.photoURL);
       >
         <img
           className="h-10 w-10 rounded-full flex-no-shrink"
-          src={
-            user?.photoURL|| "https://images.unsplash.com/photo-1541271696563-3be2f555fc4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=1.75&w=200&h=200&q=80"
-          }
-          alt="user Profile pictures"
+          src={user.photoURL}
+          alt="User Profile pictures"
         />
 
         <div className={`${isOpen ? "rotate-180" : ""}`}>
