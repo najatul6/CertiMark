@@ -28,7 +28,7 @@ const UserSupport = () => {
                   <img alt="Support Team" src={supportImg} />
                 </div>
               </div>
-              <div className="chat-bubble">{msg.status==='Pending'?'Checking....': msg?.status}</div>
+              <div className={`chat-bubble text-white ${msg.status!=='Pending'?'bg-green-600':''}`}>{msg.status==='Pending'?'Checking....': msg?.status}</div>
             </div>
           </>
         ))}
