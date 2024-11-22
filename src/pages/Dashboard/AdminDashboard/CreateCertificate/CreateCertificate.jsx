@@ -324,6 +324,11 @@ const CreateCertificate = () => {
                     {application?.yearOfCompletion}
                   </h6>
 
+                  {/* Technology  */}
+                  <h6 className="absolute capitalize top-[178px] left-[211px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
+                    {application?.technology}
+                  </h6>
+
                   {/* Serial Number 
                   <h6 className="absolute top-[108px] left-[85px] tracking-[3px] font-montserrat text-[9px] font-bold text-blackDiamond">
                     {serialNumber}
@@ -343,10 +348,7 @@ const CreateCertificate = () => {
 
                   
 
-                  {/* Technology  */}
-                  {/* <h6 className="absolute capitalize top-[266px] left-[180px] font-playwrite text-[12px] font-bold text-blackDiamond">
-                    {application?.technology}
-                  </h6> */}
+                  
 
                   {/* Held of Month  */}
                   {/* <h6 className="absolute capitalize top-[293px] left-[65px] font-playwrite text-[10px] font-bold text-blackDiamond">
