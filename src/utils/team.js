@@ -11,7 +11,9 @@ import shakil from '../assets/Team/shakil.jpg'
 
 // female 
 import israt from '../assets/Team/Israt.png'
-import tasnia from '../assets/Team/tasnia.png'
+// import tasnia from '../assets/Team/tasnia.png'
+import disha from '../assets/Team/disha.png'
+
 import romisa from '../assets/Team/romisa.png'
 import sumaya from '../assets/Team/sumaya.png'
 import Suraiya from '../assets/Team/Suraiya.png'
@@ -148,7 +150,7 @@ export const teams=[
         "Name":"Tasnia khandker disha",
         "Email":"tasniadisha27@gmail.com",
         // "skill":"Presentation",
-        "image":`${tasnia}`,
+        "image":`${disha}`,
         "fbLink":"https://www.facebook.com/TasniaDisha2002",
         "github":"https://github.com/Tasnia9900",
         "linkedin":"https://www.linkedin.com/in/najatul-islam-94193b1b3/"
