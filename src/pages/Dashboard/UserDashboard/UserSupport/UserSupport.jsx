@@ -4,7 +4,7 @@ import useMessages from "../../../../hooks/useMessages";
 import supportImg from "../../../../assets/support.png";
 
 const UserSupport = () => {
-  const [message, refetch, isPending] = useMessages();
+  const [message, , isPending] = useMessages();
   const { user } = useAuth();
   return (
     <div>
@@ -28,7 +28,7 @@ const UserSupport = () => {
                   <img alt="Support Team" src={supportImg} />
                 </div>
               </div>
-              <div className="chat-bubble">I hate you!</div>
+              <div className="chat-bubble">{msg.status==='Pending'?'Checking....': msg?.status}</div>
             </div>
           </>
         ))}
