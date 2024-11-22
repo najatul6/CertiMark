@@ -20,7 +20,6 @@ const ContactUs = () => {
 
   const onSubmit = (data) => {
     setLoading(true)
-    console.log("Contact form submitted:", data);
     const messageData={
       name:data.name,
       email:data.email,
@@ -33,7 +32,7 @@ const ContactUs = () => {
       if(res.data.insertedId){
         setLoading(false)
         reset()
-        navigate('/dashboard')
+        navigate('/dashboard/support')
         Swal.fire("Your message has been sent!");
       }
       else{
