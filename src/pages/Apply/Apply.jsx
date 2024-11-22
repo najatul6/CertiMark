@@ -106,7 +106,7 @@ const Apply = () => {
                 } rounded-md p-2`}
               >
                 <option value="clearance">Clearance Certificate</option>
-                {/* <option value="testimonial">Testimonial</option> */}
+                <option value="testimonial">Testimonial</option>
                 {/* <option value="diploma">Diploma</option> */}
               </select>
               {errors.certificateType && (
