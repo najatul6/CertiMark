@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { FaFileAlt, FaHome, FaHistory } from "react-icons/fa";
+import { BiSupport } from "react-icons/bi";
 
 const UserSidebar = () => {
   return (
@@ -52,6 +53,17 @@ const UserSidebar = () => {
         >
           <FaHistory className="mr-3" />
           Payment History
+        </NavLink>
+        <NavLink
+          to="/dashboard/support"
+          className={({ isActive }) =>
+            `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
+              isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
+            }`
+          }
+        >
+          <BiSupport />
+          <span>Support</span>
         </NavLink>
       </nav>
     </>

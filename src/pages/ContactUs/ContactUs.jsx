@@ -5,15 +5,18 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useState } from "react";
 import Loading from "../../Components/Shared/Loading/Loading";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router";
 const ContactUs = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
   const axiosPublic=useAxiosPublic()
   const [loading,setLoading]=useState(false)
   const {user}=useAuth()
+  const navigate =useNavigate()
 
   const onSubmit = (data) => {
     setLoading(true)
@@ -29,6 +32,8 @@ const ContactUs = () => {
     .then(res=>{
       if(res.data.insertedId){
         setLoading(false)
+        reset()
+        navigate('/dashboard')
         Swal.fire("Your message has been sent!");
       }
       else{
