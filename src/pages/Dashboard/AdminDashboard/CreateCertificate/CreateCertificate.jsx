@@ -360,20 +360,21 @@ const CreateCertificate = () => {
                     {dateOfIssue}
                   </h6> */}
 
-                  {/* Compared By  */}
+                  {/* Register Signature  */}
                   <img
                     src={registerSignature}
                     alt="Register signature"
-                    className="absolute bottom-[33px] left-[266px] w-[75px]"
+                    className="absolute bottom-[88px] left-[50px] w-[75px]"
                   />
 
-                  {/* Compared By  */}
+                  {/* Principal Signature  */}
                   <img
                     src={principalSignature}
                     alt="Controller Signature"
                     className="absolute bottom-[90px] right-[98px] w-[75px]"
                   />
                 </div>
+                {/* Testimonial Image */}
                 <div className="w-[560px] h-[400px]">
                   <img
                     src={testimonial}
