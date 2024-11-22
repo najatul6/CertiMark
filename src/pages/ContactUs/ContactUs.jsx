@@ -25,7 +25,8 @@ const ContactUs = () => {
       email:data.email,
       message:data.message,
       userEmail:user?.email,
-      status:"Pending"
+      status:"Pending",
+      date:new Date().toLocaleString()
     }
     axiosPublic.post('/support',messageData)
     .then(res=>{
