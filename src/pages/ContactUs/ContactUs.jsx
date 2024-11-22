@@ -92,7 +92,7 @@ const ContactUs = () => {
             <textarea
               id="message"
               {...register("message", { required: "Message is required" })}
-              className={`mt-1 block w-full border rounded-md p-2 bg-transparent focus:outline-none ${errors.message ? "border-[#E76F51]" : "border-[#2B7A78]"}`}
+              className={`mt-1 block w-full border rounded-md p-2 text-white bg-transparent focus:outline-none ${errors.message ? "border-[#E76F51]" : "border-[#2B7A78]"}`}
               rows="4"
             ></textarea>
             {errors.message && <p className="text-[#E76F51] text-sm">{errors.message.message}</p>}
