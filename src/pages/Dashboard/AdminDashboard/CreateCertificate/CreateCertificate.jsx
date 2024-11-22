@@ -113,8 +113,6 @@ const CreateCertificate = () => {
               </h1>
 
               <div className="space-y-[9px]">
-                
-
                 {/* Held of Month */}
                 <div>
                   <label
@@ -127,7 +125,7 @@ const CreateCertificate = () => {
                     className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
                     placeholder="Enter Held of Month"
                     type="text"
-                    defaultValue={"December,2019 - February, 2025"}
+                    defaultValue={"December,2024"}
                     name="Held of Month"
                     onChange={(e) => setHeldOnMonth(e.target.value)}
                   />
