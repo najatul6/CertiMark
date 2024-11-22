@@ -26,6 +26,7 @@ import CreateCertificate from "../pages/Dashboard/AdminDashboard/CreateCertifica
 import About from "../pages/About/About";
 import Features from "../pages/Feature/Feature";
 import Support from "../pages/Dashboard/AdminDashboard/Support/Support";
+import UserSupport from "../pages/Dashboard/UserDashboard/UserSupport/UserSupport";
 
 const Routes = createBrowserRouter([
   {
@@ -148,6 +149,12 @@ const Routes = createBrowserRouter([
       {
         path: "applications",
         element: <ApplicationStatus />,
+      },
+      {
+        path: "userSupport",
+        element: (
+            <UserSupport />
+        ),
       },
       {
         path: "payment/:applicationId",

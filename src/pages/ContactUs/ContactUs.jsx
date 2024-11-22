@@ -32,7 +32,7 @@ const ContactUs = () => {
       if(res.data.insertedId){
         setLoading(false)
         reset()
-        navigate('/dashboard/support')
+        navigate('/dashboard/userSupport')
         Swal.fire("Your message has been sent!");
       }
       else{

@@ -55,7 +55,7 @@ const UserSidebar = () => {
           Payment History
         </NavLink>
         <NavLink
-          to="/dashboard/support"
+          to="/dashboard/userSupport"
           className={({ isActive }) =>
             `flex items-center p-3 space-x-3 rounded-s-xl text-lg hover:bg-teal ${
               isActive ? "bg-[#3AAFA9] text-white" : "text-[#FEFFFF]"
