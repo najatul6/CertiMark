@@ -29,7 +29,7 @@ const CreateCertificate = () => {
   useEffect(() => {
     axiosSecure.get(`/applicants/${applicationId}`).then((res) => {
       setApplication(res?.data);
-      console.log(res.data);
+      // console.log(res.data);
     });
   }, [applicationId, axiosSecure]);
 
@@ -293,15 +293,21 @@ const CreateCertificate = () => {
                     {application?.name}
                   </h6>
 
-                   {/* Father Name  */}
+                  {/* Father Name  */}
                   <h6 className="absolute capitalize top-[144px] right-[188px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
                     {application?.fatherName}
                   </h6>
 
                   {/* Mother Name  */}
-                  {/* <h6 className="absolute capitalize top-[202px] right-[162px] font-playwrite text-[12px] font-bold text-blackDiamond">
-                    {application?.motherName}
-                  </h6> */}
+                  <h6 className="absolute capitalize top-[144px] right-[77px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
+                    {application?.motherName.split(" ")[0]}
+                  </h6>
+                  <h6 className="absolute capitalize top-[144px] right-[40px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
+                    {application?.motherName.split(" ")[1]}
+                  </h6>
+                  <h6 className="absolute capitalize top-[202px] left-[158px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
+                    {application?.motherName.split(" ")[2]}
+                  </h6>
 
                   {/* Serial Number 
                   <h6 className="absolute top-[108px] left-[85px] tracking-[3px] font-montserrat text-[9px] font-bold text-blackDiamond">
