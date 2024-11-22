@@ -6,6 +6,8 @@ import testimonial from "../../../../assets/cartificates/Testimonial.png";
 import clearnes from "../../../../assets/cartificates/clearanceCertificate .jpg";
 import compared from "../../../../assets/cartificates/compared.png";
 import controller from "../../../../assets/cartificates/controller.png";
+import registerSignature from "../../../../assets/cartificates/register.png";
+import controllerSignature from "../../../../assets/cartificates/controller.png";
 import { toPng } from "html-to-image";
 import { imageUpload } from "../../../../utils/imageUpload";
 import useApplicants from "../../../../hooks/useApplicants";
@@ -162,9 +164,6 @@ const CreateCertificate = () => {
                     onChange={(e) => setResult(e.target.value)}
                   />
                 </div>
-
-               
-
                 {/* Date of Issue */}
                 <div>
                   <label
@@ -360,14 +359,14 @@ const CreateCertificate = () => {
                   </h6>
                   {/* Compared By  */}
                   <img
-                    src={compared}
-                    alt="Comapred signature"
+                    src={registerSignature}
+                    alt="Register signature"
                     className="absolute bottom-[33px] left-[266px] w-[75px]"
                   />
 
                   {/* Compared By  */}
                   <img
-                    src={controller}
+                    src={controllerSignature}
                     alt="Controller Signature"
                     className="absolute bottom-[35px] right-[85px] w-[75px]"
                   />
