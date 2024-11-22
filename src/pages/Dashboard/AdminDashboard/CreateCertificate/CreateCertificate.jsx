@@ -329,46 +329,23 @@ const CreateCertificate = () => {
                     {application?.technology} Technology
                   </h6>
 
-                  {/* Serial Number 
-                  <h6 className="absolute top-[108px] left-[85px] tracking-[3px] font-montserrat text-[9px] font-bold text-blackDiamond">
-                    {serialNumber}
+                  {/* Held of Month  */}
+                  <h6 className="absolute capitalize top-[175px] right-[65px] font-mono italic text-[12px] font-bold text-blackDiamond">
+                    {heldOnMonth}
                   </h6>
 
-                  {/* Year  
-                  <h2 className="absolute top-[90px] left-[405px] font-tenor text-blackDiamond">
-                    2024
-                  </h2> */}
-
-                  
-
-                  {/* College Name  */}
-                  {/* <h6 className="absolute capitalize top-[222px] right-[120px] font-playwrite text-[12px] font-bold text-blackDiamond">
-                    Rangpur Polytechnic Institute, Rangpur
-                  </h6> */}
-
-                  
-
-                  
-
-                  {/* Held of Month  */}
-                  {/* <h6 className="absolute capitalize top-[293px] left-[65px] font-playwrite text-[10px] font-bold text-blackDiamond">
-                    {heldOnMonth}
-                  </h6> */}
-
                   {/* Result  */}
-                  {/* <h6 className="absolute capitalize top-[294px] right-[157px] font-playwrite text-[10px] font-bold text-blackDiamond">
+                  <h6 className="absolute capitalize top-[195px] right-[180px] font-mono text-[12px] font-extrabold text-blackDiamond">
                     {result}
-                  </h6> */}
-
-                  {/* Publication of Result  */}
-                  {/* <h6 className="absolute capitalize top-[345px] left-[175px] font-playwrite text-[8px] font-bold text-blackDiamond">
-                    {publishDate}
-                  </h6> */}
+                  </h6>
 
                   {/* Date of issue  */}
-                  {/* <h6 className="absolute capitalize top-[362px] left-[110px] font-playwrite text-[8px] font-bold text-blackDiamond">
+                  <h6 className="absolute capitalize bottom-[35px] left-[77px] font-mono text-[12px] font-bold text-blackDiamond">
                     {dateOfIssue}
-                  </h6> */}
+                  </h6>
+
+                 
+                  
 
                   {/* Register Signature  */}
                   <img
