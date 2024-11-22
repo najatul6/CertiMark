@@ -309,6 +309,11 @@ const CreateCertificate = () => {
                     {application?.motherName.split(" ")[2]}
                   </h6>
 
+                  {/* Student Roll  */}
+                  <h6 className="absolute capitalize top-[163px] left-[201px] font-mono text-[10px] font-extrabold text-blackDiamond">
+                    {application?.studentId}
+                  </h6>
+
                   {/* Serial Number 
                   <h6 className="absolute top-[108px] left-[85px] tracking-[3px] font-montserrat text-[9px] font-bold text-blackDiamond">
                     {serialNumber}
@@ -334,10 +339,7 @@ const CreateCertificate = () => {
                     Rangpur Polytechnic Institute, Rangpur
                   </h6> */}
 
-                  {/* Student Roll  */}
-                  {/* <h6 className="absolute capitalize top-[250px] left-[127px] font-playwrite text-[10px] font-bold text-blackDiamond">
-                    {application?.studentId}
-                  </h6> */}
+                  
 
                   {/* Technology  */}
                   {/* <h6 className="absolute capitalize top-[266px] left-[180px] font-playwrite text-[12px] font-bold text-blackDiamond">
