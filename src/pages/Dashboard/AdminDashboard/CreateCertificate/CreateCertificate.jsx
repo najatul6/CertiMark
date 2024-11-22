@@ -359,7 +359,7 @@ const CreateCertificate = () => {
                   {/* <h6 className="absolute capitalize top-[362px] left-[110px] font-playwrite text-[8px] font-bold text-blackDiamond">
                     {dateOfIssue}
                   </h6> */}
-                  
+
                   {/* Compared By  */}
                   <img
                     src={registerSignature}
@@ -371,7 +371,7 @@ const CreateCertificate = () => {
                   <img
                     src={principalSignature}
                     alt="Controller Signature"
-                    className="absolute bottom-[35px] right-[85px] w-[75px]"
+                    className="absolute bottom-[90px] right-[98px] w-[75px]"
                   />
                 </div>
                 <div className="w-[560px] h-[400px]">
