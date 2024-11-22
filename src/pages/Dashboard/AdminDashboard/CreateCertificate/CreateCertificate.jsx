@@ -310,9 +310,19 @@ const CreateCertificate = () => {
                   </h6>
 
                   {/* Student Roll  */}
-                  <h6 className="absolute capitalize top-[163px] left-[201px] font-mono text-[10px] font-extrabold text-blackDiamond">
+                  <h6 className="absolute capitalize top-[163px] left-[201px] font-mono text-[12px] font-extrabold text-blackDiamond">
                     {application?.studentId}
                   </h6>
+
+                  {/* Registration Number  */}
+                  <h6 className="absolute top-[160px] right-[195px] font-mono text-[12px] font-bold text-blackDiamond">
+                    {application?.registrationNo}
+                  </h6>
+
+                  {/* Session  */}
+                  {/* <h6 className="absolute top-[145px] right-[80px] font-playwrite text-[7px] font-bold text-blackDiamond">
+                    {application?.yearOfCompletion}
+                  </h6> */}
 
                   {/* Serial Number 
                   <h6 className="absolute top-[108px] left-[85px] tracking-[3px] font-montserrat text-[9px] font-bold text-blackDiamond">
@@ -324,15 +334,7 @@ const CreateCertificate = () => {
                     2024
                   </h2> */}
 
-                  {/* Registration Number  */}
-                  {/* <h6 className="absolute top-[125px] right-[57px] font-mono text-[7px] font-bold text-blackDiamond">
-                    {application?.registrationNo}
-                  </h6> */}
-
-                  {/* Session  */}
-                  {/* <h6 className="absolute top-[145px] right-[80px] font-playwrite text-[7px] font-bold text-blackDiamond">
-                    {application?.yearOfCompletion}
-                  </h6> */}
+                  
 
                   {/* College Name  */}
                   {/* <h6 className="absolute capitalize top-[222px] right-[120px] font-playwrite text-[12px] font-bold text-blackDiamond">
