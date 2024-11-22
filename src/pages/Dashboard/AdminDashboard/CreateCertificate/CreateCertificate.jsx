@@ -103,109 +103,189 @@ const CreateCertificate = () => {
       <DashboardTitle title={"Create Certificate"} />
       <div className="flex justify-center  gap-2">
         <div className="w-full h-full border rounded-md py-2 px-2">
-          {/* Testimonial Form 
-          <form></form> */}
-          {/* Clearance Form  */}
-          <div>
-            <h1 className="text-xl font-bold text-lightTeal text-center py-2 underline capitalize font-montserrat">
-              Fill Information
-            </h1>
+          {application?.certificateType === "testimonial" ? (
+            // Testimonial Form
+            <div>
+              <h1 className="text-xl font-bold text-lightTeal text-center py-2 underline capitalize font-montserrat">
+                Fill Information
+              </h1>
 
-            <div className="space-y-[9px]">
-              {/* serial Number */}
-              <div>
-                <label
-                  htmlFor="serial Number"
-                  className="block text-sm font-medium text-teal"
-                >
-                  Serial Number:
-                </label>
-                <input
-                  className={`mt-1 block w-full focus:outline-none border bg-transparent text-white placeholder:text-white border-gray-300 rounded-md p-2`}
-                  placeholder="Enter Certificate Serial Number"
-                  type="text"
-                  name="serial Number"
-                  onChange={(e) => setSerialNumber(e.target.value)}
-                />
-              </div>
+              <div className="space-y-[9px]">
+                {/* serial Number
+                <div>
+                  <label
+                    htmlFor="serial Number"
+                    className="block text-sm font-medium text-teal"
+                  >
+                    Serial Number:
+                  </label>
+                  <input
+                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white placeholder:text-white border-gray-300 rounded-md p-2`}
+                    placeholder="Enter Certificate Serial Number"
+                    type="text"
+                    name="serial Number"
+                    onChange={(e) => setSerialNumber(e.target.value)}
+                  />
+                </div> */}
 
-              {/* Held of Month */}
-              <div>
-                <label
-                  htmlFor="Held of Month"
-                  className="block text-sm font-medium text-teal"
-                >
-                  Held of Month :
-                </label>
-                <input
-                  className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
-                  placeholder="Enter Held of Month"
-                  type="text"
-                  defaultValue={"December,2019 - February, 2025"}
-                  name="Held of Month"
-                  onChange={(e) => setHeldOnMonth(e.target.value)}
-                />
-              </div>
+                {/* Held of Month */}
+                <div>
+                  <label
+                    htmlFor="Held of Month"
+                    className="block text-sm font-medium text-teal"
+                  >
+                    Held of Month :
+                  </label>
+                  <input
+                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                    placeholder="Enter Held of Month"
+                    type="text"
+                    defaultValue={"December,2019 - February, 2025"}
+                    name="Held of Month"
+                    onChange={(e) => setHeldOnMonth(e.target.value)}
+                  />
+                </div>
 
-              {/* Result */}
-              <div>
-                <label
-                  htmlFor="result"
-                  className="block text-sm font-medium text-teal"
-                >
-                  Result (CGPA) :
-                </label>
-                <input
-                  className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
-                  placeholder={`Enter (${application?.name}'s) Result (CGPA)`}
-                  type="text"
-                  name="result"
-                  onChange={(e) => setResult(e.target.value)}
-                />
-              </div>
+                {/* Result */}
+                <div>
+                  <label
+                    htmlFor="result"
+                    className="block text-sm font-medium text-teal"
+                  >
+                    Result (CGPA) :
+                  </label>
+                  <input
+                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                    placeholder={`Enter (${application?.name}'s) Result (CGPA)`}
+                    type="text"
+                    name="result"
+                    onChange={(e) => setResult(e.target.value)}
+                  />
+                </div>
 
-              {/* Publication of Result */}
-              <div>
-                <label
-                  htmlFor="publishDate"
-                  className="block text-sm font-medium text-teal"
-                >
-                  Publication of Result :
-                </label>
-                <input
-                  className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
-                  placeholder={`Enter Publication of Result`}
-                  type="text"
-                  name="publishDate"
-                  defaultValue={" May 12, 2025"}
-                  onChange={(e) => setPublishDate(e.target.value)}
-                />
-              </div>
+               
 
-              {/* Date of Issue */}
-              <div>
-                <label
-                  htmlFor="dateOfIssue"
-                  className="block text-sm font-medium text-teal"
-                >
-                  Date of Issue :
-                </label>
-                <input
-                  className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
-                  placeholder={`Enter date of issue`}
-                  type="text"
-                  name="dateOfIssue"
-                  defaultValue={"November 11, 2025"}
-                  onChange={(e) => setDateOfIssue(e.target.value)}
-                />
+                {/* Date of Issue */}
+                <div>
+                  <label
+                    htmlFor="dateOfIssue"
+                    className="block text-sm font-medium text-teal"
+                  >
+                    Date of Issue :
+                  </label>
+                  <input
+                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                    placeholder={`Enter date of issue`}
+                    type="text"
+                    name="dateOfIssue"
+                    defaultValue={"November 11, 2025"}
+                    onChange={(e) => setDateOfIssue(e.target.value)}
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            // Clearance Form
+            <div>
+              <h1 className="text-xl font-bold text-lightTeal text-center py-2 underline capitalize font-montserrat">
+                Fill Information
+              </h1>
+
+              <div className="space-y-[9px]">
+                {/* serial Number */}
+                <div>
+                  <label
+                    htmlFor="serial Number"
+                    className="block text-sm font-medium text-teal"
+                  >
+                    Serial Number:
+                  </label>
+                  <input
+                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white placeholder:text-white border-gray-300 rounded-md p-2`}
+                    placeholder="Enter Certificate Serial Number"
+                    type="text"
+                    name="serial Number"
+                    onChange={(e) => setSerialNumber(e.target.value)}
+                  />
+                </div>
+
+                {/* Held of Month */}
+                <div>
+                  <label
+                    htmlFor="Held of Month"
+                    className="block text-sm font-medium text-teal"
+                  >
+                    Held of Month :
+                  </label>
+                  <input
+                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                    placeholder="Enter Held of Month"
+                    type="text"
+                    defaultValue={"December,2019 - February, 2025"}
+                    name="Held of Month"
+                    onChange={(e) => setHeldOnMonth(e.target.value)}
+                  />
+                </div>
+
+                {/* Result */}
+                <div>
+                  <label
+                    htmlFor="result"
+                    className="block text-sm font-medium text-teal"
+                  >
+                    Result (CGPA) :
+                  </label>
+                  <input
+                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                    placeholder={`Enter (${application?.name}'s) Result (CGPA)`}
+                    type="text"
+                    name="result"
+                    onChange={(e) => setResult(e.target.value)}
+                  />
+                </div>
+
+                {/* Publication of Result */}
+                <div>
+                  <label
+                    htmlFor="publishDate"
+                    className="block text-sm font-medium text-teal"
+                  >
+                    Publication of Result :
+                  </label>
+                  <input
+                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                    placeholder={`Enter Publication of Result`}
+                    type="text"
+                    name="publishDate"
+                    defaultValue={" May 12, 2025"}
+                    onChange={(e) => setPublishDate(e.target.value)}
+                  />
+                </div>
+
+                {/* Date of Issue */}
+                <div>
+                  <label
+                    htmlFor="dateOfIssue"
+                    className="block text-sm font-medium text-teal"
+                  >
+                    Date of Issue :
+                  </label>
+                  <input
+                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                    placeholder={`Enter date of issue`}
+                    type="text"
+                    name="dateOfIssue"
+                    defaultValue={"November 11, 2025"}
+                    onChange={(e) => setDateOfIssue(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
         <div className="relative">
-          {/* Image  */}
           {application?.certificateType === "testimonial" ? (
-            // Testimonial Image
+            // Testimonial
             <>
               <div ref={ref} className="relative">
                 <div className="absolute w-[560px] h-[400px]">
