@@ -8,7 +8,7 @@ const useMessages = () => {
     const { isPending, data: support = [],refetch } = useQuery({
         queryKey: ["support",user?.email],
         queryFn: async () => {
-          const res = await axiosSecure.get("/support?email=${user?.email}");
+          const res = await axiosSecure.get("/supports?email=${user?.email}");
           return res.data;
         },
       });
