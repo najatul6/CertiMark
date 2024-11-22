@@ -23,6 +23,7 @@ const CreateCertificate = () => {
   const [result, setResult] = useState("");
   const [publishDate, setPublishDate] = useState("");
   const [dateOfIssue, setDateOfIssue] = useState("");
+  const [publishissue,setpublishissue]=useState("")
   const ref = useRef(null);
   const navigate = useNavigate();
   const [, refetch] = useApplicants();
@@ -107,7 +108,7 @@ const CreateCertificate = () => {
         <div className="w-full h-full border rounded-md py-2 px-2">
           {application?.certificateType === "testimonial" ? (
             // Testimonial Form
-            <div>
+            <div className="h-full">
               <h1 className="text-xl font-bold text-lightTeal text-center py-2 underline capitalize font-montserrat">
                 Fill Information
               </h1>
@@ -130,7 +131,23 @@ const CreateCertificate = () => {
                     onChange={(e) => setHeldOnMonth(e.target.value)}
                   />
                 </div>
-
+                {/* Date of Issue */}
+                <div>
+                  <label
+                    htmlFor="publishdateIssue"
+                    className="block text-sm font-medium text-teal"
+                  >
+                    Date of Issue :
+                  </label>
+                  <input
+                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
+                    placeholder={`Enter date of issue`}
+                    type="text"
+                    name="publishdateIssue"
+                    defaultValue={"07-12-2024"}
+                    onChange={(e) => setpublishissue(e.target.value)}
+                  />
+                </div>
                 {/* Result */}
                 <div>
                   <label
@@ -144,24 +161,8 @@ const CreateCertificate = () => {
                     placeholder={`Enter (${application?.name}'s) Result (CGPA)`}
                     type="text"
                     name="result"
+                    defaultValue={"3.75"}
                     onChange={(e) => setResult(e.target.value)}
-                  />
-                </div>
-                {/* Date of Issue */}
-                <div>
-                  <label
-                    htmlFor="dateOfIssue"
-                    className="block text-sm font-medium text-teal"
-                  >
-                    Date of Issue :
-                  </label>
-                  <input
-                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white border-gray-300 rounded-md p-2`}
-                    placeholder={`Enter date of issue`}
-                    type="text"
-                    name="dateOfIssue"
-                    defaultValue={"07-12-2024"}
-                    onChange={(e) => setDateOfIssue(e.target.value)}
                   />
                 </div>
               </div>
@@ -257,7 +258,6 @@ const CreateCertificate = () => {
                     placeholder={`Enter date of issue`}
                     type="text"
                     name="dateOfIssue"
-                    defaultValue={"November 11, 2025"}
                     onChange={(e) => setDateOfIssue(e.target.value)}
                   />
                 </div>
@@ -324,11 +324,8 @@ const CreateCertificate = () => {
 
                   {/* Date of issue  */}
                   <h6 className="absolute capitalize bottom-[35px] left-[77px] font-mono text-[12px] font-bold text-blackDiamond">
-                    {dateOfIssue}
+                    {publishissue}
                   </h6>
-
-                 
-                  
 
                   {/* Register Signature  */}
                   <img
@@ -345,7 +342,7 @@ const CreateCertificate = () => {
                   />
                 </div>
                 {/* Testimonial Image */}
-                <div className="w-[560px] h-[400px]">
+                <div className="w-[560px] h-[426px]">
                   <img
                     src={testimonial}
                     alt={`${application.name}'s certificate`}
