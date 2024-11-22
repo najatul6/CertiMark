@@ -320,9 +320,9 @@ const CreateCertificate = () => {
                   </h6>
 
                   {/* Session  */}
-                  {/* <h6 className="absolute top-[145px] right-[80px] font-playwrite text-[7px] font-bold text-blackDiamond">
+                  <h6 className="absolute top-[161px] right-[120px] font-mono text-[12px] font-bold text-blackDiamond">
                     {application?.yearOfCompletion}
-                  </h6> */}
+                  </h6>
 
                   {/* Serial Number 
                   <h6 className="absolute top-[108px] left-[85px] tracking-[3px] font-montserrat text-[9px] font-bold text-blackDiamond">
