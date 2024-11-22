@@ -113,22 +113,7 @@ const CreateCertificate = () => {
               </h1>
 
               <div className="space-y-[9px]">
-                {/* serial Number
-                <div>
-                  <label
-                    htmlFor="serial Number"
-                    className="block text-sm font-medium text-teal"
-                  >
-                    Serial Number:
-                  </label>
-                  <input
-                    className={`mt-1 block w-full focus:outline-none border bg-transparent text-white placeholder:text-white border-gray-300 rounded-md p-2`}
-                    placeholder="Enter Certificate Serial Number"
-                    type="text"
-                    name="serial Number"
-                    onChange={(e) => setSerialNumber(e.target.value)}
-                  />
-                </div> */}
+                
 
                 {/* Held of Month */}
                 <div>
@@ -177,7 +162,7 @@ const CreateCertificate = () => {
                     placeholder={`Enter date of issue`}
                     type="text"
                     name="dateOfIssue"
-                    defaultValue={"November 11, 2025"}
+                    defaultValue={"07-12-2024"}
                     onChange={(e) => setDateOfIssue(e.target.value)}
                   />
                 </div>
