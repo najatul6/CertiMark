@@ -29,6 +29,7 @@ const Profile = () => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", options);
   };
+  console.log(userData);
   return (
     <div>
       <DashboardTitle title={`${userData?.role} Profile`}/>
@@ -38,8 +39,8 @@ const Profile = () => {
           <div className="flex items-center space-y-5 flex-col">
             <img
               className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 "
-              src={userData?.image || "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"}
-              alt="Bordered avatar"
+              src={userData.image}
+              alt="User Profile Picture"
             />
           </div>
           <div className="flex flex-col justify-start items-start mx-auto gap-2 mt-10">
