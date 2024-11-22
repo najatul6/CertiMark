@@ -293,6 +293,16 @@ const CreateCertificate = () => {
                     {application?.name}
                   </h6>
 
+                   {/* Father Name  */}
+                  <h6 className="absolute capitalize top-[144px] right-[188px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
+                    {application?.fatherName}
+                  </h6>
+
+                  {/* Mother Name  */}
+                  {/* <h6 className="absolute capitalize top-[202px] right-[162px] font-playwrite text-[12px] font-bold text-blackDiamond">
+                    {application?.motherName}
+                  </h6> */}
+
                   {/* Serial Number 
                   <h6 className="absolute top-[108px] left-[85px] tracking-[3px] font-montserrat text-[9px] font-bold text-blackDiamond">
                     {serialNumber}
@@ -311,18 +321,6 @@ const CreateCertificate = () => {
                   {/* Session  */}
                   {/* <h6 className="absolute top-[145px] right-[80px] font-playwrite text-[7px] font-bold text-blackDiamond">
                     {application?.yearOfCompletion}
-                  </h6> */}
-
-                  
-
-                  {/* Father Name  */}
-                  {/* <h6 className="absolute capitalize top-[182px] right-[165px] font-playwrite text-[12px] font-bold text-blackDiamond">
-                    {application?.fatherName}
-                  </h6> */}
-
-                  {/* Mother Name  */}
-                  {/* <h6 className="absolute capitalize top-[202px] right-[162px] font-playwrite text-[12px] font-bold text-blackDiamond">
-                    {application?.motherName}
                   </h6> */}
 
                   {/* College Name  */}
