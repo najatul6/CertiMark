@@ -14,6 +14,42 @@ const images = [
     src: `${image1}`,
     alt: "Photo by Najatul islam",
   },
+  {
+    src: `${image2}`,
+    alt: "Photo by Najatul islam",
+  },
+  {
+    src: `${image3}`,
+    alt: "Photo by Najatul islam",
+  },
+  {
+    src: `${image4}`,
+    alt: "Photo by Najatul islam",
+  },
+  {
+    src: `${image5}`,
+    alt: "Photo by Najatul islam",
+  },
+  {
+    src: `${image6}`,
+    alt: "Photo by Najatul islam",
+  },
+  {
+    src: `${image7}`,
+    alt: "Photo by Najatul islam",
+  },
+  {
+    src: `${image8}`,
+    alt: "Photo by Najatul islam",
+  },
+  {
+    src: `${image9}`,
+    alt: "Photo by Najatul islam",
+  },
+  {
+    src: `${image10}`,
+    alt: "Photo by Najatul islam",
+  },
   
 ];
 
