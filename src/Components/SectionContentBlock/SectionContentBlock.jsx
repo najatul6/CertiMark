@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
-const ContentBlock = () => {
+const SectionContentBlock = () => {
   return (
     <div className="bg-gray-100 px-6 py-16 font-sans">
       <div className="lg:max-w-7xl max-w-lg mx-auto px-6 py-8 bg-gray-200 rounded-lg shadow-md">
@@ -42,7 +42,7 @@ const ContentBlock = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ContentBlock;
+export default SectionContentBlock
