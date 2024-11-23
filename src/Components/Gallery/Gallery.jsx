@@ -3,7 +3,7 @@ import image2 from '../../assets/gallery/2.jpg'
 import image3 from '../../assets/gallery/3.jpg'
 import image4 from '../../assets/gallery/4.jpg'
 import image5 from '../../assets/gallery/5.jpg'
-import image6 from '../../assets/gallery/6.jpg'
+import image6 from '../../assets/gallery/7.jpg'
 
 const images = [
   {
@@ -50,8 +50,8 @@ const Gallery = () => {
             <div
               
               key={index}
-              className={`group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg ${
-                index === 1 || index === 2 ? "md:col-span-2 md:h-80" : "md:h-80"
+              className={`group relative flex h-48 items-center overflow-hidden rounded-lg bg-gray-100 shadow-lg ${
+                index === 1 || index === 2 || index=== 5 ? "md:col-span-2 md:h-96" : "md:h-96"
               }`}
             >
               <img
