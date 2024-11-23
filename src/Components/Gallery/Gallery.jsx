@@ -38,7 +38,7 @@ const Gallery = () => {
   return (
     <div className="gradient-background h-full py-4 sm:py-8 lg:py-9">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <div className=" mb-4">
+        <div className="mb-4">
           <h2 className="text-2xl font-bold text-lightTeal py-2 lg:text-4xl text-center block">
             Gallery
           </h2>
