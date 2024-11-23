@@ -285,7 +285,7 @@ const CreateCertificate = () => {
                   <h6 className="absolute capitalize top-[144px] right-[77px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
                     {application?.motherName.split(" ")[0]}
                   </h6>
-                  <h6 className="absolute capitalize top-[144px] right-[40px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
+                  <h6 className="absolute capitalize top-[144px] right-[29px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
                     {application?.motherName.split(" ")[1]}
                   </h6>
                   <h6 className="absolute capitalize top-[160px] left-[30px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
