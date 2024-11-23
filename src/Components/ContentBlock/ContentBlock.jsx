@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ContentBlock = () => {
     return (
       <div className="bg-gray-100 px-6 py-12 font-sans">
@@ -26,12 +28,12 @@ const ContentBlock = () => {
                 <li>Ensure transparency with admin oversight.</li>
               </ul>
               <div className="mt-6">
-                <a 
-                  href="/dashboard" 
+                <Link
+                  to="/dashboard/overview" 
                   className="text-blue-600 text-sm font-semibold hover:underline"
                 >
                   Explore Dashboard
-                </a>
+                </Link>
               </div>
             </div>
           </div>
