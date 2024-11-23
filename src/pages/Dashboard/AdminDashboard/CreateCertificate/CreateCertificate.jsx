@@ -308,7 +308,7 @@ const CreateCertificate = () => {
                   </h6>
 
                   {/* Technology  */}
-                  <h6 className="absolute capitalize top-[175px] left-[205px] font-mono italic text-[12px] font-extrabold text-blackDiamond tracking-[-1px]">
+                  <h6 className="absolute capitalize top-[178px] left-[213px] font-mono italic text-[12px] font-extrabold text-blackDiamond tracking-[-1px]">
                     {application?.technology} Technology
                   </h6>
 
