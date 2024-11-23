@@ -318,7 +318,7 @@ const CreateCertificate = () => {
                   </h6>
 
                   {/* Result  */}
-                  <h6 className="absolute capitalize top-[195px] right-[187px] font-mono text-[12px] font-extrabold text-blackDiamond tracking-[-1px]">
+                  <h6 className="absolute capitalize top-[195px] right-[187px] font-mono text-[12px] font-extrabold text-blackDiamond tracking-[-2px]">
                     {result}
                   </h6>
 
