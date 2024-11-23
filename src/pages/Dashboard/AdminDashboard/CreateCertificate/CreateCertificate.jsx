@@ -277,7 +277,7 @@ const CreateCertificate = () => {
                   </h6>
 
                   {/* Father Name  */}
-                  <h6 className="absolute capitalize top-[144px] right-[150px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
+                  <h6 className="absolute capitalize top-[144px] right-[127px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
                     {application?.fatherName}
                   </h6>
 
