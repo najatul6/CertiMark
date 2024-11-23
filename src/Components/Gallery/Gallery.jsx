@@ -1,20 +1,20 @@
+import image1 from '../../assets/gallery/1.HEIC'
+import image2 from '../../assets/gallery/2.HEIC'
+import image3 from '../../assets/gallery/3.HEIC'
+import image4 from '../../assets/gallery/4.HEIC'
+import image5 from '../../assets/gallery/5.HEIC'
+import image6 from '../../assets/gallery/6.HEIC'
+import image7 from '../../assets/gallery/7.HEIC'
+import image8 from '../../assets/gallery/8.HEIC'
+import image9 from '../../assets/gallery/9.HEIC'
+import image10 from '../../assets/gallery/10.HEIC'
+
 const images = [
   {
-    src: "https://static.vecteezy.com/system/resources/thumbnails/000/372/625/small/w8vr_ucs4_151006.jpg",
-    alt: "Photo by Minh Pham",
+    src: `${image1}`,
+    alt: "Photo by Najatul islam",
   },
-  {
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnUy3BcT38EuHErEYEYq5ueQLTTD7pi2o4zbucVabLj19ABoYZRpy2J5nBcoGvz_gtbes&usqp=CAU",
-    alt: "Photo by Magicle",
-  },
-  {
-    src: "https://marvel-b1-cdn.bc0a.com/f00000000290162/images.ctfassets.net/2htm8llflwdx/TkNf0G6PAFVBEujGEgaqI/7b2509e39db8c564038873f564cc33eb/Classroom_StudentGroup_Studying_Indoor_GettyImages-670415178.jpeg?fit=thumb",
-    alt: "Photo by Martin Sanchez",
-  },
-  {
-    src: "https://static.vecteezy.com/system/resources/thumbnails/002/378/259/small/group-of-cheerful-students-free-vector.jpg",
-    alt: "Photo by Lorenzo Herrera",
-  },
+  
 ];
 
 const Gallery = () => {
