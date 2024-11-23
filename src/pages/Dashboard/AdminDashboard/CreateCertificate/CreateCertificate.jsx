@@ -272,7 +272,7 @@ const CreateCertificate = () => {
               <div ref={ref} className="relative">
                 <div className="absolute w-[560px] h-[400px]">
                   {/* Student Name  */}
-                  <h6 className="absolute capitalize top-[144px] left-[140px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
+                  <h6 className="absolute capitalize top-[144px] left-[143px] font-mono italic text-[12px] font-extrabold text-blackDiamond tracking-[-1px]">
                     {application?.name}
                   </h6>
 
@@ -293,22 +293,22 @@ const CreateCertificate = () => {
                   </h6>
 
                   {/* Student Roll  */}
-                  <h6 className="absolute capitalize top-[163px] left-[201px] font-mono text-[12px] font-extrabold text-blackDiamond">
+                  <h6 className="absolute capitalize top-[161px] left-[202px] font-mono text-[12px] font-extrabold text-blackDiamond tracking-[-1px]">
                     {application?.studentId}
                   </h6>
 
                   {/* Registration Number  */}
-                  <h6 className="absolute top-[160px] right-[195px] font-mono text-[12px] font-bold text-blackDiamond">
+                  <h6 className="absolute top-[161px] right-[200px] font-mono text-[12px] font-bold text-blackDiamond tracking-[-1px]">
                     {application?.registrationNo}
                   </h6>
 
                   {/* Session  */}
-                  <h6 className="absolute top-[161px] right-[120px] font-mono text-[12px] font-bold text-blackDiamond">
+                  <h6 className="absolute top-[161px] right-[123px] font-mono text-[12px] font-bold text-blackDiamond tracking-[-1px]">
                     {application?.yearOfCompletion}
                   </h6>
 
                   {/* Technology  */}
-                  <h6 className="absolute capitalize top-[175px] left-[205px] font-mono italic text-[12px] font-extrabold text-blackDiamond">
+                  <h6 className="absolute capitalize top-[175px] left-[205px] font-mono italic text-[12px] font-extrabold text-blackDiamond tracking-[-1px]">
                     {application?.technology} Technology
                   </h6>
 
