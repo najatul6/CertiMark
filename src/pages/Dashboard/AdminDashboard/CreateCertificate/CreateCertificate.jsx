@@ -313,7 +313,7 @@ const CreateCertificate = () => {
                   </h6>
 
                   {/* Held of Month  */}
-                  <h6 className="absolute capitalize top-[175px] right-[65px] font-mono italic text-[12px] font-bold text-blackDiamond">
+                  <h6 className="absolute capitalize top-[178px] right-[76px] font-mono italic text-[12px] font-bold text-blackDiamond tracking-[-1px]">
                     {heldOnMonth}
                   </h6>
 
