@@ -272,7 +272,7 @@ const CreateCertificate = () => {
               <div ref={ref} className="relative">
                 <div className="absolute w-[560px] h-[400px]">
                   {/* Student Name  */}
-                  <h6 className="absolute capitalize top-[144px] left-[143px] font-mono italic text-[12px] font-extrabold text-blackDiamond tracking-[-1px]">
+                  <h6 className="absolute capitalize top-[144px] left-[150px] font-mono italic text-[12px] font-extrabold text-blackDiamond tracking-[-1px]">
                     {application?.name}
                   </h6>
 
