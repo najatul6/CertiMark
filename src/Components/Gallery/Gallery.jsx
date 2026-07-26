@@ -6,6 +6,7 @@ import image4 from '../../assets/gallery/4.jpg'
 import image5 from '../../assets/gallery/5.jpg'
 import image6 from '../../assets/gallery/7.jpg'
 import { createPortal } from 'react-dom'
+import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch'
 
 const images = [
 
@@ -39,7 +40,6 @@ const images = [
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [zoom, setZoom] = useState(1);
 
   return (
     <div className="gradient-background h-full py-4 sm:py-8 lg:py-9">
@@ -86,32 +86,27 @@ const Gallery = () => {
             >
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-4 -right-4 h-10 w-10 rounded-full bg-white text-2xl font-bold text-black hover:bg-red-500 hover:text-white"
+                className="absolute -top-4 -right-4 z-50 h-10 w-10 rounded-full bg-white text-2xl font-bold text-black hover:bg-red-500 hover:text-white"
               >
                 ×
               </button>
 
-              <img
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                onWheel={(e) => {
-                  e.preventDefault();
+              <TransformWrapper
+                initialScale={1}
+                minScale={1}
+                maxScale={6}
+                wheel={{ step: 0.2 }}
+                doubleClick={{ mode: "zoomIn" }}
+              >
 
-                  if (e.deltaY < 0) {
-                    setZoom((prev) => Math.min(prev + 0.2, 5));
-                  } else {
-                    setZoom((prev) => Math.max(prev - 0.2, 1));
-                  }
-                }}
-                onDoubleClick={() =>
-                  setZoom((prev) => (prev === 1 ? 2 : 1))
-                }
-                style={{
-                  transform: `scale(${zoom})`,
-                  transition: "transform 0.2s ease",
-                }}
-                className="h-[98vh] w-full object-contain rounded-md"
-              />
+                <TransformComponent>
+                  <img
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                    className="max-h-[95vh] w-full rounded-md"
+                  />
+                </TransformComponent>
+              </TransformWrapper>
             </div>
           </div>,
           document.body
