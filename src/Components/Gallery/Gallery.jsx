@@ -5,6 +5,7 @@ import image3 from '../../assets/gallery/3.jpg'
 import image4 from '../../assets/gallery/4.jpg'
 import image5 from '../../assets/gallery/5.jpg'
 import image6 from '../../assets/gallery/7.jpg'
+import { createPortal } from 'react-dom'
 
 const images = [
 
@@ -38,6 +39,8 @@ const images = [
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [zoom, setZoom] = useState(1);
+
   return (
     <div className="gradient-background h-full py-4 sm:py-8 lg:py-9">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
@@ -52,7 +55,10 @@ const Gallery = () => {
           {images.map((image, index) => (
             <div
               key={index}
-              onClick={() => setSelectedImage(image)}
+              onClick={() => {
+                setSelectedImage(image);
+                setZoom(1);
+              }}
               className={`group relative flex h-48 items-center overflow-hidden rounded-lg bg-gray-100 shadow-lg ${index === 1 || index === 2 || index === 5 ? "md:col-span-2 md:h-96" : "md:h-96"
                 }`}
             >
@@ -68,30 +74,48 @@ const Gallery = () => {
           ))}
         </div>
       </div>
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-10000 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setSelectedImage(null)}
-        >
+      {selectedImage &&
+        createPortal(
           <div
-            className="relative"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/80 p-4"
+            onClick={() => setSelectedImage(null)}
           >
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute -top-4 -right-4 h-10 w-10 rounded-full bg-white text-2xl font-bold text-black hover:bg-red-500 hover:text-white"
+            <div
+              className="relative"
+              onClick={(e) => e.stopPropagation()}
             >
-              ×
-            </button>
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-4 -right-4 h-10 w-10 rounded-full bg-white text-2xl font-bold text-black hover:bg-red-500 hover:text-white"
+              >
+                ×
+              </button>
 
-            <img
-              src={selectedImage.src}
-              alt={selectedImage.alt}
-              className="max-h-screen w-full rounded-lg object-contain"
-            />
-          </div>
-        </div>
-      )}
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                onWheel={(e) => {
+                  e.preventDefault();
+
+                  if (e.deltaY < 0) {
+                    setZoom((prev) => Math.min(prev + 0.2, 5));
+                  } else {
+                    setZoom((prev) => Math.max(prev - 0.2, 1));
+                  }
+                }}
+                onDoubleClick={() =>
+                  setZoom((prev) => (prev === 1 ? 2 : 1))
+                }
+                style={{
+                  transform: `scale(${zoom})`,
+                  transition: "transform 0.2s ease",
+                }}
+                className="h-[98vh] w-full object-contain rounded-md"
+              />
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 };
