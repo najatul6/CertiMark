@@ -94,8 +94,22 @@ const Gallery = () => {
                 initialScale={1}
                 minScale={1}
                 maxScale={6}
-                wheel={{ step: 0.2 }}
-                doubleClick={{ mode: "zoomIn" }}
+                wheel={{
+                  step: 0.005,
+                  smoothStep: 0.01,
+                  wheelDisabled: false,
+                }}
+                pinch={{
+                  step: 5,
+                }}
+                doubleClick={{
+                  disabled: false,
+                  mode: "zoomIn",
+                  step: 0.5,
+                }}
+                animationTime={250}
+                limitToBounds={false}
+                centerOnInit
               >
 
                 <TransformComponent>
