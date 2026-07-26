@@ -57,7 +57,6 @@ const Gallery = () => {
               key={index}
               onClick={() => {
                 setSelectedImage(image);
-                setZoom(1);
               }}
               className={`group relative flex h-48 items-center overflow-hidden rounded-lg bg-gray-100 shadow-lg ${index === 1 || index === 2 || index === 5 ? "md:col-span-2 md:h-96" : "md:h-96"
                 }`}
